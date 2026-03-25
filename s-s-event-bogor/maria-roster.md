@@ -34,75 +34,9 @@ Bogor, Indonesia | 30 March to 1 April 2026
 
 ---
 
-### Session 2: Partnership Summit 1 -- Panel Moderator
+### ~~Session 2: Partnership Summit 1~~ -- REMOVED (not Maria's session)
 
-| | |
-|---|---|
-| **Time** | 13:10 to 14:40 (90 min) |
-| **Location** | Ballroom 1-2 |
-| **Role** | Moderator |
-| **Audience** | ~150 all participants |
-| **Track** | Strategic Track |
-
-**Format:** Two sequential 45-minute panel discussions.
-
-Each panel follows this structure:
-- Introduction and opening by moderator (3 min)
-- Panel presentations (27 min)
-- Cross-panelist discussion guided by moderator (10 min)
-- Audience engagement (5 min)
-
-**Panel 1: Informing Management and Finance (13:10 to 13:55)**
-
-Panelists (2-3): marine spatial planning expert, MPA management specialist, ocean economy statistician.
-
-Discussion questions you guide:
-1. How do ocean accounts translate scientific evidence into formats useful for marine managers and finance decision-makers?
-2. What institutional structures and multi-agency coordination best support ocean account uptake in policy and planning?
-3. How can ocean accounts unlock finance and investment for sustainable marine management?
-
-Content themes: OA for MSP and spatial planning, OA for MPA management, ocean economy and finance applications, translating accounts into management actions, country case examples (Indonesia BPS, Maldives social accounts).
-
-**Panel 2: Blue Carbon and Nature-Based Solutions (13:55 to 14:40)**
-
-Panelists (2-3): blue carbon technical lead, policy expert, social accounting/community engagement practitioner.
-
-Discussion questions you guide:
-1. How do extent and services accounts quantify blue carbon stocks and sequestration in mangroves, seagrass, and coastal wetlands?
-2. How can ocean accounting support NDC reporting, climate finance access, and NbS project design?
-3. What are the methodological challenges in establishing baselines, permanence, and additionality for blue carbon projects?
-4. How do NbS for climate adaptation interact with ocean accounting frameworks, and what regional collaboration opportunities exist?
-
-Content themes: blue carbon accounting methodology (extent, condition, services), finance and investment pathways (GCF, voluntary carbon markets, adaptation fund), community and social dimensions, regional collaboration.
-
-**To prepare:** [ ] Moderator script with opening framing, panelist questions, cross-cutting synthesis prompts, and audience engagement plan
-
----
-
-### Session 3: Accounting and Data Challenges -- Co-facilitator
-
-| | |
-|---|---|
-| **Time** | 13:40 to 14:30 (50 min) |
-| **Location** | Ballroom 1-2 |
-| **Role** | Co-facilitator with Jordan |
-| **Audience** | 25-40 participants interested in technical challenges |
-| **Track** | Technical Track |
-
-**Note:** The agenda shows a time overlap with the Partnership Summit. Check with Jordan whether these run in parallel in different rooms or are sequential. Based on the detailed Day 1 agenda, the Data Challenges panel runs 13:00 to 15:00 in the same Ballroom, so this may be part of the same plenary sequence. Confirm logistics.
-
-**Your specific facilitation tasks (within Jordan's panel):**
-
-You lead four discussion themes (5 min each):
-
-1. **Strategies for data-limited contexts** -- What works when data are scarce? How to balance rigor with pragmatism? Alternatives to expensive monitoring?
-2. **Method harmonization opportunities** -- Where would common methods enable comparisons? Balance standardization vs. local context? Role of international guidelines?
-3. **Capacity and sustainability** -- Building in-house technical capacity vs. relying on partners? Sustaining data collection over time?
-4. **Innovation and emerging technologies** -- What new technologies show promise? How to access and afford them?
-
-You also lead the audience Q&A (14:00 to 14:30): open floor for specific technical questions, participant solutions, and problem-solving.
-
-**To prepare:** [ ] Discussion prompt cards (4 themes)
+### ~~Session 3: Data Challenges Co-facilitator~~ -- REMOVED (not Maria's session)
 
 ---
 
@@ -226,9 +160,7 @@ This follows the Governance/Social Accounts session (13:00 to 14:15) moderated b
 
 | # | Session | Material needed | Status |
 |---|---------|----------------|--------|
-| 1 | Fellows Welcome (Day 1) | Presentation/talking points | Not started |
-| 2 | Partnership Summit (Day 1) | Moderator script | Not started |
-| 3 | Data Challenges (Day 1) | Discussion prompt cards | Not started |
+| 1 | Fellows Welcome (Day 1) | Presentation + facilitation guide | Done |
 | 4 | Day 1 Synthesis (Day 1) | Template slides | Not started |
 | 5 | Clinic Pt.1 (Day 2) | Intake sheet + reference materials | Not started |
 | 6 | Clinic Pt.2 (Day 3) | Policy brief template + example | Not started |
