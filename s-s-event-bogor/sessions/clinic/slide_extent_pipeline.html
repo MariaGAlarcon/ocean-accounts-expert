@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Extent Account Pipeline</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: Arial, sans-serif;
+    background: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #545353;
+    font-size: 14px;
+  }
+  .slide-container {
+    width: 1400px;
+    min-height: 788px;
+    background: #FFFFFF;
+    border-radius: 4px;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.12);
+    padding: 40px 50px 30px 50px;
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16/9;
+  }
+  .slide-container::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, #0A5455, #3B9C7B);
+  }
+  h1 {
+    font-size: 42px;
+    color: #0A5455;
+    margin-bottom: 6px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+  }
+  .subtitle {
+    font-size: 15px;
+    color: #3B9C7B;
+    margin-bottom: 22px;
+    font-weight: 600;
+  }
+  .pathways {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 16px;
+  }
+  .pathway {
+    flex: 1;
+    border-radius: 10px;
+    padding: 20px 22px;
+    position: relative;
+  }
+  .pathway-a { background: #f7fbfa; border: 2px solid #B5D0D6; }
+  .pathway-b { background: #f7fbfa; border: 2px solid #3B9C7B; }
+  .pathway-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .pathway-badge {
+    padding: 4px 14px;
+    border-radius: 14px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
+  }
+  .pathway-a .pathway-badge { background: #B5D0D6; color: #0A5455; }
+  .pathway-b .pathway-badge { background: #3B9C7B; }
+  .pathway-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #0A5455;
+  }
+  .pathway-tier {
+    font-size: 13px;
+    color: #545353;
+    font-weight: 600;
+    background: #D4EEE5;
+    padding: 2px 10px;
+    border-radius: 10px;
+  }
+  .step {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+  .step-num {
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
+    border-radius: 50%;
+    background: #0A5455;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+    margin-top: 1px;
+  }
+  .pathway-b .step-num { background: #3B9C7B; }
+  .step-text {
+    font-size: 14px;
+    color: #545353;
+    line-height: 1.45;
+  }
+  .step-text strong {
+    color: #0A5455;
+    font-size: 14px;
+  }
+  .connector-down {
+    display: flex;
+    justify-content: center;
+    padding: 4px 0;
+  }
+  .connector-down svg { width: 18px; height: 20px; }
+  .step-arrow {
+    display: flex;
+    justify-content: center;
+    padding: 2px 0;
+  }
+  .step-arrow svg { width: 16px; height: 18px; }
+  .converge-box {
+    background: #0A5455;
+    border-radius: 10px;
+    padding: 16px 30px;
+    text-align: center;
+    color: #FFFFFF;
+  }
+  .converge-box h3 {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .converge-box p {
+    font-size: 14px;
+    opacity: 0.9;
+  }
+  .converge-arrow {
+    display: flex;
+    justify-content: center;
+    padding: 6px 0;
+  }
+  .converge-arrow svg { width: 22px; height: 24px; }
+  .footer {
+    position: absolute;
+    bottom: 12px;
+    right: 50px;
+    font-size: 11px;
+    color: #aaa;
+  }
+</style>
+</head>
+<body>
+<div class="slide-container">
+  <h1>Extent Account Pipeline</h1>
+  <div class="subtitle">Two pathways from data to SEEA EA Extent Account</div>
+
+  <div class="pathways">
+    <!-- Pathway A -->
+    <div class="pathway pathway-a">
+      <div class="pathway-header">
+        <span class="pathway-badge">A</span>
+        <span class="pathway-title">No own data</span>
+        <span class="pathway-tier">Tier 1</span>
+      </div>
+
+      <div class="step">
+        <div class="step-num" style="background:#B5D0D6; color:#0A5455;">1</div>
+        <div class="step-text"><strong>Global datasets</strong><br>Allen Coral Atlas, Global Mangrove Watch, Global Fishing Watch, etc.</div>
+      </div>
+      <div class="step-arrow"><svg viewBox="0 0 16 18"><polygon points="8,18 2,10 6,10 6,0 10,0 10,10 14,10" fill="#B5D0D6"/></svg></div>
+
+      <div class="step">
+        <div class="step-num" style="background:#B5D0D6; color:#0A5455;">2</div>
+        <div class="step-text"><strong>Define accounting area</strong><br>Set national / subnational boundary for the study area</div>
+      </div>
+      <div class="step-arrow"><svg viewBox="0 0 16 18"><polygon points="8,18 2,10 6,10 6,0 10,0 10,10 14,10" fill="#B5D0D6"/></svg></div>
+
+      <div class="step">
+        <div class="step-num" style="background:#B5D0D6; color:#0A5455;">3</div>
+        <div class="step-text"><strong>Clip and extract</strong><br>Extract extent per ecosystem type within the boundary</div>
+      </div>
+      <div class="step-arrow"><svg viewBox="0 0 16 18"><polygon points="8,18 2,10 6,10 6,0 10,0 10,10 14,10" fill="#B5D0D6"/></svg></div>
+
+      <div class="step">
+        <div class="step-num" style="background:#B5D0D6; color:#0A5455;">4</div>
+        <div class="step-text"><strong>Fill extent account table</strong><br>Opening/closing balances from available time points</div>
+      </div>
+    </div>
+
+    <!-- Pathway B -->
+    <div class="pathway pathway-b">
+      <div class="pathway-header">
+        <span class="pathway-badge">B</span>
+        <span class="pathway-title">Own data available</span>
+        <span class="pathway-tier">Tier 2</span>
+      </div>
+
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-text"><strong>Satellite imagery + ground truth</strong><br>Sentinel-2 / Planet + in-situ validation points</div>
+      </div>
+      <div class="step-arrow"><svg viewBox="0 0 16 18"><polygon points="8,18 2,10 6,10 6,0 10,0 10,10 14,10" fill="#3B9C7B"/></svg></div>
+
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-text"><strong>Preprocessing</strong><br>Atmospheric correction, sun-glint removal, water column correction</div>
+      </div>
+      <div class="step-arrow"><svg viewBox="0 0 16 18"><polygon points="8,18 2,10 6,10 6,0 10,0 10,10 14,10" fill="#3B9C7B"/></svg></div>
+
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-text"><strong>Classification + accuracy</strong><br>SAM / Random Forest classifier + accuracy assessment (confusion matrix)</div>
+      </div>
+      <div class="step-arrow"><svg viewBox="0 0 16 18"><polygon points="8,18 2,10 6,10 6,0 10,0 10,10 14,10" fill="#3B9C7B"/></svg></div>
+
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-text"><strong>Extent account + change matrix</strong><br>Full opening/closing table with cross-tabulated change detection</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Convergence -->
+  <div class="converge-arrow">
+    <svg viewBox="0 0 22 24"><polygon points="11,24 3,14 8,14 8,0 14,0 14,14 19,14" fill="#0A5455"/></svg>
+  </div>
+  <div class="converge-box">
+    <h3>SEEA EA Extent Account</h3>
+    <p>Standardised table: ecosystem type x area (ha) x opening/closing balance x additions/reductions</p>
+  </div>
+
+  <div class="footer">Extent Account Pipeline | GOAP Clinic</div>
+</div>
+</body>
+</html>

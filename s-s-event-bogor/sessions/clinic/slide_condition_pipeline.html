@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Condition Account Pipeline</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: Arial, sans-serif;
+    background: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #545353;
+    font-size: 14px;
+  }
+  .slide-container {
+    width: 1400px;
+    min-height: 788px;
+    background: #FFFFFF;
+    border-radius: 4px;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.12);
+    padding: 40px 50px 30px 50px;
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16/9;
+  }
+  .slide-container::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, #0A5455, #3B9C7B);
+  }
+  h1 {
+    font-size: 42px;
+    color: #0A5455;
+    margin-bottom: 6px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+  }
+  .subtitle {
+    font-size: 15px;
+    color: #3B9C7B;
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+  .pathways {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 14px;
+  }
+  .pathway {
+    flex: 1;
+    border-radius: 10px;
+    padding: 18px 20px;
+  }
+  .pathway-a { background: #f7fbfa; border: 2px solid #B5D0D6; }
+  .pathway-b { background: #f7fbfa; border: 2px solid #3B9C7B; }
+  .pathway-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  .pathway-badge {
+    padding: 4px 14px;
+    border-radius: 14px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
+  }
+  .pathway-a .pathway-badge { background: #B5D0D6; color: #0A5455; }
+  .pathway-b .pathway-badge { background: #3B9C7B; }
+  .pathway-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #0A5455;
+  }
+  .step {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+  .step-num {
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
+    border-radius: 50%;
+    background: #0A5455;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 13px;
+    margin-top: 1px;
+  }
+  .pathway-a .step-num { background: #B5D0D6; color: #0A5455; }
+  .pathway-b .step-num { background: #3B9C7B; }
+  .step-text {
+    font-size: 14px;
+    color: #545353;
+    line-height: 1.4;
+  }
+  .step-text strong { color: #0A5455; }
+  .step-arrow {
+    display: flex;
+    justify-content: center;
+    padding: 2px 0;
+  }
+  .step-arrow svg { width: 14px; height: 16px; }
+  .confidence-tag {
+    display: inline-block;
+    background: #E76F51;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 8px;
+    margin-top: 4px;
+  }
+  .formula-box {
+    background: #D4EEE5;
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-top: 6px;
+    font-size: 13px;
+    color: #0A5455;
+    line-height: 1.5;
+  }
+  .formula-box code {
+    font-family: 'Courier New', monospace;
+    font-weight: 700;
+    font-size: 13px;
+  }
+  .converge-arrow {
+    display: flex;
+    justify-content: center;
+    padding: 6px 0;
+  }
+  .converge-arrow svg { width: 22px; height: 24px; }
+  .converge-box {
+    background: #0A5455;
+    border-radius: 10px;
+    padding: 14px 30px;
+    text-align: center;
+    color: #FFFFFF;
+    margin-bottom: 14px;
+  }
+  .converge-box h3 {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 3px;
+  }
+  .converge-box p {
+    font-size: 14px;
+    opacity: 0.9;
+  }
+  .example-box {
+    background: #f7fbfa;
+    border: 2px solid #3B9C7B;
+    border-radius: 10px;
+    padding: 14px 22px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .example-label {
+    font-size: 13px;
+    font-weight: 700;
+    color: #3B9C7B;
+    text-transform: uppercase;
+    min-width: 80px;
+  }
+  .example-chain {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    font-size: 14px;
+  }
+  .example-chain .val {
+    background: #D4EEE5;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-weight: 700;
+    color: #0A5455;
+    font-size: 14px;
+  }
+  .example-chain .arr {
+    color: #3B9C7B;
+    font-weight: 700;
+    font-size: 18px;
+  }
+  .example-chain .result {
+    background: #0A5455;
+    color: #fff;
+    padding: 4px 14px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 15px;
+  }
+  .footer {
+    position: absolute;
+    bottom: 12px;
+    right: 50px;
+    font-size: 11px;
+    color: #aaa;
+  }
+</style>
+</head>
+<body>
+<div class="slide-container">
+  <h1>Condition Account Pipeline</h1>
+  <div class="subtitle">Measuring ecosystem health with the Condition Index (CI: 0-1)</div>
+
+  <div class="pathways">
+    <!-- Pathway A -->
+    <div class="pathway pathway-a">
+      <div class="pathway-header">
+        <span class="pathway-badge">A</span>
+        <span class="pathway-title">No field data</span>
+      </div>
+
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-text"><strong>Remote sensing proxies</strong><br>SST, Degree Heating Weeks (DHW), Chlorophyll-a, turbidity</div>
+      </div>
+      <div class="step-arrow"><svg viewBox="0 0 14 16"><polygon points="7,16 1,9 5,9 5,0 9,0 9,9 13,9" fill="#B5D0D6"/></svg></div>
+
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-text"><strong>Literature reference levels</strong><br>Use published thresholds from peer-reviewed studies</div>
+      </div>
+      <div class="step-arrow"><svg viewBox="0 0 14 16"><polygon points="7,16 1,9 5,9 5,0 9,0 9,9 13,9" fill="#B5D0D6"/></svg></div>
+
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-text"><strong>Qualitative assessment</strong><br>Score condition based on available proxies<br><span class="confidence-tag">Low confidence</span></div>
+      </div>
+    </div>
+
+    <!-- Pathway B -->
+    <div class="pathway pathway-b">
+      <div class="pathway-header">
+        <span class="pathway-badge">B</span>
+        <span class="pathway-title">Field surveys available</span>
+      </div>
+
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-text"><strong>Field data collection</strong><br>Underwater Visual Census, quadrats, transects, eDNA</div>
+      </div>
+      <div class="step-arrow"><svg viewBox="0 0 14 16"><polygon points="7,16 1,9 5,9 5,0 9,0 9,9 13,9" fill="#3B9C7B"/></svg></div>
+
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-text"><strong>Select indicators + set reference levels</strong><br>Choose metrics relevant to ecosystem type; define reference condition</div>
+      </div>
+      <div class="step-arrow"><svg viewBox="0 0 14 16"><polygon points="7,16 1,9 5,9 5,0 9,0 9,9 13,9" fill="#3B9C7B"/></svg></div>
+
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-text"><strong>Normalize indicators</strong>
+          <div class="formula-box">
+            Higher-is-better: <code>CI = V / Ref</code><br>
+            Higher-is-worse: <code>CI = 1 - (V / Ref)</code><br>
+            <span style="font-size:12px; color:#545353;">Cap at 0 and 1</span>
+          </div>
+        </div>
+      </div>
+      <div class="step-arrow"><svg viewBox="0 0 14 16"><polygon points="7,16 1,9 5,9 5,0 9,0 9,9 13,9" fill="#3B9C7B"/></svg></div>
+
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-text"><strong>Aggregate across sites</strong><br>Mean CI with standard error (SE) across monitoring stations</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Convergence -->
+  <div class="converge-arrow">
+    <svg viewBox="0 0 22 24"><polygon points="11,24 3,14 8,14 8,0 14,0 14,14 19,14" fill="#0A5455"/></svg>
+  </div>
+  <div class="converge-box">
+    <h3>SEEA EA Condition Account</h3>
+    <p>Ecosystem type x indicator x reference level x CI score x opening/closing</p>
+  </div>
+
+  <!-- Worked Example -->
+  <div class="example-box">
+    <div class="example-label">Worked Example</div>
+    <div class="example-chain">
+      <span>Coral cover =</span>
+      <span class="val">20%</span>
+      <span class="arr">/</span>
+      <span>Reference =</span>
+      <span class="val">50%</span>
+      <span class="arr">=</span>
+      <span class="result">CI = 0.40</span>
+    </div>
+  </div>
+
+  <div class="footer">Condition Account Pipeline | GOAP Clinic</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Worked Examples: Logic Chains</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: Arial, sans-serif;
+    background: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    color: #545353;
+    font-size: 14px;
+    padding: 30px 0;
+    gap: 30px;
+  }
+
+  /* Shared slide styles */
+  .slide-container {
+    width: 1400px;
+    min-height: 788px;
+    background: #FFFFFF;
+    border-radius: 4px;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.12);
+    padding: 40px 50px 30px 50px;
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16/9;
+  }
+  .slide-container::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, #0A5455, #3B9C7B);
+  }
+  h1 {
+    font-size: 42px;
+    color: #0A5455;
+    margin-bottom: 6px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+  }
+  .subtitle {
+    font-size: 15px;
+    color: #3B9C7B;
+    margin-bottom: 24px;
+    font-weight: 600;
+  }
+  h2 {
+    font-size: 17px;
+    color: #0A5455;
+    margin-bottom: 6px;
+  }
+
+  /* Logic chain flow */
+  .logic-chain {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin: 20px 0 16px 0;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .chain-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+  .chain-circle {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #0A5455;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 18px;
+  }
+  .chain-circle.green { background: #3B9C7B; }
+  .chain-circle.orange { background: #E76F51; }
+  .chain-label {
+    font-size: 13px;
+    color: #545353;
+    text-align: center;
+    max-width: 140px;
+    line-height: 1.3;
+  }
+  .chain-value {
+    font-size: 14px;
+    font-weight: 700;
+    color: #0A5455;
+    background: #D4EEE5;
+    padding: 3px 10px;
+    border-radius: 6px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .chain-value.result {
+    background: #0A5455;
+    color: #fff;
+    font-size: 15px;
+    padding: 4px 14px;
+  }
+  .chain-arrow {
+    display: flex;
+    align-items: center;
+    padding: 0 6px;
+    margin-bottom: 30px;
+  }
+  .chain-arrow svg { width: 30px; height: 16px; }
+
+  .example-section {
+    margin-bottom: 10px;
+  }
+  .example-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 2px;
+  }
+  .example-badge {
+    background: #0A5455;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 12px;
+    border-radius: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .example-badge.green { background: #3B9C7B; }
+  .example-badge.orange { background: #E76F51; }
+  .example-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #0A5455;
+  }
+  .formula-note {
+    text-align: center;
+    font-size: 13px;
+    color: #545353;
+    margin-top: -4px;
+    margin-bottom: 8px;
+    font-style: italic;
+  }
+
+  /* Summary table */
+  .summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0 14px 0;
+    font-size: 15px;
+  }
+  .summary-table th {
+    background: #0A5455;
+    color: #fff;
+    padding: 10px 16px;
+    text-align: left;
+    font-weight: 700;
+    font-size: 14px;
+  }
+  .summary-table td {
+    padding: 10px 16px;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 14px;
+  }
+  .summary-table tr:nth-child(even) td {
+    background: #f7fbfa;
+  }
+  .summary-table tr.total td {
+    background: #D4EEE5;
+    font-weight: 700;
+    color: #0A5455;
+    font-size: 15px;
+    border-top: 2px solid #0A5455;
+  }
+  .summary-table .money {
+    text-align: right;
+    font-family: 'Courier New', monospace;
+    font-weight: 700;
+    color: #0A5455;
+  }
+  .highlight-box {
+    background: #E76F51;
+    color: #FFFFFF;
+    border-radius: 10px;
+    padding: 16px 24px;
+    margin-top: 10px;
+  }
+  .highlight-box h4 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .highlight-box p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .footer {
+    position: absolute;
+    bottom: 12px;
+    right: 50px;
+    font-size: 11px;
+    color: #aaa;
+  }
+  .slide-number {
+    position: absolute;
+    bottom: 12px;
+    left: 50px;
+    font-size: 11px;
+    color: #aaa;
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================= -->
+<!-- SLIDE 1: Carbon Sequestration -->
+<!-- ============================================= -->
+<div class="slide-container">
+  <h1>Worked Examples: Logic Chains</h1>
+  <div class="subtitle">Translating ecosystem accounts into policy-relevant values</div>
+
+  <div class="example-section">
+    <div class="example-header">
+      <span class="example-badge green">Example 1</span>
+      <span class="example-title">Carbon Sequestration (Mangroves)</span>
+    </div>
+
+    <div class="logic-chain">
+      <div class="chain-step">
+        <div class="chain-circle">1</div>
+        <div class="chain-label">Mangrove extent</div>
+        <div class="chain-value">350 ha</div>
+      </div>
+      <div class="chain-arrow"><svg viewBox="0 0 30 16"><polygon points="30,8 20,0 20,5 0,5 0,11 20,11 20,16" fill="#3B9C7B"/></svg></div>
+      <div class="chain-step">
+        <div class="chain-circle green">2</div>
+        <div class="chain-label">NCP rate</div>
+        <div class="chain-value">3.7 Mg CO2/ha/yr</div>
+      </div>
+      <div class="chain-arrow"><svg viewBox="0 0 30 16"><polygon points="30,8 20,0 20,5 0,5 0,11 20,11 20,16" fill="#3B9C7B"/></svg></div>
+      <div class="chain-step">
+        <div class="chain-circle green">3</div>
+        <div class="chain-label">Physical supply</div>
+        <div class="chain-value">1,295 Mg CO2/yr</div>
+      </div>
+      <div class="chain-arrow"><svg viewBox="0 0 30 16"><polygon points="30,8 20,0 20,5 0,5 0,11 20,11 20,16" fill="#3B9C7B"/></svg></div>
+      <div class="chain-step">
+        <div class="chain-circle green">4</div>
+        <div class="chain-label">Social cost of carbon</div>
+        <div class="chain-value">$51 / tCO2</div>
+      </div>
+      <div class="chain-arrow"><svg viewBox="0 0 30 16"><polygon points="30,8 20,0 20,5 0,5 0,11 20,11 20,16" fill="#0A5455"/></svg></div>
+      <div class="chain-step">
+        <div class="chain-circle">5</div>
+        <div class="chain-label">Monetary value</div>
+        <div class="chain-value result">$66,045 / yr</div>
+      </div>
+    </div>
+    <div class="formula-note">350 ha x 3.7 Mg CO2/ha/yr = 1,295 Mg CO2/yr x $51/tCO2 = $66,045/yr</div>
+  </div>
+
+  <div style="height: 20px;"></div>
+
+  <div class="example-section">
+    <div class="example-header">
+      <span class="example-badge">Example 2</span>
+      <span class="example-title">Fish Provisioning (Reef Fisheries)</span>
+    </div>
+
+    <div class="logic-chain">
+      <div class="chain-step">
+        <div class="chain-circle">1</div>
+        <div class="chain-label">Annual catch</div>
+        <div class="chain-value">180,000 kg</div>
+      </div>
+      <div class="chain-arrow"><svg viewBox="0 0 30 16"><polygon points="30,8 20,0 20,5 0,5 0,11 20,11 20,16" fill="#3B9C7B"/></svg></div>
+      <div class="chain-step">
+        <div class="chain-circle green">2</div>
+        <div class="chain-label">Market price</div>
+        <div class="chain-value">$3.50 / kg</div>
+      </div>
+      <div class="chain-arrow"><svg viewBox="0 0 30 16"><polygon points="30,8 20,0 20,5 0,5 0,11 20,11 20,16" fill="#3B9C7B"/></svg></div>
+      <div class="chain-step">
+        <div class="chain-circle green">3</div>
+        <div class="chain-label">Gross revenue</div>
+        <div class="chain-value">$630,000</div>
+      </div>
+      <div class="chain-arrow"><svg viewBox="0 0 30 16"><polygon points="30,8 20,0 20,5 0,5 0,11 20,11 20,16" fill="#3B9C7B"/></svg></div>
+      <div class="chain-step">
+        <div class="chain-circle orange">4</div>
+        <div class="chain-label">Minus costs</div>
+        <div class="chain-value">- $420,000</div>
+      </div>
+      <div class="chain-arrow"><svg viewBox="0 0 30 16"><polygon points="30,8 20,0 20,5 0,5 0,11 20,11 20,16" fill="#0A5455"/></svg></div>
+      <div class="chain-step">
+        <div class="chain-circle">5</div>
+        <div class="chain-label">Resource rent</div>
+        <div class="chain-value result">$210,000 / yr</div>
+      </div>
+    </div>
+    <div class="formula-note">180,000 kg x $3.50/kg = $630,000 - $420,000 costs = $210,000/yr resource rent</div>
+  </div>
+
+  <div class="slide-number">1 / 3</div>
+  <div class="footer">Worked Examples | GOAP Clinic</div>
+</div>
+
+<!-- ============================================= -->
+<!-- SLIDE 2: Coastal Protection -->
+<!-- ============================================= -->
+<div class="slide-container">
+  <h1>Worked Examples: Logic Chains</h1>
+  <div class="subtitle">Translating ecosystem accounts into policy-relevant values</div>
+
+  <div class="example-section">
+    <div class="example-header">
+      <span class="example-badge orange">Example 3</span>
+      <span class="example-title">Coastal Protection (Coral Reefs)</span>
+    </div>
+
+    <div class="logic-chain">
+      <div class="chain-step">
+        <div class="chain-circle">1</div>
+        <div class="chain-label">Reef extent along coast</div>
+        <div class="chain-value">12 km</div>
+      </div>
+      <div class="chain-arrow"><svg viewBox="0 0 30 16"><polygon points="30,8 20,0 20,5 0,5 0,11 20,11 20,16" fill="#3B9C7B"/></svg></div>
+      <div class="chain-step">
+        <div class="chain-circle green">2</div>
+        <div class="chain-label">Assets behind reef</div>
+        <div class="chain-value">Infrastructure at risk</div>
+      </div>
+      <div class="chain-arrow"><svg viewBox="0 0 30 16"><polygon points="30,8 20,0 20,5 0,5 0,11 20,11 20,16" fill="#3B9C7B"/></svg></div>
+      <div class="chain-step">
+        <div class="chain-circle green">3</div>
+        <div class="chain-label">Replacement cost</div>
+        <div class="chain-value">$5,000 / m</div>
+      </div>
+      <div class="chain-arrow"><svg viewBox="0 0 30 16"><polygon points="30,8 20,0 20,5 0,5 0,11 20,11 20,16" fill="#3B9C7B"/></svg></div>
+      <div class="chain-step">
+        <div class="chain-circle green">4</div>
+        <div class="chain-label">Total replacement</div>
+        <div class="chain-value">$60,000,000</div>
+      </div>
+      <div class="chain-arrow"><svg viewBox="0 0 30 16"><polygon points="30,8 20,0 20,5 0,5 0,11 20,11 20,16" fill="#0A5455"/></svg></div>
+      <div class="chain-step">
+        <div class="chain-circle">5</div>
+        <div class="chain-label">Annualized value</div>
+        <div class="chain-value result">$1,200,000 / yr</div>
+      </div>
+    </div>
+    <div class="formula-note">12 km x 1,000 m/km x $5,000/m = $60M total, annualized at 2% = $1.2M/yr</div>
+  </div>
+
+  <div style="height: 60px;"></div>
+
+  <div style="background: #f7fbfa; border: 2px solid #B5D0D6; border-radius: 12px; padding: 24px 30px;">
+    <h2 style="margin-bottom: 10px;">How the methods connect</h2>
+    <div style="display: flex; gap: 20px;">
+      <div style="flex: 1;">
+        <div style="font-weight: 700; color: #3B9C7B; font-size: 14px; margin-bottom: 4px;">Carbon (Example 1)</div>
+        <div style="font-size: 13px; line-height: 1.5;">Uses <strong>extent account</strong> (area) multiplied by literature rate, then valued using Social Cost of Carbon. Most accessible method -- needs only extent data and a published NCP rate.</div>
+      </div>
+      <div style="flex: 1;">
+        <div style="font-weight: 700; color: #0A5455; font-size: 14px; margin-bottom: 4px;">Fish (Example 2)</div>
+        <div style="font-size: 13px; line-height: 1.5;">Uses <strong>catch statistics</strong> and market data. Valued via resource rent (revenue minus intermediate costs). Requires economic data on fishing costs.</div>
+      </div>
+      <div style="flex: 1;">
+        <div style="font-weight: 700; color: #E76F51; font-size: 14px; margin-bottom: 4px;">Coastal Protection (Example 3)</div>
+        <div style="font-size: 13px; line-height: 1.5;">Uses <strong>extent account</strong> (reef length) and replacement cost of built infrastructure. Annualized to produce annual service flow.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-number">2 / 3</div>
+  <div class="footer">Worked Examples | GOAP Clinic</div>
+</div>
+
+<!-- ============================================= -->
+<!-- SLIDE 3: Combined Services Summary -->
+<!-- ============================================= -->
+<div class="slide-container">
+  <h1>Worked Examples: Logic Chains</h1>
+  <div class="subtitle">Combined ecosystem services for one accounting area</div>
+
+  <div class="example-section">
+    <div class="example-header">
+      <span class="example-badge orange">Example 4</span>
+      <span class="example-title">Combined Services -- Single Accounting Area</span>
+    </div>
+  </div>
+
+  <table class="summary-table">
+    <thead>
+      <tr>
+        <th style="width: 50px;">#</th>
+        <th>Ecosystem Service</th>
+        <th>Ecosystem</th>
+        <th>Method</th>
+        <th>Physical Supply</th>
+        <th style="text-align: right;">Monetary Value ($/yr)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>Fish provisioning</td>
+        <td>Coral reef</td>
+        <td>Resource rent</td>
+        <td>180,000 kg/yr</td>
+        <td class="money">$210,000</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Carbon sequestration</td>
+        <td>Mangrove + seagrass</td>
+        <td>Social cost of carbon</td>
+        <td>2,334 Mg CO2/yr</td>
+        <td class="money">$119,085</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Recreation / tourism</td>
+        <td>Coral reef + beach</td>
+        <td>Direct expenditure</td>
+        <td>25,500 visits/yr</td>
+        <td class="money">$1,275,000</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Coastal protection</td>
+        <td>Coral reef</td>
+        <td>Replacement cost</td>
+        <td>12 km reef frontage</td>
+        <td class="money">$1,200,000</td>
+      </tr>
+      <tr class="total">
+        <td></td>
+        <td colspan="4">TOTAL ANNUAL ECOSYSTEM SERVICE VALUE</td>
+        <td class="money" style="font-size: 17px;">$2,804,085</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Visual bar chart -->
+  <div style="margin: 18px 0 14px 0;">
+    <div style="font-size: 13px; font-weight: 700; color: #0A5455; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;">Share of Total Value</div>
+    <div style="display: flex; height: 32px; border-radius: 6px; overflow: hidden; font-size: 12px; font-weight: 700; color: #fff;">
+      <div style="width: 7.5%; background: #3B9C7B; display: flex; align-items: center; justify-content: center;" title="Fish: $210,000">7%</div>
+      <div style="width: 4.2%; background: #0A5455; display: flex; align-items: center; justify-content: center;" title="Carbon: $119,085">4%</div>
+      <div style="width: 45.5%; background: #E76F51; display: flex; align-items: center; justify-content: center;" title="Recreation: $1,275,000">46%</div>
+      <div style="width: 42.8%; background: #B5D0D6; color: #0A5455; display: flex; align-items: center; justify-content: center;" title="Coastal protection: $1,200,000">43%</div>
+    </div>
+    <div style="display: flex; gap: 20px; margin-top: 6px; font-size: 12px; color: #545353;">
+      <span><span style="display:inline-block; width:10px; height:10px; background:#3B9C7B; border-radius:2px; margin-right:4px;"></span>Fish</span>
+      <span><span style="display:inline-block; width:10px; height:10px; background:#0A5455; border-radius:2px; margin-right:4px;"></span>Carbon</span>
+      <span><span style="display:inline-block; width:10px; height:10px; background:#E76F51; border-radius:2px; margin-right:4px;"></span>Recreation</span>
+      <span><span style="display:inline-block; width:10px; height:10px; background:#B5D0D6; border-radius:2px; margin-right:4px;"></span>Coastal protection</span>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <h4>Key Insight: Regulating and cultural services dominate</h4>
+    <p>Recreation (46%) and coastal protection (43%) together account for 89% of the total annual value. These non-market services are invisible without ocean accounts. Provisioning (fish) contributes only 7% of total value, yet it typically receives the most policy attention. Ocean accounts reveal the hidden economic importance of reef and mangrove conservation for tourism revenue and disaster risk reduction -- a powerful argument for Marine Spatial Planning and blue finance.</p>
+  </div>
+
+  <div class="slide-number">3 / 3</div>
+  <div class="footer">Worked Examples | GOAP Clinic</div>
+</div>
+
+</body>
+</html>
