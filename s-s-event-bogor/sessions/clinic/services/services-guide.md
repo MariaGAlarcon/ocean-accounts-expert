@@ -1,175 +1,235 @@
 # Ecosystem Services Accounts -- Step-by-Step Guide
 
-## Pathway A: No primary data / Value transfer (Tier 1)
+## Structure
 
-Estimated time: 30-45 minutes
+This guide is split into two independent parts:
 
-### Step 1: Select priority services
+- **Part A: Physical quantification** -- measure the service in physical units (kg, Mg CO2, visitors, metres). This is a complete account on its own.
+- **Part B: Monetary valuation** -- assign economic values (USD/yr). Requires Part A first. Optional for a first account.
 
-Which services are most relevant to your country's policy question?
-
-| Policy priority | Most relevant services |
-|----------------|----------------------|
-| Climate commitments (NDC) | Carbon sequestration |
-| Food security / fisheries | Fish provisioning |
-| Coastal resilience / disaster risk | Coastal protection |
-| Tourism / blue economy | Recreation |
-| MPA justification | Multiple services (total value) |
-| Blue carbon finance | Carbon sequestration + extent |
-
-Pick 1-2 services to start with.
-
-### Step 2: Get extent data
-
-You need to know the area (ha) of each ecosystem providing the service. Use your extent account, or estimate from global datasets.
-
-| Ecosystem | Your extent (ha) |
-|-----------|---:|
-| Coral reefs | |
-| Seagrass | |
-| Mangroves | |
-
-### Step 3: Find published per-hectare values
-
-Sources for value transfer:
-- **ESVD** (Ecosystem Services Valuation Database): esvd.info
-- **TEEB** (The Economics of Ecosystems and Biodiversity): teebweb.org
-- **Published studies** from similar regions
-
-Example values from literature (illustrative, verify for your context):
-
-| Service | Ecosystem | Published value (USD/ha/yr) | Source region |
-|---------|-----------|---:|--------------|
-| Carbon sequestration | Mangroves | 188 | Global average |
-| Carbon sequestration | Seagrass | 66 | Global average |
-| Coastal protection | Coral reefs | 350 | Tropical average |
-| Fish provisioning | Coral reefs | 150-600 | Varies widely |
-| Recreation | Coral reefs | 200-1,000 | Tourism-dependent areas |
-
-### Step 4: Calculate transferred value
-
-```
-Estimated value = Your extent (ha) x Published value (USD/ha/yr)
-```
-
-**Adjustments to consider:**
-- Income adjustment: multiply by (your country GDP per capita / source country GDP per capita)
-- Ecosystem quality: if your reefs are degraded, reduce proportionally
-- Market conditions: if tourism is lower in your area, reduce recreation values
-
-### Step 5: Document and flag limitations
-
-| Limitation | Your note |
-|-----------|----------|
-| Source study location | |
-| Year of source valuation | |
-| Comparability to your ecosystem | |
-| Adjustments applied | |
-| Confidence level | Low / Medium |
+Each part has two pathways: Pathway 1 (no primary data) and Pathway 2 (local data available).
 
 ---
 
-## Pathway B: Primary calculation (Tier 2)
+# PART A: PHYSICAL QUANTIFICATION
 
-### Service 1: Carbon sequestration
+## Service 1: Carbon sequestration
 
-**Data needed:**
-- Ecosystem extent (ha) from extent account
-- Net carbon production (NCP) rate (Mg CO2/ha/yr) from literature or field measurement
-- Carbon price (SCC or market price)
+### Pathway 1: Literature rates (no field carbon data)
 
-**Calculation:**
+| Step | What to do | Your values |
+|------|-----------|------------|
+| 1 | Get ecosystem extent (ha) from your extent account | Mangrove: ___ ha, Seagrass: ___ ha |
+| 2 | Look up net carbon production rates from literature | Mangrove: ~3.7 Mg CO2/ha/yr, Seagrass: ~1.3 Mg CO2/ha/yr |
+| 3 | Physical supply = Extent x NCP rate | ___ Mg CO2/yr |
 
-| Step | Formula | Your values |
-|------|---------|------------|
-| 1. Extent | From extent account | ___ ha mangrove, ___ ha seagrass |
-| 2. NCP rate | Literature (mangrove ~3.7, seagrass ~1.3 Mg CO2/ha/yr) | |
-| 3. Physical supply | Extent x NCP rate | ___ Mg CO2/yr |
-| 4. Price | SCC (USD 51/Mg CO2) or local carbon market price | USD ___/Mg CO2 |
-| 5. Monetary value | Physical supply x Price | USD ___/yr |
+Literature sources for NCP rates:
+- Mangroves: Alongi (2014), range 2.0 to 6.0 Mg CO2/ha/yr depending on species and region
+- Seagrass: Fourqurean et al. (2012), range 0.4 to 2.0 Mg CO2/ha/yr
+- Use regionally appropriate values where available
 
----
+### Pathway 2: Primary carbon data
 
-### Service 2: Fish provisioning
+If you have soil carbon measurements, allometric biomass estimates, or flux tower data:
 
-**Data needed:**
-- Annual catch by species (kg/yr) from fisheries records or fisher surveys
-- Market price per species (USD/kg)
-- Fishing costs: labour, fuel, gear, vessel maintenance
+| Step | What to do |
+|------|-----------|
+| 1 | Calculate above-ground biomass (AGB) from allometric equations |
+| 2 | Calculate below-ground biomass (BGB) using root:shoot ratios |
+| 3 | Estimate soil organic carbon (SOC) from sediment cores |
+| 4 | Sum total carbon stock (Mg C/ha) |
+| 5 | Apply sequestration rate (annual carbon accumulation) |
+| 6 | Convert to CO2 equivalents: Mg C x 3.67 = Mg CO2 |
 
-**Calculation:**
-
-| Step | Formula | Your values |
-|------|---------|------------|
-| 1. Total catch | From fisheries data | ___ kg/yr |
-| 2. Gross revenue | Sum of (catch per species x market price) | USD ___/yr |
-| 3. Total costs | Labour + fuel + gear + capital depreciation | USD ___/yr |
-| 4. Resource rent | Gross revenue - Total costs | USD ___/yr |
-
-If resource rent is negative, the ecosystem service value is zero (the fishery is economically unprofitable even though the ecosystem provides fish).
-
-**Disaggregation by ecosystem type:**
-Assign catch to ecosystem types using species-habitat associations:
-- Reef-associated species: coral reef ecosystem
-- Seagrass-associated: seagrass ecosystem
-- Pelagic species: open ocean
+**Physical output:** Total Mg CO2/yr sequestered, by ecosystem type
 
 ---
 
-### Service 3: Coastal protection
+## Service 2: Fish provisioning
 
-**Data needed:**
-- Length of coastline protected by ecosystems (m)
-- Assets behind the coastline (buildings, infrastructure)
-- Cost to replace protection if ecosystem were lost (seawall, breakwater)
+### Pathway 1: National statistics
 
-**Calculation:**
+| Step | What to do | Your values |
+|------|-----------|------------|
+| 1 | Get total annual catch from fisheries agency records | ___ kg/yr |
+| 2 | Disaggregate by species or species group | |
+| 3 | Assign catch to ecosystem type using species-habitat associations | Reef: ___ kg, Seagrass: ___ kg, Pelagic: ___ kg |
 
-| Step | Formula | Your values |
-|------|---------|------------|
-| 1. Protected coastline | Map reef/mangrove extent along coast | ___ m |
-| 2. Assets at risk | Building count or value behind coastline | |
-| 3. Replacement cost | Engineering cost per m of seawall or breakwater | USD ___/m |
-| 4. Total value | Protected coastline x Replacement cost | USD ___/yr (annualized) |
+### Pathway 2: Fisher survey data
 
----
+| Step | What to do |
+|------|-----------|
+| 1 | Compile catch by species from landing surveys |
+| 2 | Record gear type and effort (trips, hours) |
+| 3 | Disaggregate by ecosystem using species-habitat literature |
+| 4 | Calculate CPUE (catch per unit effort) if effort data available |
 
-### Service 4: Recreation / tourism
-
-**Data needed:**
-- Visitor numbers (tourists, divers, snorkelers per year)
-- Per-visitor spending attributable to the ecosystem
-- Or: activity fees, tour operator revenue
-
-**Calculation:**
-
-| Step | Formula | Your values |
-|------|---------|------------|
-| 1. Visitors | From tourism statistics or operator records | ___/yr |
-| 2. Reef/ecosystem-attributable spending | Activity fees + allocated accommodation | USD ___/visitor |
-| 3. Total value | Visitors x Spending per visitor | USD ___/yr |
+**Physical output:** Total kg/yr by ecosystem type and species group
 
 ---
 
-## Reference: SEEA EA Supply and Use Table Format
+## Service 3: Coastal protection
 
-**Table [X]: Ecosystem Service Supply and Use Account, [Area], [Year]**
+### Pathway 1: Spatial overlay
 
-**Physical supply:**
+| Step | What to do | Your values |
+|------|-----------|------------|
+| 1 | Map ecosystem extent along coastline (coral reef, mangrove) | ___ m reef, ___ m mangrove |
+| 2 | Identify assets behind ecosystem buffer (buildings, infrastructure, population) | |
+| 3 | Record: length of coastline protected (m), number of buildings, population behind buffer | |
+
+### Pathway 2: Wave attenuation modelling
+
+If you have bathymetry and wave data, apply a wave attenuation model to quantify the reduction in wave energy provided by the reef or mangrove.
+
+**Physical output:** Metres of coastline protected, buildings/people behind ecosystem buffer
+
+---
+
+## Service 4: Recreation and tourism
+
+### Pathway 1: Tourism statistics
+
+| Step | What to do | Your values |
+|------|-----------|------------|
+| 1 | Get total visitor numbers from tourism authority or accommodation records | ___/yr |
+| 2 | Estimate reef/ecosystem-attributable visitors (from surveys or activity records) | ___/yr |
+| 3 | Record: dive trips, snorkel trips, kayak trips, gleaning hours | |
+
+### Pathway 2: Operator records
+
+| Step | What to do |
+|------|-----------|
+| 1 | Compile activity records from dive centres, tour operators, park entry |
+| 2 | Count participants per activity type |
+| 3 | Record effort (trips/yr, hours/yr) |
+
+**Physical output:** Visitor trips/yr or hours/yr by ecosystem type and activity
+
+---
+
+## Service 5: Nursery habitat
+
+| Step | What to do | Your values |
+|------|-----------|------------|
+| 1 | Get fish density data for nursery areas (mangrove, seagrass) and non-nursery areas (open reef) | |
+| 2 | Calculate log response ratio (LRR): ln(density_nursery / density_non_nursery) | |
+| 3 | Apply LRR to total fish biomass from provisioning account | |
+| 4 | Apply juvenile survival rate (~5%) to get harvestable biomass from nursery | |
+
+**Physical output:** kg juvenile biomass/yr attributable to nursery habitat
+
+---
+
+## Part A Summary: Physical Supply Table
+
+**This is a valid, complete account.**
 
 | Service | Unit | Coral reefs | Seagrass | Mangroves | Total |
 |---------|------|---:|---:|---:|---:|
 | Fish provisioning | kg/yr | | | | |
 | Carbon sequestration | Mg CO2/yr | | | | |
 | Coastal protection | m coastline | | | | |
+| Nursery habitat | kg biomass/yr | | | | |
 | Recreation | visitors/yr | | | | |
+| Gleaning | hours/yr | | | | |
 
-**Monetary supply (USD/yr):**
+---
 
-| Service | Method | Coral reefs | Seagrass | Mangroves | Total |
-|---------|--------|---:|---:|---:|---:|
-| Fish provisioning | Resource rent | | | | |
-| Carbon sequestration | SCC | | | | |
-| Coastal protection | Replacement cost | | | | |
-| Recreation | Expenditure | | | | |
-| **Total** | | | | | |
+# PART B: MONETARY VALUATION (builds on Part A)
+
+**Only proceed to Part B if you have the economic data needed.** Part A alone is useful for policy.
+
+## Valuation method selection
+
+| Service | Physical quantity needed (from Part A) | Valuation method | Economic data needed |
+|---------|---------------------------------------|-----------------|---------------------|
+| Fish provisioning | kg/yr by species | Resource rent | Market prices, fishing costs (labour, fuel, gear, capital) |
+| Carbon sequestration | Mg CO2/yr | Social cost of carbon (SCC) or carbon market price | SCC value (e.g., USD 51/Mg CO2) or local carbon exchange price |
+| Coastal protection | m coastline, assets behind | Replacement cost | Engineering cost per m of seawall or breakwater |
+| Nursery habitat | kg biomass/yr | Market price of fish | Same market prices as fish provisioning |
+| Recreation | visitors/yr | Direct expenditure | Per-visitor spending data (activity fees, accommodation allocation) |
+| Gleaning | hours/yr, harvest kg/yr | Equivalent wage + market value | Local wage rate, market prices for harvested species |
+
+## Service 1: Fish provisioning -- resource rent
+
+```
+Resource rent = Gross revenue - Total costs
+Gross revenue = Sum of (catch_species x market_price_species)
+Total costs = Labour + Fuel + Gear maintenance + Capital depreciation
+```
+
+| Step | Formula | Your values |
+|------|---------|------------|
+| 1. Gross revenue | Catch (kg) x Price (USD/kg) | USD ___ |
+| 2. Labour costs | Crew payments per year | USD ___ |
+| 3. Fuel costs | Annual fuel expenditure | USD ___ |
+| 4. Gear and maintenance | Annual equipment costs | USD ___ |
+| 5. Capital depreciation | Vessel value / lifespan | USD ___ |
+| 6. Total costs | Sum of steps 2-5 | USD ___ |
+| 7. Resource rent | Step 1 minus Step 6 (min 0) | USD ___ |
+
+If resource rent is negative, report zero. The ecosystem provides fish but the fishery is economically unprofitable.
+
+## Service 2: Carbon sequestration -- SCC
+
+```
+Monetary value = Physical supply (Mg CO2/yr) x Carbon price (USD/Mg CO2)
+```
+
+| Carbon price option | Value | Source |
+|-------------------|-------|--------|
+| US EPA Social Cost of Carbon | USD 51/Mg CO2 (2020 USD) | US government central estimate |
+| UK BEIS carbon values | GBP 70-250/tCO2 (varies by year) | UK Green Book |
+| Voluntary carbon market | USD 5-50/Mg CO2 (varies) | Market transactions |
+| IDXCarbon (Indonesia) | Market price | Jakarta carbon exchange |
+
+Choose the price that matches your policy purpose: SCC for global damage estimates, market price for revenue potential.
+
+## Service 3: Coastal protection -- replacement cost
+
+```
+Total replacement = Length of protected coastline (m) x Cost per m of seawall (USD/m)
+Annualized value = Total replacement / Infrastructure lifespan (years)
+```
+
+Typical seawall costs: USD 2,000 to 15,000 per metre depending on design and location.
+
+## Service 4: Recreation -- direct expenditure
+
+```
+Value = Ecosystem visitors/yr x Average ecosystem-attributable spending per visitor
+```
+
+Spending includes: activity fees, equipment rental, allocated share of accommodation (based on visitor motivation surveys).
+
+## Service 5: Gleaning -- equivalent wage
+
+```
+Value = (Hours/yr x Local hourly wage) + (Harvest kg/yr x Market price/kg)
+```
+
+---
+
+## Part B Summary: Monetary Supply Table
+
+| Service | Method | Value type | Coral reefs | Seagrass | Mangroves | Total |
+|---------|--------|-----------|---:|---:|---:|---:|
+| Fish provisioning | Resource rent | Market | | | | |
+| Carbon sequestration | SCC | Non-market | | | | |
+| Coastal protection | Replacement cost | Non-market | | | | |
+| Nursery habitat | Market price | Market (indirect) | | | | |
+| Recreation | Direct expenditure | Market | | | | |
+| Gleaning | Equivalent wage | Mixed | | | | |
+| **Total** | | | | | | |
+
+---
+
+## Combining Part A and Part B
+
+If you complete both parts, your full service account has:
+1. Physical supply table (Part A) -- what the ecosystem provides
+2. Monetary supply table (Part B) -- what it is worth economically
+3. Supply and use tables showing which economic sectors or population groups use each service
+
+You can report Part A alone, Part A + Part B for some services, or the full set. Each is a valid level of completeness.
