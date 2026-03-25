@@ -1,26 +1,42 @@
 # Printing Checklist
 
-Materials to print before the event. Files in this folder are print-ready.
+All .docx files in this folder are print-ready, GOAP-styled Word documents.
+Run `python3 generate_printables.py` to regenerate if you edit anything.
 
-## Day 1: Welcome Program (Speed Networking)
+## Day 1: Speed Networking
 
-| File | Quantity | Size | Notes |
-|------|----------|------|-------|
-| `station-signs.md` | 5 pages, 1 per station | A3 landscape (or A4 if no A3 printer) | Print each page separately. Use colored paper if available, or print in color. |
-| Chart paper | 5 sheets | Flip chart size | Hand-draw the 3-section template (see facilitation guide). Not a printed file. |
-| Post-it notes | ~30 green, ~30 yellow, ~30 pink | Standard | Buy, not print. |
-| Markers | ~10 | Thick tip | Buy, not print. |
+| File | Copies | Size | Notes |
+|------|--------|------|-------|
+| `station_signs.docx` | 1 (5 pages) | A3 landscape preferred, A4 works | 5 color-coded thematic station signs. Print in color. |
+
+**Buy (not printed):**
+- 5 flip chart sheets (hand-draw the 3-section template: Who is here / What do we need / What can we share)
+- Post-it notes: ~30 green, ~30 yellow, ~30 pink
+- Markers: ~10 thick tip
 
 ## Days 2-3: Ocean Accounting Clinic
 
-| File | Quantity | Size | Notes |
-|------|----------|------|-------|
-| Clinic triage table (`clinic/README.md`, Step 2 table) | 3 copies (1 per facilitator) | A4 | Quick reference for directing fellows to the right pathway |
-| Extent exercise (`clinic/extent/extent-exercise.md`) | 15 copies | A4, double-sided | For fellows working on extent accounts |
-| Condition exercise (`clinic/condition/condition-exercise.md`) | 15 copies | A4, double-sided | For fellows working on condition accounts |
-| Services exercise (`clinic/services/services-exercise.md`) | 15 copies | A4, double-sided | For fellows working on services accounts |
+| File | Copies | Size | Notes |
+|------|--------|------|-------|
+| `clinic_triage_card.docx` | 3 (1 per facilitator) | A4 | Triage questions, pathway table, facilitator specializations, key reminders |
+| `extent_exercise_print.docx` | 15 | A4, double-sided | Extent account exercise: scenario, change matrix, fill-in tables, interpretation |
+| `condition_exercise_print.docx` | 15 | A4, double-sided | Condition account exercise: 4-site normalization, aggregation, condition table |
+| `services_exercise_print.docx` | 15 | A4, double-sided | Services exercise: fish, carbon, recreation, coastal protection valuation |
 
-**Digital sharing (no need to print):**
-- The step-by-step guides (too long for print, share as PDF or on screen)
-- The slide decks (display on projector as you walk through with fellows)
-- The diagnostic tool (reference document, share digitally)
+## Summary: Total printing
+
+| Item | Pages | Copies | Total pages |
+|------|-------|--------|-------------|
+| Station signs | 5 | 1 | 5 |
+| Triage card | 2 | 3 | 6 |
+| Extent exercise | 3 | 15 | 45 |
+| Condition exercise | 3 | 15 | 45 |
+| Services exercise | 3 | 15 | 45 |
+| **Total** | | | **~146 pages** |
+
+## Digital only (do not print)
+
+- Excel templates (.xlsx) -- share via USB or email during clinic sessions
+- Step-by-step guides (.md) -- display on projector or screen-share
+- Slide decks (.md) -- display on projector
+- Diagnostic tool (.md) -- share digitally
