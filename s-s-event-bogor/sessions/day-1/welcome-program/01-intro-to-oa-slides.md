@@ -133,11 +133,57 @@ Selected fellows will present their accounts in the closing plenary.
 
 ---
 
-## Total: 8 slides, ~15 minutes
+## Slide 9: Speed Networking -- Introduce Yourself
+
+*[Show this slide at 11:00 when the networking round begins]*
+
+**Meet your fellow ocean accountants!**
+
+Form two lines facing each other. You have 3 minutes with each person. Share:
+
+1. **Name and country**
+2. **Organization and role**
+3. **Your ocean accounting focus** -- what ecosystem, what account type, what policy question?
+4. **Data you work with** -- what type of data do you deal with or have you brought?
+5. **One thing you want to learn this week**
+
+Every 3 minutes: the line closest to the door shifts one step to the right. New partner!
+
+*Speaker notes: Keep this slide up during the entire speed networking round. It gives people a reference for what to talk about so conversations don't stall. You manage rotations by calling out "next!" every 3 minutes.*
+
+---
+
+## Slide 10: Thematic Stations -- Find Your Group
+
+*[Show this slide at 11:30 when thematic clustering begins]*
+
+**Go to the station closest to your work:**
+
+1. Marine Spatial Planning & MPAs
+2. Blue Carbon & Climate
+3. Fisheries & Ocean Economy
+4. Ecosystem Condition & Biodiversity
+5. Social Accounts & Community Engagement
+
+**At your station, discuss:**
+
+- Who is here? (name + country on a post-it)
+- What shared challenges do we face? (write on a post-it)
+- What can we offer each other? Data, methods, tools, contacts? (write on a post-it)
+
+Each station picks one person to report back in 1 minute.
+
+*Speaker notes: Keep this slide up during the station exercise. It reminds people what to discuss without you having to repeat instructions. Post-its and markers should already be at each station.*
+
+---
+
+## Total: 10 slides, ~15 min presentation + slides shown during networking
 
 Timing guide:
 - Slides 1-2: Welcome and framing (3 min)
 - Slides 3-4: What are ocean accounts (4 min)
-- Slides 5: Country examples (2 min)
+- Slide 5: Country examples (2 min)
 - Slides 6-7: Program roadmap and process (4 min)
 - Slide 8: Handoff to Teerapong (2 min)
+- Slide 9: Displayed during speed networking (11:00-11:30)
+- Slide 10: Displayed during thematic stations (11:30-12:00)
