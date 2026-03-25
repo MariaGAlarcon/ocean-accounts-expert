@@ -53,27 +53,58 @@ Each account type folder contains:
 ## Folder structure
 
 ```
-clinic/
-├── README.md              <-- you are here
-├── extent/
+day-2/clinic/
+├── README.md                       <-- you are here
+├── clinic_facilitator_guide.docx
+│
+├── extent/                         # Ecosystem extent accounts
 │   ├── extent-slides.md
 │   ├── extent-guide.md
-│   └── extent-exercise.md
-├── condition/
+│   ├── extent-exercise.md
+│   └── extent_account_template.xlsx
+│
+├── condition/                      # Ecosystem condition accounts
 │   ├── condition-slides.md
 │   ├── condition-guide.md
-│   └── condition-exercise.md
-├── services/
+│   ├── condition-exercise.md
+│   ├── condition_account_template.xlsx
+│   └── condition_exercise.xlsx
+│
+├── services/                       # Ecosystem services (Part A physical + Part B monetary)
 │   ├── services-slides.md
 │   ├── services-guide.md
-│   └── services-exercise.md
-└── resources/
-    └── diagnostic-tool.md
+│   ├── services-exercise.md
+│   ├── services_account_template.xlsx
+│   └── services_exercise.xlsx
+│
+├── diagrams/                       # Pipeline diagrams (PNG)
+│   ├── diagram_overview.png
+│   ├── diagram_extent_pipeline.png
+│   ├── diagram_condition_pipeline.png
+│   ├── diagram_services_pipeline.png
+│   └── diagram_triage.png
+│
+├── slides/                         # GOAP HTML presentation slides
+│   ├── slide_overview_pipeline.html
+│   ├── slide_extent_pipeline.html
+│   ├── slide_condition_pipeline.html
+│   ├── slide_services_pipeline.html
+│   └── slide_examples_logic_chains.html
+│
+├── resources/                      # Reference materials
+│   └── diagnostic-tool.md
+│
+└── [future account types]/         # Add as needed:
+    # economic/                     # Ocean economy satellite accounts
+    # social/                       # Social ocean accounts
+    # governance/                   # Governance accounts
 ```
 
 ## What to print
 
-See `printing/` folder for printable materials. For the clinic, print:
-- The triage table from this README (one copy for each facilitator)
-- The exercise sheets (one per fellow or display on screen)
-- The spreadsheet templates can be shared digitally
+See `../../printing/` folder for print-ready GOAP Word documents:
+- Clinic triage card (1 per facilitator)
+- Extent, condition, and services exercise sheets (15 each)
+- Station signs for Day 1
+
+Excel templates and HTML slides are shared digitally.
