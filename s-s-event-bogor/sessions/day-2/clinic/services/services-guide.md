@@ -15,18 +15,33 @@ Each part has two pathways: Pathway 1 (no primary data) and Pathway 2 (local dat
 
 ## Service 1: Carbon sequestration
 
+### Where to get the data
+
+| Data needed | Part | Source | URL |
+|-------------|------|--------|-----|
+| Ecosystem extent (ha) | A | Your extent account, or Global Mangrove Watch / Allen Coral Atlas | globalmangrovewatch.org, allencoralatlas.org |
+| NCP rates (Mg CO2/ha/yr) | A | Published literature (see table below) or IPCC Wetlands Supplement | ipcc.ch |
+| Primary carbon stock data | A | Field measurements: soil cores, allometric equations | National forest inventories |
+| Social cost of carbon | B | US EPA Interagency Working Group (2021) | USD 51/Mg CO2 |
+| Voluntary carbon market price | B | Ecosystem Marketplace, Verra VCS registry | ecosystemmarketplace.com, verra.org |
+
+**NCP rates from literature (Mg CO2/ha/yr):**
+
+| Ecosystem | Conservative | Central | High | Key source |
+|-----------|---:|---:|---:|-----------|
+| Mangroves | 2.0 | 3.7 | 17.2 | Alongi (2014), IPCC Wetlands Supplement |
+| Seagrass | 0.4 | 1.3 | 4.4 | Fourqurean et al. (2012), Duarte et al. (2005) |
+| Salt marshes | 1.5 | 2.1 | 6.0 | Chmura et al. (2003), IPCC Wetlands Supplement |
+
+Use the conservative estimate for Tier 1 accounts. Use regionally calibrated values where available.
+
 ### Pathway 1: Literature rates (no field carbon data)
 
 | Step | What to do | Your values |
 |------|-----------|------------|
 | 1 | Get ecosystem extent (ha) from your extent account | Mangrove: ___ ha, Seagrass: ___ ha |
-| 2 | Look up net carbon production rates from literature | Mangrove: ~3.7 Mg CO2/ha/yr, Seagrass: ~1.3 Mg CO2/ha/yr |
+| 2 | Look up NCP rate from table above (or IPCC Wetlands Supplement for your climate zone) | Mangrove: ___ Mg CO2/ha/yr, Seagrass: ___ Mg CO2/ha/yr |
 | 3 | Physical supply = Extent x NCP rate | ___ Mg CO2/yr |
-
-Literature sources for NCP rates:
-- Mangroves: Alongi (2014), range 2.0 to 6.0 Mg CO2/ha/yr depending on species and region
-- Seagrass: Fourqurean et al. (2012), range 0.4 to 2.0 Mg CO2/ha/yr
-- Use regionally appropriate values where available
 
 ### Pathway 2: Primary carbon data
 
@@ -47,13 +62,25 @@ If you have soil carbon measurements, allometric biomass estimates, or flux towe
 
 ## Service 2: Fish provisioning
 
+### Where to get the data
+
+| Data needed | Part | Source | URL |
+|-------------|------|--------|-----|
+| Total annual catch (kg/yr) | A | National fisheries agency landing records | fao.org/fishery |
+| Catch by country (Tier 1, no local data) | A | FAO FishStatJ or Sea Around Us | seaaroundus.org |
+| Species-habitat associations | A | FishBase species database | fishbase.org |
+| Fishing effort (spatial) | A | Global Fishing Watch (vessel tracking) | globalfishingwatch.org |
+| Market prices per species (USD/kg) | B | Local fish market surveys, national statistics offices | |
+| Fishing costs (labour, fuel, gear) | B | Fisher household surveys, cooperative records | GOAP provides survey templates |
+| Vessel depreciation | B | Purchase price / expected lifespan (typically 15-20 years) | |
+
 ### Pathway 1: National statistics
 
 | Step | What to do | Your values |
 |------|-----------|------------|
-| 1 | Get total annual catch from fisheries agency records | ___ kg/yr |
-| 2 | Disaggregate by species or species group | |
-| 3 | Assign catch to ecosystem type using species-habitat associations | Reef: ___ kg, Seagrass: ___ kg, Pelagic: ___ kg |
+| 1 | Get total annual catch from fisheries agency or FAO FishStatJ | ___ kg/yr |
+| 2 | Disaggregate by species using landing records or Sea Around Us | |
+| 3 | Assign catch to ecosystem type using FishBase species-habitat associations | Reef: ___ kg, Seagrass: ___ kg, Pelagic: ___ kg |
 
 ### Pathway 2: Fisher survey data
 
@@ -61,7 +88,7 @@ If you have soil carbon measurements, allometric biomass estimates, or flux towe
 |------|-----------|
 | 1 | Compile catch by species from landing surveys |
 | 2 | Record gear type and effort (trips, hours) |
-| 3 | Disaggregate by ecosystem using species-habitat literature |
+| 3 | Disaggregate by ecosystem using FishBase species-habitat literature |
 | 4 | Calculate CPUE (catch per unit effort) if effort data available |
 
 **Physical output:** Total kg/yr by ecosystem type and species group
@@ -70,17 +97,29 @@ If you have soil carbon measurements, allometric biomass estimates, or flux towe
 
 ## Service 3: Coastal protection
 
+### Where to get the data
+
+| Data needed | Part | Source | URL |
+|-------------|------|--------|-----|
+| Ecosystem extent along coastline | A | GIS overlay of your extent account with coastline | From your extent account |
+| Building footprints behind buffer | A | OpenStreetMap or Microsoft Building Footprints | openstreetmap.org |
+| Population behind buffer | A | Census data or WorldPop gridded estimates | worldpop.org |
+| Wave exposure data (Tier 2-3) | A | NOAA WaveWatch III, Copernicus Marine Service | |
+| Seawall / breakwater cost per metre | B | Engineering firms, government infrastructure budgets | Range: USD 2,000-15,000/m |
+| Infrastructure lifespan | B | Engineering standards | Typically 30-50 years |
+| Wave attenuation by reefs | B | Beck et al. (2018): reefs reduce wave energy by 97% average | |
+
 ### Pathway 1: Spatial overlay
 
 | Step | What to do | Your values |
 |------|-----------|------------|
-| 1 | Map ecosystem extent along coastline (coral reef, mangrove) | ___ m reef, ___ m mangrove |
-| 2 | Identify assets behind ecosystem buffer (buildings, infrastructure, population) | |
+| 1 | Map ecosystem extent along coastline using your extent account in GIS | ___ m reef, ___ m mangrove |
+| 2 | Overlay with OpenStreetMap buildings or WorldPop population within 200 m of shore | |
 | 3 | Record: length of coastline protected (m), number of buildings, population behind buffer | |
 
 ### Pathway 2: Wave attenuation modelling
 
-If you have bathymetry and wave data, apply a wave attenuation model to quantify the reduction in wave energy provided by the reef or mangrove.
+If you have bathymetry and wave data (NOAA WaveWatch III), apply a wave attenuation model to quantify the reduction in wave energy provided by the reef or mangrove.
 
 **Physical output:** Metres of coastline protected, buildings/people behind ecosystem buffer
 
@@ -88,19 +127,33 @@ If you have bathymetry and wave data, apply a wave attenuation model to quantify
 
 ## Service 4: Recreation and tourism
 
+### Where to get the data
+
+| Data needed | Part | Source | URL |
+|-------------|------|--------|-----|
+| Total visitor arrivals | A | National tourism authority, airport/port statistics | UNWTO: unwto.org |
+| Accommodation statistics | A | Hotel/resort occupancy records, national statistics | |
+| Dive/snorkel activity counts | A | Dive centres, tour operators, PADI statistics | Local dive operator associations |
+| MPA visitor counts | A | Park management authorities, entry permits | |
+| Activity fees (dive, snorkel, kayak) | B | Operator records, online pricing | Direct observation |
+| Visitor expenditure surveys | B | Tourist motivation and spending surveys | |
+| Reef-attributable accommodation share | B | Tourist surveys asking "what share of your trip is for the reef?" | |
+
+**Tier 1 shortcut (no local data):** Use UNWTO country data for total arrivals. Estimate reef-visitor share from literature (30-60% of visitors to tropical coastal destinations do reef-based activities).
+
 ### Pathway 1: Tourism statistics
 
 | Step | What to do | Your values |
 |------|-----------|------------|
-| 1 | Get total visitor numbers from tourism authority or accommodation records | ___/yr |
-| 2 | Estimate reef/ecosystem-attributable visitors (from surveys or activity records) | ___/yr |
-| 3 | Record: dive trips, snorkel trips, kayak trips, gleaning hours | |
+| 1 | Get total visitor numbers from tourism authority or UNWTO | ___/yr |
+| 2 | Estimate reef/ecosystem-attributable visitors (from surveys, MPA records, or Tier 1 literature share) | ___/yr |
+| 3 | Record: dive trips, snorkel trips, kayak trips | |
 
 ### Pathway 2: Operator records
 
 | Step | What to do |
 |------|-----------|
-| 1 | Compile activity records from dive centres, tour operators, park entry |
+| 1 | Compile activity records from dive centres, tour operators, MPA entry |
 | 2 | Count participants per activity type |
 | 3 | Record effort (trips/yr, hours/yr) |
 
@@ -110,9 +163,21 @@ If you have bathymetry and wave data, apply a wave attenuation model to quantify
 
 ## Service 5: Nursery habitat
 
+### Where to get the data
+
+| Data needed | Part | Source | URL |
+|-------------|------|--------|-----|
+| Fish density in nursery vs non-nursery areas | A | Field surveys (UVC, seine nets), national monitoring programs | |
+| Log Response Ratio (LRR) if no field data | A | Literature meta-analyses: coral reef 31%, seagrass 13% | Nagelkerken et al. (2015), Igulu et al. (2014) |
+| Total fish biomass | A | From your fish provisioning account (Part A above) | |
+| Juvenile survival rate | A | Standard ecological assumption: 5% | Literature |
+| Market price of fish | B | Same as fish provisioning | |
+
+### Steps
+
 | Step | What to do | Your values |
 |------|-----------|------------|
-| 1 | Get fish density data for nursery areas (mangrove, seagrass) and non-nursery areas (open reef) | |
+| 1 | Get fish density data for nursery areas (mangrove, seagrass) and non-nursery areas (open reef). If no field data, use LRR from literature (coral 31%, seagrass 13%). | |
 | 2 | Calculate log response ratio (LRR): ln(density_nursery / density_non_nursery) | |
 | 3 | Apply LRR to total fish biomass from provisioning account | |
 | 4 | Apply juvenile survival rate (~5%) to get harvestable biomass from nursery | |
@@ -142,14 +207,16 @@ If you have bathymetry and wave data, apply a wave attenuation model to quantify
 
 ## Valuation method selection
 
-| Service | Physical quantity needed (from Part A) | Valuation method | Economic data needed |
-|---------|---------------------------------------|-----------------|---------------------|
-| Fish provisioning | kg/yr by species | Resource rent | Market prices, fishing costs (labour, fuel, gear, capital) |
-| Carbon sequestration | Mg CO2/yr | Social cost of carbon (SCC) or carbon market price | SCC value (e.g., USD 51/Mg CO2) or local carbon exchange price |
-| Coastal protection | m coastline, assets behind | Replacement cost | Engineering cost per m of seawall or breakwater |
-| Nursery habitat | kg biomass/yr | Market price of fish | Same market prices as fish provisioning |
-| Recreation | visitors/yr | Direct expenditure | Per-visitor spending data (activity fees, accommodation allocation) |
-| Gleaning | hours/yr, harvest kg/yr | Equivalent wage + market value | Local wage rate, market prices for harvested species |
+| Service | Physical quantity (Part A) | Method | Economic data needed | Where to find it |
+|---------|--------------------------|--------|---------------------|-----------------|
+| Fish provisioning | kg/yr by species | Resource rent | Market prices, fishing costs | Local fish markets, fisher surveys |
+| Carbon sequestration | Mg CO2/yr | SCC or market price | Carbon price | US EPA ($51), Ecosystem Marketplace, Verra, IDXCarbon |
+| Coastal protection | m coastline, assets | Replacement cost | Engineering cost per m | Govt infrastructure budgets ($2K-15K/m) |
+| Nursery habitat | kg biomass/yr | Market price | Same market prices as fish | Same as fish provisioning |
+| Recreation | visitors/yr | Direct expenditure | Spending per visitor | Tour operators, MPA fee records, tourist surveys |
+| Gleaning | hours/yr, harvest kg/yr | Equivalent wage + market | Wage rate, harvest prices | National minimum wage, local market surveys |
+
+**No local economic data at all?** Use value transfer from the ESVD database (esvd.info): published USD/ha/yr values from similar ecosystems, adjusted for income differences. This is a Tier 1 monetary estimate.
 
 ## Service 1: Fish provisioning -- resource rent
 
@@ -177,14 +244,17 @@ If resource rent is negative, report zero. The ecosystem provides fish but the f
 Monetary value = Physical supply (Mg CO2/yr) x Carbon price (USD/Mg CO2)
 ```
 
-| Carbon price option | Value | Source |
-|-------------------|-------|--------|
-| US EPA Social Cost of Carbon | USD 51/Mg CO2 (2020 USD) | US government central estimate |
-| UK BEIS carbon values | GBP 70-250/tCO2 (varies by year) | UK Green Book |
-| Voluntary carbon market | USD 5-50/Mg CO2 (varies) | Market transactions |
-| IDXCarbon (Indonesia) | Market price | Jakarta carbon exchange |
+| Carbon price option | Value (USD/Mg CO2) | Source | When to use |
+|-------------------|---:|--------|------------|
+| US EPA Social Cost of Carbon | 51 | US Interagency Working Group (2021) | NDC reporting, government policy analysis |
+| UK BEIS carbon values | 85-300 (GBP, varies by year) | UK Green Book | UK-aligned policy |
+| EU ETS price | 80-100 (EUR) | EU Emissions Trading System | EU-aligned compliance |
+| Voluntary carbon market (mangrove) | 10-35 | ecosystemmarketplace.com | Carbon credit project feasibility |
+| Voluntary carbon market (seagrass) | 5-20 | ecosystemmarketplace.com | Emerging market |
+| Verra VCS blue carbon credits | 15-30 | verra.org | Project-level blue carbon finance |
+| IDXCarbon (Indonesia) | Market price | Jakarta carbon exchange | Indonesia-specific |
 
-Choose the price that matches your policy purpose: SCC for global damage estimates, market price for revenue potential.
+Choose the price that matches your policy purpose: SCC for global damage estimates and NDC reporting, market price for revenue potential and project feasibility.
 
 ## Service 3: Coastal protection -- replacement cost
 
