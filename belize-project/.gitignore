@@ -1,0 +1,34 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# R
+.Rhistory
+.Rdata
+.RData
+.Rproj.user/
+*.Rproj
+
+# Data files (large/sensitive)
+*.xlsx
+*.xls
+*.csv
+
+# Allow deliverable xlsx files
+!docs/condition_account_template.xlsx
+!training/exercise_workbook.xlsx
+!training/answer_key.xlsx
+
+# Python
+__pycache__/
+*.pyc
+
+# IDE
+.vscode/
+.idea/
+
+# Outputs (regenerable)
+condition-account-scripts/outputs/*
+!condition-account-scripts/outputs/.gitkeep
+# Temp files
+~$*

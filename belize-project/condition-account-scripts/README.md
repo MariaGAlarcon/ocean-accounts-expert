@@ -1,0 +1,29 @@
+# Belize Coral Condition Account - GOAP <img src='www/images/UBERI_GOAP_logo.png' align="right" height="50" style="margin-top:25px;" />
+
+The purpose of this repository is to store the associated code for the Global Ocean Accounts Partnership in Belize for the coral condition account.
+
+## Repository Contents
+
+This repository includes three primary scripts, each of which feeds into the following:
+
+1. **data_restructuring.r** - restructures data directly exported from AGRRA into the template used by GOAP. This script is automatically run when validating data or calculating indicators in this repository.
+
+2. **data_validation.r** - validates restructured AGRRA data for use in the GOAP project.
+
+3. **indicator_calculation.r** - calculates GOAP condition account indicator values for Belize from validated and restructured AGRRA data.
+
+In addition, there are helper R scripts, found in the helper_scripts folder:
+
+1. **packages_load.r** - installs missing packages and loads required packages for the primary scripts.
+
+2. **functions_define.r** - defines custom functions used in the primary scripts.
+
+## Using the Repository
+
+To use the repository, first you will need AGRRA data. Deposit an export of a Belize AGRRA unsummarized dataset into the data_deposit folder. If you desire a restructured dataset, run data_restructuring.r. If you desire a validation report of the dataset, run data_validation.r. If you desire indicator calculation, run indicator_calculation.r.
+
+## Test Data
+
+Test data can be used in the scripts by setting the test_on boolean to TRUE in data_validation.r if validation only is being done, or indicator_calculation.r if indicators are being calculated from the test data. The purpose of the test data is having data that can be freely modified to check the behaviour of the scripts without altering real data.
+
+<img src='www/images/GOAP_value.png' height="600" />
