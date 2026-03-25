@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Condition Index: How to Normalize</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #f0f7f8 0%, #e8f0e8 100%);
+    color: #545353;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+  }
+  .slide {
+    max-width: 1400px;
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: #FFFFFF;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(10,84,85,0.12);
+    padding: 44px 56px;
+    display: flex;
+    flex-direction: column;
+  }
+  .title {
+    font-size: 42px;
+    font-weight: 700;
+    color: #0A5455;
+    margin-bottom: 6px;
+  }
+  .subtitle {
+    font-size: 17px;
+    color: #66A3B5;
+    font-weight: 600;
+    margin-bottom: 28px;
+  }
+  .content { display: flex; flex-direction: column; flex: 1; gap: 18px; }
+  /* Formulas row */
+  .formulas-row {
+    display: flex;
+    gap: 28px;
+  }
+  .formula-card {
+    flex: 1;
+    border-radius: 12px;
+    padding: 22px 28px;
+    box-shadow: 0 3px 14px rgba(0,0,0,0.07);
+    border-left: 5px solid;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .formula-card.higher-better {
+    border-color: #3B9C7B;
+    background: linear-gradient(135deg, rgba(59,156,123,0.07), #fff);
+  }
+  .formula-card.higher-worse {
+    border-color: #B59F81;
+    background: linear-gradient(135deg, rgba(181,159,129,0.07), #fff);
+  }
+  .formula-card .card-label {
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .formula-card.higher-better .card-label { color: #3B9C7B; }
+  .formula-card.higher-worse .card-label { color: #B59F81; }
+  .formula-card .arrow-icon { font-size: 28px; }
+  .formula-card.higher-better .arrow-icon { color: #3B9C7B; }
+  .formula-card.higher-worse .arrow-icon { color: #d4943a; }
+  .formula-card .formula {
+    font-size: 22px;
+    font-weight: 700;
+    color: #0A5455;
+    background: rgba(10,84,85,0.05);
+    padding: 10px 16px;
+    border-radius: 8px;
+    text-align: center;
+    font-family: 'Courier New', monospace;
+  }
+  .formula-card .desc {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  /* Scale bar */
+  .scale-section {
+    background: #f8fafb;
+    border-radius: 12px;
+    padding: 18px 28px;
+  }
+  .scale-label-row {
+    font-size: 14px;
+    font-weight: 700;
+    color: #0A5455;
+    margin-bottom: 8px;
+  }
+  .scale-bar-container {
+    position: relative;
+    height: 36px;
+    border-radius: 18px;
+    background: linear-gradient(90deg, #d64545 0%, #e8b830 50%, #3B9C7B 100%);
+    box-shadow: inset 0 2px 6px rgba(0,0,0,0.12);
+    margin-bottom: 6px;
+  }
+  .scale-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 0 4px;
+  }
+  .scale-labels .left { color: #d64545; }
+  .scale-labels .mid { color: #b8912e; }
+  .scale-labels .right { color: #3B9C7B; }
+  .scale-numbers {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #888;
+    padding: 0 4px;
+    margin-top: 2px;
+  }
+  /* Dot on scale */
+  .scale-dot {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+  }
+  .scale-dot .dot-label {
+    position: absolute;
+    top: -22px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+    color: #0A5455;
+  }
+  /* Examples */
+  .examples-row {
+    display: flex;
+    gap: 28px;
+  }
+  .example-card {
+    flex: 1;
+    border-radius: 12px;
+    padding: 18px 22px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+    border-left: 5px solid;
+  }
+  .example-card.coral { border-color: #0A5455; background: linear-gradient(135deg, rgba(10,84,85,0.05), #fff); }
+  .example-card.macro { border-color: #66A3B5; background: linear-gradient(135deg, rgba(102,163,181,0.05), #fff); }
+  .example-card h4 { font-size: 15px; font-weight: 700; color: #0A5455; margin-bottom: 6px; }
+  .example-card .calc {
+    font-size: 16px;
+    font-family: 'Courier New', monospace;
+    background: rgba(10,84,85,0.06);
+    padding: 8px 14px;
+    border-radius: 6px;
+    margin: 6px 0;
+    color: #0A5455;
+    font-weight: 600;
+  }
+  .example-card .result { font-size: 14px; font-weight: 700; }
+  .example-card.coral .result { color: #d4943a; }
+  .example-card.macro .result { color: #b8912e; }
+  .example-card .tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 10px;
+    color: #fff;
+    margin-bottom: 6px;
+  }
+  .example-card.coral .tag { background: #3B9C7B; }
+  .example-card.macro .tag { background: #66A3B5; }
+  /* Rules box */
+  .rules-box {
+    background: linear-gradient(135deg, rgba(10,84,85,0.05), rgba(59,156,123,0.05));
+    border-left: 5px solid #0A5455;
+    border-radius: 8px;
+    padding: 14px 20px;
+    display: flex;
+    gap: 32px;
+    font-size: 14px;
+  }
+  .rules-box .rule { display: flex; align-items: center; gap: 8px; }
+  .rules-box .rule-icon { font-size: 18px; color: #0A5455; }
+  .rules-box .rule strong { color: #0A5455; }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="title">Condition Index: How to Normalize</div>
+  <div class="subtitle">Turn any indicator into a 0 &ndash; 1 score</div>
+
+  <div class="content">
+    <!-- Two formulas -->
+    <div class="formulas-row">
+      <div class="formula-card higher-better">
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <span class="card-label">Higher is better</span>
+          <span class="arrow-icon">&#9650;</span>
+        </div>
+        <div class="formula">CI = Value / Reference</div>
+        <div class="desc">Use when <strong>more</strong> of the indicator means better condition. Examples: coral cover, fish biomass, species richness.</div>
+      </div>
+      <div class="formula-card higher-worse">
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <span class="card-label">Higher is worse</span>
+          <span class="arrow-icon">&#9660;</span>
+        </div>
+        <div class="formula">CI = 1 &minus; (Value / Reference)</div>
+        <div class="desc">Use when <strong>more</strong> of the indicator means worse condition. Examples: macroalgae cover, turbidity, nutrient loading.</div>
+      </div>
+    </div>
+
+    <!-- Scale bar -->
+    <div class="scale-section">
+      <div class="scale-label-row">&#9632; Condition Index Scale</div>
+      <div class="scale-bar-container">
+        <!-- Coral dot at 40% -->
+        <div class="scale-dot" style="left:40%;background:#e8a830;">
+          <div class="dot-label">Coral 0.40</div>
+        </div>
+        <!-- Macro dot at 50% -->
+        <div class="scale-dot" style="left:50%;background:#c8b040;">
+          <div class="dot-label">Macroalgae 0.50</div>
+        </div>
+      </div>
+      <div class="scale-labels">
+        <span class="left">&#9724; Degraded</span>
+        <span class="mid">&#9724; Moderate</span>
+        <span class="right">&#9724; Reference</span>
+      </div>
+      <div class="scale-numbers">
+        <span>0.0</span>
+        <span>0.25</span>
+        <span>0.50</span>
+        <span>0.75</span>
+        <span>1.0</span>
+      </div>
+    </div>
+
+    <!-- Worked examples -->
+    <div class="examples-row">
+      <div class="example-card coral">
+        <span class="tag">Higher-is-better</span>
+        <h4>&#9672; Coral Cover</h4>
+        <div class="desc" style="font-size:14px;">Observed: <strong>20%</strong> &nbsp;|&nbsp; Reference: <strong>50%</strong></div>
+        <div class="calc">CI = 20 / 50 = <strong>0.40</strong></div>
+        <div class="result">Below moderate &mdash; degraded condition</div>
+      </div>
+      <div class="example-card macro">
+        <span class="tag">Higher-is-worse</span>
+        <h4>&#9650; Macroalgae Cover</h4>
+        <div class="desc" style="font-size:14px;">Observed: <strong>30%</strong> &nbsp;|&nbsp; Reference threshold: <strong>60%</strong></div>
+        <div class="calc">CI = 1 &minus; (30 / 60) = <strong>0.50</strong></div>
+        <div class="result">Moderate condition</div>
+      </div>
+    </div>
+
+    <!-- Rules -->
+    <div class="rules-box">
+      <div class="rule"><span class="rule-icon">&#10003;</span> <span><strong>Cap CI</strong> between 0 and 1</span></div>
+      <div class="rule"><span class="rule-icon">&#10003;</span> <span><strong>State direction</strong> for every indicator</span></div>
+      <div class="rule"><span class="rule-icon">&#10003;</span> <span><strong>Consistent references</strong> across time</span></div>
+      <div class="rule"><span class="rule-icon">&#10003;</span> <span><strong>Document</strong> reference source</span></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

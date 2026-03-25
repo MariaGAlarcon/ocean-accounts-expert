@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Starting Simple Is Valid</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #f0f7f8 0%, #e8f0e8 100%);
+    color: #545353;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+  }
+  .slide {
+    max-width: 1400px;
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: #FFFFFF;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(10,84,85,0.12);
+    padding: 44px 56px;
+    display: flex;
+    flex-direction: column;
+  }
+  .title {
+    font-size: 42px;
+    font-weight: 700;
+    color: #0A5455;
+    margin-bottom: 4px;
+  }
+  .subtitle {
+    font-size: 17px;
+    color: #66A3B5;
+    font-weight: 600;
+    margin-bottom: 28px;
+  }
+  .columns {
+    display: flex;
+    gap: 24px;
+    flex: 1;
+  }
+  .tier-col {
+    flex: 1;
+    border-radius: 14px;
+    padding: 24px 22px;
+    border: 2px solid;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+  }
+  .tier-col::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+  }
+  /* Tier 1 */
+  .tier-col.t1 {
+    border-color: #B59F81;
+    background: linear-gradient(180deg, rgba(181,159,129,0.08) 0%, rgba(253,248,236,0.6) 100%);
+  }
+  .tier-col.t1::before { background: linear-gradient(90deg, #B59F81, #d4c4a8); }
+  .tier-col.t1 .tier-badge { background: #B59F81; }
+  /* Tier 2 */
+  .tier-col.t2 {
+    border-color: #5EB593;
+    background: linear-gradient(180deg, rgba(94,181,147,0.08) 0%, rgba(238,248,243,0.6) 100%);
+  }
+  .tier-col.t2::before { background: linear-gradient(90deg, #5EB593, #8fd4b5); }
+  .tier-col.t2 .tier-badge { background: #5EB593; }
+  /* Tier 3 */
+  .tier-col.t3 {
+    border-color: #0A5455;
+    background: linear-gradient(180deg, rgba(10,84,85,0.08) 0%, rgba(229,242,243,0.6) 100%);
+  }
+  .tier-col.t3::before { background: linear-gradient(90deg, #0A5455, #1a7a7b); }
+  .tier-col.t3 .tier-badge { background: #0A5455; }
+
+  .tier-badge {
+    display: inline-block;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 4px 14px;
+    border-radius: 14px;
+    margin-bottom: 10px;
+    align-self: flex-start;
+    margin-top: 8px;
+  }
+  .tier-col h2 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .tier-col.t1 h2 { color: #B59F81; }
+  .tier-col.t2 h2 { color: #5EB593; }
+  .tier-col.t3 h2 { color: #0A5455; }
+  .tier-col .tier-desc {
+    font-size: 14px;
+    font-weight: 600;
+    color: #545353;
+    margin-bottom: 10px;
+    font-style: italic;
+  }
+  .tier-col .data-label {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #999;
+    margin-bottom: 6px;
+    margin-top: 6px;
+  }
+  .tier-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 10px 0;
+  }
+  .tier-col ul li {
+    font-size: 13px;
+    line-height: 1.6;
+    padding-left: 16px;
+    position: relative;
+  }
+  .tier-col ul li::before {
+    content: '>';
+    position: absolute;
+    left: 0;
+    font-weight: 700;
+  }
+  .tier-col.t1 ul li::before { color: #B59F81; }
+  .tier-col.t2 ul li::before { color: #5EB593; }
+  .tier-col.t3 ul li::before { color: #0A5455; }
+  .tier-col .validity-tag {
+    margin-top: auto;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    text-align: center;
+  }
+  .tier-col.t1 .validity-tag { background: rgba(181,159,129,0.15); color: #B59F81; }
+  .tier-col.t2 .validity-tag { background: rgba(94,181,147,0.15); color: #5EB593; }
+  .tier-col.t3 .validity-tag { background: rgba(10,84,85,0.15); color: #0A5455; }
+
+  /* Progress bar */
+  .progress-section {
+    margin-top: 20px;
+  }
+  .progress-bar {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    position: relative;
+    padding: 0 40px;
+  }
+  .progress-line {
+    flex: 1;
+    height: 4px;
+    background: linear-gradient(90deg, #B59F81, #5EB593, #0A5455);
+    border-radius: 2px;
+    position: relative;
+  }
+  .progress-dots {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .progress-dot {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    position: relative;
+  }
+  .progress-dot.d1 { background: #B59F81; }
+  .progress-dot.d2 { background: #5EB593; }
+  .progress-dot.d3 { background: #0A5455; }
+  .progress-dot .dot-label {
+    position: absolute;
+    top: 22px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  .progress-dot.d1 .dot-label { color: #B59F81; }
+  .progress-dot.d2 .dot-label { color: #5EB593; }
+  .progress-dot.d3 .dot-label { color: #0A5455; }
+  .progress-arrows {
+    display: flex;
+    justify-content: space-around;
+    margin-top: -2px;
+    padding: 0 80px;
+    font-size: 16px;
+    color: #B5D0D6;
+    font-weight: 700;
+  }
+
+  /* Key insight */
+  .insight {
+    margin-top: 32px;
+    background: linear-gradient(135deg, #0A5455, #3B9C7B);
+    color: #fff;
+    padding: 14px 28px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 700;
+    box-shadow: 0 4px 16px rgba(10,84,85,0.25);
+  }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="title">Starting Simple Is Valid</div>
+  <div class="subtitle">Three tiers of data intensity &mdash; all produce legitimate accounts</div>
+
+  <div class="columns">
+    <!-- Tier 1 -->
+    <div class="tier-col t1">
+      <span class="tier-badge">TIER 1</span>
+      <h2>Global / Literature</h2>
+      <div class="tier-desc">"No primary data"</div>
+      <div class="data-label">Data sources</div>
+      <ul>
+        <li>Allen Coral Atlas, Global Mangrove Watch</li>
+        <li>Sea Around Us catch reconstructions</li>
+        <li>IPCC default emission factors</li>
+        <li>ESVD value-transfer estimates</li>
+      </ul>
+      <div class="data-label">Methods</div>
+      <ul>
+        <li>Global satellite products (unvalidated)</li>
+        <li>Published literature values</li>
+        <li>Benefit transfer from similar sites</li>
+      </ul>
+      <div class="validity-tag">&#10003; Valid first account</div>
+    </div>
+
+    <!-- Tier 2 -->
+    <div class="tier-col t2">
+      <span class="tier-badge">TIER 2</span>
+      <h2>National / Regional</h2>
+      <div class="tier-desc">"National or regional data"</div>
+      <div class="data-label">Data sources</div>
+      <ul>
+        <li>National land-cover maps</li>
+        <li>Government fisheries statistics</li>
+        <li>Regional monitoring programs</li>
+        <li>National tourism surveys</li>
+      </ul>
+      <div class="data-label">Methods</div>
+      <ul>
+        <li>Medium-resolution satellite imagery</li>
+        <li>Field surveys (periodic)</li>
+        <li>Local market prices</li>
+      </ul>
+      <div class="validity-tag">&#10003; Standard operational</div>
+    </div>
+
+    <!-- Tier 3 -->
+    <div class="tier-col t3">
+      <span class="tier-badge">TIER 3</span>
+      <h2>Research-Grade</h2>
+      <div class="tier-desc">"Intensive primary data"</div>
+      <div class="data-label">Data sources</div>
+      <ul>
+        <li>High-resolution satellite + drone imagery</li>
+        <li>Permanent monitoring transects</li>
+        <li>Vessel monitoring system (VMS) data</li>
+        <li>Primary economic valuation studies</li>
+      </ul>
+      <div class="data-label">Methods</div>
+      <ul>
+        <li>Object-based image classification</li>
+        <li>Nested plot sampling design</li>
+        <li>Econometric modeling (WTP, choice)</li>
+      </ul>
+      <div class="validity-tag">&#10003; Research-grade</div>
+    </div>
+  </div>
+
+  <!-- Progress bar -->
+  <div class="progress-section">
+    <div class="progress-bar">
+      <div class="progress-line">
+        <div class="progress-dots">
+          <div class="progress-dot d1"><div class="dot-label">Tier 1</div></div>
+          <div class="progress-dot d2"><div class="dot-label">Tier 2</div></div>
+          <div class="progress-dot d3"><div class="dot-label">Tier 3</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="progress-arrows">
+      <span>&#10132; &#10132; &#10132;</span>
+      <span>&#10132; &#10132; &#10132;</span>
+    </div>
+  </div>
+
+  <div class="insight">&#9733; A Tier 1 account published today is more useful than a Tier 3 account planned for next year.</div>
+</div>
+</body>
+</html>

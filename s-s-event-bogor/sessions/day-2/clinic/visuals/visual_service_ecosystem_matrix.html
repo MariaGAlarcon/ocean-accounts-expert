@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Which Services Come From Which Ecosystems?</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #f0f7f8 0%, #e8f0e8 100%);
+    color: #545353;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+  }
+  .slide {
+    max-width: 1400px;
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: #FFFFFF;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(10,84,85,0.12);
+    padding: 44px 56px;
+    display: flex;
+    flex-direction: column;
+  }
+  .title {
+    font-size: 42px;
+    font-weight: 700;
+    color: #0A5455;
+    margin-bottom: 6px;
+  }
+  .subtitle {
+    font-size: 17px;
+    color: #66A3B5;
+    font-weight: 600;
+    margin-bottom: 24px;
+  }
+  /* Legend */
+  .legend {
+    display: flex;
+    gap: 28px;
+    margin-bottom: 18px;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .legend-dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+  }
+  .legend-dot.prov { background: #3B9C7B; }
+  .legend-dot.reg { background: #66A3B5; }
+  .legend-dot.cult { background: #B59F81; }
+  /* Table */
+  .matrix-wrapper {
+    flex: 1;
+    overflow: auto;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  thead th {
+    font-size: 15px;
+    font-weight: 700;
+    padding: 12px 16px;
+    text-align: center;
+    color: #FFFFFF;
+  }
+  thead th.corner {
+    background: transparent;
+    color: #545353;
+  }
+  thead th.coral-h {
+    background: linear-gradient(135deg, #0A5455, #127272);
+    border-radius: 8px 0 0 0;
+  }
+  thead th.seagrass-h {
+    background: linear-gradient(135deg, #3B9C7B, #4db88e);
+  }
+  thead th.mangrove-h {
+    background: linear-gradient(135deg, #66A3B5, #7ab5c5);
+    border-radius: 0 8px 0 0;
+  }
+  thead th .eco-icon {
+    display: block;
+    font-size: 24px;
+    margin-bottom: 2px;
+  }
+  tbody tr {
+    transition: background 0.15s;
+  }
+  tbody tr:hover {
+    background: rgba(181,208,214,0.12);
+  }
+  tbody td {
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 14px;
+    border-bottom: 1px solid #eef2f3;
+  }
+  tbody td.service-name {
+    text-align: left;
+    font-weight: 600;
+    font-size: 14px;
+    color: #545353;
+    white-space: nowrap;
+  }
+  tbody td.service-name .cices-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 10px;
+    color: #fff;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+  .cices-tag.prov { background: #3B9C7B; }
+  .cices-tag.reg { background: #66A3B5; }
+  .cices-tag.cult { background: #B59F81; }
+  /* Filled cell */
+  .cell-filled {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .cell-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    display: inline-block;
+    flex-shrink: 0;
+  }
+  .cell-dot.prov { background: #3B9C7B; }
+  .cell-dot.reg { background: #66A3B5; }
+  .cell-dot.cult { background: #B59F81; }
+  .cell-unit {
+    font-size: 13px;
+    color: #545353;
+  }
+  .cell-empty {
+    color: #d0d0d0;
+    font-size: 18px;
+  }
+  /* Insight */
+  .insight-box {
+    margin-top: 18px;
+    background: linear-gradient(135deg, rgba(10,84,85,0.06), rgba(59,156,123,0.06));
+    border-left: 5px solid #0A5455;
+    border-radius: 8px;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .insight-box .icon { font-size: 24px; color: #0A5455; }
+  .insight-box p { font-size: 15px; font-weight: 600; color: #0A5455; }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="title">Which Services Come From Which Ecosystems?</div>
+  <div class="subtitle">Service-Ecosystem Matrix with CICES Classification</div>
+
+  <div class="legend">
+    <div class="legend-item"><div class="legend-dot prov"></div> Provisioning</div>
+    <div class="legend-item"><div class="legend-dot reg"></div> Regulating</div>
+    <div class="legend-item"><div class="legend-dot cult"></div> Cultural</div>
+  </div>
+
+  <div class="matrix-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th class="corner" style="width:30%;">Service</th>
+          <th class="coral-h"><span class="eco-icon">&#9672;</span>Coral Reef</th>
+          <th class="seagrass-h"><span class="eco-icon">&#9880;</span>Seagrass</th>
+          <th class="mangrove-h"><span class="eco-icon">&#9650;</span>Mangrove</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="service-name">Fish catch <span class="cices-tag prov">Provisioning</span></td>
+          <td><span class="cell-filled"><span class="cell-dot prov"></span><span class="cell-unit">kg/yr</span></span></td>
+          <td><span class="cell-filled"><span class="cell-dot prov"></span><span class="cell-unit">kg/yr</span></span></td>
+          <td><span class="cell-filled"><span class="cell-dot prov"></span><span class="cell-unit">kg/yr</span></span></td>
+        </tr>
+        <tr>
+          <td class="service-name">Wood / timber <span class="cices-tag prov">Provisioning</span></td>
+          <td><span class="cell-empty">&mdash;</span></td>
+          <td><span class="cell-empty">&mdash;</span></td>
+          <td><span class="cell-filled"><span class="cell-dot prov"></span><span class="cell-unit">tonnes/yr</span></span></td>
+        </tr>
+        <tr>
+          <td class="service-name">Carbon sequestration <span class="cices-tag reg">Regulating</span></td>
+          <td><span class="cell-filled"><span class="cell-dot reg"></span><span class="cell-unit">Mg CO&#8322;/yr</span></span></td>
+          <td><span class="cell-filled"><span class="cell-dot reg"></span><span class="cell-unit">Mg CO&#8322;/yr</span></span></td>
+          <td><span class="cell-filled"><span class="cell-dot reg"></span><span class="cell-unit">Mg CO&#8322;/yr</span></span></td>
+        </tr>
+        <tr>
+          <td class="service-name">Coastal protection <span class="cices-tag reg">Regulating</span></td>
+          <td><span class="cell-filled"><span class="cell-dot reg"></span><span class="cell-unit">m shoreline</span></span></td>
+          <td><span class="cell-filled"><span class="cell-dot reg"></span><span class="cell-unit">m shoreline</span></span></td>
+          <td><span class="cell-filled"><span class="cell-dot reg"></span><span class="cell-unit">m shoreline</span></span></td>
+        </tr>
+        <tr>
+          <td class="service-name">Nursery habitat <span class="cices-tag reg">Regulating</span></td>
+          <td><span class="cell-filled"><span class="cell-dot reg"></span><span class="cell-unit">kg/yr</span></span></td>
+          <td><span class="cell-filled"><span class="cell-dot reg"></span><span class="cell-unit">kg/yr</span></span></td>
+          <td><span class="cell-filled"><span class="cell-dot reg"></span><span class="cell-unit">kg/yr</span></span></td>
+        </tr>
+        <tr>
+          <td class="service-name">Recreation / tourism <span class="cices-tag cult">Cultural</span></td>
+          <td><span class="cell-filled"><span class="cell-dot cult"></span><span class="cell-unit">visitors/yr</span></span></td>
+          <td><span class="cell-empty">&mdash;</span></td>
+          <td><span class="cell-filled"><span class="cell-dot cult"></span><span class="cell-unit">visitors/yr</span></span></td>
+        </tr>
+        <tr>
+          <td class="service-name">Gleaning <span class="cices-tag cult">Cultural</span></td>
+          <td><span class="cell-filled"><span class="cell-dot cult"></span><span class="cell-unit">hours/yr</span></span></td>
+          <td><span class="cell-filled"><span class="cell-dot cult"></span><span class="cell-unit">hours/yr</span></span></td>
+          <td><span class="cell-filled"><span class="cell-dot cult"></span><span class="cell-unit">hours/yr</span></span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="insight-box">
+    <span class="icon">&#9672;</span>
+    <p>Key insight: Each ecosystem provides multiple services &mdash; and each service may depend on multiple ecosystems.</p>
+  </div>
+</div>
+</body>
+</html>

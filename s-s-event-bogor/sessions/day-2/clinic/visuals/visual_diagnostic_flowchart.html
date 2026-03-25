@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Where Are You? Start Here</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #f0f7f8 0%, #e8f0e8 100%);
+    color: #545353;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+  }
+  .slide {
+    max-width: 1400px;
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: #FFFFFF;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(10,84,85,0.12);
+    padding: 48px 56px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .title {
+    font-size: 42px;
+    font-weight: 700;
+    color: #0A5455;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+  .subtitle {
+    font-size: 17px;
+    color: #66A3B5;
+    text-align: center;
+    margin-bottom: 28px;
+    font-weight: 600;
+  }
+  /* Center node */
+  .center-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+  }
+  .center-node {
+    background: linear-gradient(135deg, #0A5455, #3B9C7B);
+    color: #fff;
+    font-size: 17px;
+    font-weight: 700;
+    padding: 16px 36px;
+    border-radius: 50px;
+    box-shadow: 0 4px 16px rgba(10,84,85,0.3);
+    position: relative;
+  }
+  .center-node::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 20px;
+    background: #0A5455;
+  }
+  /* Branches */
+  .branches {
+    display: flex;
+    gap: 28px;
+    margin-top: 24px;
+    width: 100%;
+    justify-content: center;
+  }
+  .branch {
+    flex: 1;
+    max-width: 340px;
+    text-align: center;
+  }
+  .branch-question {
+    font-size: 14px;
+    color: #545353;
+    margin-bottom: 8px;
+    font-style: italic;
+  }
+  .branch-arrow {
+    font-size: 22px;
+    color: #66A3B5;
+    margin-bottom: 6px;
+  }
+  .account-card {
+    border-radius: 12px;
+    padding: 18px 16px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    border-left: 5px solid;
+  }
+  .account-card.teal {
+    border-color: #0A5455;
+    background: linear-gradient(135deg, rgba(10,84,85,0.08), rgba(10,84,85,0.02));
+  }
+  .account-card.green {
+    border-color: #3B9C7B;
+    background: linear-gradient(135deg, rgba(59,156,123,0.08), rgba(59,156,123,0.02));
+  }
+  .account-card.bluegray {
+    border-color: #66A3B5;
+    background: linear-gradient(135deg, rgba(102,163,181,0.08), rgba(102,163,181,0.02));
+  }
+  .account-card h3 {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .account-card.teal h3 { color: #0A5455; }
+  .account-card.green h3 { color: #3B9C7B; }
+  .account-card.bluegray h3 { color: #66A3B5; }
+  .account-card p { font-size: 14px; line-height: 1.4; }
+  .account-card .icon { font-size: 28px; margin-bottom: 6px; }
+  /* Divider */
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #B5D0D6, transparent);
+    margin: 22px 0 16px;
+  }
+  /* Data section */
+  .data-section-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #0A5455;
+    text-align: center;
+    margin-bottom: 14px;
+  }
+  .pathways {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    width: 100%;
+  }
+  .pathway-card {
+    flex: 1;
+    max-width: 340px;
+    border-radius: 10px;
+    padding: 16px 18px;
+    border-left: 5px solid;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+  .pathway-card.no-data {
+    border-color: #d4a843;
+    background: linear-gradient(135deg, #fdf8ec, #fefcf5);
+  }
+  .pathway-card.some-data {
+    border-color: #5EB593;
+    background: linear-gradient(135deg, #eef8f3, #f5faf7);
+  }
+  .pathway-card.field-data {
+    border-color: #3B9C7B;
+    background: linear-gradient(135deg, #e8f5ee, #f0f8f4);
+  }
+  .pathway-card h4 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #545353;
+    margin-bottom: 4px;
+  }
+  .pathway-card .pathway-label {
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .pathway-card.no-data .pathway-label { color: #b8912e; }
+  .pathway-card.some-data .pathway-label { color: #5EB593; }
+  .pathway-card.field-data .pathway-label { color: #3B9C7B; }
+  .pathway-card p { font-size: 14px; line-height: 1.4; }
+  .pathway-card .icon { font-size: 22px; margin-bottom: 4px; }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="title">Where Are You? Start Here</div>
+  <div class="subtitle">A diagnostic flowchart for choosing your ocean account</div>
+
+  <div class="center-area">
+    <div class="center-node">&#9670; Your Policy Question</div>
+
+    <div class="branches">
+      <div class="branch">
+        <div class="branch-arrow">&#9660;</div>
+        <div class="branch-question">"How much ecosystem do we have?"</div>
+        <div class="account-card teal">
+          <div class="icon">&#9634;</div>
+          <h3>EXTENT ACCOUNT</h3>
+          <p>Map area (ha) of each ecosystem type. Track gains and losses over time.</p>
+        </div>
+      </div>
+      <div class="branch">
+        <div class="branch-arrow">&#9660;</div>
+        <div class="branch-question">"How healthy is our ecosystem?"</div>
+        <div class="account-card green">
+          <div class="icon">&#9733;</div>
+          <h3>CONDITION ACCOUNT</h3>
+          <p>Measure key indicators against a reference benchmark. Score 0 to 1.</p>
+        </div>
+      </div>
+      <div class="branch">
+        <div class="branch-arrow">&#9660;</div>
+        <div class="branch-question">"What benefits do people get?"</div>
+        <div class="account-card bluegray">
+          <div class="icon">&#9830;</div>
+          <h3>SERVICES ACCOUNT</h3>
+          <p>Quantify flows of goods and services from ecosystems to people, in physical and monetary terms.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="data-section-title">&#9881; What data do you have?</div>
+    <div class="pathways">
+      <div class="pathway-card no-data">
+        <div class="icon">&#9744;</div>
+        <div class="pathway-label">Pathway A</div>
+        <h4>No primary data</h4>
+        <p>Use global open datasets and literature values. A valid Tier 1 account.</p>
+      </div>
+      <div class="pathway-card some-data">
+        <div class="icon">&#9745;</div>
+        <div class="pathway-label">Mix A + B</div>
+        <h4>Some data available</h4>
+        <p>Combine global datasets with national statistics and local reports.</p>
+      </div>
+      <div class="pathway-card field-data">
+        <div class="icon">&#9746;</div>
+        <div class="pathway-label">Pathway B</div>
+        <h4>Field data exists</h4>
+        <p>Primary surveys, monitoring programs, or high-resolution imagery available.</p>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

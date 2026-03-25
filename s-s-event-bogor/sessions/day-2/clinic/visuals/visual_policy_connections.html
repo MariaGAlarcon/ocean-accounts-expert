@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>From Accounts to Policy</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #f0f7f8 0%, #e8f0e8 100%);
+    color: #545353;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+  }
+  .slide {
+    max-width: 1400px;
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: #FFFFFF;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(10,84,85,0.12);
+    padding: 44px 56px;
+    display: flex;
+    flex-direction: column;
+  }
+  .title {
+    font-size: 42px;
+    font-weight: 700;
+    color: #0A5455;
+    margin-bottom: 4px;
+  }
+  .subtitle {
+    font-size: 17px;
+    color: #66A3B5;
+    font-weight: 600;
+    margin-bottom: 24px;
+  }
+  .flow-container {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr auto 1fr;
+    gap: 0;
+    align-items: center;
+  }
+  /* Column headers */
+  .col-header {
+    font-size: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-align: center;
+    padding-bottom: 12px;
+    border-bottom: 2px solid;
+    margin-bottom: 16px;
+  }
+  .col-header.accounts { color: #0A5455; border-color: #0A5455; }
+  .col-header.tells { color: #3B9C7B; border-color: #3B9C7B; }
+  .col-header.policy { color: #66A3B5; border-color: #66A3B5; }
+  /* Left column - accounts */
+  .left-col, .mid-col, .right-col {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .account-box {
+    border-radius: 10px;
+    padding: 16px 18px;
+    border-left: 5px solid;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  }
+  .account-box.extent {
+    border-color: #0A5455;
+    background: linear-gradient(135deg, rgba(10,84,85,0.08), #fff);
+  }
+  .account-box.condition {
+    border-color: #3B9C7B;
+    background: linear-gradient(135deg, rgba(59,156,123,0.08), #fff);
+  }
+  .account-box.services {
+    border-color: #66A3B5;
+    background: linear-gradient(135deg, rgba(102,163,181,0.08), #fff);
+  }
+  .account-box h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .account-box.extent h3 { color: #0A5455; }
+  .account-box.condition h3 { color: #3B9C7B; }
+  .account-box.services h3 { color: #66A3B5; }
+  .account-box p { font-size: 13px; line-height: 1.4; }
+  /* Arrow columns */
+  .arrow-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 12px;
+  }
+  .arrow-col .arrow {
+    font-size: 32px;
+    color: #B5D0D6;
+    line-height: 1;
+  }
+  /* Mid column - what they tell you */
+  .tell-box {
+    border-radius: 10px;
+    padding: 14px 16px;
+    background: rgba(181,208,214,0.15);
+    border: 1px solid #B5D0D6;
+  }
+  .tell-box p {
+    font-size: 13px;
+    line-height: 1.4;
+    color: #545353;
+  }
+  .tell-box .tell-icon { font-size: 18px; margin-right: 4px; color: #3B9C7B; }
+  /* Right column - policy */
+  .policy-box {
+    border-radius: 10px;
+    padding: 12px 16px;
+    border-left: 5px solid;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    background: #fff;
+  }
+  .policy-box h4 {
+    font-size: 14px;
+    font-weight: 700;
+    color: #545353;
+    margin-bottom: 2px;
+  }
+  .policy-box p { font-size: 12px; color: #777; }
+  .policy-box .tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 8px;
+    color: #fff;
+    margin-top: 4px;
+  }
+  .policy-box.sdg { border-color: #0A5455; }
+  .policy-box.sdg .tag { background: #0A5455; }
+  .policy-box.ndc { border-color: #3B9C7B; }
+  .policy-box.ndc .tag { background: #3B9C7B; }
+  .policy-box.msp { border-color: #66A3B5; }
+  .policy-box.msp .tag { background: #66A3B5; }
+  .policy-box.finance { border-color: #B59F81; }
+  .policy-box.finance .tag { background: #B59F81; }
+  .policy-box.mpa { border-color: #5EB593; }
+  .policy-box.mpa .tag { background: #5EB593; }
+  .policy-box.blue { border-color: #0A5455; }
+  .policy-box.blue .tag { background: #0A5455; }
+  /* Highlight bar */
+  .highlight-bar {
+    margin-top: 18px;
+    background: linear-gradient(135deg, #0A5455, #3B9C7B);
+    color: #fff;
+    padding: 14px 24px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 17px;
+    font-weight: 700;
+    box-shadow: 0 4px 16px rgba(10,84,85,0.25);
+  }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="title">From Accounts to Policy</div>
+  <div class="subtitle">Three account types feed six policy instruments</div>
+
+  <div class="flow-container">
+    <!-- Left: Accounts -->
+    <div class="left-col">
+      <div class="col-header accounts">Accounts</div>
+      <div class="account-box extent">
+        <h3>&#9634; Extent Account</h3>
+        <p>Area (ha) of each ecosystem type and changes over time</p>
+      </div>
+      <div class="account-box condition">
+        <h3>&#9733; Condition Account</h3>
+        <p>Indicator scores normalized to 0&ndash;1 against references</p>
+      </div>
+      <div class="account-box services">
+        <h3>&#9830; Services Account</h3>
+        <p>Physical flows and monetary values of ecosystem services</p>
+      </div>
+    </div>
+
+    <!-- Arrow 1 -->
+    <div class="arrow-col">
+      <div class="arrow">&#10132;</div>
+      <div class="arrow">&#10132;</div>
+      <div class="arrow">&#10132;</div>
+    </div>
+
+    <!-- Mid: What they tell you -->
+    <div class="mid-col">
+      <div class="col-header tells">What They Tell You</div>
+      <div class="tell-box">
+        <p><span class="tell-icon">&#9654;</span> Are we losing or gaining ecosystem area? Where?</p>
+      </div>
+      <div class="tell-box">
+        <p><span class="tell-icon">&#9654;</span> Is ecosystem health improving or declining? Which indicators?</p>
+      </div>
+      <div class="tell-box">
+        <p><span class="tell-icon">&#9654;</span> What is the economic contribution? Who benefits?</p>
+      </div>
+    </div>
+
+    <!-- Arrow 2 -->
+    <div class="arrow-col">
+      <div class="arrow">&#10132;</div>
+      <div class="arrow">&#10132;</div>
+      <div class="arrow">&#10132;</div>
+    </div>
+
+    <!-- Right: Policy -->
+    <div class="right-col">
+      <div class="col-header policy">Policy Instruments</div>
+      <div class="policy-box sdg">
+        <h4>&#127758; SDG 14 Reporting</h4>
+        <p>Track progress on ocean targets</p>
+        <span class="tag">Extent + Condition</span>
+      </div>
+      <div class="policy-box ndc">
+        <h4>&#127793; NDC / NBSAP</h4>
+        <p>National climate and biodiversity commitments</p>
+        <span class="tag">All three accounts</span>
+      </div>
+      <div class="policy-box msp">
+        <h4>&#9875; Marine Spatial Planning</h4>
+        <p>Zoning and use allocation decisions</p>
+        <span class="tag">Extent + Services</span>
+      </div>
+      <div class="policy-box finance">
+        <h4>&#9733; Blue Finance</h4>
+        <p>Blue bonds, debt-for-nature, PES</p>
+        <span class="tag">Services (monetary)</span>
+      </div>
+      <div class="policy-box mpa">
+        <h4>&#9650; MPA Management</h4>
+        <p>Effectiveness monitoring and adaptive management</p>
+        <span class="tag">Condition + Extent</span>
+      </div>
+      <div class="policy-box blue">
+        <h4>&#9670; Blue Economy Strategy</h4>
+        <p>Sustainable ocean economic planning</p>
+        <span class="tag">All three accounts</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="highlight-bar">&#9733; Build once, report everywhere.</div>
+</div>
+</body>
+</html>
