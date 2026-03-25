@@ -152,6 +152,55 @@ def generate_extent_template(outdir):
 
     set_col_widths(ws, [32, 16, 16, 16, 16, 16, 16])
 
+    # -- Sheet 1b: Time Series --
+    ws_ts = wb.create_sheet("Extent Time Series")
+    ws_ts.sheet_properties.tabColor = GREEN
+
+    ws_ts["A1"] = "Ecosystem Extent Time Series"
+    ws_ts["A1"].font = title_font
+    ws_ts["A2"] = "Track extent across multiple accounting periods. Each closing becomes the next opening."
+    ws_ts["A2"].font = Font(name="Arial", size=9, italic=True, color="717171")
+
+    ts_headers = ["Ecosystem type", "Year 1\n(ha)", "Year 2\n(ha)", "Year 3\n(ha)", "Year 4\n(ha)",
+                  "Year 5\n(ha)", "Total\nchange (ha)", "Change\n(%)"]
+    for c, h in enumerate(ts_headers, 1):
+        cell = ws_ts.cell(row=4, column=c, value=h)
+        apply_header(cell)
+
+    eco_types = ["Coral reefs (M1.3)", "Seagrass (M1.1)", "Mangroves (MFT1.2)",
+                 "Ecosystem 4 (edit)", "Other", "Total accounting area"]
+    for r, eco in enumerate(eco_types, 5):
+        apply_row_header(ws_ts.cell(row=r, column=1, value=eco))
+        for c in range(2, 7):
+            apply_input(ws_ts.cell(row=r, column=c))
+        # Total change = last year - first year
+        ws_ts.cell(row=r, column=7).value = f"=F{r}-B{r}"
+        apply_data(ws_ts.cell(row=r, column=7))
+        # Change % = total change / first year
+        ws_ts.cell(row=r, column=8).value = f'=IF(B{r}=0,"",G{r}/B{r})'
+        apply_data(ws_ts.cell(row=r, column=8))
+        ws_ts.cell(row=r, column=8).number_format = "+0.0%;-0.0%"
+
+    # Net change per period section
+    ws_ts.cell(row=12, column=1, value="Net change per period").font = Font(
+        name="Arial", size=12, bold=True, color=TEAL)
+    nc_headers = ["Ecosystem type", "Period 1-2\n(ha)", "Period 2-3\n(ha)",
+                  "Period 3-4\n(ha)", "Period 4-5\n(ha)", "Trend"]
+    for c, h in enumerate(nc_headers, 1):
+        apply_header(ws_ts.cell(row=13, column=c, value=h))
+    for r, eco in enumerate(eco_types[:5], 14):
+        apply_row_header(ws_ts.cell(row=r, column=1, value=eco))
+        orig_r = r - 14 + 5
+        for c, (c1, c2) in enumerate([(2,3),(3,4),(4,5),(5,6)], 2):
+            col1 = get_column_letter(c1)
+            col2 = get_column_letter(c2)
+            ws_ts.cell(row=r, column=c).value = f'=IF(OR({col2}{orig_r}="",{col1}{orig_r}=""),"",' \
+                                                 f'{col2}{orig_r}-{col1}{orig_r})'
+            apply_data(ws_ts.cell(row=r, column=c))
+        apply_input(ws_ts.cell(row=r, column=6))  # Trend (manual text)
+
+    set_col_widths(ws_ts, [26, 14, 14, 14, 14, 14, 16, 12])
+
     # -- Sheet 2: Change Matrix --
     ws2 = wb.create_sheet("Change Matrix")
     ws2.sheet_properties.tabColor = TEAL

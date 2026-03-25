@@ -107,6 +107,76 @@ def generate_example_workbook(outdir):
     set_col_widths(ws, [30, 16, 16, 16, 18, 16])
 
     # ================================================================
+    # SHEET 1b: Extent Time Series (multi-period)
+    # ================================================================
+    ws1b = wb.create_sheet("Extent Time Series")
+    ws1b.sheet_properties.tabColor = GREEN
+
+    ws1b["A1"] = "Table 1b: Ecosystem Extent Time Series"
+    ws1b["A1"].font = title_font
+    ws1b["A2"] = "Coastal District Example, 2010 to 2023 (multiple accounting periods)"
+    ws1b["A2"].font = subtitle_font
+    ws1b["A3"] = "Each period's closing extent becomes the next period's opening extent."
+    ws1b["A3"].font = note_font
+
+    ts_headers = ["Ecosystem type", "2010\n(ha)", "2014\n(ha)", "2018\n(ha)", "2023\n(ha)",
+                  "Total change\n2010-2023\n(ha)", "Total change\n(%)"]
+    for c, h in enumerate(ts_headers, 1):
+        apply_header(ws1b.cell(row=5, column=c, value=h))
+
+    ts_data = [
+        ("Coral reefs (M1.3)",   [1420, 1340, 1240, 1180, -240, -16.9]),
+        ("Seagrass (M1.1)",      [950, 910, 860, 825, -125, -13.2]),
+        ("Mangroves (MFT1.2)",   [280, 290, 315, 340, 60, 21.4]),
+        ("Other",                [7350, 7460, 7585, 7655, 305, 4.1]),
+        ("Total accounting area", [10000, 10000, 10000, 10000, 0, 0.0]),
+    ]
+    for r, (eco, vals) in enumerate(ts_data, 6):
+        apply_row_header(ws1b.cell(row=r, column=1, value=eco))
+        for c, v in enumerate(vals, 2):
+            cell = ws1b.cell(row=r, column=c, value=v)
+            is_total = (eco == "Total accounting area")
+            apply_data(cell, bold=is_total)
+            if c <= 5:
+                cell.number_format = "#,##0"
+            elif c == 6:
+                cell.number_format = "#,##0"
+            else:
+                cell.number_format = "+0.0%;-0.0%" if not is_total else "0.0%"
+                cell.value = v / 100
+
+    # Net change per period rows
+    ws1b.cell(row=12, column=1).value = ""
+    section_title(ws1b, 13, 1, "Net change per accounting period")
+    nc_headers = ["Ecosystem type", "2010-2014\n(ha)", "2014-2018\n(ha)", "2018-2023\n(ha)", "Trend"]
+    for c, h in enumerate(nc_headers, 1):
+        apply_header(ws1b.cell(row=14, column=c, value=h))
+
+    nc_data = [
+        ("Coral reefs",  [-80, -100, -60, "Declining (slowing)"]),
+        ("Seagrass",     [-40, -50, -35, "Declining (slowing)"]),
+        ("Mangroves",    [10, 25, 25, "Increasing (stable rate)"]),
+    ]
+    for r, (eco, vals) in enumerate(nc_data, 15):
+        apply_row_header(ws1b.cell(row=r, column=1, value=eco))
+        for c, v in enumerate(vals, 2):
+            cell = ws1b.cell(row=r, column=c, value=v)
+            if isinstance(v, str):
+                apply_data(cell, align="left")
+            else:
+                apply_data(cell)
+                cell.number_format = "+#,##0;-#,##0"
+
+    ws1b["A19"] = "Trend interpretation: compare magnitude of net change across periods."
+    ws1b["A19"].font = note_font
+    ws1b["A20"] = "Coral and seagrass losses are slowing, suggesting either reduced pressures or approaching a floor."
+    ws1b["A20"].font = note_font
+    ws1b["A21"] = "Mangrove gains are consistent, likely reflecting sustained restoration programmes."
+    ws1b["A21"].font = note_font
+
+    set_col_widths(ws1b, [26, 14, 14, 14, 14, 18, 16])
+
+    # ================================================================
     # SHEET 2: Change Matrix
     # ================================================================
     ws2 = wb.create_sheet("Change Matrix")
@@ -448,6 +518,29 @@ td.stable { background: #D4EEE5; }
 <tr><td>Closing total</td><td class="num bold">1,180</td><td class="num bold">825</td><td class="num bold">340</td><td class="num bold">7,655</td><td class="num bold">10,000</td></tr>
 </table>
 <p class="note">Green cells = stable area (no change). Off-diagonal = transitions between ecosystem types.</p>
+
+<h2>Table 1b: Ecosystem Extent Time Series (multiple accounting periods)</h2>
+<p style="font-size:13px; color:#545353; margin-bottom:0.8rem;">Each period's closing becomes the next period's opening. This table builds up over time.</p>
+<table>
+<tr><th>Ecosystem type</th><th>2010 (ha)</th><th>2014 (ha)</th><th>2018 (ha)</th><th>2023 (ha)</th><th>Total change</th><th>Change (%)</th></tr>
+<tr><td>Coral reefs (M1.3)</td><td class="num">1,420</td><td class="num">1,340</td><td class="num">1,240</td><td class="num">1,180</td><td class="num bold">-240</td><td class="num bold">-16.9%</td></tr>
+<tr><td>Seagrass (M1.1)</td><td class="num">950</td><td class="num">910</td><td class="num">860</td><td class="num">825</td><td class="num bold">-125</td><td class="num bold">-13.2%</td></tr>
+<tr><td>Mangroves (MFT1.2)</td><td class="num">280</td><td class="num">290</td><td class="num">315</td><td class="num">340</td><td class="num bold">+60</td><td class="num bold">+21.4%</td></tr>
+<tr><td>Other</td><td class="num">7,350</td><td class="num">7,460</td><td class="num">7,585</td><td class="num">7,655</td><td class="num bold">+305</td><td class="num bold">+4.1%</td></tr>
+<tr><td>Total</td><td class="num bold">10,000</td><td class="num bold">10,000</td><td class="num bold">10,000</td><td class="num bold">10,000</td><td class="num bold">0</td><td class="num bold">0%</td></tr>
+</table>
+
+<h3>Net change per accounting period</h3>
+<table>
+<tr><th>Ecosystem</th><th>2010-2014</th><th>2014-2018</th><th>2018-2023</th><th>Trend</th></tr>
+<tr><td>Coral reefs</td><td class="num">-80</td><td class="num">-100</td><td class="num">-60</td><td>Declining (slowing)</td></tr>
+<tr><td>Seagrass</td><td class="num">-40</td><td class="num">-50</td><td class="num">-35</td><td>Declining (slowing)</td></tr>
+<tr><td>Mangroves</td><td class="num">+10</td><td class="num">+25</td><td class="num">+25</td><td>Increasing (stable rate)</td></tr>
+</table>
+
+<div class="highlight">
+<strong>Reading the time series:</strong> Coral and seagrass losses are slowing across periods, suggesting either reduced pressures or approaching a degradation floor. Mangrove gains are consistent, likely reflecting sustained restoration. The time series is where the value of repeated accounting becomes visible: a single snapshot shows status, but the series shows trajectory.
+</div>
 </div>
 
 <div class="slide page-break">
