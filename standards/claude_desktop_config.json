@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "ocean-standards-rag": {
+      "command": "python3",
+      "args": [
+        "/Users/mariaalarcon/Desktop/standards/mcp_server.py"
+      ],
+      "env": {}
+    }
+  }
+}
