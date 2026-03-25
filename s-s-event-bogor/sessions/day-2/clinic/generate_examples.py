@@ -451,6 +451,106 @@ def generate_example_workbook(outdir):
 
     set_col_widths(ws6, [26, 22, 18, 22, 14])
 
+    # ================================================================
+    # SHEET 7: Data Sources Reference
+    # ================================================================
+    ws7 = wb.create_sheet("Data Sources")
+    ws7.sheet_properties.tabColor = GREEN
+
+    ws7["A1"] = "Data Sources for Ecosystem Service Calculations"
+    ws7["A1"].font = title_font
+    ws7["A2"] = "Where to find the data for each service (Part A physical and Part B monetary)"
+    ws7["A2"].font = subtitle_font
+
+    sources = [
+        ("SERVICE", "DATA NEEDED", "PART", "SOURCE", "URL / REFERENCE"),
+        ("Fish provisioning", "Total catch (kg/yr)", "A", "National fisheries agency landing records", "FAO: fao.org/fishery"),
+        ("Fish provisioning", "Catch by species", "A", "Landing site surveys, fisher cooperatives", "FishBase: fishbase.org"),
+        ("Fish provisioning", "Catch by country (Tier 1)", "A", "FAO FishStatJ or Sea Around Us", "seaaroundus.org"),
+        ("Fish provisioning", "Market prices (USD/kg)", "B", "Local fish market surveys, national stats", ""),
+        ("Fish provisioning", "Fishing costs", "B", "Fisher household surveys", "GOAP survey templates"),
+        ("", "", "", "", ""),
+        ("Carbon sequestration", "Ecosystem extent (ha)", "A", "Extent account, or global datasets", "globalmangrovewatch.org, allencoralatlas.org"),
+        ("Carbon sequestration", "NCP rates (Mg CO2/ha/yr)", "A", "Published literature", "Alongi (2014), Fourqurean et al. (2012)"),
+        ("Carbon sequestration", "IPCC default rates", "A", "IPCC Wetlands Supplement (2013)", "ipcc.ch"),
+        ("Carbon sequestration", "Primary carbon data (Tier 2-3)", "A", "Field: soil cores, allometric equations", "National forest inventories"),
+        ("Carbon sequestration", "Social cost of carbon", "B", "US EPA Interagency Working Group", "USD 51/Mg CO2 (2021 central)"),
+        ("Carbon sequestration", "Voluntary market price", "B", "Ecosystem Marketplace", "ecosystemmarketplace.com"),
+        ("Carbon sequestration", "VCS blue carbon credits", "B", "Verra project registry", "verra.org"),
+        ("", "", "", "", ""),
+        ("Coastal protection", "Ecosystem extent along coast", "A", "GIS overlay of extent map + coastline", "From extent account"),
+        ("Coastal protection", "Buildings behind buffer", "A", "OpenStreetMap, national cadastres", "openstreetmap.org"),
+        ("Coastal protection", "Population behind buffer", "A", "Census data, WorldPop", "worldpop.org"),
+        ("Coastal protection", "Seawall cost (USD/m)", "B", "Engineering firms, govt infrastructure budgets", "Range: USD 2,000-15,000/m"),
+        ("Coastal protection", "Wave attenuation data (Tier 3)", "B", "Wave models, buoy data", "NOAA WaveWatch III"),
+        ("", "", "", "", ""),
+        ("Nursery habitat", "Fish density (nursery vs non-nursery)", "A", "Field surveys (UVC, seine nets)", "National monitoring programs"),
+        ("Nursery habitat", "Log Response Ratio (LRR)", "A", "Literature meta-analyses", "Coral: 31%, Seagrass: 13%"),
+        ("Nursery habitat", "Total fish biomass", "A", "From fish provisioning account", ""),
+        ("Nursery habitat", "Market price of fish", "B", "Same as fish provisioning", ""),
+        ("", "", "", "", ""),
+        ("Recreation", "Visitor arrivals", "A", "National tourism authority, UNWTO", "unwto.org"),
+        ("Recreation", "Dive/snorkel activity", "A", "Dive centres, tour operators", "PADI statistics, local associations"),
+        ("Recreation", "MPA visitor counts", "A", "Park management, entry permits", ""),
+        ("Recreation", "Activity fees", "B", "Operator records, online pricing", "Direct observation"),
+        ("Recreation", "Visitor expenditure surveys", "B", "Tourist surveys, accommodation records", ""),
+        ("", "", "", "", ""),
+        ("Gleaning", "Gleaner counts and effort", "A", "Household surveys, community monitoring", "Participatory methods"),
+        ("Gleaning", "Harvest by species (kg)", "A", "Gleaner interviews, landing measurements", ""),
+        ("Gleaning", "Local wage rate", "B", "National statistics, minimum wage", ""),
+        ("Gleaning", "Market prices for harvest", "B", "Local market surveys", ""),
+        ("", "", "", "", ""),
+        ("Sediment retention", "CaCO3 production rates", "A", "Literature", "Perry et al. (2012)"),
+        ("Sediment retention", "Beach nourishment cost", "B", "Coastal management agencies", "Range: USD 5-20/m3"),
+    ]
+
+    for c, h in enumerate(sources[0], 1):
+        apply_header(ws7.cell(row=4, column=c, value=h))
+
+    for r, row in enumerate(sources[1:], 5):
+        svc, data, part, source, url = row
+        if svc == "":
+            continue
+        ws7.cell(row=r, column=1, value=svc).font = bold_font
+        ws7.cell(row=r, column=1).border = bdr
+        ws7.cell(row=r, column=2, value=data).font = data_font
+        ws7.cell(row=r, column=2).border = bdr
+        ws7.cell(row=r, column=3, value=part).font = data_font
+        ws7.cell(row=r, column=3).border = bdr
+        ws7.cell(row=r, column=3).alignment = Alignment(horizontal="center")
+        ws7.cell(row=r, column=4, value=source).font = data_font
+        ws7.cell(row=r, column=4).border = bdr
+        ws7.cell(row=r, column=5, value=url).font = Font(name="Arial", size=9, color="5EB593")
+        ws7.cell(row=r, column=5).border = bdr
+
+    # Global datasets section
+    r_global = 5 + len(sources)
+    section_title(ws7, r_global, 1, "Global Open Datasets (free, get started quickly)")
+    r_global += 1
+    for c, h in enumerate(["Dataset", "URL", "What it provides"], 1):
+        apply_header(ws7.cell(row=r_global, column=c, value=h))
+    globals_data = [
+        ("Allen Coral Atlas", "allencoralatlas.org", "Coral reef and seagrass extent, benthic cover"),
+        ("Global Mangrove Watch", "globalmangrovewatch.org", "Mangrove extent 1996-2020, canopy height, biomass"),
+        ("Global Fishing Watch", "globalfishingwatch.org", "Fishing effort, vessel tracking"),
+        ("Sea Around Us", "seaaroundus.org", "Reconstructed catch by country, EEZ, species"),
+        ("FAO FishStatJ", "fao.org/fishery/statistics", "National fisheries production and trade"),
+        ("UNWTO", "unwto.org", "International tourism arrivals and receipts"),
+        ("WorldPop", "worldpop.org", "Gridded population estimates"),
+        ("OpenStreetMap", "openstreetmap.org", "Building footprints, infrastructure"),
+        ("NOAA Coral Reef Watch", "coralreefwatch.noaa.gov", "SST, DHW, bleaching alerts"),
+        ("ESVD", "esvd.info", "Published valuations for value transfer"),
+        ("Ecosystem Marketplace", "ecosystemmarketplace.com", "Carbon credit prices and market trends"),
+    ]
+    for r, (name, url, desc) in enumerate(globals_data, r_global + 1):
+        apply_row_header(ws7.cell(row=r, column=1, value=name))
+        ws7.cell(row=r, column=2, value=url).font = Font(name="Arial", size=9, color="5EB593")
+        ws7.cell(row=r, column=2).border = bdr
+        ws7.cell(row=r, column=3, value=desc).font = data_font
+        ws7.cell(row=r, column=3).border = bdr
+
+    set_col_widths(ws7, [22, 30, 6, 40, 36])
+
     path = outdir / "examples" / "example_completed_accounts.xlsx"
     path.parent.mkdir(exist_ok=True)
     wb.save(path)
