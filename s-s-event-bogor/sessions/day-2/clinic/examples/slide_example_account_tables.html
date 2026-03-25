@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Example Ocean Account Tables</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: Arial, sans-serif; background: #f5f5f5; color: #30302F; }
+.slide { width: 100%; max-width: 1400px; margin: 2rem auto; background: #fff;
+         padding: 2rem 2.5rem; border-radius: 8px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
+h1 { font-size: 32px; color: #0A5455; border-bottom: 4px solid #0A5455;
+     padding-bottom: 0.5rem; margin-bottom: 1.5rem; }
+h2 { font-size: 20px; color: #0A5455; margin: 2rem 0 0.8rem 0; }
+h3 { font-size: 16px; color: #3B9C7B; margin: 1.5rem 0 0.5rem 0; }
+table { border-collapse: collapse; width: 100%; margin-bottom: 1rem; font-size: 13px; }
+th { background: #3B9C7B; color: #fff; font-weight: bold; padding: 8px 10px;
+     border: 1px solid #404040; text-align: center; }
+td { padding: 6px 10px; border: 1px solid #404040; }
+td:first-child { background: #0A5455; color: #fff; font-weight: bold; }
+td.num { text-align: right; }
+td.bold { font-weight: bold; }
+td.stable { background: #D4EEE5; }
+.note { font-size: 12px; color: #717171; font-style: italic; margin: 0.5rem 0 1rem 0; }
+.highlight { background: linear-gradient(to right, #E8F3F5, #F9F5F0);
+             border: 2px solid #66A3B5; border-radius: 6px; padding: 1rem; margin: 1rem 0; }
+.highlight strong { color: #0A5455; }
+.page-break { page-break-before: always; }
+</style>
+</head>
+<body>
+
+<div class="slide">
+<h1>Example Ocean Account Tables</h1>
+<p style="font-size:14px; color:#3B9C7B;">Coastal District Example -- Illustrative data for training purposes</p>
+
+<h2>Table 1: Ecosystem Extent Account (2018 to 2023)</h2>
+<table>
+<tr><th></th><th>Coral reefs<br>(M1.3)</th><th>Seagrass<br>(M1.1)</th><th>Mangroves<br>(MFT1.2)</th><th>Other</th><th>Total</th></tr>
+<tr><td>Opening extent (ha)</td><td class="num bold">1,240</td><td class="num bold">860</td><td class="num bold">315</td><td class="num bold">7,585</td><td class="num bold">10,000</td></tr>
+<tr><td>Additions: natural expansion</td><td class="num">30</td><td class="num">20</td><td class="num">35</td><td class="num">85</td><td class="num">170</td></tr>
+<tr><td>Additions: managed restoration</td><td class="num">10</td><td class="num">15</td><td class="num">5</td><td class="num">0</td><td class="num">30</td></tr>
+<tr><td>Additions: reclassification</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">70</td><td class="num">70</td></tr>
+<tr><td>Total additions</td><td class="num bold">40</td><td class="num bold">35</td><td class="num bold">40</td><td class="num bold">155</td><td class="num bold">270</td></tr>
+<tr><td>Total reductions</td><td class="num bold">100</td><td class="num bold">70</td><td class="num bold">15</td><td class="num bold">85</td><td class="num bold">270</td></tr>
+<tr><td>Net change</td><td class="num bold">-60</td><td class="num bold">-35</td><td class="num bold">+25</td><td class="num bold">+70</td><td class="num bold">0</td></tr>
+<tr><td>Closing extent (ha)</td><td class="num bold">1,180</td><td class="num bold">825</td><td class="num bold">340</td><td class="num bold">7,655</td><td class="num bold">10,000</td></tr>
+</table>
+<p class="note">Total accounting area is conserved (10,000 ha). Net change across all types sums to zero.</p>
+
+<h2>Table 2: Ecosystem Type Change Matrix (hectares)</h2>
+<table>
+<tr><th>Opening \ Closing</th><th>Coral</th><th>Seagrass</th><th>Mangrove</th><th>Other</th><th>Opening total</th></tr>
+<tr><td>Coral reefs</td><td class="num stable">1,140</td><td class="num">15</td><td class="num">0</td><td class="num">85</td><td class="num bold">1,240</td></tr>
+<tr><td>Seagrass</td><td class="num">10</td><td class="num stable">790</td><td class="num">5</td><td class="num">55</td><td class="num bold">860</td></tr>
+<tr><td>Mangroves</td><td class="num">0</td><td class="num">0</td><td class="num stable">300</td><td class="num">15</td><td class="num bold">315</td></tr>
+<tr><td>Other</td><td class="num">30</td><td class="num">20</td><td class="num">35</td><td class="num stable">7,500</td><td class="num bold">7,585</td></tr>
+<tr><td>Closing total</td><td class="num bold">1,180</td><td class="num bold">825</td><td class="num bold">340</td><td class="num bold">7,655</td><td class="num bold">10,000</td></tr>
+</table>
+<p class="note">Green cells = stable area (no change). Off-diagonal = transitions between ecosystem types.</p>
+</div>
+
+<div class="slide page-break">
+<h1>Example Ocean Account Tables (continued)</h1>
+
+<h2>Table 3: Ecosystem Condition Account -- Coral Reefs (M1.3)</h2>
+<p style="font-size:13px; color:#545353; margin-bottom:0.8rem;">Marine Reserve Example, 2019 to 2024. CI scale: 0 = degraded, 1 = reference condition.</p>
+<table>
+<tr><th>Indicator</th><th>Unit</th><th>Direction</th><th>Reference</th><th>Opening<br>value</th><th>Opening<br>CI</th><th>Closing<br>value</th><th>Closing<br>CI</th><th>Change</th><th>Status</th></tr>
+<tr><td>Live coral cover</td><td class="num">%</td><td>Higher better</td><td class="num">50%</td><td class="num">31.1</td><td class="num">0.62</td><td class="num">26.6</td><td class="num">0.53</td><td class="num">-0.09</td><td>Declining</td></tr>
+<tr><td>Macroalgae cover</td><td class="num">%</td><td>Higher worse</td><td class="num">60%</td><td class="num">22.6</td><td class="num">0.62</td><td class="num">27.4</td><td class="num">0.54</td><td class="num">-0.08</td><td>Declining</td></tr>
+<tr><td>Fish biomass</td><td class="num">kg/ha</td><td>Higher better</td><td class="num">500</td><td class="num">213.8</td><td class="num">0.43</td><td class="num">193.8</td><td class="num">0.39</td><td class="num">-0.04</td><td>Declining</td></tr>
+<tr><td>Recruit density</td><td class="num">per m2</td><td>Higher better</td><td class="num">15</td><td class="num">8.5</td><td class="num">0.57</td><td class="num">6.2</td><td class="num">0.41</td><td class="num">-0.15</td><td>Declining</td></tr>
+<tr><td>Reef relief</td><td class="num">cm</td><td>Higher better</td><td class="num">150</td><td class="num">82.5</td><td class="num">0.55</td><td class="num">78.0</td><td class="num">0.52</td><td class="num">-0.03</td><td>Stable</td></tr>
+<tr><td>Bleaching prevalence</td><td class="num">% colonies</td><td>Higher worse</td><td class="num">100%</td><td class="num">8.5</td><td class="num">0.92</td><td class="num">18.3</td><td class="num">0.82</td><td class="num">-0.10</td><td>Declining</td></tr>
+<tr><td style="background:#19383B">Composite CI</td><td></td><td></td><td></td><td></td><td class="num bold">0.62</td><td></td><td class="num bold">0.53</td><td class="num bold">-0.08</td><td class="bold">Declining</td></tr>
+</table>
+
+<div class="highlight">
+<strong>Reading this table:</strong> The composite condition index declined from 0.62 to 0.53 over 5 years. The reef is at roughly half its reference condition, with coral cover, fish biomass, and bleaching showing the largest declines. Reef relief (physical structure) remained relatively stable.
+</div>
+</div>
+
+<div class="slide page-break">
+<h1>Example Ocean Account Tables (continued)</h1>
+
+<h2>Table 4a: Ecosystem Service Physical Supply (Part A)</h2>
+<p style="font-size:13px; color:#545353; margin-bottom:0.8rem;">Part A is a complete account on its own. No monetary data needed.</p>
+<table>
+<tr><th>Service</th><th>Category</th><th>Unit</th><th>Coral reefs</th><th>Seagrass</th><th>Mangroves</th><th>Total</th></tr>
+<tr><td>Fish provisioning</td><td>Provisioning</td><td>kg/yr</td><td class="num">120,000</td><td class="num">45,000</td><td class="num">15,000</td><td class="num bold">180,000</td></tr>
+<tr><td>Wood provisioning</td><td>Provisioning</td><td>tonnes/yr</td><td class="num"></td><td class="num"></td><td class="num">85</td><td class="num bold">85</td></tr>
+<tr><td>Carbon sequestration</td><td>Regulating</td><td>Mg CO2/yr</td><td class="num"></td><td class="num">1,040</td><td class="num">1,295</td><td class="num bold">2,335</td></tr>
+<tr><td>Coastal protection</td><td>Regulating</td><td>m coastline</td><td class="num">12,000</td><td class="num"></td><td class="num">3,500</td><td class="num bold">15,500</td></tr>
+<tr><td>Nursery habitat</td><td>Regulating</td><td>kg biomass/yr</td><td class="num">4,500</td><td class="num">2,800</td><td class="num"></td><td class="num bold">7,300</td></tr>
+<tr><td>Sediment retention</td><td>Regulating</td><td>m3 CaCO3/yr</td><td class="num">8,400</td><td class="num"></td><td class="num"></td><td class="num bold">8,400</td></tr>
+<tr><td>Recreation (reef)</td><td>Cultural</td><td>visitors/yr</td><td class="num">15,000</td><td class="num"></td><td class="num"></td><td class="num bold">15,000</td></tr>
+<tr><td>Recreation (mangrove)</td><td>Cultural</td><td>trips/yr</td><td class="num"></td><td class="num"></td><td class="num">2,400</td><td class="num bold">2,400</td></tr>
+<tr><td>Gleaning</td><td>Cultural</td><td>hours/yr</td><td class="num"></td><td class="num">18,000</td><td class="num"></td><td class="num bold">18,000</td></tr>
+</table>
+
+<h2>Table 4b: Ecosystem Service Monetary Supply (Part B) -- USD/yr</h2>
+<table>
+<tr><th>Service</th><th>Method</th><th>Type</th><th>Coral reefs</th><th>Seagrass</th><th>Mangroves</th><th>Total</th></tr>
+<tr><td>Fish provisioning</td><td>Resource rent</td><td>Market</td><td class="num">140,000</td><td class="num">52,500</td><td class="num">17,500</td><td class="num bold">210,000</td></tr>
+<tr><td>Wood provisioning</td><td>Substitute cost</td><td>Non-market</td><td class="num"></td><td class="num"></td><td class="num">12,750</td><td class="num bold">12,750</td></tr>
+<tr><td>Carbon sequestration</td><td>SCC ($51/Mg)</td><td>Non-market</td><td class="num"></td><td class="num">53,040</td><td class="num">66,045</td><td class="num bold">119,085</td></tr>
+<tr><td>Coastal protection</td><td>Replacement cost</td><td>Non-market</td><td class="num">1,200,000</td><td class="num"></td><td class="num">175,000</td><td class="num bold">1,375,000</td></tr>
+<tr><td>Nursery habitat</td><td>Productivity change</td><td>Market</td><td class="num">78,750</td><td class="num">49,000</td><td class="num"></td><td class="num bold">127,750</td></tr>
+<tr><td>Sediment retention</td><td>Replacement cost</td><td>Non-market</td><td class="num">420,000</td><td class="num"></td><td class="num"></td><td class="num bold">420,000</td></tr>
+<tr><td>Recreation</td><td>Direct expenditure</td><td>Market</td><td class="num">1,275,000</td><td class="num"></td><td class="num">84,000</td><td class="num bold">1,359,000</td></tr>
+<tr><td>Gleaning</td><td>Equiv. wage + market</td><td>Mixed</td><td class="num"></td><td class="num">63,000</td><td class="num"></td><td class="num bold">63,000</td></tr>
+<tr><td style="background:#19383B">TOTAL</td><td></td><td></td><td class="num bold">3,113,750</td><td class="num bold">217,540</td><td class="num bold">355,295</td><td class="num bold">3,686,585</td></tr>
+</table>
+
+<div class="highlight">
+<strong>Key insight:</strong> Regulating and cultural services (coastal protection $1.4M, recreation $1.4M) account for 75% of total ecosystem service value. Fish provisioning, often assumed to be the dominant service, represents only 6% of the total. This pattern is common in tropical coastal systems and has direct implications for policy: protecting reef structure and water quality protects the highest-value services.
+</div>
+</div>
+
+</body>
+</html>
