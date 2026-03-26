@@ -280,7 +280,7 @@ def generate_services(outdir):
     add_title(doc, "Table 4a: Physical Supply of Ecosystem Services (Part A)")
 
     make_table(doc,
-        ["Service", "CICES\ncategory", "Unit", "Coral reefs\n(M1.3)", "Seagrass\n(M1.1)",
+        ["Service", "SEEA EA\nreference list", "Unit", "Coral reefs\n(M1.3)", "Seagrass\n(M1.1)",
          "Mangroves\n(MFT1.2)", "Total"],
         [
             ["Fish provisioning", "Provisioning", "kg/yr", "120,000", "45,000", "15,000", "180,000"],

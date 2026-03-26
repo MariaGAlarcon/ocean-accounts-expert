@@ -288,21 +288,21 @@ def generate_example_workbook(outdir):
     ws4["A2"] = "Coastal District Example, 2023"
     ws4["A2"].font = subtitle_font
 
-    s_headers = ["Service", "CICES\ncategory", "Unit", "Coral\nreefs", "Seagrass", "Mangroves", "Total"]
+    s_headers = ["Service", "SEEA EA\nreference list", "Unit", "Coral\nreefs", "Seagrass", "Mangroves", "Total"]
     for c, h in enumerate(s_headers, 1):
         apply_header(ws4.cell(row=4, column=c, value=h))
 
     phys = [
-        ("Wild fish provisioning", "Provisioning", "kg/yr", 120000, 45000, 15000, 180000),
-        ("Wood provisioning", "Provisioning", "tonnes/yr", None, None, 85, 85),
+        ("Wild fish provisioning", "Provisioning (6.1)", "kg/yr", 120000, 45000, 15000, 180000),
+        ("Wood provisioning", "Provisioning (6.1)", "tonnes/yr", None, None, 85, 85),
         ("Carbon sequestration", "Regulating", "Mg CO2/yr", None, 1040, 1295, 2335),
         ("Coastal protection", "Regulating", "m coastline", 12000, None, 3500, 15500),
         ("Nursery habitat", "Regulating", "kg biomass/yr", 4500, 2800, None, 7300),
         ("Sediment retention", "Regulating", "m3 CaCO3/yr", 8400, None, None, 8400),
-        ("Recreation (reef diving)", "Cultural", "visitors/yr", 15000, None, None, 15000),
-        ("Recreation (mangrove tours)", "Cultural", "trips/yr", None, None, 2400, 2400),
-        ("Gleaning", "Cultural", "hours/yr", None, 18000, None, 18000),
-        ("Gleaning harvest", "Cultural", "kg/yr", None, 4200, None, 4200),
+        ("Recreation (reef diving)", "Cultural (6.6)", "visitors/yr", 15000, None, None, 15000),
+        ("Recreation (mangrove tours)", "Cultural (6.6)", "trips/yr", None, None, 2400, 2400),
+        ("Gleaning", "Cultural (6.6)", "hours/yr", None, 18000, None, 18000),
+        ("Gleaning harvest", "Cultural (6.6)", "kg/yr", None, 4200, None, 4200),
     ]
     for r, (svc, cat, unit, cr, sg, mg, total) in enumerate(phys, 5):
         apply_row_header(ws4.cell(row=r, column=1, value=svc))

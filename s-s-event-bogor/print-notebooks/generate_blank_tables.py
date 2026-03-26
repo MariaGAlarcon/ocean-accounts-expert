@@ -234,7 +234,7 @@ def generate_services_tables(outdir):
     doc.add_paragraph()
     add_title(doc, "Table 4a: Physical Supply (Part A)")
     make_table(doc,
-        ["Service", "CICES\ncategory", "Unit", "Ecosystem 1", "Ecosystem 2", "Ecosystem 3", "Total"],
+        ["Service", "SEEA EA\nreference list", "Unit", "Ecosystem 1", "Ecosystem 2", "Ecosystem 3", "Total"],
         [
             ["Fish provisioning", "Provisioning", "kg/yr", "", "", "", ""],
             ["Wood provisioning", "Provisioning", "tonnes/yr", "", "", "", ""],
