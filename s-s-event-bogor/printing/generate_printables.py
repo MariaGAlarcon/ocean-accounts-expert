@@ -191,8 +191,16 @@ def generate_triage_card(outdir):
 
     add_heading_h2(doc, "Step 1: Ask three questions")
 
+    add_body(doc, "1. What account type do you want to build?")
+    for opt in [
+        "   - Extent, Condition, Services (SEEA-EA ecological)",
+        "   - Ocean Economy or Tourism (SNA economic)",
+        "   - Waste and Emissions (SEEA-CF environmental flows)",
+        "   - Social and Governance (GOAP social dimensions)",
+        "   - I don't know yet -> diagnostic tool",
+    ]:
+        add_body(doc, opt)
     for q in [
-        "1. What account type do you want to build? (Extent / Condition / Services / Unsure)",
         "2. What data do you have? (None / Global datasets / National data / Field data)",
         "3. What is your policy question?",
     ]:
@@ -209,6 +217,10 @@ def generate_triage_card(outdir):
             ["Condition", "Field surveys", "B: Indicators", "condition_account_template.xlsx\ncondition_exercise.xlsx"],
             ["Services", "No data", "A: Value transfer", "services_account_template.xlsx"],
             ["Services", "Catch, visitors, etc.", "B: Primary calc", "services_account_template.xlsx\nservices_exercise.xlsx"],
+            ["Ocean economy (GDP)", "National statistics/SUT", "economic/ OESA", "OESA guidance"],
+            ["Ocean tourism", "Tourism statistics", "tourism/ OTSA", "OTSA guidance"],
+            ["Waste/pollution", "Waste/water quality data", "waste/", "SEEA-CF templates"],
+            ["Social/governance", "Census, surveys", "social/ scoping", "GOAP social framework"],
             ["Don't know", "Any", "Diagnostic tool", "diagnostic-tool.md"],
         ])
 

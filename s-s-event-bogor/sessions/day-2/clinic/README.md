@@ -16,9 +16,10 @@
 Ask three questions:
 
 1. **What account type do you want to build?**
-   - Extent (mapping ecosystem areas and changes)
-   - Condition (measuring ecosystem health)
-   - Ecosystem services (quantifying benefits to people)
+   - Extent, Condition, Services (SEEA-EA ecological)
+   - Ocean Economy or Tourism (SNA economic)
+   - Waste and Emissions (SEEA-CF environmental flows)
+   - Social and Governance (GOAP social dimensions)
    - "I don't know yet" --> use the diagnostic tool
 
 2. **What data do you have?**
@@ -33,14 +34,18 @@ Ask three questions:
 ### Step 2: Direct them to the right pathway
 
 | They want... | They have... | Go to... |
-|-------------|-------------|----------|
-| Extent account | No data | `extent/` Pathway A (global datasets) |
-| Extent account | Satellite imagery or maps | `extent/` Pathway B (classification) |
-| Condition account | No field data | `condition/` Pathway A (remote sensing proxies) |
-| Condition account | Field survey data | `condition/` Pathway B (indicator calculation) |
-| Services account | No data | `services/` Pathway A (value transfer) |
-| Services account | Catch data, visitor stats, etc. | `services/` Pathway B (primary valuation) |
-| Don't know | Any | `resources/diagnostic-tool.md` to scope priorities |
+|---|---|---|
+| Extent account | No data | `extent/` Pathway A |
+| Extent account | Satellite imagery/maps | `extent/` Pathway B |
+| Condition account | No field data | `condition/` Pathway A |
+| Condition account | Field surveys | `condition/` Pathway B |
+| Services account | No data | `services/` Pathway A |
+| Services account | Catch, visitors, etc. | `services/` Pathway B |
+| Ocean economy (GDP) | National statistics/SUT | `economic/` OESA |
+| Ocean tourism | Tourism statistics | `tourism/` OTSA |
+| Waste/pollution | Waste/water quality data | `waste/` |
+| Social/governance | Census, surveys | `social/` scoping exercise |
+| Don't know | Any | `resources/diagnostic-tool.md` |
 
 ### Step 3: Walk through the guide with them
 
@@ -94,10 +99,13 @@ day-2/clinic/
 ├── resources/                      # Reference materials
 │   └── diagnostic-tool.md
 │
-└── [future account types]/         # Add as needed:
-    # economic/                     # Ocean economy satellite accounts
-    # social/                       # Social ocean accounts
-    # governance/                   # Governance accounts
+├── economic/                       # Ocean Economy Satellite Account (OESA, SNA)
+│
+├── tourism/                       # Ocean Tourism Satellite Account (OTSA, SNA/TSA)
+│
+├── waste/                         # Waste and Emissions accounts (SEEA-CF)
+│
+└── social/                        # Social and Governance accounts (GOAP)
 ```
 
 ## What to print
