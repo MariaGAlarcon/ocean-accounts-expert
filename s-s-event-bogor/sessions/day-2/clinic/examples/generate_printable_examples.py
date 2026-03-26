@@ -312,6 +312,70 @@ def table4b_services_monetary(doc):
                               alignment=WD_ALIGN_PARAGRAPH.CENTER)
 
 
+def table4c_services_use_physical(doc):
+    """Table 4c: Physical Use -- Who Benefits."""
+    add_section_title(doc, "Table 4c -- Ecosystem Service Physical Use (Part A): Who Benefits?")
+    headers = ["Service", "Unit", "Fisheries\nsector", "Tourism\nsector",
+               "Coastal\nhouseholds", "Government", "Global\ncommunity", "Total"]
+    rows = [
+        ["Fish provisioning",    "kg/yr",      "180 000", "0",      "0",      "0",      "0",      "180 000"],
+        ["Carbon sequestration", "Mg CO2/yr",  "0",       "0",      "0",      "0",      "2 335",  "2 335"],
+        ["Coastal protection",   "m coastline","0",       "0",      "10 000", "5 500",  "0",      "15 500"],
+        ["Nursery habitat",      "kg/yr",      "7 300",   "0",      "0",      "0",      "0",      "7 300"],
+        ["Recreation",           "visitors/yr","0",       "15 000", "2 400",  "0",      "0",      "17 400"],
+        ["Gleaning",             "hours/yr",   "0",       "0",      "18 000", "0",      "0",      "18 000"],
+    ]
+    tbl = doc.add_table(rows=1 + len(rows), cols=len(headers))
+    tbl.alignment = WD_TABLE_ALIGNMENT.CENTER
+    for i, h in enumerate(headers):
+        header_cell(tbl.rows[0].cells[i], h, WD_ALIGN_PARAGRAPH.CENTER)
+    for r, row in enumerate(rows, start=1):
+        for c, val in enumerate(row):
+            if c == 0:
+                row_header_cell(tbl.rows[r].cells[c], val)
+            else:
+                data_cell(tbl.rows[r].cells[c], val, alignment=WD_ALIGN_PARAGRAPH.CENTER)
+    p = doc.add_paragraph()
+    style_paragraph(p, font_size=9, colour="717171")
+    p.add_run("Supply is organized by ecosystem. Use is organized by beneficiary. Same quantities, different perspective.").font.italic = True
+
+
+def table4d_services_use_monetary(doc):
+    """Table 4d: Monetary Use -- Who Benefits."""
+    add_section_title(doc, "Table 4d -- Ecosystem Service Monetary Use (Part B): USD/yr by Beneficiary")
+    headers = ["Service", "Method", "Fisheries", "Tourism",
+               "Coastal HH", "Government", "Global", "Total"]
+    rows = [
+        ["Fish provisioning",    "Resource rent",     "210 000",  "0",         "0",       "0",       "0",       "210 000"],
+        ["Carbon sequestration", "SCC",               "0",        "0",         "0",       "0",       "119 085", "119 085"],
+        ["Coastal protection",   "Replacement cost",  "0",        "0",         "880 000", "495 000", "0",       "1 375 000"],
+        ["Nursery habitat",      "Productivity change","127 750", "0",         "0",       "0",       "0",       "127 750"],
+        ["Recreation",           "Expenditure",       "0",        "1 275 000", "84 000",  "0",       "0",       "1 359 000"],
+        ["Gleaning",             "Equiv. wage",       "0",        "0",         "63 000",  "0",       "0",       "63 000"],
+        ["Total",                "",                  "337 750",  "1 275 000", "1 027 000","495 000","119 085", "3 253 835"],
+    ]
+    tbl = doc.add_table(rows=1 + len(rows), cols=len(headers))
+    tbl.alignment = WD_TABLE_ALIGNMENT.CENTER
+    for i, h in enumerate(headers):
+        header_cell(tbl.rows[0].cells[i], h, WD_ALIGN_PARAGRAPH.CENTER)
+    for r, row in enumerate(rows, start=1):
+        for c, val in enumerate(row):
+            if c == 0:
+                if row[0] == "Total":
+                    write_cell(tbl.rows[r].cells[c], val, bold=True, bg=GREEN, colour=WHITE)
+                else:
+                    row_header_cell(tbl.rows[r].cells[c], val)
+            else:
+                if rows[r-1][0] == "Total":
+                    write_cell(tbl.rows[r].cells[c], val, bold=True,
+                               alignment=WD_ALIGN_PARAGRAPH.CENTER, bg=GREEN, colour=WHITE)
+                else:
+                    data_cell(tbl.rows[r].cells[c], val, alignment=WD_ALIGN_PARAGRAPH.CENTER)
+    p = doc.add_paragraph()
+    style_paragraph(p, font_size=9, colour="717171")
+    p.add_run("Tourism sector receives the most value (39%). Coastal households receive 32% (protection + gleaning + mangrove recreation).").font.italic = True
+
+
 # ── main ─────────────────────────────────────────────────────────────────────
 
 def main():
@@ -351,6 +415,9 @@ def main():
     doc.add_page_break()
     table4a_services_physical(doc)
     table4b_services_monetary(doc)
+    doc.add_page_break()
+    table4c_services_use_physical(doc)
+    table4d_services_use_monetary(doc)
 
     doc.save(OUTPUT_FILE)
     print(f"Saved: {OUTPUT_FILE}")
