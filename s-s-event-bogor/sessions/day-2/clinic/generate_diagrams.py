@@ -21,6 +21,9 @@ BLUE = "#0077B6"
 ORANGE = "#E76F51"
 PURPLE = "#7B2D8E"
 LIGHT_BLUE = "#B5D0D6"
+BLUE_GRAY = "#5B7B8A"
+ORANGE_WARM = "#D4845A"
+TAN = "#B8A07E"
 
 
 def rounded_box(ax, x, y, w, h, text, facecolor, textcolor=WHITE, fontsize=9, bold=True):
@@ -56,68 +59,99 @@ def save_fig(fig, path):
 # 1. OVERVIEW: Ocean Accounts Pipeline
 # =========================================================================
 def diagram_overview(outdir):
-    fig, ax = plt.subplots(figsize=(12, 6))
-    ax.set_xlim(0, 12)
-    ax.set_ylim(0, 6)
+    fig, ax = plt.subplots(figsize=(14, 9))
+    ax.set_xlim(0, 14)
+    ax.set_ylim(0, 9)
     ax.axis("off")
-    ax.set_aspect("equal")
 
     # Title
-    ax.text(6, 5.6, "Ocean Accounts Pipeline", fontsize=16, ha="center",
+    ax.text(7, 8.6, "Ocean Accounts: The Complete Framework", fontsize=17, ha="center",
             color=TEAL, fontfamily="Arial", fontweight="bold")
 
     # Data sources (top)
     sources = [
-        (1.5, 4.5, "Satellite\nimagery"),
-        (4.0, 4.5, "Field\nsurveys"),
-        (6.5, 4.5, "Government\nstatistics"),
-        (9.0, 4.5, "Global\ndatasets"),
-        (11.0, 4.5, "Community\nknowledge"),
+        (1.8, 7.6, "Satellite\nimagery"),
+        (4.6, 7.6, "Field\nsurveys"),
+        (7.4, 7.6, "Government\nstatistics"),
+        (10.2, 7.6, "Global\ndatasets"),
+        (12.6, 7.6, "Community\nknowledge"),
     ]
     for x, y, t in sources:
-        rounded_box(ax, x, y, 1.8, 0.7, t, LIGHT_BLUE, textcolor=BODY, fontsize=8, bold=False)
+        rounded_box(ax, x, y, 2.0, 0.7, t, LIGHT_BLUE, textcolor=BODY, fontsize=8, bold=False)
 
     # Spatial framework
-    rounded_box(ax, 6, 3.3, 10.5, 0.6, "Spatial Data Framework: Basic Spatial Units (BSU grid)", GREEN, fontsize=9)
-
-    # Three account types
-    rounded_box(ax, 2.5, 2.1, 3.2, 0.8, "EXTENT ACCOUNTS\nEcosystem area (ha)\nOpening / Closing", TEAL, fontsize=8)
-    rounded_box(ax, 6.0, 2.1, 3.2, 0.8, "CONDITION ACCOUNTS\nEcosystem health (CI 0-1)\nIndicators / Reference", TEAL, fontsize=8)
-    rounded_box(ax, 9.5, 2.1, 3.2, 0.8, "SERVICE ACCOUNTS\nBenefits to people\nPhysical / Monetary", TEAL, fontsize=8)
+    rounded_box(ax, 7, 6.4, 12.5, 0.6,
+                "Spatial Data Framework: Basic Spatial Units (BSU grid)", GREEN, fontsize=10)
 
     # Arrows: data sources to spatial framework
     for x, _, _ in sources:
-        arrow(ax, x, 4.1, x if x < 9 else 9, 3.65, GREEN)
+        arrow(ax, x, 7.2, min(x, 12), 6.75, GREEN)
 
-    # Spatial framework to accounts
-    arrow(ax, 3.5, 2.95, 2.5, 2.55, TEAL)
-    arrow(ax, 6.0, 2.95, 6.0, 2.55, TEAL)
-    arrow(ax, 8.5, 2.95, 9.5, 2.55, TEAL)
+    # Arrows: spatial framework down to account rows
+    for tx in [2.5, 7.0, 11.5, 2.5, 7.0, 11.5]:
+        arrow(ax, 7, 6.05, tx, 5.55 if tx in [2.5, 7.0, 11.5] else 4.0, TEAL + "50")
 
-    # Horizontal arrows between accounts
-    arrow(ax, 4.2, 2.1, 4.3, 2.1, GREEN)
-    arrow(ax, 7.7, 2.1, 7.8, 2.1, GREEN)
+    # ---- Row 1: SEEA-EA accounts (green) ----
+    ax.text(0.6, 5.55, "SEEA-EA", fontsize=8, ha="center", va="center", color=GREEN,
+            fontfamily="Arial", fontweight="bold", rotation=90)
 
-    # Labels on horizontal arrows
-    ax.text(4.25, 2.45, "extent informs\ncondition", fontsize=6, color=GRAY, fontfamily="Arial", ha="center")
-    ax.text(7.75, 2.45, "condition informs\nservices", fontsize=6, color=GRAY, fontfamily="Arial", ha="center")
+    rounded_box(ax, 2.5, 5.2, 3.5, 0.9,
+                "EXTENT ACCOUNTS\nEcosystem area (ha)\nOpening / Closing", TEAL, fontsize=8)
+    rounded_box(ax, 7.0, 5.2, 3.5, 0.9,
+                "CONDITION ACCOUNTS\nEcosystem health (CI 0-1)\nIndicators / Reference", TEAL, fontsize=8)
+    rounded_box(ax, 11.5, 5.2, 3.5, 0.9,
+                "SERVICE ACCOUNTS\nSupply + Use tables\nPhysical / Monetary (SUT)", TEAL, fontsize=8)
 
-    # Policy outputs (bottom)
+    # Horizontal arrows between SEEA-EA accounts
+    arrow(ax, 4.35, 5.2, 5.15, 5.2, GREEN)
+    arrow(ax, 8.85, 5.2, 9.65, 5.2, GREEN)
+    ax.text(4.75, 5.55, "extent\ninforms\ncondition", fontsize=5.5, color=GRAY,
+            fontfamily="Arial", ha="center")
+    ax.text(9.25, 5.55, "condition\ninforms\nservices", fontsize=5.5, color=GRAY,
+            fontfamily="Arial", ha="center")
+
+    # ---- Row 2: Other frameworks ----
+    rounded_box(ax, 2.5, 3.6, 3.5, 0.9,
+                "OCEAN ECONOMY (OESA)\nSNA framework\nOcean GDP, GVA", BLUE_GRAY, fontsize=8)
+    rounded_box(ax, 7.0, 3.6, 3.5, 0.9,
+                "WASTE & EMISSIONS\nSEEA-CF\nPollution flows, plastics", ORANGE_WARM, fontsize=8)
+    rounded_box(ax, 11.5, 3.6, 3.5, 0.9,
+                "SOCIAL & GOVERNANCE\nGOAP\nWellbeing, equity, access", TAN, textcolor=BODY, fontsize=8)
+
+    ax.text(0.6, 3.6, "Other\nframeworks", fontsize=7, ha="center", va="center", color=GRAY,
+            fontfamily="Arial", fontweight="bold", rotation=90)
+
+    # Arrows: spatial framework to Row 2
+    arrow(ax, 4.0, 6.05, 2.5, 4.1, BLUE_GRAY + "60")
+    arrow(ax, 7.0, 6.05, 7.0, 4.1, ORANGE_WARM + "60")
+    arrow(ax, 10.0, 6.05, 11.5, 4.1, TAN + "60")
+
+    # Arrows: spatial framework to Row 1
+    arrow(ax, 4.0, 6.05, 2.5, 5.7, TEAL + "60")
+    arrow(ax, 7.0, 6.05, 7.0, 5.7, TEAL + "60")
+    arrow(ax, 10.0, 6.05, 11.5, 5.7, TEAL + "60")
+
+    # ---- Policy outputs (bottom) ----
+    ax.text(7, 2.55, "Policy Applications", fontsize=11, ha="center", color=ORANGE,
+            fontfamily="Arial", fontweight="bold")
+
     outputs = [
-        (2.0, 0.7, "SDG 14\nreporting"),
-        (4.5, 0.7, "NDC / NBSAP\nintegration"),
-        (7.0, 0.7, "Marine spatial\nplanning"),
-        (9.5, 0.7, "Blue finance\n& investment"),
+        (1.8, 1.6, "SDG 14\nreporting"),
+        (4.3, 1.6, "NDC / NBSAP\nintegration"),
+        (6.8, 1.6, "Marine spatial\nplanning"),
+        (9.3, 1.6, "Blue finance\n& investment"),
+        (11.8, 1.6, "National ocean\npolicy"),
     ]
     for x, y, t in outputs:
-        rounded_box(ax, x, y, 2.0, 0.65, t, ORANGE, fontsize=8)
+        rounded_box(ax, x, y, 2.2, 0.7, t, ORANGE, fontsize=8)
 
-    # Arrow from accounts to policy
-    for ox, oy, _ in outputs:
-        arrow(ax, 6.0, 1.65, ox, 1.05, ORANGE)
-
-    ax.text(6, 1.35, "Policy applications", fontsize=9, ha="center", color=ORANGE,
-            fontfamily="Arial", fontweight="bold")
+    # Arrows from all 6 accounts to policy bar
+    for ax_x in [2.5, 7.0, 11.5]:
+        for ox, _, _ in outputs:
+            arrow(ax, ax_x, 4.7 if ax_x == 7.0 else 3.1, ox, 2.0, ORANGE + "30")
+    # Stronger arrows from Row 1
+    for ox, _, _ in outputs:
+        arrow(ax, 7, 3.1, ox, 2.0, ORANGE + "50")
 
     save_fig(fig, outdir / "diagram_overview.png")
 
@@ -241,29 +275,29 @@ def diagram_condition(outdir):
 # 4. SERVICES ACCOUNT PIPELINE
 # =========================================================================
 def diagram_services(outdir):
-    fig, ax = plt.subplots(figsize=(12, 8))
-    ax.set_xlim(0, 12)
-    ax.set_ylim(0, 8)
+    fig, ax = plt.subplots(figsize=(13, 11))
+    ax.set_xlim(0, 13)
+    ax.set_ylim(0, 11)
     ax.axis("off")
 
-    ax.text(6, 7.7, "Ecosystem Services Account Pipeline", fontsize=16, ha="center",
+    ax.text(6.5, 10.6, "Ecosystem Services Account Pipeline", fontsize=17, ha="center",
             color=TEAL, fontfamily="Arial", fontweight="bold")
 
     # Inputs
     inputs = [
-        (2, 6.8, "Extent\naccounts\n(ha)"),
-        (5, 6.8, "Condition\naccounts\n(CI)"),
-        (8, 6.8, "Economic &\nsocial data"),
-        (11, 6.8, "Literature\nrates & prices"),
+        (2, 9.6, "Extent\naccounts\n(ha)"),
+        (5, 9.6, "Condition\naccounts\n(CI)"),
+        (8.5, 9.6, "Economic &\nsocial data"),
+        (11.5, 9.6, "Literature\nrates & prices"),
     ]
     for x, y, t in inputs:
         rounded_box(ax, x, y, 2.2, 0.8, t, LIGHT_BLUE, textcolor=BODY, fontsize=8, bold=False)
 
     # Service types
     services = [
-        (1.5, 4.8, "PROVISIONING\nFish catch\nWood/fuel", GREEN),
-        (4.5, 4.8, "REGULATING\nCarbon sequestration\nCoastal protection\nNursery habitat", GREEN),
-        (8.0, 4.8, "CULTURAL\nRecreation/tourism\nGleaning/subsistence", GREEN),
+        (1.8, 7.6, "PROVISIONING\nFish catch\nWood/fuel", GREEN),
+        (5.5, 7.6, "REGULATING\nCarbon sequestration\nCoastal protection\nNursery habitat", GREEN),
+        (9.5, 7.6, "CULTURAL\nRecreation/tourism\nGleaning/subsistence", GREEN),
     ]
     for x, y, t, c in services:
         rounded_box(ax, x, y, 2.8, 1.1, t, c, fontsize=8)
@@ -271,47 +305,62 @@ def diagram_services(outdir):
     # Arrows from inputs to services
     for ix, iy, _ in inputs:
         for sx, sy, _, _ in services:
-            if abs(ix - sx) < 5:
+            if abs(ix - sx) < 5.5:
                 arrow(ax, ix, iy - 0.45, sx, sy + 0.6, GREEN + "80")
 
     # Valuation methods
-    ax.text(6, 3.6, "Valuation Methods", fontsize=11, ha="center",
+    ax.text(6.5, 6.4, "Valuation Methods", fontsize=11, ha="center",
             color=TEAL, fontfamily="Arial", fontweight="bold")
 
     methods = [
-        (1.5, 2.8, "Resource rent\nRevenue - Costs"),
-        (4.0, 2.8, "Social cost\nof carbon\n(SCC x Mg CO2)"),
-        (6.5, 2.8, "Replacement\ncost"),
-        (9.0, 2.8, "Direct\nexpenditure"),
-        (11.0, 2.8, "Value\ntransfer"),
+        (1.5, 5.6, "Resource rent\nRevenue - Costs"),
+        (4.0, 5.6, "Social cost\nof carbon\n(SCC x Mg CO2)"),
+        (6.5, 5.6, "Replacement\ncost"),
+        (9.0, 5.6, "Direct\nexpenditure"),
+        (11.5, 5.6, "Value\ntransfer"),
     ]
     for x, y, t in methods:
-        rounded_box(ax, x, y, 1.9, 0.75, t, MINT, textcolor=BODY, fontsize=7, bold=False)
+        rounded_box(ax, x, y, 2.0, 0.75, t, MINT, textcolor=BODY, fontsize=7, bold=False)
 
-    # Arrows
+    # Arrows from services to methods
     for sx, sy, _, _ in services:
         for mx, my, _ in methods:
             if abs(sx - mx) < 3.5:
                 arrow(ax, sx, sy - 0.6, mx, my + 0.4, GRAY + "60")
 
-    # Output tables
-    rounded_box(ax, 3.5, 1.3, 5.5, 0.7,
+    # ---- Supply tables ----
+    rounded_box(ax, 3.5, 4.2, 5.5, 0.7,
                 "Physical Supply Table\nkg/yr, Mg CO2/yr, visitors/yr", TEAL, fontsize=8)
-    rounded_box(ax, 9, 1.3, 4.5, 0.7,
+    rounded_box(ax, 10, 4.2, 4.5, 0.7,
                 "Monetary Supply Table\nUSD/yr by service and ecosystem", TEAL, fontsize=8)
 
     for mx, my, _ in methods:
         if mx < 6:
-            arrow(ax, mx, my - 0.4, 3.5, 1.7, TEAL + "80")
+            arrow(ax, mx, my - 0.4, 3.5, 4.6, TEAL + "80")
         else:
-            arrow(ax, mx, my - 0.4, 9, 1.7, TEAL + "80")
+            arrow(ax, mx, my - 0.4, 10, 4.6, TEAL + "80")
 
-    # Policy
-    rounded_box(ax, 6, 0.3, 8, 0.5,
+    # ---- USE tables (new) ----
+    rounded_box(ax, 3.5, 2.8, 5.5, 0.8,
+                "USE TABLES\nWho benefits: fisheries, tourism,\nhouseholds, govt, global", GREEN, fontsize=8)
+    rounded_box(ax, 10, 2.8, 4.5, 0.8,
+                "Monetary Use Table\nUSD/yr by user and service", GREEN, fontsize=8)
+
+    arrow(ax, 3.5, 3.8, 3.5, 3.25, TEAL)
+    arrow(ax, 10, 3.8, 10, 3.25, TEAL)
+
+    # ---- Integrated SUT ----
+    rounded_box(ax, 6.5, 1.6, 9, 0.7,
+                "INTEGRATED SUT (SEEA EA Table 7.1)\nSupply + Use, Physical + Monetary", TEAL, fontsize=9)
+
+    arrow(ax, 3.5, 2.35, 4.5, 2.0, TEAL)
+    arrow(ax, 10, 2.35, 8.5, 2.0, TEAL)
+
+    # ---- Policy ----
+    rounded_box(ax, 6.5, 0.4, 10, 0.55,
                 "Policy: blue finance, NDCs, MPA justification, blue economy strategy",
                 ORANGE, fontsize=8)
-    arrow(ax, 3.5, 0.9, 5, 0.6, ORANGE)
-    arrow(ax, 9, 0.9, 7, 0.6, ORANGE)
+    arrow(ax, 6.5, 1.2, 6.5, 0.7, ORANGE)
 
     save_fig(fig, outdir / "diagram_services_pipeline.png")
 
@@ -320,52 +369,95 @@ def diagram_services(outdir):
 # 5. TRIAGE DECISION TREE
 # =========================================================================
 def diagram_triage(outdir):
-    fig, ax = plt.subplots(figsize=(10, 7))
-    ax.set_xlim(0, 10)
-    ax.set_ylim(0, 7)
+    fig, ax = plt.subplots(figsize=(14, 10))
+    ax.set_xlim(0, 14)
+    ax.set_ylim(0, 10)
     ax.axis("off")
 
-    ax.text(5, 6.7, "Clinic Triage: Which Account Type?", fontsize=16, ha="center",
+    ax.text(7, 9.6, "Clinic Triage: Which Account Type?", fontsize=17, ha="center",
             color=TEAL, fontfamily="Arial", fontweight="bold")
 
     # Start
-    rounded_box(ax, 5, 5.8, 4.5, 0.6,
-                "What is your policy question?", GREEN, fontsize=10)
+    rounded_box(ax, 7, 8.7, 5.5, 0.6,
+                "What is your policy question?", GREEN, fontsize=11)
 
-    # Branch questions
-    branches = [
-        (1.8, 4.5, "How much\necosystem\ndo we have?", BLUE),
-        (5.0, 4.5, "How healthy\nis our\necosystem?", BLUE),
-        (8.2, 4.5, "What benefits\ndo people\nget from it?", BLUE),
-    ]
-    for x, y, t, c in branches:
-        rounded_box(ax, x, y, 2.2, 0.8, t, c, fontsize=8)
-    arrow(ax, 3.5, 5.45, 1.8, 4.95, BLUE)
-    arrow(ax, 5, 5.45, 5, 4.95, BLUE)
-    arrow(ax, 6.5, 5.45, 8.2, 4.95, BLUE)
+    # ---- Group 1: SEEA-EA (teal) ----
+    ax.text(4.0, 7.65, "SEEA-EA", fontsize=9, ha="center", color=TEAL,
+            fontfamily="Arial", fontweight="bold")
 
-    # Account types
-    accounts = [
-        (1.8, 3.2, "EXTENT\nACCOUNT", TEAL),
-        (5.0, 3.2, "CONDITION\nACCOUNT", TEAL),
-        (8.2, 3.2, "SERVICES\nACCOUNT", TEAL),
+    q1 = [
+        (1.5, 6.8, '"How much\necosystem\ndo we have?"', BLUE),
+        (4.0, 6.8, '"How healthy\nis our\necosystem?"', BLUE),
+        (6.5, 6.8, '"What benefits\ndo people\nget from it?"', BLUE),
     ]
-    for x, y, t, c in accounts:
+    for x, y, t, c in q1:
+        rounded_box(ax, x, y, 2.2, 0.85, t, c, fontsize=8)
+        arrow(ax, 7, 8.35, x, 7.28, BLUE + "80")
+
+    a1 = [
+        (1.5, 5.5, "EXTENT\nACCOUNT", TEAL),
+        (4.0, 5.5, "CONDITION\nACCOUNT", TEAL),
+        (6.5, 5.5, "SERVICES\nACCOUNT", TEAL),
+    ]
+    for x, y, t, c in a1:
         rounded_box(ax, x, y, 2.2, 0.7, t, c, fontsize=9)
     for i in range(3):
-        arrow(ax, branches[i][0], branches[i][1] - 0.45, accounts[i][0], accounts[i][1] + 0.4, TEAL)
+        arrow(ax, q1[i][0], q1[i][1] - 0.48, a1[i][0], a1[i][1] + 0.4, TEAL)
 
-    # Data check
-    ax.text(5, 2.3, "What data do you have?", fontsize=11, ha="center",
+    # ---- Group 2: SNA / OESA (blue-gray) ----
+    ax.text(9.5, 7.65, "SNA / Economy", fontsize=9, ha="center", color=BLUE_GRAY,
+            fontfamily="Arial", fontweight="bold")
+
+    q2 = [
+        (9.0, 6.8, '"How big is\nthe ocean\neconomy?"', BLUE_GRAY),
+        (11.5, 6.8, '"What does\ntourism\ncontribute?"', BLUE_GRAY),
+    ]
+    for x, y, t, c in q2:
+        rounded_box(ax, x, y, 2.2, 0.85, t, c, fontsize=8)
+        arrow(ax, 7, 8.35, x, 7.28, BLUE_GRAY + "80")
+
+    a2 = [
+        (9.0, 5.5, "OESA\nACCOUNT", BLUE_GRAY),
+        (11.5, 5.5, "OTSA\nACCOUNT", BLUE_GRAY),
+    ]
+    for x, y, t, c in a2:
+        rounded_box(ax, x, y, 2.2, 0.7, t, c, fontsize=9)
+    for i in range(2):
+        arrow(ax, q2[i][0], q2[i][1] - 0.48, a2[i][0], a2[i][1] + 0.4, BLUE_GRAY)
+
+    # ---- Group 3: SEEA-CF / Waste (orange) ----
+    q3_x, q3_y = 3.5, 4.3
+    rounded_box(ax, q3_x, q3_y, 2.8, 0.85,
+                '"What pollution\nenters the ocean?"', ORANGE_WARM, fontsize=8)
+    arrow(ax, 7, 8.35, q3_x, q3_y + 0.48, ORANGE_WARM + "60")
+    rounded_box(ax, q3_x, 3.1, 2.2, 0.7, "WASTE &\nEMISSIONS", ORANGE_WARM, fontsize=9)
+    arrow(ax, q3_x, q3_y - 0.48, q3_x, 3.5, ORANGE_WARM)
+
+    ax.text(q3_x, 4.95, "SEEA-CF", fontsize=8, ha="center", color=ORANGE_WARM,
+            fontfamily="Arial", fontweight="bold")
+
+    # ---- Group 4: GOAP / Social (tan) ----
+    q4_x, q4_y = 8.5, 4.3
+    rounded_box(ax, q4_x, q4_y, 2.8, 0.85,
+                '"Who benefits?\nWho is affected?"', TAN, textcolor=BODY, fontsize=8)
+    arrow(ax, 7, 8.35, q4_x, q4_y + 0.48, TAN + "80")
+    rounded_box(ax, q4_x, 3.1, 2.2, 0.7, "SOCIAL &\nGOVERNANCE", TAN, textcolor=BODY, fontsize=9)
+    arrow(ax, q4_x, q4_y - 0.48, q4_x, 3.5, TAN)
+
+    ax.text(q4_x, 4.95, "GOAP", fontsize=8, ha="center", color=TAN,
+            fontfamily="Arial", fontweight="bold")
+
+    # ---- Data pathway cards (bottom) ----
+    ax.text(7, 2.05, "What data do you have?", fontsize=12, ha="center",
             color=GREEN, fontfamily="Arial", fontweight="bold")
 
     data_opts = [
-        (2, 1.5, "No data\n\nPathway A\n(Global datasets,\nvalue transfer)", YELLOW, BODY),
-        (5, 1.5, "Some data\n\nPathway A/B\n(Mix of global\nand local)", MINT, BODY),
-        (8, 1.5, "Field / local data\n\nPathway B\n(Primary analysis)", GREEN, WHITE),
+        (2.5, 1.0, "No data\n\nPathway A\n(Global datasets,\nvalue transfer)", YELLOW, BODY),
+        (7.0, 1.0, "Some data\n\nPathway A/B\n(Mix of global\nand local)", MINT, BODY),
+        (11.5, 1.0, "Field / local data\n\nPathway B\n(Primary analysis)", GREEN, WHITE),
     ]
     for x, y, t, fc, tc in data_opts:
-        rounded_box(ax, x, y, 2.4, 1.1, t, fc, textcolor=tc, fontsize=7, bold=False)
+        rounded_box(ax, x, y, 3.0, 1.3, t, fc, textcolor=tc, fontsize=8, bold=False)
 
     save_fig(fig, outdir / "diagram_triage.png")
 
