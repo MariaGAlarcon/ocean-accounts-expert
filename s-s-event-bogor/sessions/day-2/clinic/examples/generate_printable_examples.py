@@ -175,13 +175,13 @@ def table2_change_matrix(doc):
     """Table 2: Change Matrix (ha, 2018-2023)."""
     add_section_title(doc, "Table 2 -- Ecosystem Extent Change Matrix (ha, 2018-2023)")
     headers = ["From \\ To", "Coral reef", "Seagrass", "Mangrove", "Other",
-               "Total reductions"]
+               "Opening total"]
     rows = [
-        ["Coral reef",    "---",   "15",  "5",   "80",  "100"],
-        ["Seagrass beds", "10",    "---",  "10",  "50",  "70"],
-        ["Mangroves",     "0",     "5",   "---",  "10",  "15"],
-        ["Other marine",  "30",    "15",  "25",   "---",  "70"],
-        ["Total additions","40",   "35",  "40",  "140",  "---"],
+        ["Coral reef",    "1 140",   "15",  "0",   "85",  "1 240"],
+        ["Seagrass beds", "10",    "790",  "5",  "55",  "860"],
+        ["Mangroves",     "0",     "0",   "300",  "15",  "315"],
+        ["Other marine",  "30",    "20",  "35",   "7 500",  "7 585"],
+        ["Closing total", "1 180",   "825",  "340",  "7 655",  "10 000"],
     ]
     tbl = doc.add_table(rows=1 + len(rows), cols=len(headers))
     tbl.alignment = WD_TABLE_ALIGNMENT.CENTER
@@ -196,14 +196,14 @@ def table2_change_matrix(doc):
                 else:
                     row_header_cell(tbl.rows[r].cells[c], val)
             else:
-                if "Total" in rows[r-1][0]:
+                if "Total" in rows[r-1][0] or "Closing" in rows[r-1][0]:
                     write_cell(tbl.rows[r].cells[c], val, bold=True,
                                alignment=WD_ALIGN_PARAGRAPH.CENTER, bg=GREEN,
                                colour=WHITE)
-                elif val == "---":
-                    write_cell(tbl.rows[r].cells[c], val,
-                               alignment=WD_ALIGN_PARAGRAPH.CENTER,
-                               bg="D9D9D9")
+                elif r == c:  # Diagonal = stable area, highlight mint
+                    data_cell(tbl.rows[r].cells[c], val,
+                              alignment=WD_ALIGN_PARAGRAPH.CENTER)
+                    set_cell_shading(tbl.rows[r].cells[c], "D4EEE5")
                 else:
                     data_cell(tbl.rows[r].cells[c], val,
                               alignment=WD_ALIGN_PARAGRAPH.CENTER)
@@ -222,7 +222,7 @@ def table3_condition(doc):
         ["Coral recruit density", "per m\u00B2","8",  "0.63", "0.55", "-0.08", "Declining"],
         ["Reef structural relief","index 1-5", "4.0", "0.70", "0.65", "-0.05", "Declining"],
         ["Bleaching prevalence",  "% colonies","5",   "0.80", "0.60", "-0.20", "Declining"],
-        ["Composite Condition Index","--",     "--",  "0.72", "0.63", "-0.09", "Declining"],
+        ["Composite Condition Index","average", "",  "0.72", "0.63", "-0.09", "Declining"],
     ]
     tbl = doc.add_table(rows=1 + len(rows), cols=len(headers))
     tbl.alignment = WD_TABLE_ALIGNMENT.CENTER
