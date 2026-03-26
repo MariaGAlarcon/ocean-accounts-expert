@@ -335,6 +335,39 @@ def generate_services(outdir):
         "damage functions. Gleaning valued at local equivalent wage rate as subsistence activity "
         "has no market price.")
 
+    # ── Table 4e: Combined Physical Supply and Use ──
+    doc.add_page_break()
+    add_title(doc, "Table 4e: Combined Physical Supply and Use Table")
+    add_note(doc, "The SEEA EA presents supply and use together in a single integrated table. "
+             "The left half shows which ecosystem types supply each service; the right half shows "
+             "which economic sectors use (benefit from) each service. Total supply = Total use for every row.")
+
+    make_table(doc,
+        ["Service", "Unit",
+         "Coral reefs\n(supply)", "Seagrass\n(supply)", "Mangroves\n(supply)", "Total\nsupply",
+         "Fisheries\n(use)", "Tourism\n(use)", "Coastal HH\n(use)", "Govt\n(use)", "Global\n(use)", "Total\nuse"],
+        [
+            ["Fish provisioning", "kg/yr", "120,000", "45,000", "15,000", "180,000",
+             "180,000", "0", "0", "0", "0", "180,000"],
+            ["Carbon sequestration", "Mg CO\u2082/yr", "0", "1,040", "1,295", "2,335",
+             "0", "0", "0", "0", "2,335", "2,335"],
+            ["Coastal protection", "m coastline", "12,000", "0", "3,500", "15,500",
+             "0", "0", "10,000", "5,500", "0", "15,500"],
+            ["Nursery habitat", "kg biomass/yr", "4,500", "2,800", "0", "7,300",
+             "7,300", "0", "0", "0", "0", "7,300"],
+            ["Recreation", "visitors/yr", "15,000", "0", "2,400", "17,400",
+             "0", "15,000", "2,400", "0", "0", "17,400"],
+            ["Gleaning", "hours/yr", "0", "18,000", "0", "18,000",
+             "0", "0", "18,000", "0", "0", "18,000"],
+        ])
+
+    add_interpretation(doc, "Reading the combined table:",
+        "Each row tells the complete story of one service. For example, fish provisioning: "
+        "120,000 kg comes from coral reefs, 45,000 kg from seagrass, and 15,000 kg from mangroves "
+        "(total supply = 180,000 kg). All 180,000 kg is used by the fisheries sector (total use = "
+        "180,000 kg). The accounting identity -- total supply equals total use -- must hold for "
+        "every row. This is a fundamental check on the account's consistency.")
+
     path = outdir / "03-services" / "11-filled-example.docx"
     doc.save(str(path))
     print(f"  {path.name}")

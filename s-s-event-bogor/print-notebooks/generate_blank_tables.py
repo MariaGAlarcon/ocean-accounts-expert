@@ -289,6 +289,22 @@ def generate_services_tables(outdir):
             ["TOTAL", "", "", "", "", "", "", ""],
         ], input_cols={2, 3, 4, 5, 6, 7})
 
+    doc.add_page_break()
+    add_title(doc, "Table 4e: Combined Physical Supply and Use")
+    add_note(doc, "The SEEA EA presents supply and use together. Fill in both halves. Check: Total supply = Total use for each row.")
+    make_table(doc,
+        ["Service", "Unit",
+         "Eco 1\n(supply)", "Eco 2\n(supply)", "Eco 3\n(supply)", "Total\nsupply",
+         "Fisheries\n(use)", "Tourism\n(use)", "Coastal HH\n(use)", "Govt\n(use)", "Global\n(use)", "Total\nuse"],
+        [
+            ["Fish provisioning", "kg/yr", "", "", "", "", "", "", "", "", "", ""],
+            ["Carbon sequestration", "Mg CO2/yr", "", "", "", "", "", "", "", "", "", ""],
+            ["Coastal protection", "m coastline", "", "", "", "", "", "", "", "", "", ""],
+            ["Nursery habitat", "kg biomass/yr", "", "", "", "", "", "", "", "", "", ""],
+            ["Recreation", "visitors/yr", "", "", "", "", "", "", "", "", "", ""],
+            ["Gleaning", "hours/yr", "", "", "", "", "", "", "", "", "", ""],
+        ], input_cols={2, 3, 4, 5, 6, 7, 8, 9, 10, 11})
+
     path = outdir / "03-services" / "10-blank-tables.docx"
     doc.save(str(path))
     print(f"  {path.name}")

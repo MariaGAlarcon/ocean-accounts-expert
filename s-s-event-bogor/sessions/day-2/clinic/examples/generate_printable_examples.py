@@ -376,6 +376,91 @@ def table4d_services_use_monetary(doc):
     p.add_run("Tourism sector receives the most value (39%). Coastal households receive 32% (protection + gleaning + mangrove recreation).").font.italic = True
 
 
+def merge_cells_styled(tbl, row_idx, start_col, end_col, text, bg_colour):
+    """Merge cells in a python-docx table row and style them."""
+    # Merge
+    cell_start = tbl.rows[row_idx].cells[start_col]
+    cell_end = tbl.rows[row_idx].cells[end_col]
+    cell_start.merge(cell_end)
+    # Style the merged cell
+    write_cell(cell_start, text, bold=True, colour=WHITE,
+               alignment=WD_ALIGN_PARAGRAPH.CENTER, bg=bg_colour)
+
+
+def table4e_combined_supply_use(doc):
+    """Table 4e: Combined Physical Supply and Use."""
+    DARK_GREEN = "2C745B"
+
+    add_section_title(doc, "Table 4e -- Combined Physical Supply and Use Table")
+
+    # 12 columns: Service, Unit, 3 ecosystems, Total supply, 5 beneficiaries, Total use
+    n_cols = 12
+    services = ["Fish provisioning", "Carbon sequestration", "Coastal protection",
+                "Nursery habitat", "Recreation", "Gleaning"]
+    units = ["kg/yr", "Mg CO\u2082/yr", "m coastline", "kg/yr", "visitors/yr", "hours/yr"]
+    supply_data = [
+        ["120,000", "45,000", "15,000", "180,000"],
+        ["0", "1,040", "1,295", "2,335"],
+        ["12,000", "0", "3,500", "15,500"],
+        ["4,500", "2,800", "0", "7,300"],
+        ["15,000", "0", "2,400", "17,400"],
+        ["0", "18,000", "0", "18,000"],
+    ]
+    use_data = [
+        ["180,000", "0", "0", "0", "0", "180,000"],
+        ["0", "0", "0", "0", "2,335", "2,335"],
+        ["0", "0", "10,000", "5,500", "0", "15,500"],
+        ["7,300", "0", "0", "0", "0", "7,300"],
+        ["0", "15,000", "2,400", "0", "0", "17,400"],
+        ["0", "0", "18,000", "0", "0", "18,000"],
+    ]
+
+    n_rows = 3 + len(services)  # super-header + column headers + spacer/merged + data
+    tbl = doc.add_table(rows=2 + len(services), cols=n_cols)
+    tbl.alignment = WD_TABLE_ALIGNMENT.CENTER
+
+    # Row 0: Super-header with merged cells
+    # Cols 0-1: blank (dark green)
+    for c in range(2):
+        write_cell(tbl.rows[0].cells[c], "", bg=DARK_GREEN)
+
+    # "SUPPLY (by ecosystem)" spanning cols 2-5
+    merge_cells_styled(tbl, 0, 2, 5, "SUPPLY (by ecosystem)", GREEN)
+
+    # "USE (by beneficiary)" spanning cols 6-11
+    merge_cells_styled(tbl, 0, 6, 11, "USE (by beneficiary)", DARK_GREEN)
+
+    # Row 1: Column headers
+    col_headers = ["Service", "Unit",
+                   "Coral reefs", "Seagrass", "Mangroves", "Total",
+                   "Fisheries", "Tourism", "Coastal HH", "Govt", "Global", "Total"]
+    for i, h in enumerate(col_headers):
+        bg = GREEN if i < 6 else DARK_GREEN
+        header_cell(tbl.rows[1].cells[i], h, WD_ALIGN_PARAGRAPH.CENTER)
+        set_cell_shading(tbl.rows[1].cells[i], bg)
+
+    # Data rows
+    for r, svc in enumerate(services):
+        row_idx = r + 2
+        row_header_cell(tbl.rows[row_idx].cells[0], svc)
+        data_cell(tbl.rows[row_idx].cells[1], units[r], alignment=WD_ALIGN_PARAGRAPH.CENTER)
+        set_cell_shading(tbl.rows[row_idx].cells[1], TEAL)
+        # Style the unit cell text white
+        for run in tbl.rows[row_idx].cells[1].paragraphs[0].runs:
+            run.font.color.rgb = RGBColor.from_string(WHITE)
+            run.font.size = Pt(9)
+
+        for j, val in enumerate(supply_data[r]):
+            data_cell(tbl.rows[row_idx].cells[2 + j], val, alignment=WD_ALIGN_PARAGRAPH.CENTER)
+
+        for j, val in enumerate(use_data[r]):
+            data_cell(tbl.rows[row_idx].cells[6 + j], val, alignment=WD_ALIGN_PARAGRAPH.CENTER)
+
+    p = doc.add_paragraph()
+    style_paragraph(p, font_size=9, colour="717171")
+    p.add_run("Accounting identity: Total supply = Total use for each service row. Supply is organised by ecosystem type; use is organised by beneficiary sector.").font.italic = True
+
+
 # ── main ─────────────────────────────────────────────────────────────────────
 
 def main():
@@ -418,6 +503,8 @@ def main():
     doc.add_page_break()
     table4c_services_use_physical(doc)
     table4d_services_use_monetary(doc)
+    doc.add_page_break()
+    table4e_combined_supply_use(doc)
 
     doc.save(OUTPUT_FILE)
     print(f"Saved: {OUTPUT_FILE}")
