@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Example OESA Output Tables</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #f0f6f7 0%, #e8eff1 50%, #f5f0eb 100%);
+    color: #545353;
+    font-size: 14px;
+    line-height: 1.5;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 30px 20px;
+  }
+  .slide {
+    width: 100%;
+    max-width: 1400px;
+    background: #FFFFFF;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(10, 84, 85, 0.12), 0 2px 8px rgba(0,0,0,0.06);
+    overflow: hidden;
+  }
+  .slide-header {
+    background: linear-gradient(135deg, #0A5455 0%, #3B9C7B 100%);
+    padding: 28px 48px;
+    position: relative;
+  }
+  .slide-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #66A3B5, #5EB593, #B59F81);
+  }
+  .slide-header h1 {
+    font-size: 42px;
+    font-weight: 700;
+    color: #FFFFFF;
+    letter-spacing: -0.5px;
+  }
+  .slide-header .subtitle {
+    font-size: 17px;
+    color: #B5D0D6;
+    margin-top: 6px;
+  }
+  .slide-body {
+    padding: 36px 48px 32px;
+  }
+
+  /* Tables layout */
+  .tables-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+
+  .table-card {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.07);
+    border: 1px solid #e8eff1;
+  }
+  .table-card-header {
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .table-card-header .icon { font-size: 18px; }
+  .table-card-header h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #FFFFFF;
+  }
+  .table-card.output-table .table-card-header {
+    background: linear-gradient(135deg, #66A3B5, #5a95a6);
+  }
+  .table-card.gva-table .table-card-header {
+    background: linear-gradient(135deg, #3B9C7B, #2e8a6a);
+  }
+  .table-card.summary-table .table-card-header {
+    background: linear-gradient(135deg, #0A5455, #1a6b6c);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  table thead th {
+    padding: 10px 16px;
+    text-align: left;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    border-bottom: 2px solid;
+  }
+  .output-table thead th {
+    color: #66A3B5;
+    border-bottom-color: #66A3B5;
+    background: #f5f9fa;
+  }
+  .gva-table thead th {
+    color: #3B9C7B;
+    border-bottom-color: #3B9C7B;
+    background: #f3faf6;
+  }
+  .summary-table thead th {
+    color: #0A5455;
+    border-bottom-color: #0A5455;
+    background: #f0f6f7;
+  }
+  table thead th.num {
+    text-align: right;
+  }
+
+  table tbody td {
+    padding: 9px 16px;
+    font-size: 14px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  table tbody tr:last-child td {
+    border-bottom: none;
+  }
+  table tbody td.sector {
+    font-weight: 600;
+    color: #0A5455;
+    border-left: 3px solid transparent;
+    padding-left: 13px;
+  }
+  .output-table tbody td.sector { border-left-color: #66A3B5; }
+  .gva-table tbody td.sector { border-left-color: #3B9C7B; }
+
+  table tbody td.num {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    font-weight: 500;
+  }
+  table tbody td.share {
+    text-align: right;
+    font-weight: 600;
+    color: #3B9C7B;
+  }
+
+  table tbody tr:nth-child(odd) { background: #fafcfc; }
+
+  table tbody tr.total-row td {
+    font-weight: 700;
+    border-top: 2px solid #0A5455;
+    background: linear-gradient(90deg, rgba(10,84,85,0.06), transparent);
+    color: #0A5455;
+    padding-top: 11px;
+    padding-bottom: 11px;
+  }
+
+  /* Summary card */
+  .summary-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0;
+  }
+  .summary-cell {
+    padding: 18px 20px;
+    text-align: center;
+    border-right: 1px solid #eee;
+  }
+  .summary-cell:last-child { border-right: none; }
+  .summary-cell .label {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #999;
+    margin-bottom: 6px;
+  }
+  .summary-cell .value {
+    font-size: 26px;
+    font-weight: 700;
+  }
+  .summary-cell .value.teal { color: #0A5455; }
+  .summary-cell .value.gray { color: #545353; }
+  .summary-cell .value.green { color: #3B9C7B; }
+
+  /* Bar indicator */
+  .bar-cell {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .bar {
+    height: 10px;
+    border-radius: 5px;
+    background: linear-gradient(90deg, #3B9C7B, #5EB593);
+    min-width: 4px;
+  }
+
+  /* Highlight box */
+  .highlight-box {
+    background: linear-gradient(135deg, rgba(181, 159, 129, 0.1), rgba(181, 159, 129, 0.04));
+    border-left: 5px solid #B59F81;
+    border-radius: 0 10px 10px 0;
+    padding: 18px 24px;
+    margin-top: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .highlight-box .icon {
+    font-size: 16px;
+    margin-right: 8px;
+    color: #B59F81;
+  }
+  .highlight-box p {
+    font-size: 14px;
+    color: #545353;
+    line-height: 1.55;
+  }
+  .highlight-box strong { color: #0A5455; }
+
+  /* Footer */
+  .slide-footer {
+    padding: 12px 48px;
+    text-align: right;
+    font-size: 12px;
+    color: #999;
+    border-top: 1px solid #eee;
+  }
+  .source {
+    font-size: 11px;
+    color: #aaa;
+    margin-top: 4px;
+    font-style: italic;
+  }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="slide-header">
+    <h1>Example OESA Output Tables</h1>
+    <div class="subtitle">South Africa Ocean Economy Satellite Account &mdash; 2018 data (R million)</div>
+  </div>
+
+  <div class="slide-body">
+    <div class="tables-grid">
+      <!-- Table 1: Gross Output -->
+      <div class="table-card output-table">
+        <div class="table-card-header">
+          <span class="icon">&#9638;</span>
+          <h3>Ocean Economy Gross Output (R million, 2018)</h3>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Sector</th>
+              <th class="num">Output</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="sector">Living Resources</td>
+              <td class="num">20,256</td>
+            </tr>
+            <tr>
+              <td class="sector">Marine Minerals</td>
+              <td class="num">142,769</td>
+            </tr>
+            <tr>
+              <td class="sector">Marine Construction</td>
+              <td class="num">135,414</td>
+            </tr>
+            <tr>
+              <td class="sector">Ship &amp; Boat Building</td>
+              <td class="num">5,555</td>
+            </tr>
+            <tr>
+              <td class="sector">Marine Transport</td>
+              <td class="num">43,430</td>
+            </tr>
+            <tr>
+              <td class="sector">Coastal Tourism</td>
+              <td class="num">45,841</td>
+            </tr>
+            <tr class="total-row">
+              <td class="sector">Total</td>
+              <td class="num">393,265</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Table 2: GVA -->
+      <div class="table-card gva-table">
+        <div class="table-card-header">
+          <span class="icon">&#9733;</span>
+          <h3>Ocean Economy GVA (R million, 2018)</h3>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Sector</th>
+              <th class="num">GVA</th>
+              <th class="num">Share</th>
+              <th style="width: 120px;"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="sector">Living Resources</td>
+              <td class="num">10,485</td>
+              <td class="share">7.9%</td>
+              <td><div class="bar-cell"><div class="bar" style="width: 23%;"></div></div></td>
+            </tr>
+            <tr>
+              <td class="sector">Marine Minerals</td>
+              <td class="num">45,910</td>
+              <td class="share">34.7%</td>
+              <td><div class="bar-cell"><div class="bar" style="width: 100%;"></div></div></td>
+            </tr>
+            <tr>
+              <td class="sector">Marine Construction</td>
+              <td class="num">40,612</td>
+              <td class="share">30.7%</td>
+              <td><div class="bar-cell"><div class="bar" style="width: 88%;"></div></div></td>
+            </tr>
+            <tr>
+              <td class="sector">Ship &amp; Boat Building</td>
+              <td class="num">580</td>
+              <td class="share">0.4%</td>
+              <td><div class="bar-cell"><div class="bar" style="width: 2%;"></div></div></td>
+            </tr>
+            <tr>
+              <td class="sector">Marine Transport</td>
+              <td class="num">15,778</td>
+              <td class="share">11.9%</td>
+              <td><div class="bar-cell"><div class="bar" style="width: 34%;"></div></div></td>
+            </tr>
+            <tr>
+              <td class="sector">Coastal Tourism</td>
+              <td class="num">19,130</td>
+              <td class="share">14.4%</td>
+              <td><div class="bar-cell"><div class="bar" style="width: 42%;"></div></div></td>
+            </tr>
+            <tr class="total-row">
+              <td class="sector">Total</td>
+              <td class="num">132,495</td>
+              <td class="share">100%</td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Table 3: Summary -->
+    <div class="table-card summary-table" style="margin-bottom: 0;">
+      <div class="table-card-header">
+        <span class="icon">&#9670;</span>
+        <h3>Summary: Ocean Economy as Share of National GDP</h3>
+      </div>
+      <div class="summary-grid">
+        <div class="summary-cell">
+          <div class="label">Ocean Economy GVA</div>
+          <div class="value teal">R132.5 bn</div>
+        </div>
+        <div class="summary-cell">
+          <div class="label">National GDP</div>
+          <div class="value gray">R4,830 bn</div>
+        </div>
+        <div class="summary-cell">
+          <div class="label">Ocean Economy % of GDP</div>
+          <div class="value green">2.74%</div>
+        </div>
+      </div>
+    </div>
+    <div class="source">Source: Statistics South Africa, Operation Phakisa Ocean Economy Satellite Account (2018)</div>
+
+    <!-- Highlight box -->
+    <div class="highlight-box">
+      <p>
+        <span class="icon">&#9670;</span>
+        <strong>South Africa's ocean economy is dominated by marine minerals (35%) and construction (31%).</strong>
+        In Small Island Developing States (SIDS), tourism and fisheries typically dominate instead &mdash; reflecting very different economic structures and policy priorities for ocean-based sustainable development.
+      </p>
+    </div>
+  </div>
+
+  <div class="slide-footer">GOAP &mdash; Ocean Economy Satellite Account Clinic &bull; Bogor 2026</div>
+</div>
+</body>
+</html>

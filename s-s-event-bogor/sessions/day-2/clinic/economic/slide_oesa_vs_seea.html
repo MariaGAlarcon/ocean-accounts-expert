@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OESA vs SEEA-EA: Two Sides of Ocean Accounts</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #f0f6f7 0%, #e8eff1 50%, #f5f0eb 100%);
+    color: #545353;
+    font-size: 14px;
+    line-height: 1.5;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 30px 20px;
+  }
+  .slide {
+    width: 100%;
+    max-width: 1400px;
+    background: #FFFFFF;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(10, 84, 85, 0.12), 0 2px 8px rgba(0,0,0,0.06);
+    overflow: hidden;
+  }
+  .slide-header {
+    background: linear-gradient(135deg, #0A5455 0%, #3B9C7B 100%);
+    padding: 28px 48px;
+    position: relative;
+  }
+  .slide-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #66A3B5, #5EB593, #B59F81);
+  }
+  .slide-header h1 {
+    font-size: 42px;
+    font-weight: 700;
+    color: #FFFFFF;
+    letter-spacing: -0.5px;
+  }
+  .slide-header .subtitle {
+    font-size: 17px;
+    color: #B5D0D6;
+    margin-top: 6px;
+  }
+  .slide-body {
+    padding: 36px 48px 32px;
+  }
+
+  /* Comparison columns */
+  .comparison {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    margin-bottom: 28px;
+  }
+  .col {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.07);
+  }
+  .col-header {
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .col-header .icon { font-size: 24px; }
+  .col-header h2 {
+    font-size: 17px;
+    font-weight: 700;
+    color: #FFFFFF;
+  }
+  .col-oesa .col-header {
+    background: linear-gradient(135deg, #66A3B5, #5a95a6);
+  }
+  .col-seea .col-header {
+    background: linear-gradient(135deg, #3B9C7B, #2e8a6a);
+  }
+  .col-body {
+    padding: 0;
+  }
+  .col-oesa {
+    border-left: 5px solid #66A3B5;
+  }
+  .col-seea {
+    border-left: 5px solid #3B9C7B;
+  }
+
+  .attr-row {
+    display: flex;
+    padding: 11px 24px;
+    border-bottom: 1px solid #f0f0f0;
+    align-items: baseline;
+  }
+  .attr-row:last-child { border-bottom: none; }
+  .attr-label {
+    width: 120px;
+    flex-shrink: 0;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #999;
+    padding-top: 1px;
+  }
+  .attr-value {
+    font-size: 14px;
+    color: #545353;
+    line-height: 1.45;
+  }
+  .attr-value strong { color: #0A5455; }
+
+  .col-oesa .attr-row:nth-child(odd) { background: #f8fbfc; }
+  .col-seea .attr-row:nth-child(odd) { background: #f5faf7; }
+
+  .question-box {
+    margin-top: 10px;
+    padding: 14px 24px;
+    font-size: 15px;
+    font-weight: 700;
+    font-style: italic;
+  }
+  .col-oesa .question-box {
+    background: linear-gradient(90deg, rgba(102,163,181,0.12), transparent);
+    color: #4a8da3;
+    border-left: 4px solid #66A3B5;
+  }
+  .col-seea .question-box {
+    background: linear-gradient(90deg, rgba(59,156,123,0.12), transparent);
+    color: #2e8a6a;
+    border-left: 4px solid #3B9C7B;
+  }
+
+  /* Insight box */
+  .insight-box {
+    background: linear-gradient(135deg, #0A5455 0%, #1a6b6c 100%);
+    border-radius: 10px;
+    padding: 24px 32px;
+    margin-bottom: 24px;
+    position: relative;
+  }
+  .insight-box::before {
+    content: '\2731';
+    position: absolute;
+    top: 18px;
+    left: 28px;
+    font-size: 22px;
+    color: #5EB593;
+  }
+  .insight-box p {
+    color: #FFFFFF;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-left: 36px;
+  }
+  .insight-box strong { color: #B5D0D6; }
+
+  /* Linkage diagram */
+  .linkage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    padding: 16px 0 8px;
+  }
+  .linkage-box {
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-size: 17px;
+    font-weight: 700;
+    color: #FFFFFF;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+  }
+  .linkage-oesa { background: linear-gradient(135deg, #66A3B5, #5a95a6); }
+  .linkage-seea { background: linear-gradient(135deg, #3B9C7B, #2e8a6a); }
+
+  .linkage-arrows {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 12px;
+    gap: 4px;
+  }
+  .arrow-line {
+    font-size: 13px;
+    color: #0A5455;
+    white-space: nowrap;
+    background: #f0f6f7;
+    padding: 4px 14px;
+    border-radius: 12px;
+    border: 1px solid #d5e3e7;
+  }
+  .arrow-line .arr { color: #B59F81; font-weight: 700; }
+
+  /* Footer */
+  .slide-footer {
+    padding: 12px 48px;
+    text-align: right;
+    font-size: 12px;
+    color: #999;
+    border-top: 1px solid #eee;
+  }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="slide-header">
+    <h1>OESA vs SEEA-EA: Two Sides of Ocean Accounts</h1>
+    <div class="subtitle">Complementary frameworks for understanding the ocean economy and ocean ecosystems</div>
+  </div>
+
+  <div class="slide-body">
+    <!-- Two columns -->
+    <div class="comparison">
+      <!-- LEFT: OESA -->
+      <div class="col col-oesa">
+        <div class="col-header">
+          <span class="icon">&#9879;</span>
+          <h2>Ocean Economy (OESA)</h2>
+        </div>
+        <div class="col-body">
+          <div class="attr-row">
+            <div class="attr-label">Based on</div>
+            <div class="attr-value"><strong>System of National Accounts</strong> (SNA)</div>
+          </div>
+          <div class="attr-row">
+            <div class="attr-label">Measures</div>
+            <div class="attr-value">Market-based economic activity</div>
+          </div>
+          <div class="attr-row">
+            <div class="attr-label">Key Indicator</div>
+            <div class="attr-value"><strong>Gross Value Added</strong> (GVA), GDP contribution</div>
+          </div>
+          <div class="attr-row">
+            <div class="attr-label">Sectors</div>
+            <div class="attr-value">Fisheries, minerals, transport, tourism, construction, ship building</div>
+          </div>
+          <div class="attr-row">
+            <div class="attr-label">Data From</div>
+            <div class="attr-value">National statistical offices, Supply-Use Tables</div>
+          </div>
+          <div class="attr-row">
+            <div class="attr-label">Output</div>
+            <div class="attr-value"><strong>Ocean GDP</strong> as % of national GDP</div>
+          </div>
+          <div class="question-box">
+            &#8220;How big is the ocean economy?&#8221;
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: SEEA-EA -->
+      <div class="col col-seea">
+        <div class="col-header">
+          <span class="icon">&#9752;</span>
+          <h2>Ecosystem Accounts (SEEA-EA)</h2>
+        </div>
+        <div class="col-body">
+          <div class="attr-row">
+            <div class="attr-label">Based on</div>
+            <div class="attr-value"><strong>System of Environmental-Economic Accounting</strong></div>
+          </div>
+          <div class="attr-row">
+            <div class="attr-label">Measures</div>
+            <div class="attr-value">Ecosystem health and non-market values</div>
+          </div>
+          <div class="attr-row">
+            <div class="attr-label">Key Indicator</div>
+            <div class="attr-value"><strong>Condition Index</strong> (0&ndash;1), ecosystem service values</div>
+          </div>
+          <div class="attr-row">
+            <div class="attr-label">Accounts</div>
+            <div class="attr-value">Extent, Condition, Ecosystem Services</div>
+          </div>
+          <div class="attr-row">
+            <div class="attr-label">Data From</div>
+            <div class="attr-value">Remote sensing, field surveys, ecological monitoring</div>
+          </div>
+          <div class="attr-row">
+            <div class="attr-label">Output</div>
+            <div class="attr-value"><strong>Condition trends</strong>, service valuations</div>
+          </div>
+          <div class="question-box">
+            &#8220;How healthy is the ocean and what does it provide?&#8221;
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Insight box -->
+    <div class="insight-box">
+      <p>
+        <strong>Together they give the full picture:</strong> OESA shows what the ocean contributes to the economy.
+        SEEA-EA shows what the economy depends on from the ocean. One without the other is incomplete.
+      </p>
+    </div>
+
+    <!-- Linkage diagram -->
+    <div class="linkage">
+      <div class="linkage-box linkage-oesa">&#9879; OESA</div>
+      <div class="linkage-arrows">
+        <div class="arrow-line"><span class="arr">&#10142;</span> Fisheries GVA depends on fish stock condition</div>
+        <div class="arrow-line"><span class="arr">&#10142;</span> Tourism GVA depends on reef &amp; water quality</div>
+        <div class="arrow-line"><span class="arr">&#10140;</span> Economic pressures affect ecosystem condition</div>
+      </div>
+      <div class="linkage-box linkage-seea">&#9752; SEEA-EA</div>
+    </div>
+  </div>
+
+  <div class="slide-footer">GOAP &mdash; Ocean Economy Satellite Account Clinic &bull; Bogor 2026</div>
+</div>
+</body>
+</html>

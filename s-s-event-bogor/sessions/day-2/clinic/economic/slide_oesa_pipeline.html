@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ocean Economy Satellite Account Pipeline</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #f0f6f7 0%, #e8eff1 50%, #f5f0eb 100%);
+    color: #545353;
+    font-size: 14px;
+    line-height: 1.5;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 30px 20px;
+  }
+  .slide {
+    width: 100%;
+    max-width: 1400px;
+    background: #FFFFFF;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(10, 84, 85, 0.12), 0 2px 8px rgba(0,0,0,0.06);
+    overflow: hidden;
+  }
+  .slide-header {
+    background: linear-gradient(135deg, #0A5455 0%, #3B9C7B 100%);
+    padding: 28px 48px;
+    position: relative;
+  }
+  .slide-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #66A3B5, #5EB593, #B59F81);
+  }
+  .slide-header h1 {
+    font-size: 42px;
+    font-weight: 700;
+    color: #FFFFFF;
+    letter-spacing: -0.5px;
+  }
+  .slide-header .subtitle {
+    font-size: 17px;
+    color: #B5D0D6;
+    margin-top: 6px;
+  }
+  .slide-body {
+    padding: 36px 48px 32px;
+  }
+
+  /* Phase labels */
+  .phase-row {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 12px;
+  }
+  .phase-label {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    padding: 4px 16px;
+    border-radius: 20px;
+    color: #FFFFFF;
+  }
+  .phase-setup { background: #66A3B5; flex: 3; text-align: center; }
+  .phase-core { background: #B59F81; flex: 1; text-align: center; }
+  .phase-compile { background: #3B9C7B; flex: 3; text-align: center; }
+
+  /* Pipeline */
+  .pipeline {
+    display: flex;
+    gap: 0;
+    align-items: stretch;
+    margin-bottom: 32px;
+  }
+  .step {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding: 0 6px;
+  }
+  .step-circle {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: 700;
+    color: #FFFFFF;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+  }
+  .step.setup .step-circle { background: linear-gradient(135deg, #66A3B5, #5a95a6); }
+  .step.core .step-circle { background: linear-gradient(135deg, #B59F81, #a68e70); }
+  .step.compile .step-circle { background: linear-gradient(135deg, #3B9C7B, #2e8a6a); }
+
+  /* Arrow connector */
+  .step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 26px;
+    left: calc(50% + 30px);
+    right: -50%;
+    height: 3px;
+    z-index: 1;
+  }
+  .step.setup:not(.step-3)::after { background: #66A3B5; }
+  .step.step-3::after { background: linear-gradient(90deg, #66A3B5, #B59F81); }
+  .step.core::after { background: linear-gradient(90deg, #B59F81, #3B9C7B); }
+  .step.compile:not(:last-child)::after { background: #3B9C7B; }
+
+  .step:not(:last-child) .arrow-head {
+    position: absolute;
+    top: 20px;
+    right: -6px;
+    width: 0;
+    height: 0;
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    z-index: 2;
+  }
+  .step.setup:not(.step-3) .arrow-head { border-left: 10px solid #66A3B5; }
+  .step.step-3 .arrow-head { border-left: 10px solid #B59F81; }
+  .step.core .arrow-head { border-left: 10px solid #3B9C7B; }
+  .step.compile:not(:last-child) .arrow-head { border-left: 10px solid #3B9C7B; }
+
+  .step-card {
+    margin-top: 14px;
+    border-radius: 8px;
+    padding: 14px 12px;
+    width: 100%;
+    flex: 1;
+    border-left: 4px solid;
+    background: #FFFFFF;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+  .step.setup .step-card { border-left-color: #66A3B5; background: linear-gradient(135deg, #f5f9fa, #fff); }
+  .step.core .step-card { border-left-color: #B59F81; background: linear-gradient(135deg, #faf7f3, #fff); }
+  .step.compile .step-card { border-left-color: #3B9C7B; background: linear-gradient(135deg, #f3faf6, #fff); }
+
+  .step-title {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .step.setup .step-title { color: #66A3B5; }
+  .step.core .step-title { color: #a68e70; }
+  .step.compile .step-title { color: #3B9C7B; }
+
+  .step-desc {
+    font-size: 13px;
+    color: #545353;
+    line-height: 1.45;
+  }
+  .step-desc strong { color: #0A5455; }
+
+  /* Output Section */
+  .output-section {
+    background: linear-gradient(135deg, #0A5455 0%, #1a6b6c 100%);
+    border-radius: 10px;
+    padding: 24px 32px;
+    margin-top: 8px;
+  }
+  .output-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .output-header .icon {
+    font-size: 22px;
+  }
+  .output-header h3 {
+    font-size: 17px;
+    font-weight: 700;
+    color: #FFFFFF;
+  }
+  .output-table {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+  }
+  .sector-chip {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 6px;
+    padding: 10px 8px;
+    text-align: center;
+  }
+  .sector-chip .label {
+    font-size: 12px;
+    color: #B5D0D6;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .sector-chip .value {
+    font-size: 15px;
+    color: #FFFFFF;
+    font-weight: 700;
+  }
+  .sector-chip.total {
+    background: rgba(94, 181, 147, 0.3);
+    border-color: #5EB593;
+  }
+
+  /* Footer */
+  .slide-footer {
+    padding: 12px 48px;
+    text-align: right;
+    font-size: 12px;
+    color: #999;
+    border-top: 1px solid #eee;
+  }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="slide-header">
+    <h1>Ocean Economy Satellite Account Pipeline</h1>
+    <div class="subtitle">Seven-step OESA compilation process &mdash; from scope definition to validated output</div>
+  </div>
+
+  <div class="slide-body">
+    <!-- Phase labels -->
+    <div class="phase-row">
+      <div class="phase-label phase-setup">&#9678; Setup Phase</div>
+      <div class="phase-label phase-core">&#9733; Core Estimation</div>
+      <div class="phase-label phase-compile">&#10003; Compilation Phase</div>
+    </div>
+
+    <!-- Pipeline -->
+    <div class="pipeline">
+      <!-- Step 1 -->
+      <div class="step setup">
+        <div class="step-circle">1</div>
+        <div class="arrow-head"></div>
+        <div class="step-card">
+          <div class="step-title">Define Scope</div>
+          <div class="step-desc">
+            <strong>Geographic:</strong> EEZ, coastal zones<br>
+            <strong>Economic:</strong> 3 pillars &mdash; on-water, coastal-dependent, for-ocean-use
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="step setup">
+        <div class="step-circle">2</div>
+        <div class="arrow-head"></div>
+        <div class="step-card">
+          <div class="step-title">Classify Activities</div>
+          <div class="step-desc">
+            Map national industries (<strong>ISIC/SIC</strong>) to 6 ocean economy groups
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="step setup step-3">
+        <div class="step-circle">3</div>
+        <div class="arrow-head"></div>
+        <div class="step-card">
+          <div class="step-title">Select Framework</div>
+          <div class="step-desc">
+            Anchor to <strong>Supply-Use Tables</strong> (SUT) as the structural backbone
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="step core">
+        <div class="step-circle">4</div>
+        <div class="arrow-head"></div>
+        <div class="step-card">
+          <div class="step-title">Estimate Partials</div>
+          <div class="step-desc">
+            Ocean share of mixed industries: <strong>1.0</strong> for fishing/shipping; <strong>0.1&ndash;0.5</strong> for tourism/construction
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 5 -->
+      <div class="step compile">
+        <div class="step-circle">5</div>
+        <div class="arrow-head"></div>
+        <div class="step-card">
+          <div class="step-title">Compile Indicators</div>
+          <div class="step-desc">
+            <strong>Ocean Output</strong> = National Output &times; Partial<br>
+            <strong>GVA</strong> = Output &minus; IC
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 6 -->
+      <div class="step compile">
+        <div class="step-circle">6</div>
+        <div class="arrow-head"></div>
+        <div class="step-card">
+          <div class="step-title">Data Integration</div>
+          <div class="step-desc">
+            Reconcile to SUT, check <strong>consistency</strong>, eliminate double counting
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 7 -->
+      <div class="step compile">
+        <div class="step-circle">7</div>
+        <div class="step-card">
+          <div class="step-title">Validate</div>
+          <div class="step-desc">
+            Compare to <strong>benchmarks</strong>, document all assumptions and data gaps
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Output -->
+    <div class="output-section">
+      <div class="output-header">
+        <span class="icon">&#9660;</span>
+        <h3>Output: OESA Summary Table &mdash; GVA by Ocean Sector</h3>
+      </div>
+      <div class="output-table">
+        <div class="sector-chip">
+          <span class="label">Living Resources</span>
+          <span class="value">&#9670; GVA</span>
+        </div>
+        <div class="sector-chip">
+          <span class="label">Marine Minerals</span>
+          <span class="value">&#9670; GVA</span>
+        </div>
+        <div class="sector-chip">
+          <span class="label">Marine Construction</span>
+          <span class="value">&#9670; GVA</span>
+        </div>
+        <div class="sector-chip">
+          <span class="label">Ship &amp; Boat Building</span>
+          <span class="value">&#9670; GVA</span>
+        </div>
+        <div class="sector-chip">
+          <span class="label">Marine Transport</span>
+          <span class="value">&#9670; GVA</span>
+        </div>
+        <div class="sector-chip">
+          <span class="label">Coastal Tourism</span>
+          <span class="value">&#9670; GVA</span>
+        </div>
+        <div class="sector-chip total">
+          <span class="label">Total Ocean Economy</span>
+          <span class="value">&#9733; Total GVA</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-footer">GOAP &mdash; Ocean Economy Satellite Account Clinic &bull; Bogor 2026</div>
+</div>
+</body>
+</html>
