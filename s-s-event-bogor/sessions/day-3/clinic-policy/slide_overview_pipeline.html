@@ -194,7 +194,48 @@
     font-size: 11px;
     color: #aaa;
   }
-</style>
+
+    /* Print-friendly styles */
+    @page {
+      size: A4 landscape;
+      margin: 10mm;
+    }
+    @media print {
+      body {
+        background: white !important;
+        display: block !important;
+        padding: 0 !important;
+        min-height: auto !important;
+      }
+      .slide-container, .slide {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-height: auto !important;
+        height: auto !important;
+        aspect-ratio: auto !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        padding: 15px 20px !important;
+        margin: 0 !important;
+        page-break-inside: avoid;
+        overflow: visible !important;
+        transform: none !important;
+      }
+      .slide-container::before, .slide::before {
+        display: none !important;
+      }
+      /* Scale down fonts slightly for print */
+      h1, .title { font-size: 28px !important; }
+      h2 { font-size: 18px !important; }
+      body, p, td, th, li, div { font-size: 11px !important; }
+      table { font-size: 10px !important; page-break-inside: avoid; }
+      /* Ensure colors print */
+      * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+      /* Page breaks between slides */
+      .slide-container + .slide-container, .slide + .slide, .page-break { page-break-before: always; }
+    }
+
+  </style>
 </head>
 <body>
 <div class="slide-container">

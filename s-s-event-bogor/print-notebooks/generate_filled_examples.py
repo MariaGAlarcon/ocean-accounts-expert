@@ -335,38 +335,107 @@ def generate_services(outdir):
         "damage functions. Gleaning valued at local equivalent wage rate as subsistence activity "
         "has no market price.")
 
-    # ── Table 4e: Combined Physical Supply and Use ──
+    # ── Table 4c: Physical Use ──
     doc.add_page_break()
-    add_title(doc, "Table 4e: Combined Physical Supply and Use Table")
+    add_title(doc, "Table 4c: Physical Use of Ecosystem Services")
+    add_note(doc, "The use table shows which economic sectors benefit from each service. "
+             "Total use must equal total supply from Table 4a for every service row.")
+
+    make_table(doc,
+        ["Service", "Unit", "Fisheries", "Tourism", "Coastal HH", "Govt", "Global", "Total"],
+        [
+            ["Fish provisioning", "kg/yr", "180,000", "0", "0", "0", "0", "180,000"],
+            ["Carbon sequestration", "Mg CO\u2082/yr", "0", "0", "0", "0", "2,335", "2,335"],
+            ["Coastal protection", "m", "0", "0", "10,000", "5,500", "0", "15,500"],
+            ["Nursery habitat", "kg/yr", "7,300", "0", "0", "0", "0", "7,300"],
+            ["Recreation", "visitors/yr", "0", "15,000", "2,400", "0", "0", "17,400"],
+            ["Gleaning", "hours/yr", "0", "0", "18,000", "0", "0", "18,000"],
+        ])
+
+    add_interpretation(doc, "Interpretation:",
+        "Fish provisioning is used entirely by the fisheries sector. Carbon sequestration "
+        "benefits the global community through climate regulation. Coastal protection is "
+        "split between coastal households (property protection, 10,000 m) and government "
+        "(public infrastructure, 5,500 m). Recreation is used by tourism businesses "
+        "(15,000 visitors) and coastal households for local recreation (2,400 visitors). "
+        "Gleaning is a subsistence activity benefiting coastal households exclusively.")
+
+    # ── Table 4d: Monetary Use ──
+    doc.add_page_break()
+    add_title(doc, "Table 4d: Monetary Use of Ecosystem Services (USD/year)")
+
+    make_table(doc,
+        ["Service", "Method", "Fisheries", "Tourism", "Coastal HH", "Govt", "Global", "Total"],
+        [
+            ["Fish provisioning", "Resource rent", "210,000", "0", "0", "0", "0", "210,000"],
+            ["Carbon sequestration", "SCC", "0", "0", "0", "0", "119,085", "119,085"],
+            ["Coastal protection", "Replacement", "0", "0", "880,000", "495,000", "0", "1,375,000"],
+            ["Nursery habitat", "Productivity", "127,750", "0", "0", "0", "0", "127,750"],
+            ["Recreation", "Expenditure", "0", "1,275,000", "84,000", "0", "0", "1,359,000"],
+            ["Gleaning", "Equiv. wage", "0", "0", "63,000", "0", "0", "63,000"],
+            ["TOTAL", "", "337,750", "1,275,000", "1,027,000", "495,000", "119,085", "3,253,835"],
+        ])
+
+    add_interpretation(doc, "Interpretation:",
+        "Coastal households receive the most value (USD 1,027,000, 31.6%), driven by coastal "
+        "protection and gleaning. Tourism is the second-largest beneficiary (USD 1,275,000, "
+        "39.2%), almost entirely from recreation. Fisheries receive USD 337,750 from fish "
+        "provisioning and nursery habitat combined. Government benefits from coastal protection "
+        "of public infrastructure (USD 495,000). The global community receives USD 119,085 "
+        "from carbon sequestration valued at the social cost of carbon.")
+
+    # ── Table 4e: Integrated Supply-Use Table (SEEA EA Table 7.1 format) ──
+    doc.add_page_break()
+    add_title(doc, "Table 4e: Integrated Supply-Use Table (SEEA EA Table 7.1 format)")
+    add_note(doc, "The integrated SUT shows the complete picture. Supply (top) shows ecosystems "
+             "providing services. Use (bottom) shows who benefits. Total supply = Total use for "
+             "each service.")
     add_note(doc, "The SEEA EA presents supply and use together in a single integrated table. "
              "The left half shows which ecosystem types supply each service; the right half shows "
              "which economic sectors use (benefit from) each service. Total supply = Total use for every row.")
 
     make_table(doc,
         ["Service", "Unit",
-         "Coral reefs\n(supply)", "Seagrass\n(supply)", "Mangroves\n(supply)", "Total\nsupply",
-         "Fisheries\n(use)", "Tourism\n(use)", "Coastal HH\n(use)", "Govt\n(use)", "Global\n(use)", "Total\nuse"],
+         "Coral reefs", "Seagrass", "Mangroves",
+         "Fisheries", "Tourism", "Coastal HH", "Govt", "Global",
+         "TOTAL"],
         [
-            ["Fish provisioning", "kg/yr", "120,000", "45,000", "15,000", "180,000",
+            ["── SUPPLY ──", "", "", "", "", "", "", "", "", "", ""],
+            ["Fish provisioning", "kg/yr", "120,000", "45,000", "15,000",
+             "", "", "", "", "", "180,000"],
+            ["Carbon sequestration", "Mg CO\u2082/yr", "0", "1,040", "1,295",
+             "", "", "", "", "", "2,335"],
+            ["Coastal protection", "m coastline", "12,000", "0", "3,500",
+             "", "", "", "", "", "15,500"],
+            ["Nursery habitat", "kg biomass/yr", "4,500", "2,800", "0",
+             "", "", "", "", "", "7,300"],
+            ["Recreation", "visitors/yr", "15,000", "0", "2,400",
+             "", "", "", "", "", "17,400"],
+            ["Gleaning", "hours/yr", "0", "18,000", "0",
+             "", "", "", "", "", "18,000"],
+            ["── USE ──", "", "", "", "", "", "", "", "", "", ""],
+            ["Fish provisioning", "kg/yr", "", "", "",
              "180,000", "0", "0", "0", "0", "180,000"],
-            ["Carbon sequestration", "Mg CO\u2082/yr", "0", "1,040", "1,295", "2,335",
+            ["Carbon sequestration", "Mg CO\u2082/yr", "", "", "",
              "0", "0", "0", "0", "2,335", "2,335"],
-            ["Coastal protection", "m coastline", "12,000", "0", "3,500", "15,500",
+            ["Coastal protection", "m coastline", "", "", "",
              "0", "0", "10,000", "5,500", "0", "15,500"],
-            ["Nursery habitat", "kg biomass/yr", "4,500", "2,800", "0", "7,300",
+            ["Nursery habitat", "kg biomass/yr", "", "", "",
              "7,300", "0", "0", "0", "0", "7,300"],
-            ["Recreation", "visitors/yr", "15,000", "0", "2,400", "17,400",
+            ["Recreation", "visitors/yr", "", "", "",
              "0", "15,000", "2,400", "0", "0", "17,400"],
-            ["Gleaning", "hours/yr", "0", "18,000", "0", "18,000",
+            ["Gleaning", "hours/yr", "", "", "",
              "0", "0", "18,000", "0", "0", "18,000"],
         ])
 
-    add_interpretation(doc, "Reading the combined table:",
-        "Each row tells the complete story of one service. For example, fish provisioning: "
-        "120,000 kg comes from coral reefs, 45,000 kg from seagrass, and 15,000 kg from mangroves "
-        "(total supply = 180,000 kg). All 180,000 kg is used by the fisheries sector (total use = "
-        "180,000 kg). The accounting identity -- total supply equals total use -- must hold for "
-        "every row. This is a fundamental check on the account's consistency.")
+    add_interpretation(doc, "Reading the integrated SUT:",
+        "The integrated SUT shows the complete picture. Supply (top) shows ecosystems providing "
+        "services. Use (bottom) shows who benefits. Total supply = Total use for each service. "
+        "For example, fish provisioning: 120,000 kg from coral reefs + 45,000 from seagrass + "
+        "15,000 from mangroves = 180,000 kg total supply. All 180,000 kg is used by the "
+        "fisheries sector = 180,000 kg total use. This accounting identity must hold for "
+        "every row and is a fundamental check on the account's consistency. This is the "
+        "standard SEEA EA output format (Table 7.1).")
 
     path = outdir / "03-services" / "11-filled-example.docx"
     doc.save(str(path))
