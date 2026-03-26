@@ -114,7 +114,7 @@ def diagram_oesa_vs_seea(outdir):
     ax.set_ylim(0, 6)
     ax.axis("off")
 
-    ax.text(6, 5.7, "OESA vs SEEA-EA: Two Sides of Ocean Accounts", fontsize=16,
+    ax.text(6, 5.7, "OESA and SEEA-EA: Two Essential Dimensions of Ocean Accounts", fontsize=14,
             ha="center", color=TEAL, fontfamily="Arial", fontweight="bold")
 
     # Left: OESA
@@ -154,10 +154,12 @@ def diagram_oesa_vs_seea(outdir):
             fontsize=8, color=GREEN, fontfamily="Arial", fontweight="bold")
 
     # Bottom insight
-    rounded_box(ax, 6, 0.7, 10, 0.8,
-                "Together: OESA shows what the ocean contributes to the economy.\n"
-                "SEEA-EA shows what the economy depends on from the ocean.",
-                TEAL, WHITE, fontsize=9)
+    rounded_box(ax, 6, 0.7, 10, 1.1,
+                "Both are essential parts of one integrated Ocean Accounting framework.\n"
+                "OESA measures the economy. SEEA-EA measures the environment.\n"
+                "Together with waste accounts and social accounts, they form a complete picture\n"
+                "-- compiled once, serving many policy needs.",
+                TEAL, WHITE, fontsize=8)
 
     save_fig(fig, outdir / "diagram_oesa_vs_seea.png")
 

@@ -9,17 +9,23 @@
 | Day 3 | 09:10-10:30 | Pt.2: Policy implications and brief development |
 | Day 3 | 10:45-12:00 | Pt.2: Policy brief development (continued) |
 
+## Ocean Accounts: One Integrated Framework
+
+Ocean Accounts is one unified framework. All components (environment, economy, society, governance, pollution) share the same spatial foundation (Basic Spatial Units) and connect to each other. You compile once and report to many policy instruments (SDG 14, NDC/NBSAP, marine spatial planning, blue finance, national ocean policy).
+
+The toolkit below helps fellows choose **where to start** based on their policy priority. They are not choosing between disconnected account types -- they are selecting an entry point into one integrated system.
+
 ## How to use this toolkit
 
-### Step 1: Triage the participant
+### Step 1: Triage -- find the starting point
 
 Ask three questions:
 
-1. **What account type do you want to build?**
-   - Extent, Condition, Services (SEEA-EA ecological)
-   - Ocean Economy or Tourism (SNA economic)
-   - Waste and Emissions (SEEA-CF environmental flows)
-   - Social and Governance (GOAP social dimensions)
+1. **What is your policy priority?** (This determines where to start.)
+   - Mapping and monitoring ecosystems --> Extent, Condition, Services (SEEA-EA)
+   - Measuring the ocean economy --> Ocean Economy or Tourism (SNA)
+   - Tracking pollution and waste --> Waste and Emissions (SEEA-CF)
+   - Understanding communities and equity --> Social and Governance (GOAP)
    - "I don't know yet" --> use the diagnostic tool
 
 2. **What data do you have?**

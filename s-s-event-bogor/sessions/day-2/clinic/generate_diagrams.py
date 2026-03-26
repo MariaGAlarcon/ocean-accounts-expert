@@ -59,99 +59,136 @@ def save_fig(fig, path):
 # 1. OVERVIEW: Ocean Accounts Pipeline
 # =========================================================================
 def diagram_overview(outdir):
-    fig, ax = plt.subplots(figsize=(14, 9))
+    fig, ax = plt.subplots(figsize=(14, 10))
     ax.set_xlim(0, 14)
-    ax.set_ylim(0, 9)
+    ax.set_ylim(0, 10)
     ax.axis("off")
 
     # Title
-    ax.text(7, 8.6, "Ocean Accounts: The Complete Framework", fontsize=17, ha="center",
+    ax.text(7, 9.6, "Ocean Accounts: One Framework, Many Policy Uses",
+            fontsize=17, ha="center", color=TEAL, fontfamily="Arial", fontweight="bold")
+
+    # ---- TOP: COMPILE ONCE banner ----
+    banner_top = FancyBboxPatch((1.0, 8.7), 12.0, 0.55,
+                                boxstyle="round,pad=0.08", facecolor=MINT,
+                                edgecolor=TEAL, linewidth=1.5)
+    ax.add_patch(banner_top)
+    ax.text(7, 8.97, "COMPILE ONCE", fontsize=13, ha="center", va="center",
             color=TEAL, fontfamily="Arial", fontweight="bold")
 
-    # Data sources (top)
+    # Data sources
     sources = [
-        (1.8, 7.6, "Satellite\nimagery"),
-        (4.6, 7.6, "Field\nsurveys"),
-        (7.4, 7.6, "Government\nstatistics"),
-        (10.2, 7.6, "Global\ndatasets"),
-        (12.6, 7.6, "Community\nknowledge"),
+        (1.8, 8.15, "Satellite"),
+        (4.2, 8.15, "Field\nsurveys"),
+        (6.6, 8.15, "Government\nstatistics"),
+        (9.0, 8.15, "Global\ndatasets"),
+        (11.4, 8.15, "Community\nknowledge"),
     ]
     for x, y, t in sources:
-        rounded_box(ax, x, y, 2.0, 0.7, t, LIGHT_BLUE, textcolor=BODY, fontsize=8, bold=False)
+        rounded_box(ax, x, y, 2.0, 0.55, t, LIGHT_BLUE, textcolor=BODY, fontsize=7, bold=False)
 
-    # Spatial framework
-    rounded_box(ax, 7, 6.4, 12.5, 0.6,
-                "Spatial Data Framework: Basic Spatial Units (BSU grid)", GREEN, fontsize=10)
-
-    # Arrows: data sources to spatial framework
+    # Arrows from sources down to BSU band
     for x, _, _ in sources:
-        arrow(ax, x, 7.2, min(x, 12), 6.75, GREEN)
+        arrow(ax, x, 7.85, x, 7.45, GREEN)
 
-    # Arrows: spatial framework down to account rows
-    for tx in [2.5, 7.0, 11.5, 2.5, 7.0, 11.5]:
-        arrow(ax, 7, 6.05, tx, 5.55 if tx in [2.5, 7.0, 11.5] else 4.0, TEAL + "50")
-
-    # ---- Row 1: SEEA-EA accounts (green) ----
-    ax.text(0.6, 5.55, "SEEA-EA", fontsize=8, ha="center", va="center", color=GREEN,
-            fontfamily="Arial", fontweight="bold", rotation=90)
-
-    rounded_box(ax, 2.5, 5.2, 3.5, 0.9,
-                "EXTENT ACCOUNTS\nEcosystem area (ha)\nOpening / Closing", TEAL, fontsize=8)
-    rounded_box(ax, 7.0, 5.2, 3.5, 0.9,
-                "CONDITION ACCOUNTS\nEcosystem health (CI 0-1)\nIndicators / Reference", TEAL, fontsize=8)
-    rounded_box(ax, 11.5, 5.2, 3.5, 0.9,
-                "SERVICE ACCOUNTS\nSupply + Use tables\nPhysical / Monetary (SUT)", TEAL, fontsize=8)
-
-    # Horizontal arrows between SEEA-EA accounts
-    arrow(ax, 4.35, 5.2, 5.15, 5.2, GREEN)
-    arrow(ax, 8.85, 5.2, 9.65, 5.2, GREEN)
-    ax.text(4.75, 5.55, "extent\ninforms\ncondition", fontsize=5.5, color=GRAY,
-            fontfamily="Arial", ha="center")
-    ax.text(9.25, 5.55, "condition\ninforms\nservices", fontsize=5.5, color=GRAY,
-            fontfamily="Arial", ha="center")
-
-    # ---- Row 2: Other frameworks ----
-    rounded_box(ax, 2.5, 3.6, 3.5, 0.9,
-                "OCEAN ECONOMY (OESA)\nSNA framework\nOcean GDP, GVA", BLUE_GRAY, fontsize=8)
-    rounded_box(ax, 7.0, 3.6, 3.5, 0.9,
-                "WASTE & EMISSIONS\nSEEA-CF\nPollution flows, plastics", ORANGE_WARM, fontsize=8)
-    rounded_box(ax, 11.5, 3.6, 3.5, 0.9,
-                "SOCIAL & GOVERNANCE\nGOAP\nWellbeing, equity, access", TAN, textcolor=BODY, fontsize=8)
-
-    ax.text(0.6, 3.6, "Other\nframeworks", fontsize=7, ha="center", va="center", color=GRAY,
-            fontfamily="Arial", fontweight="bold", rotation=90)
-
-    # Arrows: spatial framework to Row 2
-    arrow(ax, 4.0, 6.05, 2.5, 4.1, BLUE_GRAY + "60")
-    arrow(ax, 7.0, 6.05, 7.0, 4.1, ORANGE_WARM + "60")
-    arrow(ax, 10.0, 6.05, 11.5, 4.1, TAN + "60")
-
-    # Arrows: spatial framework to Row 1
-    arrow(ax, 4.0, 6.05, 2.5, 5.7, TEAL + "60")
-    arrow(ax, 7.0, 6.05, 7.0, 5.7, TEAL + "60")
-    arrow(ax, 10.0, 6.05, 11.5, 5.7, TEAL + "60")
-
-    # ---- Policy outputs (bottom) ----
-    ax.text(7, 2.55, "Policy Applications", fontsize=11, ha="center", color=ORANGE,
+    # ---- MIDDLE: BSU spatial framework as wide green band ----
+    bsu_band = FancyBboxPatch((0.5, 5.05), 13.0, 0.65,
+                              boxstyle="round,pad=0.08", facecolor=GREEN,
+                              edgecolor=TEAL, linewidth=2.0, alpha=0.95)
+    ax.add_patch(bsu_band)
+    ax.text(7, 5.37, "SPATIAL DATA FRAMEWORK  (Basic Spatial Units)",
+            fontsize=12, ha="center", va="center", color=WHITE,
             fontfamily="Arial", fontweight="bold")
 
+    # ---- ABOVE BSU: ENVIRONMENT domain ----
+    ax.text(0.6, 7.2, "ENVIRONMENT", fontsize=9, ha="center", va="center",
+            color=TEAL, fontfamily="Arial", fontweight="bold", rotation=90)
+
+    # SEEA-EA chain: EXTENT -> CONDITION -> SERVICES
+    rounded_box(ax, 2.5, 6.7, 2.8, 0.8,
+                "EXTENT\nEcosystem area (ha)", TEAL, fontsize=8)
+    rounded_box(ax, 6.0, 6.7, 2.8, 0.8,
+                "CONDITION\nEcosystem health (CI)", TEAL, fontsize=8)
+    rounded_box(ax, 9.5, 6.7, 2.8, 0.8,
+                "SERVICES\nSupply & Use (SUT)", TEAL, fontsize=8)
+
+    # Horizontal arrows for SEEA-EA logical progression
+    arrow(ax, 3.95, 6.7, 4.55, 6.7, GREEN)
+    ax.text(4.25, 6.95, "informs", fontsize=6, color=GRAY, fontfamily="Arial", ha="center")
+    arrow(ax, 7.45, 6.7, 8.05, 6.7, GREEN)
+    ax.text(7.75, 6.95, "informs", fontsize=6, color=GRAY, fontfamily="Arial", ha="center")
+
+    # WASTE & EMISSIONS (orange arrow from economy up to environment)
+    rounded_box(ax, 12.3, 6.7, 2.2, 0.8,
+                "WASTE &\nEMISSIONS", ORANGE_WARM, fontsize=8)
+
+    # Arrows from environment boxes down to BSU
+    for bx in [2.5, 6.0, 9.5, 12.3]:
+        arrow(ax, bx, 6.25, bx, 5.75, TEAL + "60")
+
+    # ---- BELOW BSU: ECONOMY & SOCIETY domain ----
+    ax.text(0.6, 3.8, "ECONOMY\n&\nSOCIETY", fontsize=8, ha="center", va="center",
+            color=BLUE_GRAY, fontfamily="Arial", fontweight="bold", rotation=90)
+
+    # OCEAN ECONOMY (left)
+    rounded_box(ax, 3.5, 3.8, 4.0, 0.9,
+                "OCEAN ECONOMY (OESA)\nOcean GDP, GVA, employment", BLUE_GRAY, fontsize=8)
+
+    # SOCIAL & GOVERNANCE (right)
+    rounded_box(ax, 10.5, 3.8, 4.0, 0.9,
+                "SOCIAL & GOVERNANCE\nWellbeing, equity, access", TAN, textcolor=BODY, fontsize=8)
+
+    # Arrows from BSU down to economy/society
+    arrow(ax, 4.5, 5.0, 3.5, 4.3, BLUE_GRAY + "60")
+    arrow(ax, 9.5, 5.0, 10.5, 4.3, TAN + "60")
+
+    # Economy DEPENDS ON ecosystem services (arrow up from OESA to Services)
+    ax.annotate("", xy=(9.0, 6.25), xytext=(4.5, 4.3),
+                arrowprops=dict(arrowstyle="-|>", color=BLUE, lw=1.8,
+                                connectionstyle="arc3,rad=-0.2"))
+    ax.text(5.7, 5.6, "depends on\nservices", fontsize=6.5, color=BLUE,
+            fontfamily="Arial", ha="center", style="italic")
+
+    # Economy GENERATES waste/pollution (orange arrow from OESA up to Waste)
+    ax.annotate("", xy=(12.3, 6.25), xytext=(5.0, 4.3),
+                arrowprops=dict(arrowstyle="-|>", color=ORANGE, lw=1.8,
+                                connectionstyle="arc3,rad=-0.25"))
+    ax.text(9.8, 5.6, "generates\npollution", fontsize=6.5, color=ORANGE,
+            fontfamily="Arial", ha="center", style="italic")
+
+    # Social ENABLES/CONSTRAINS both (horizontal dashed connections)
+    ax.annotate("", xy=(5.55, 3.8), xytext=(8.45, 3.8),
+                arrowprops=dict(arrowstyle="<|-|>", color=TAN, lw=1.5,
+                                linestyle="dashed"))
+    ax.text(7.0, 3.45, "enables / constrains", fontsize=6.5, color=TAN,
+            fontfamily="Arial", ha="center", style="italic")
+
+    # ---- BOTTOM: REPORT MANY banner ----
+    banner_bot = FancyBboxPatch((1.0, 2.05), 12.0, 0.55,
+                                boxstyle="round,pad=0.08", facecolor=ORANGE + "20",
+                                edgecolor=ORANGE, linewidth=1.5)
+    ax.add_patch(banner_bot)
+    ax.text(7, 2.32, "REPORT MANY", fontsize=13, ha="center", va="center",
+            color=ORANGE, fontfamily="Arial", fontweight="bold")
+
+    # Arrows from economy/society down to report banner
+    arrow(ax, 3.5, 3.3, 4.0, 2.65, ORANGE + "50")
+    arrow(ax, 10.5, 3.3, 10.0, 2.65, ORANGE + "50")
+
+    # Policy outputs
     outputs = [
-        (1.8, 1.6, "SDG 14\nreporting"),
-        (4.3, 1.6, "NDC / NBSAP\nintegration"),
-        (6.8, 1.6, "Marine spatial\nplanning"),
-        (9.3, 1.6, "Blue finance\n& investment"),
-        (11.8, 1.6, "National ocean\npolicy"),
+        (1.8, 1.3, "SDG 14\nreporting"),
+        (4.3, 1.3, "NDC /\nNBSAP"),
+        (6.8, 1.3, "Marine spatial\nplanning"),
+        (9.3, 1.3, "Blue finance\n& investment"),
+        (11.8, 1.3, "National ocean\npolicy"),
     ]
     for x, y, t in outputs:
-        rounded_box(ax, x, y, 2.2, 0.7, t, ORANGE, fontsize=8)
+        rounded_box(ax, x, y, 2.2, 0.65, t, ORANGE, fontsize=8)
 
-    # Arrows from all 6 accounts to policy bar
-    for ax_x in [2.5, 7.0, 11.5]:
-        for ox, _, _ in outputs:
-            arrow(ax, ax_x, 4.7 if ax_x == 7.0 else 3.1, ox, 2.0, ORANGE + "30")
-    # Stronger arrows from Row 1
-    for ox, _, _ in outputs:
-        arrow(ax, 7, 3.1, ox, 2.0, ORANGE + "50")
+    # Arrows from banner to outputs
+    for x, _, _ in outputs:
+        arrow(ax, x, 2.0, x, 1.67, ORANGE + "70")
 
     save_fig(fig, outdir / "diagram_overview.png")
 
@@ -374,90 +411,115 @@ def diagram_triage(outdir):
     ax.set_ylim(0, 10)
     ax.axis("off")
 
-    ax.text(7, 9.6, "Clinic Triage: Which Account Type?", fontsize=17, ha="center",
+    # Title and subtitle
+    ax.text(7, 9.55, "Where to Start in Ocean Accounts", fontsize=17, ha="center",
             color=TEAL, fontfamily="Arial", fontweight="bold")
+    ax.text(7, 9.1, "One integrated framework -- choose your entry point", fontsize=11,
+            ha="center", color=GRAY, fontfamily="Arial", style="italic")
 
-    # Start
-    rounded_box(ax, 7, 8.7, 5.5, 0.6,
-                "What is your policy question?", GREEN, fontsize=11)
+    # Top question
+    rounded_box(ax, 7, 8.4, 6.0, 0.6,
+                "What is your policy priority?", GREEN, fontsize=12)
 
-    # ---- Group 1: SEEA-EA (teal) ----
-    ax.text(4.0, 7.65, "SEEA-EA", fontsize=9, ha="center", color=TEAL,
+    # Note box
+    note_box = FancyBboxPatch((1.2, 7.35), 11.6, 0.55,
+                              boxstyle="round,pad=0.08", facecolor=YELLOW,
+                              edgecolor=GRAY, linewidth=1.0, linestyle="--")
+    ax.add_patch(note_box)
+    ax.text(7, 7.62, "All components share the same spatial foundation (BSUs) and connect to each other.\n"
+            "Your starting point depends on your priority, but you are building one integrated system.",
+            fontsize=7.5, ha="center", va="center", color=BODY, fontfamily="Arial", style="italic")
+
+    # ---- Central BSU circle ----
+    bsu_circle = plt.Circle((7, 4.5), 1.1, facecolor=GREEN, edgecolor=TEAL,
+                            linewidth=2.5, alpha=0.9, zorder=5)
+    ax.add_patch(bsu_circle)
+    ax.text(7, 4.65, "BSU", fontsize=14, ha="center", va="center", color=WHITE,
+            fontfamily="Arial", fontweight="bold", zorder=6)
+    ax.text(7, 4.3, "Spatial\nFramework", fontsize=7.5, ha="center", va="center", color=WHITE,
+            fontfamily="Arial", zorder=6)
+
+    # ---- Group: ENVIRONMENT (top-left, teal) ----
+    ax.text(2.8, 6.7, "ENVIRONMENT", fontsize=9, ha="center", color=TEAL,
             fontfamily="Arial", fontweight="bold")
 
-    q1 = [
-        (1.5, 6.8, '"How much\necosystem\ndo we have?"', BLUE),
-        (4.0, 6.8, '"How healthy\nis our\necosystem?"', BLUE),
-        (6.5, 6.8, '"What benefits\ndo people\nget from it?"', BLUE),
+    env_items = [
+        (1.5, 5.9, '"Mapping\necosystems?"', "Extent"),
+        (2.8, 5.1, '"Measuring\nhealth?"', "Condition"),
+        (4.1, 5.9, '"Quantifying\nbenefits?"', "Services"),
     ]
-    for x, y, t, c in q1:
-        rounded_box(ax, x, y, 2.2, 0.85, t, c, fontsize=8)
-        arrow(ax, 7, 8.35, x, 7.28, BLUE + "80")
+    for x, y, q, label in env_items:
+        rounded_box(ax, x, y, 2.0, 0.75, q, TEAL, fontsize=7)
+        ax.text(x, y - 0.55, label, fontsize=7, ha="center", color=TEAL,
+                fontfamily="Arial", fontweight="bold")
+        arrow(ax, 7, 8.05, x, y + 0.42, TEAL + "60")
 
-    a1 = [
-        (1.5, 5.5, "EXTENT\nACCOUNT", TEAL),
-        (4.0, 5.5, "CONDITION\nACCOUNT", TEAL),
-        (6.5, 5.5, "SERVICES\nACCOUNT", TEAL),
-    ]
-    for x, y, t, c in a1:
-        rounded_box(ax, x, y, 2.2, 0.7, t, c, fontsize=9)
-    for i in range(3):
-        arrow(ax, q1[i][0], q1[i][1] - 0.48, a1[i][0], a1[i][1] + 0.4, TEAL)
+    # Connect environment group to BSU
+    arrow(ax, 3.2, 4.9, 5.9, 4.7, TEAL + "90")
+    arrow(ax, 5.9, 4.7, 3.2, 4.9, TEAL + "40")
 
-    # ---- Group 2: SNA / OESA (blue-gray) ----
-    ax.text(9.5, 7.65, "SNA / Economy", fontsize=9, ha="center", color=BLUE_GRAY,
+    # ---- Group: ECONOMY (top-right, blue-gray) ----
+    ax.text(11.2, 6.7, "ECONOMY", fontsize=9, ha="center", color=BLUE_GRAY,
             fontfamily="Arial", fontweight="bold")
 
-    q2 = [
-        (9.0, 6.8, '"How big is\nthe ocean\neconomy?"', BLUE_GRAY),
-        (11.5, 6.8, '"What does\ntourism\ncontribute?"', BLUE_GRAY),
-    ]
-    for x, y, t, c in q2:
-        rounded_box(ax, x, y, 2.2, 0.85, t, c, fontsize=8)
-        arrow(ax, 7, 8.35, x, 7.28, BLUE_GRAY + "80")
+    rounded_box(ax, 11.2, 5.9, 2.5, 0.75,
+                '"Measuring\nocean GDP?"', BLUE_GRAY, fontsize=7)
+    ax.text(11.2, 5.35, "OESA / OTSA", fontsize=7, ha="center", color=BLUE_GRAY,
+            fontfamily="Arial", fontweight="bold")
+    arrow(ax, 7, 8.05, 11.2, 6.32, BLUE_GRAY + "60")
 
-    a2 = [
-        (9.0, 5.5, "OESA\nACCOUNT", BLUE_GRAY),
-        (11.5, 5.5, "OTSA\nACCOUNT", BLUE_GRAY),
-    ]
-    for x, y, t, c in a2:
-        rounded_box(ax, x, y, 2.2, 0.7, t, c, fontsize=9)
-    for i in range(2):
-        arrow(ax, q2[i][0], q2[i][1] - 0.48, a2[i][0], a2[i][1] + 0.4, BLUE_GRAY)
+    # Connect economy to BSU
+    arrow(ax, 10.0, 5.6, 8.1, 4.7, BLUE_GRAY + "90")
+    arrow(ax, 8.1, 4.7, 10.0, 5.6, BLUE_GRAY + "40")
 
-    # ---- Group 3: SEEA-CF / Waste (orange) ----
-    q3_x, q3_y = 3.5, 4.3
-    rounded_box(ax, q3_x, q3_y, 2.8, 0.85,
-                '"What pollution\nenters the ocean?"', ORANGE_WARM, fontsize=8)
-    arrow(ax, 7, 8.35, q3_x, q3_y + 0.48, ORANGE_WARM + "60")
-    rounded_box(ax, q3_x, 3.1, 2.2, 0.7, "WASTE &\nEMISSIONS", ORANGE_WARM, fontsize=9)
-    arrow(ax, q3_x, q3_y - 0.48, q3_x, 3.5, ORANGE_WARM)
-
-    ax.text(q3_x, 4.95, "SEEA-CF", fontsize=8, ha="center", color=ORANGE_WARM,
+    # ---- Group: PRESSURES (bottom-right, orange) ----
+    ax.text(11.2, 3.8, "PRESSURES", fontsize=9, ha="center", color=ORANGE_WARM,
             fontfamily="Arial", fontweight="bold")
 
-    # ---- Group 4: GOAP / Social (tan) ----
-    q4_x, q4_y = 8.5, 4.3
-    rounded_box(ax, q4_x, q4_y, 2.8, 0.85,
-                '"Who benefits?\nWho is affected?"', TAN, textcolor=BODY, fontsize=8)
-    arrow(ax, 7, 8.35, q4_x, q4_y + 0.48, TAN + "80")
-    rounded_box(ax, q4_x, 3.1, 2.2, 0.7, "SOCIAL &\nGOVERNANCE", TAN, textcolor=BODY, fontsize=9)
-    arrow(ax, q4_x, q4_y - 0.48, q4_x, 3.5, TAN)
-
-    ax.text(q4_x, 4.95, "GOAP", fontsize=8, ha="center", color=TAN,
+    rounded_box(ax, 11.2, 3.1, 2.5, 0.75,
+                '"Tracking\npollution?"', ORANGE_WARM, fontsize=7)
+    ax.text(11.2, 2.55, "Waste & Emissions", fontsize=7, ha="center", color=ORANGE_WARM,
             fontfamily="Arial", fontweight="bold")
 
-    # ---- Data pathway cards (bottom) ----
-    ax.text(7, 2.05, "What data do you have?", fontsize=12, ha="center",
-            color=GREEN, fontfamily="Arial", fontweight="bold")
+    # Connect pressures to BSU
+    arrow(ax, 10.0, 3.4, 8.1, 4.3, ORANGE_WARM + "90")
+    arrow(ax, 8.1, 4.3, 10.0, 3.4, ORANGE_WARM + "40")
 
-    data_opts = [
-        (2.5, 1.0, "No data\n\nPathway A\n(Global datasets,\nvalue transfer)", YELLOW, BODY),
-        (7.0, 1.0, "Some data\n\nPathway A/B\n(Mix of global\nand local)", MINT, BODY),
-        (11.5, 1.0, "Field / local data\n\nPathway B\n(Primary analysis)", GREEN, WHITE),
-    ]
-    for x, y, t, fc, tc in data_opts:
-        rounded_box(ax, x, y, 3.0, 1.3, t, fc, textcolor=tc, fontsize=8, bold=False)
+    # ---- Group: SOCIETY (bottom-left, tan) ----
+    ax.text(2.8, 3.8, "SOCIETY", fontsize=9, ha="center", color=TAN,
+            fontfamily="Arial", fontweight="bold")
+
+    rounded_box(ax, 2.8, 3.1, 2.5, 0.75,
+                '"Understanding\ncommunities?"', TAN, textcolor=BODY, fontsize=7)
+    ax.text(2.8, 2.55, "Social & Governance", fontsize=7, ha="center", color=TAN,
+            fontfamily="Arial", fontweight="bold")
+
+    # Connect society to BSU
+    arrow(ax, 4.2, 3.4, 5.9, 4.3, TAN + "90")
+    arrow(ax, 5.9, 4.3, 4.2, 3.4, TAN + "40")
+
+    # ---- Cross-connections between groups (lighter, showing integration) ----
+    # Environment <-> Economy
+    ax.annotate("", xy=(10.0, 6.0), xytext=(5.1, 5.9),
+                arrowprops=dict(arrowstyle="<|-|>", color=GRAY + "50", lw=1.0,
+                                linestyle="dotted", connectionstyle="arc3,rad=-0.15"))
+    # Economy <-> Pressures
+    ax.annotate("", xy=(11.2, 5.1), xytext=(11.2, 3.9),
+                arrowprops=dict(arrowstyle="<|-|>", color=GRAY + "50", lw=1.0,
+                                linestyle="dotted"))
+    # Society <-> Environment
+    ax.annotate("", xy=(1.8, 5.1), xytext=(2.5, 3.9),
+                arrowprops=dict(arrowstyle="<|-|>", color=GRAY + "50", lw=1.0,
+                                linestyle="dotted"))
+
+    # ---- Bottom message ----
+    bottom_box = FancyBboxPatch((1.5, 0.5), 11.0, 0.65,
+                                boxstyle="round,pad=0.08", facecolor=MINT,
+                                edgecolor=TEAL, linewidth=1.2)
+    ax.add_patch(bottom_box)
+    ax.text(7, 0.82, "All paths lead to integrated ocean accounts that serve multiple policy needs",
+            fontsize=9, ha="center", va="center", color=TEAL,
+            fontfamily="Arial", fontweight="bold")
 
     save_fig(fig, outdir / "diagram_triage.png")
 

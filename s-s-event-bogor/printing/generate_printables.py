@@ -189,9 +189,15 @@ def generate_triage_card(outdir):
     add_title(doc, "Ocean Accounting Clinic -- Facilitator Triage Card", size=16)
     add_subtitle(doc, "S-S Ocean Accounting Exchange 2026, Bogor")
 
+    p = doc.add_paragraph()
+    styled_run(p, "Ocean Accounts is one integrated framework.", size=11, bold=True, color=DARK_TEAL)
+    styled_run(p, " All components (environment, economy, society, governance, pollution) share the same spatial foundation (Basic Spatial Units) and connect to each other. You compile once and report to many policy instruments. This card helps fellows choose ", size=10, color=BODY)
+    styled_run(p, "where to start", size=10, bold=True, color=DARK_TEAL)
+    styled_run(p, " -- not which account to build in isolation.", size=10, color=BODY)
+
     add_heading_h2(doc, "Step 1: Ask three questions")
 
-    add_body(doc, "1. What account type do you want to build?")
+    add_body(doc, "1. What is your policy priority? (This determines your starting point.)")
     for opt in [
         "   - Extent, Condition, Services (SEEA-EA ecological)",
         "   - Ocean Economy or Tourism (SNA economic)",
