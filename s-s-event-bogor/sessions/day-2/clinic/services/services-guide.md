@@ -353,3 +353,36 @@ If you complete both parts, your full service account has:
 3. Supply and use tables showing which economic sectors or population groups use each service
 
 You can report Part A alone, Part A + Part B for some services, or the full set. Each is a valid level of completeness.
+
+---
+
+## The Integrated Supply-Use Table (SEEA EA Table 7.1)
+
+The SEEA EA presents supply and use together in a single integrated table. This is the final output of a complete ecosystem services account.
+
+**Structure:**
+
+The table has SUPPLY on top and USE on the bottom, sharing the same columns:
+- Left columns: Economic units (industries by sector, households, government, exports/global)
+- Right columns: Ecosystem types (by IUCN GET code)
+- Far right: TOTAL
+
+**SUPPLY half:** Ecosystem columns are filled (ecosystems supply services). Economic unit columns are empty.
+
+**USE half:** Economic unit columns are filled (economic units use services). Ecosystem columns are empty (except for intermediate services between ecosystems).
+
+**Accounting identity:** For each service row, Total supply must equal Total use. This is the fundamental check that the account is balanced.
+
+**How to build it:**
+
+1. Start with your completed supply tables (Part A physical + Part B monetary)
+2. Add your completed use tables
+3. Stack them in one table with a SUPPLY header and USE header
+4. Verify that totals match for each service row
+5. If totals do not match, identify the discrepancy and resolve
+
+**Why it matters:**
+
+The integrated SUT is the table format used in the SEEA EA standard (Table 7.1a for physical, Table 7.1b for monetary). It shows the complete picture in one place: where services come from (ecosystem assets) and who benefits (economic units). This is the table a national statistician would compile.
+
+See the Excel template "SUT (Supply-Use Table)" sheet for the blank template, and the example workbook "Services - SUT" sheet for a filled example.

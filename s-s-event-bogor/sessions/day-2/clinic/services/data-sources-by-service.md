@@ -215,3 +215,19 @@ These are freely available and can get you started on any service:
 | Ecosystem Marketplace | ecosystemmarketplace.com | Carbon credit prices and market trends |
 | IPCC Wetlands Supplement | ipcc.ch | Default emission factors and NCP rates |
 | Verra | verra.org | Blue carbon project registry and methodologies |
+
+---
+
+## Validating the Supply-Use Table
+
+When you build the integrated SUT, check these balances:
+
+| Check | What to verify | If it fails |
+|-------|---------------|-------------|
+| Row balance | Total supply = Total use for each service | Recheck allocation to beneficiary sectors |
+| Column balance | Sum of ecosystem supply = total physical supply | Recheck ecosystem-level disaggregation |
+| Completeness | Every service has at least one ecosystem supplier and one economic user | Identify missing allocations |
+| Consistency with extent | Ecosystem types in SUT match those in extent account | Align ecosystem classifications |
+| Consistency with condition | Services from degraded ecosystems should reflect reduced supply | Cross-check with condition CI |
+
+The integrated SUT is the standard SEEA EA output format (Table 7.1). Once balanced, it can be submitted to the national statistical office alongside extent and condition accounts.

@@ -189,6 +189,31 @@ Now assign the monetary values from Part B to the beneficiary sectors.
 
 ---
 
+## Part D: Build the Integrated Supply-Use Table
+
+The SEEA EA presents supply and use in one table. Stack your supply results (from Parts 1-2) on top and your use results (from Part C) on the bottom.
+
+**Fill in the integrated SUT (physical terms):**
+
+| | | Fisheries | Tourism | HH | Govt | Global | Coral reefs | Seagrass | Mangroves | TOTAL |
+|--|--|--:|--:|--:|--:|--:|--:|--:|--:|--:|
+| **SUPPLY** | | | | | | | | | | |
+| Fish provisioning | kg/yr | | | | | | ___ | ___ | ___ | ___ |
+| Carbon sequestration | Mg CO2/yr | | | | | | | ___ | ___ | ___ |
+| Coastal protection | m | | | | | | ___ | | ___ | ___ |
+| Recreation | visitors/yr | | | | | | ___ | | ___ | ___ |
+| **USE** | | | | | | | | | | |
+| Fish provisioning | kg/yr | ___ | | | | | | | | ___ |
+| Carbon sequestration | Mg CO2/yr | | | | | ___ | | | | ___ |
+| Coastal protection | m | | | ___ | ___ | | | | | ___ |
+| Recreation | visitors/yr | | ___ | ___ | | | | | | ___ |
+
+1. Does Total supply = Total use for each service row?
+2. Why are the economic unit columns empty in the supply half?
+3. Why are the ecosystem columns empty in the use half?
+
+---
+
 ## Answer Key
 
 ### Part A
@@ -244,6 +269,31 @@ Note: Coastal protection split 50/50 between households and government is an acc
 1. The tourism sector receives the most value (USD 1,275,000 or 45% of total). This implies that tourism policy and reef conservation are strongly linked -- degradation of reefs would directly impact the tourism economy. It justifies tourism sector contributions to reef management funding (e.g., reef fees, green taxes on dive operators).
 
 2. Splitting coastal protection requires data on what lies behind the reef: the share of private buildings vs. public infrastructure (roads, ports, utilities). A GIS overlay of building ownership within the protection buffer would provide this. In the absence of such data, a 50/50 split is a reasonable starting assumption.
+
+### Part D: Integrated Supply-Use Table
+
+**Completed SUT (physical terms):**
+
+| | | Fisheries | Tourism | HH | Govt | Global | Coral reefs | Seagrass | Mangroves | TOTAL |
+|--|--|--:|--:|--:|--:|--:|--:|--:|--:|--:|
+| **SUPPLY** | | | | | | | | | | |
+| Fish provisioning | kg/yr | | | | | | 180,000 | 0 | 0 | 180,000 |
+| Carbon sequestration | Mg CO2/yr | | | | | | | 1,040 | 1,295 | 2,335 |
+| Coastal protection | m | | | | | | 12,000 | | 0 | 12,000 |
+| Recreation | visitors/yr | | | | | | 15,000 | | 0 | 15,000 |
+| **USE** | | | | | | | | | | |
+| Fish provisioning | kg/yr | 180,000 | | | | | | | | 180,000 |
+| Carbon sequestration | Mg CO2/yr | | | | | 2,335 | | | | 2,335 |
+| Coastal protection | m | | | 6,000 | 6,000 | | | | | 12,000 |
+| Recreation | visitors/yr | | 15,000 | 0 | | | | | | 15,000 |
+
+**Part D answers:**
+
+1. Yes. Total supply = Total use for every row: Fish 180,000 = 180,000; Carbon 2,335 = 2,335; Coastal protection 12,000 = 12,000; Recreation 15,000 = 15,000. This is the accounting identity.
+
+2. Economic unit columns are empty in the supply half because ecosystems supply the services, not industries. Industries do not produce ecosystem services -- they receive them.
+
+3. Ecosystem columns are empty in the use half because economic units (people, businesses, governments) are the beneficiaries who use the services. Ecosystems are the suppliers, not the users (except for intermediate ecosystem services, which are not shown here).
 
 ### Interpretation answers
 

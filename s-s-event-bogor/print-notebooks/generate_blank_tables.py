@@ -290,20 +290,27 @@ def generate_services_tables(outdir):
         ], input_cols={2, 3, 4, 5, 6, 7})
 
     doc.add_page_break()
-    add_title(doc, "Table 4e: Combined Physical Supply and Use")
-    add_note(doc, "The SEEA EA presents supply and use together. Fill in both halves. Check: Total supply = Total use for each row.")
-    make_table(doc,
-        ["Service", "Unit",
-         "Eco 1\n(supply)", "Eco 2\n(supply)", "Eco 3\n(supply)", "Total\nsupply",
-         "Fisheries\n(use)", "Tourism\n(use)", "Coastal HH\n(use)", "Govt\n(use)", "Global\n(use)", "Total\nuse"],
-        [
-            ["Fish provisioning", "kg/yr", "", "", "", "", "", "", "", "", "", ""],
-            ["Carbon sequestration", "Mg CO2/yr", "", "", "", "", "", "", "", "", "", ""],
-            ["Coastal protection", "m coastline", "", "", "", "", "", "", "", "", "", ""],
-            ["Nursery habitat", "kg biomass/yr", "", "", "", "", "", "", "", "", "", ""],
-            ["Recreation", "visitors/yr", "", "", "", "", "", "", "", "", "", ""],
-            ["Gleaning", "hours/yr", "", "", "", "", "", "", "", "", "", ""],
-        ], input_cols={2, 3, 4, 5, 6, 7, 8, 9, 10, 11})
+    add_title(doc, "Table 4e: Integrated Supply-Use Table (SEEA EA Table 7.1)")
+    add_note(doc, "SUPPLY on top (fill ecosystem columns), USE on bottom (fill economic unit columns). Total supply = Total use per row.")
+
+    sut_headers = ["Service", "Unit", "Fisheries", "Tourism", "Other\nindustry", "Households", "Government", "Global /\nExports", "Ecosystem 1", "Ecosystem 2", "Ecosystem 3", "TOTAL"]
+    sut_rows = [
+        ["SUPPLY", "", "", "", "", "", "", "", "", "", "", ""],
+        ["Fish provisioning", "kg/yr", "", "", "", "", "", "", "", "", "", ""],
+        ["Carbon sequestration", "Mg CO2/yr", "", "", "", "", "", "", "", "", "", ""],
+        ["Coastal protection", "m", "", "", "", "", "", "", "", "", "", ""],
+        ["Nursery habitat", "kg/yr", "", "", "", "", "", "", "", "", "", ""],
+        ["Recreation", "visitors/yr", "", "", "", "", "", "", "", "", "", ""],
+        ["Gleaning", "hours/yr", "", "", "", "", "", "", "", "", "", ""],
+        ["USE", "", "", "", "", "", "", "", "", "", "", ""],
+        ["Fish provisioning", "kg/yr", "", "", "", "", "", "", "", "", "", ""],
+        ["Carbon sequestration", "Mg CO2/yr", "", "", "", "", "", "", "", "", "", ""],
+        ["Coastal protection", "m", "", "", "", "", "", "", "", "", "", ""],
+        ["Nursery habitat", "kg/yr", "", "", "", "", "", "", "", "", "", ""],
+        ["Recreation", "visitors/yr", "", "", "", "", "", "", "", "", "", ""],
+        ["Gleaning", "hours/yr", "", "", "", "", "", "", "", "", "", ""],
+    ]
+    make_table(doc, sut_headers, sut_rows, input_cols={2, 3, 4, 5, 6, 7, 8, 9, 10, 11})
 
     path = outdir / "03-services" / "10-blank-tables.docx"
     doc.save(str(path))

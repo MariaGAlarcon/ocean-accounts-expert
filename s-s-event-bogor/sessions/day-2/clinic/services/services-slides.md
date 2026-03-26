@@ -146,7 +146,34 @@ Visitors/yr --> x Reef-attributable spending --> Value (USD/yr)
 
 ---
 
-## Slide 7: What to do right now
+## Slide 7: The integrated Supply-Use Table (SEEA EA Table 7.1)
+
+The SEEA EA presents supply and use in a **single integrated table**. SUPPLY on top, USE on the bottom, sharing the same columns.
+
+**How to read it:**
+
+- **SUPPLY half:** Look at the ecosystem columns (right side). These show which ecosystems provide each service. The economic unit columns (left side) are empty because ecosystems supply services, not industries.
+- **USE half:** Look at the economic unit columns (left side). These show which sectors benefit from each service. The ecosystem columns (right side) are empty because economic units use services, not ecosystems.
+- **Accounting identity:** Total supply = Total use for every service row.
+
+**Simplified example (physical terms):**
+
+| | | Fisheries | Tourism | Households | Govt | Global | Coral reefs | Seagrass | Mangroves | TOTAL |
+|--|--|--:|--:|--:|--:|--:|--:|--:|--:|--:|
+| **SUPPLY** | | | | | | | | | | |
+| Fish provisioning | kg/yr | | | | | | 120,000 | 45,000 | 15,000 | 180,000 |
+| Carbon sequestration | Mg CO2/yr | | | | | | | 1,040 | 1,295 | 2,335 |
+| Coastal protection | m | | | | | | 12,000 | | 3,500 | 15,500 |
+| **USE** | | | | | | | | | | |
+| Fish provisioning | kg/yr | 180,000 | | | | | | | | 180,000 |
+| Carbon sequestration | Mg CO2/yr | | | | | 2,335 | | | | 2,335 |
+| Coastal protection | m | | | 10,000 | 5,500 | | | | | 15,500 |
+
+This is the complete picture: where services come from AND who benefits, in one table.
+
+---
+
+## Slide 8: What to do right now
 
 **Step 1: Choose your services (based on policy question)**
 
