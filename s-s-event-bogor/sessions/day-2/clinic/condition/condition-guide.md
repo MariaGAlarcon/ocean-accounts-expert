@@ -64,19 +64,29 @@ List what your monitoring program measures:
 
 ### Step 2: Choose reference levels
 
-For each indicator, set a reference level. Three approaches:
+The SEEA EA (2021, Chapter 5.3.2-5.3.3 and Appendix A5.2) defines the reference condition as the **natural state** of the ecosystem -- the condition in the absence of major human modification. The reference level is the value of a variable at that reference condition.
 
-| Approach | When to use | Example |
-|----------|------------|---------|
-| Literature benchmark | Most common; use published values for similar ecosystems | Coral cover 50% for Indo-Pacific |
-| Historical baseline | When you have data from an earlier, less disturbed period | Your own monitoring from 2005 |
-| Expert judgment | When no literature exists; document the rationale | Regional expert panel agreement |
+The SEEA EA standard provides six methods for establishing reference conditions. Use the one most appropriate to your data and ecosystem:
+
+| Method | SEEA EA ref | Description | When to use | Example |
+|--------|------------|-------------|------------|---------|
+| 1. Reference sites | A5.2 | Use undisturbed or least-disturbed sites as the benchmark | You have protected or remote sites with minimal human impact | Unfished reef biomass from no-take MPA |
+| 2. Modelled reference | A5.2 | Use ecological models to estimate the natural state | You have modelling capacity and environmental predictors | Species distribution models predicting pre-disturbance cover |
+| 3. Statistical approaches | A5.2 | Use the best percentile of observed data across sites | You have a large monitoring dataset with gradient of disturbance | Top 10th percentile of coral cover across all surveyed reefs |
+| 4. Historical observations | A5.2 | Use pre-disturbance data (pre-1970 or earlier records) | Historical monitoring data, museum records, or paleo data exist | AGRRA data from earliest monitoring period; historical photos |
+| 5. Contemporary baseline | A5.2 | Use a specific recent baseline year for comparison | Routine monitoring started at a known date | Reef condition at 2005 as baseline for trend tracking |
+| 6. Prescribed levels | A5.2 | Use policy targets, sustainability thresholds, or ecological limits | You want to assess progress toward a management target | Zero bleaching as the upper reference; policy target cover levels |
+
+**The most important thing is to document your choice.** State which method you used, cite the source, and explain why it is appropriate for your ecosystem and region. The SEEA EA says (para 5.73): "It is important to describe the rationale for their selection."
+
+**Note on the Belize example used in this clinic:**
+The reference levels in our exercises (coral cover 50%, fish biomass 500 kg/ha, etc.) use a mix of methods 1, 3, and 6. They are practical starting points from regional literature. For your own account, consider whether more locally appropriate reference levels exist from your monitoring history or regional benchmarks.
 
 **Fill this table:**
 
-| Indicator | Unit | Direction | Reference level | Source for reference |
-|-----------|------|-----------|----------------|-------------------|
-| | | Higher is better / worse | | |
+| Indicator | Unit | Direction | Reference level | Source | SEEA EA method (1-6) |
+|-----------|------|-----------|----------------|--------|---------------------|
+| | | Higher is better / worse | | | |
 | | | | | |
 
 ### Step 3: Normalize to condition index (CI)

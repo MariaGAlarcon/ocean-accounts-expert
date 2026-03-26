@@ -30,11 +30,13 @@ You have coral reef monitoring data from 4 sites in a marine reserve. Surveys we
 
 ### Reference levels
 
-| Indicator | Reference level | Direction | Source |
-|-----------|----------------|-----------|--------|
-| Live coral cover | 50% | Higher is better | Regional Indo-Pacific benchmark |
-| Fleshy macroalgae cover | 60% | Higher is worse | Maximum degraded state |
-| Fish biomass | 500 kg/ha | Higher is better | McClanahan et al. 2011 unfished baseline |
+| Indicator | Reference level | Direction | Source | SEEA EA method |
+|-----------|----------------|-----------|--------|---------------|
+| Live coral cover | 50% | Higher is better | Regional Indo-Pacific benchmark (1970s Caribbean baselines) | 3/5: Statistical / contemporary |
+| Fleshy macroalgae cover | 60% | Higher is worse | Maximum degraded state (prescribed ecological threshold) | 6: Prescribed level |
+| Fish biomass | 500 kg/ha | Higher is better | McClanahan et al. 2011 (unfished reef biomass) | 1: Reference sites |
+
+Note: These are illustrative reference levels for the exercise. For your own account, select reference levels appropriate to your region using one of the 6 SEEA EA methods (see the condition guide, Step 2). The key requirement is to document which method you used and why.
 
 ---
 
