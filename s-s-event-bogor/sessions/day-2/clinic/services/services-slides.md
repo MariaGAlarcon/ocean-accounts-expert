@@ -87,7 +87,36 @@ Three pathways depending on your data:
 
 ---
 
-## Slide 5: Logic chains -- how Part A flows into Part B
+## Slide 5: Who benefits? The Use Table
+
+Supply tables show **where** services come from (which ecosystems). Use tables show **who benefits** (which economic sectors).
+
+**Physical use table (Part A):**
+
+| Service | Fisheries sector | Tourism sector | Coastal households | Government | Global community | Total use |
+|---------|---:|---:|---:|---:|---:|---:|
+| Fish provisioning (kg/yr) | 180,000 | 0 | 0 | 0 | 0 | 180,000 |
+| Carbon sequestration (Mg CO2/yr) | 0 | 0 | 0 | 0 | 2,335 | 2,335 |
+| Coastal protection (m coastline) | 0 | 0 | 15,500 | 15,500 | 0 | 15,500 |
+| Nursery habitat (kg/yr) | 7,300 | 0 | 0 | 0 | 0 | 7,300 |
+| Recreation (visitors/yr) | 0 | 15,000 | 2,400 | 0 | 0 | 17,400 |
+| Gleaning (hours/yr) | 0 | 0 | 18,000 | 0 | 0 | 18,000 |
+
+**Key insight:** The same physical quantity appears in both tables. Supply is organized by ecosystem. Use is organized by beneficiary.
+
+**Who benefits from what?**
+
+| Beneficiary | Services used |
+|-------------|--------------|
+| Fisheries sector | Fish provisioning, nursery habitat |
+| Tourism sector | Recreation |
+| Coastal households | Gleaning, coastal protection, some recreation |
+| Government | Coastal protection (public infrastructure) |
+| Global community | Carbon sequestration (climate regulation) |
+
+---
+
+## Slide 6: Logic chains -- how Part A flows into Part B
 
 Each service follows a logic chain: **data in, physical quantity out, then value.**
 
@@ -117,7 +146,7 @@ Visitors/yr --> x Reef-attributable spending --> Value (USD/yr)
 
 ---
 
-## Slide 6: What to do right now
+## Slide 7: What to do right now
 
 **Step 1: Choose your services (based on policy question)**
 

@@ -152,6 +152,43 @@ Now assign economic values to each service. This builds on Part A.
 
 ---
 
+# PART C: BUILD THE USE TABLES
+
+The supply tables show which ecosystems provide each service. Now identify **who benefits** from each service.
+
+## C1: Physical use table
+
+For each service, assign the physical quantity to the economic sector that benefits. Use the totals from your supply table.
+
+**Hint:** Fish provisioning is used by the fisheries sector. Carbon sequestration benefits the global community. Coastal protection benefits coastal households and government. Recreation benefits the tourism sector. Gleaning benefits coastal households.
+
+| Service | Unit | Fisheries | Tourism | Coastal households | Government | Global community | Total |
+|---------|------|---:|---:|---:|---:|---:|---:|
+| Fish provisioning | kg/yr | ___ | | | | | ___ |
+| Carbon sequestration | Mg CO2/yr | | | | | ___ | ___ |
+| Coastal protection | m coastline | | | ___ | ___ | | ___ |
+| Recreation | visitors/yr | | ___ | | | | ___ |
+
+## C2: Monetary use table
+
+Now assign the monetary values from Part B to the beneficiary sectors.
+
+| Service | Method | Fisheries | Tourism | Coastal households | Government | Global community | Total |
+|---------|--------|---:|---:|---:|---:|---:|---:|
+| Fish provisioning | Resource rent | ___ | | | | | ___ |
+| Carbon sequestration | SCC | | | | | ___ | ___ |
+| Coastal protection | Replacement cost | | | ___ | ___ | | ___ |
+| Recreation | Direct expenditure | | ___ | | | | ___ |
+| **TOTAL** | | ___ | ___ | ___ | ___ | ___ | ___ |
+
+## C3: Interpretation
+
+1. Which sector receives the most monetary value from ocean ecosystems? What policy implications does this have?
+
+2. Coastal protection benefits both households and government. How would you split the value between them? What information would you need?
+
+---
+
 ## Answer Key
 
 ### Part A
@@ -178,6 +215,35 @@ Now assign economic values to each service. This builds on Part A.
 | Coastal: total = 12,000 x 5,000 | 60,000,000 |
 | Coastal: annualized = 60,000,000 / 50 | **1,200,000** |
 | **TOTAL** | **2,804,085** |
+
+### Part C: Use Tables
+
+**Physical use table:**
+
+| Service | Fisheries | Tourism | Coastal households | Government | Global community | Total |
+|---------|---:|---:|---:|---:|---:|---:|
+| Fish provisioning (kg/yr) | 180,000 | 0 | 0 | 0 | 0 | 180,000 |
+| Carbon sequestration (Mg CO2/yr) | 0 | 0 | 0 | 0 | 2,335 | 2,335 |
+| Coastal protection (m coastline) | 0 | 0 | 6,000 | 6,000 | 0 | 12,000 |
+| Recreation (visitors/yr) | 0 | 15,000 | 0 | 0 | 0 | 15,000 |
+
+Note: Coastal protection split 50/50 between households and government is an acceptable assumption. Other splits are valid if justified.
+
+**Monetary use table (USD/yr):**
+
+| Service | Fisheries | Tourism | Coastal households | Government | Global community | Total |
+|---------|---:|---:|---:|---:|---:|---:|
+| Fish provisioning | 210,000 | 0 | 0 | 0 | 0 | 210,000 |
+| Carbon sequestration | 0 | 0 | 0 | 0 | 119,085 | 119,085 |
+| Coastal protection | 0 | 0 | 600,000 | 600,000 | 0 | 1,200,000 |
+| Recreation | 0 | 1,275,000 | 0 | 0 | 0 | 1,275,000 |
+| **TOTAL** | **210,000** | **1,275,000** | **600,000** | **600,000** | **119,085** | **2,804,085** |
+
+**Part C interpretation answers:**
+
+1. The tourism sector receives the most value (USD 1,275,000 or 45% of total). This implies that tourism policy and reef conservation are strongly linked -- degradation of reefs would directly impact the tourism economy. It justifies tourism sector contributions to reef management funding (e.g., reef fees, green taxes on dive operators).
+
+2. Splitting coastal protection requires data on what lies behind the reef: the share of private buildings vs. public infrastructure (roads, ports, utilities). A GIS overlay of building ownership within the protection buffer would provide this. In the absence of such data, a 50/50 split is a reasonable starting assumption.
 
 ### Interpretation answers
 

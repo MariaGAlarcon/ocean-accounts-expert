@@ -201,6 +201,36 @@ If you have bathymetry and wave data (NOAA WaveWatch III), apply a wave attenuat
 
 ---
 
+## Part A continued: Physical Use Table
+
+The supply table shows which ecosystems provide each service. The **use table** shows which economic sectors or population groups benefit from each service. For each service, ask: **"Who benefits from this?"** and assign the physical quantity accordingly.
+
+**Beneficiary mapping:**
+
+| Service | Primary beneficiary | Rationale |
+|---------|-------------------|-----------|
+| Fish provisioning | Fisheries sector | Commercial and artisanal fishers harvest the catch |
+| Carbon sequestration | Global community | Climate regulation benefits everyone globally |
+| Coastal protection | Coastal households + Government | Protects private property and public infrastructure |
+| Nursery habitat | Fisheries sector | Supports future fish stocks harvested by fishers |
+| Recreation | Tourism sector | Tour operators and dive centres capture visitor spending |
+| Gleaning | Coastal households | Subsistence activity by local coastal communities |
+
+**Physical Use Table:**
+
+| Service | Unit | Fisheries | Tourism | Coastal households | Government | Global community | Total |
+|---------|------|---:|---:|---:|---:|---:|---:|
+| Fish provisioning | kg/yr | | | | | | |
+| Carbon sequestration | Mg CO2/yr | | | | | | |
+| Coastal protection | m coastline | | | | | | |
+| Nursery habitat | kg biomass/yr | | | | | | |
+| Recreation | visitors/yr | | | | | | |
+| Gleaning | hours/yr | | | | | | |
+
+**Note:** Some services may be shared across beneficiaries (e.g., coastal protection benefits both private households and government-owned infrastructure). The total in the use table must equal the total in the supply table -- the same physical quantity, just organized differently.
+
+---
+
 # PART B: MONETARY VALUATION (builds on Part A)
 
 **Only proceed to Part B if you have the economic data needed.** Part A alone is useful for policy.
@@ -292,6 +322,26 @@ Value = (Hours/yr x Local hourly wage) + (Harvest kg/yr x Market price/kg)
 | Recreation | Direct expenditure | Market | | | | |
 | Gleaning | Equivalent wage | Mixed | | | | |
 | **Total** | | | | | | |
+
+---
+
+## Part B continued: Monetary Use Table
+
+The monetary use table assigns the economic value of each service to the sector that benefits, using the same beneficiary mapping as the physical use table.
+
+**Monetary Use Table (USD/yr):**
+
+| Service | Method | Fisheries | Tourism | Coastal households | Government | Global community | Total |
+|---------|--------|---:|---:|---:|---:|---:|---:|
+| Fish provisioning | Resource rent | | | | | | |
+| Carbon sequestration | SCC | | | | | | |
+| Coastal protection | Replacement cost | | | | | | |
+| Nursery habitat | Market price | | | | | | |
+| Recreation | Direct expenditure | | | | | | |
+| Gleaning | Equivalent wage | | | | | | |
+| **Total** | | | | | | | |
+
+**Policy use:** The monetary use table reveals which sectors of the economy depend most on ecosystem services. This information supports cost-benefit analysis for conservation investments, identifies who bears costs when ecosystems degrade, and highlights sectors that should contribute to ecosystem management.
 
 ---
 

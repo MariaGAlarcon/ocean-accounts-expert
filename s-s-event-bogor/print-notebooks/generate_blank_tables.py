@@ -260,6 +260,35 @@ def generate_services_tables(outdir):
         ], input_cols={3, 4, 5, 6})
     add_note(doc, "Part A stands alone. Only fill Part B for services where you have economic data. Mixed completeness is normal.")
 
+    doc.add_page_break()
+    add_title(doc, "Table 4c: Physical Use (Part A)")
+    add_note(doc, "For each service, assign the physical quantity to the economic sector that benefits.")
+    make_table(doc,
+        ["Service", "Unit", "Fisheries", "Tourism", "Coastal\nhouseholds", "Government", "Global\ncommunity", "Total"],
+        [
+            ["Fish provisioning", "kg/yr", "", "", "", "", "", ""],
+            ["Carbon sequestration", "Mg CO2/yr", "", "", "", "", "", ""],
+            ["Coastal protection", "m coastline", "", "", "", "", "", ""],
+            ["Nursery habitat", "kg biomass/yr", "", "", "", "", "", ""],
+            ["Recreation", "visitors/yr", "", "", "", "", "", ""],
+            ["Gleaning", "hours/yr", "", "", "", "", "", ""],
+        ], input_cols={2, 3, 4, 5, 6, 7})
+
+    doc.add_paragraph()
+    add_title(doc, "Table 4d: Monetary Use (Part B) -- USD/year")
+    add_note(doc, "Assign the monetary value of each service to the sector that benefits. Totals must match the supply table.")
+    make_table(doc,
+        ["Service", "Valuation\nmethod", "Fisheries", "Tourism", "Coastal\nhouseholds", "Government", "Global\ncommunity", "Total"],
+        [
+            ["Fish provisioning", "Resource rent", "", "", "", "", "", ""],
+            ["Carbon sequestration", "SCC", "", "", "", "", "", ""],
+            ["Coastal protection", "Replacement cost", "", "", "", "", "", ""],
+            ["Nursery habitat", "Productivity change", "", "", "", "", "", ""],
+            ["Recreation", "Direct expenditure", "", "", "", "", "", ""],
+            ["Gleaning", "Equivalent wage", "", "", "", "", "", ""],
+            ["TOTAL", "", "", "", "", "", "", ""],
+        ], input_cols={2, 3, 4, 5, 6, 7})
+
     path = outdir / "03-services" / "10-blank-tables.docx"
     doc.save(str(path))
     print(f"  {path.name}")
