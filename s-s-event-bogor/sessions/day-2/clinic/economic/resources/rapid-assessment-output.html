@@ -1,0 +1,1083 @@
+
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=utf8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css">
+BODY{background-color: ffffff;
+    font-family: monaco, "courier new", monospace;
+     color: #000000}
+.input {color: #CC6600}
+.result{color: #000099}
+.error{color: #dd0000}
+</style>
+</head>
+<body>
+<pre>
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  <span class=result>&lt;unnamed&gt;</span>
+<span class=result>       </span>log:  <span class=result>C:\Users\jochaeta.STATISTICS.000\Documents\OceanAccountingProject\Rapid Assesment\Data Sets\RapidAssesmentOutput.smcl</span>
+<span class=result>  </span>log type:  <span class=result>smcl</span>
+<span class=result> </span>opened on:  <span class=result>17 Mar 2026, 14:17:32</span>
+<br><br>
+<span class=input>. </span>
+end of do-file
+<br><br>
+<span class=input>. do "C:\Users\JOCHAE~1.000\AppData\Local\Temp\STD2b38_000000.tmp"</span>
+<br><br>
+<span class=input>. //Tables by District</span>
+<span class=input>. table (District)(tourdest), stat(percent)</span>
+<br><br>
+--------------------------------------------------------------------------
+                 |                   Tourist Destinations                 
+                 |  Not tourist destination   Tourist Destination    Total
+-----------------+--------------------------------------------------------
+BusinessDistrict |                                                        
+  Corozal        |                    <span class=result>11.63</span>                          <span class=result>11.63</span>
+  Belize         |                    <span class=result>36.05</span>                 <span class=result>25.58</span>    <span class=result>61.63</span>
+  Stann Creek    |                     <span class=result>3.49</span>                 <span class=result>17.44</span>    <span class=result>20.93</span>
+  Toledo         |                     <span class=result>5.81</span>                           <span class=result>5.81</span>
+  Total          |                    <span class=result>56.98</span>                 <span class=result>43.02</span>   <span class=result>100.00</span>
+--------------------------------------------------------------------------
+<br><br>
+<span class=input>. table (Industry)(tourdest), stat(percent)</span>
+<br><br>
+--------------------------------------------------------------------------------------------------------------------------------
+                                                                       |                   Tourist Destinations                 
+                                                                       |  Not tourist destination   Tourist Destination    Total
+-----------------------------------------------------------------------+--------------------------------------------------------
+MainActivity                                                           |                                                        
+  Agriculture, forestry and fishing                                    |                     <span class=result>2.33</span>                           <span class=result>2.33</span>
+  Manufacturing                                                        |                     <span class=result>3.49</span>                           <span class=result>3.49</span>
+  Construction                                                         |                     <span class=result>3.49</span>                  <span class=result>3.49</span>     <span class=result>6.98</span>
+  Wholesale and retail trade; repair of motor vehicles and motorcycles |                                           <span class=result>1.16</span>     <span class=result>1.16</span>
+  Transportation and storage                                           |                     <span class=result>8.14</span>                  <span class=result>1.16</span>     <span class=result>9.30</span>
+  Accommodation and food service activities                            |                    <span class=result>22.09</span>                 <span class=result>25.58</span>    <span class=result>47.67</span>
+  Information and communication                                        |                     <span class=result>1.16</span>                           <span class=result>1.16</span>
+  Real estate activities                                               |                     <span class=result>2.33</span>                  <span class=result>2.33</span>     <span class=result>4.65</span>
+  Professional, scientific and technical activities                    |                     <span class=result>1.16</span>                           <span class=result>1.16</span>
+  Administrative and support service activities                        |                     <span class=result>5.81</span>                  <span class=result>9.30</span>    <span class=result>15.12</span>
+  Education                                                            |                     <span class=result>1.16</span>                           <span class=result>1.16</span>
+  Arts, entertainment and recreation                                   |                     <span class=result>2.33</span>                           <span class=result>2.33</span>
+  Other service activities                                             |                     <span class=result>3.49</span>                           <span class=result>3.49</span>
+  Total                                                                |                    <span class=result>56.98</span>                 <span class=result>43.02</span>   <span class=result>100.00</span>
+--------------------------------------------------------------------------------------------------------------------------------
+<br><br>
+<span class=input>. table (Registered)(tourdest), stat(percent)</span>
+<br><br>
+-------------------------------------------------------------------------------
+                      |                   Tourist Destinations                 
+                      |  Not tourist destination   Tourist Destination    Total
+----------------------+--------------------------------------------------------
+RegisteredatCompanies |                                                        
+  Yes                 |                    <span class=result>54.65</span>                 <span class=result>41.86</span>    <span class=result>96.51</span>
+  No                  |                     <span class=result>2.33</span>                  <span class=result>1.16</span>     <span class=result>3.49</span>
+  Total               |                    <span class=result>56.98</span>                 <span class=result>43.02</span>   <span class=result>100.00</span>
+-------------------------------------------------------------------------------
+<br><br>
+<span class=input>. table (Multipleoperation)(tourdest), stat(percent)</span>
+<br><br>
+----------------------------------------------------------------------------
+                   |                   Tourist Destinations                 
+                   |  Not tourist destination   Tourist Destination    Total
+-------------------+--------------------------------------------------------
+Multiple Operation |                                                        
+  Yes              |                    <span class=result>16.28</span>                  <span class=result>6.98</span>    <span class=result>23.26</span>
+  No               |                    <span class=result>40.70</span>                 <span class=result>36.05</span>    <span class=result>76.74</span>
+  Total            |                    <span class=result>56.98</span>                 <span class=result>43.02</span>   <span class=result>100.00</span>
+----------------------------------------------------------------------------
+<br><br>
+<span class=input>. table (Ownership)(tourdest), stat(percent)</span>
+<br><br>
+------------------------------------------------------------------------------------------------------
+                                             |                   Tourist Destinations                 
+                                             |  Not tourist destination   Tourist Destination    Total
+---------------------------------------------+--------------------------------------------------------
+Descriptionownership                         |                                                        
+  Sole Proprietorship (Individual ownership) |                    <span class=result>20.93</span>                  <span class=result>5.81</span>    <span class=result>26.74</span>
+  Partnership                                |                     <span class=result>2.33</span>                  <span class=result>9.30</span>    <span class=result>11.63</span>
+  Public limited liability company           |                                           <span class=result>1.16</span>     <span class=result>1.16</span>
+  Private limited liability company          |                    <span class=result>31.40</span>                 <span class=result>25.58</span>    <span class=result>56.98</span>
+  Non-profit institution                     |                     <span class=result>2.33</span>                           <span class=result>2.33</span>
+  Other(Specify)                             |                                           <span class=result>1.16</span>     <span class=result>1.16</span>
+  Total                                      |                    <span class=result>56.98</span>                 <span class=result>43.02</span>   <span class=result>100.00</span>
+------------------------------------------------------------------------------------------------------
+<br><br>
+<span class=input>. table (Client)(tourdest),  stat(percent)</span>
+<br><br>
+---------------------------------------------------------------------------------------------
+                                    |                   Tourist Destinations                 
+                                    |  Not tourist destination   Tourist Destination    Total
+------------------------------------+--------------------------------------------------------
+PrincipalBuyer                      |                                                        
+  Individuals/Households            |                    <span class=result>13.95</span>                  <span class=result>4.65</span>    <span class=result>18.60</span>
+  Government or government agencies |                     <span class=result>3.49</span>                           <span class=result>3.49</span>
+  Foreigners/Tourists               |                    <span class=result>19.77</span>                 <span class=result>36.05</span>    <span class=result>55.81</span>
+  Business Enterprises              |                    <span class=result>10.47</span>                  <span class=result>2.33</span>    <span class=result>12.79</span>
+  Exports Markets                   |                     <span class=result>1.16</span>                           <span class=result>1.16</span>
+  Other (Specify)                   |                     <span class=result>8.14</span>                           <span class=result>8.14</span>
+  Total                             |                    <span class=result>56.98</span>                 <span class=result>43.02</span>   <span class=result>100.00</span>
+---------------------------------------------------------------------------------------------
+<br><br>
+<span class=input>. table (Employment)(tourdest),  stat(percent)</span>
+<br><br>
+----------------------------------------------------------------------------------
+                         |                   Tourist Destinations                 
+                         |  Not tourist destination   Tourist Destination    Total
+-------------------------+--------------------------------------------------------
+Total employment         |                                                        
+  1 to 5 employees       |                    <span class=result>14.29</span>                  <span class=result>2.38</span>    <span class=result>16.67</span>
+  6 to 10 employees      |                    <span class=result>11.90</span>                 <span class=result>10.71</span>    <span class=result>22.62</span>
+  11 to 15 employees     |                     <span class=result>4.76</span>                  <span class=result>7.14</span>    <span class=result>11.90</span>
+  16 to 20 employees     |                     <span class=result>5.95</span>                  <span class=result>2.38</span>     <span class=result>8.33</span>
+  21 to 30 employees     |                     <span class=result>5.95</span>                  <span class=result>4.76</span>    <span class=result>10.71</span>
+  31 to 50 employees     |                     <span class=result>7.14</span>                  <span class=result>5.95</span>    <span class=result>13.10</span>
+  More than 50 employees |                     <span class=result>8.33</span>                  <span class=result>8.33</span>    <span class=result>16.67</span>
+  Total                  |                    <span class=result>58.33</span>                 <span class=result>41.67</span>   <span class=result>100.00</span>
+----------------------------------------------------------------------------------
+<br><br>
+<span class=input>. table (FemaleEmp)(tourdest),  stat(percent)</span>
+<br><br>
+----------------------------------------------------------------------------------
+                         |                   Tourist Destinations                 
+                         |  Not tourist destination   Tourist Destination    Total
+-------------------------+--------------------------------------------------------
+Female Employment        |                                                        
+  0 employees            |                     <span class=result>3.57</span>                  <span class=result>1.19</span>     <span class=result>4.76</span>
+  1 to 5 employees       |                    <span class=result>26.19</span>                 <span class=result>23.81</span>    <span class=result>50.00</span>
+  6 to 10 employees      |                    <span class=result>13.10</span>                  <span class=result>5.95</span>    <span class=result>19.05</span>
+  11 to 15 employees     |                     <span class=result>2.38</span>                  <span class=result>2.38</span>     <span class=result>4.76</span>
+  16 to 20 employees     |                     <span class=result>4.76</span>                  <span class=result>1.19</span>     <span class=result>5.95</span>
+  21 to 30 employees     |                     <span class=result>3.57</span>                  <span class=result>1.19</span>     <span class=result>4.76</span>
+  31 to 50 employees     |                     <span class=result>2.38</span>                  <span class=result>4.76</span>     <span class=result>7.14</span>
+  More than 50 employees |                     <span class=result>2.38</span>                  <span class=result>1.19</span>     <span class=result>3.57</span>
+  Total                  |                    <span class=result>58.33</span>                 <span class=result>41.67</span>   <span class=result>100.00</span>
+----------------------------------------------------------------------------------
+<br><br>
+<span class=input>. table (Age)(tourdest),  stat(percent)</span>
+<br><br>
+-----------------------------------------------------------------------------------------
+                                |                   Tourist Destinations                 
+                                |  Not tourist destination   Tourist Destination    Total
+--------------------------------+--------------------------------------------------------
+Age of Establishment as of 2026 |                                                        
+  Less than 5 years old         |                     <span class=result>1.52</span>                           <span class=result>1.52</span>
+  5 to 10 years old             |                     <span class=result>6.06</span>                 <span class=result>16.67</span>    <span class=result>22.73</span>
+  11 to 15 years old            |                    <span class=result>12.12</span>                 <span class=result>10.61</span>    <span class=result>22.73</span>
+  16 to 25 years old            |                    <span class=result>18.18</span>                  <span class=result>9.09</span>    <span class=result>27.27</span>
+  26 to 35 years old            |                    <span class=result>12.12</span>                  <span class=result>6.06</span>    <span class=result>18.18</span>
+  36 to 45 years old            |                     <span class=result>1.52</span>                           <span class=result>1.52</span>
+  More than 46 years old        |                     <span class=result>6.06</span>                           <span class=result>6.06</span>
+  Total                         |                    <span class=result>57.58</span>                 <span class=result>42.42</span>   <span class=result>100.00</span>
+-----------------------------------------------------------------------------------------
+<br><br>
+<span class=input>. table (FemaleOw)(tourdest),  stat(percent)</span>
+<br><br>
+------------------------------------------------------------------------------------------
+                                 |                   Tourist Destinations                 
+                                 |  Not tourist destination   Tourist Destination    Total
+---------------------------------+--------------------------------------------------------
+Percent of Female Ownership      |                                                        
+  No Female Ownership            |                    <span class=result>26.74</span>                 <span class=result>15.12</span>    <span class=result>41.86</span>
+  At most 25% Female Ownership   |                     <span class=result>5.81</span>                  <span class=result>3.49</span>     <span class=result>9.30</span>
+  At most 35% Female Ownership   |                     <span class=result>1.16</span>                           <span class=result>1.16</span>
+  At Most 50% Female Ownership   |                    <span class=result>12.79</span>                 <span class=result>13.95</span>    <span class=result>26.74</span>
+  At most 75% Female Ownership   |                                           <span class=result>3.49</span>     <span class=result>3.49</span>
+  More than 75% Female Ownership |                    <span class=result>10.47</span>                  <span class=result>6.98</span>    <span class=result>17.44</span>
+  Total                          |                    <span class=result>56.98</span>                 <span class=result>43.02</span>   <span class=result>100.00</span>
+------------------------------------------------------------------------------------------
+<br><br>
+<span class=input>. </span>
+<span class=input>. //Multiple list Qustion Table</span>
+<span class=input>. display "Effects of Climate Change"</span>
+<span class=result>Effects of Climate Change</span>
+<br><br>
+<span class=input>. mrtab Be59__1 - Be59__21, by (tourdest)  row format(%9.1f)</span>
+<br><br>
++--------------------------+
+| Key                      |
+|--------------------------|
+| <i> frequency of responses </i> |
+| <i>row percent of responses</i> |
++--------------------------+
+<br><br>
+                                        |  Tourist Destinations  
+                                        | Not touris  Tourist De |      Total
+----------------------------------------+------------------------+-----------
+ Be59__1 ClimateChange:Coastal flooding |  <span class=result>       21           8 </span>|  <span class=result>       29 </span>
+<span class=result>        </span>                                |  <span class=result>     72.4        27.6 </span>|  <span class=result>    100.0 </span>
+----------------------------------------+------------------------+-----------
+ Be59__2      ClimateChange:Storm surge |  <span class=result>       24          11 </span>|  <span class=result>       35 </span>
+<span class=result>        </span>                                |  <span class=result>     68.6        31.4 </span>|  <span class=result>    100.0 </span>
+----------------------------------------+------------------------+-----------
+ Be59__3   ClimateChange:Sea-level rise |  <span class=result>       26          14 </span>|  <span class=result>       40 </span>
+<span class=result>        </span>                                |  <span class=result>     65.0        35.0 </span>|  <span class=result>    100.0 </span>
+----------------------------------------+------------------------+-----------
+ Be59__4          ClimateChange:erosion |  <span class=result>       11          23 </span>|  <span class=result>       34 </span>
+<span class=result>        </span>                                |  <span class=result>     32.4        67.6 </span>|  <span class=result>    100.0 </span>
+----------------------------------------+------------------------+-----------
+ Be59__5  ClimateChange:Coral bleaching |  <span class=result>        6           9 </span>|  <span class=result>       15 </span>
+<span class=result>        </span>                                |  <span class=result>     40.0        60.0 </span>|  <span class=result>    100.0 </span>
+----------------------------------------+------------------------+-----------
+ Be59__6        ClimateChange:ecosystem |  <span class=result>        9           6 </span>|  <span class=result>       15 </span>
+<span class=result>        </span>                        decline |  <span class=result>     60.0        40.0 </span>|  <span class=result>    100.0 </span>
+----------------------------------------+------------------------+-----------
+ Be59__7  ClimateChange:stronger storms |  <span class=result>       18          13 </span>|  <span class=result>       31 </span>
+<span class=result>        </span>                                |  <span class=result>     58.1        41.9 </span>|  <span class=result>    100.0 </span>
+----------------------------------------+------------------------+-----------
+ Be59__8      ClimateChange:higher wave |  <span class=result>       13           9 </span>|  <span class=result>       22 </span>
+<span class=result>        </span>                         action |  <span class=result>     59.1        40.9 </span>|  <span class=result>    100.0 </span>
+----------------------------------------+------------------------+-----------
+ Be59__9      ClimateChange:Heat stress |  <span class=result>        5           4 </span>|  <span class=result>        9 </span>
+<span class=result>        </span>      affecting demand or staff |  <span class=result>     55.6        44.4 </span>|  <span class=result>    100.0 </span>
+----------------------------------------+------------------------+-----------
+Be59__10          ClimateChange:Drought |  <span class=result>        4           4 </span>|  <span class=result>        8 </span>
+<span class=result>        </span>                                |  <span class=result>     50.0        50.0 </span>|  <span class=result>    100.0 </span>
+----------------------------------------+------------------------+-----------
+Be59__11  ClimateChange:Water shortages |  <span class=result>        5           5 </span>|  <span class=result>       10 </span>
+<span class=result>        </span>                                |  <span class=result>     50.0        50.0 </span>|  <span class=result>    100.0 </span>
+----------------------------------------+------------------------+-----------
+Be59__12         ClimateChange:Wildfire |  <span class=result>        5           2 </span>|  <span class=result>        7 </span>
+<span class=result>        </span>                                |  <span class=result>     71.4        28.6 </span>|  <span class=result>    100.0 </span>
+----------------------------------------+------------------------+-----------
+Be59__13         ClimateChange:Extended |  <span class=result>        6           2 </span>|  <span class=result>        8 </span>
+<span class=result>        </span>                      Heatwaves |  <span class=result>     75.0        25.0 </span>|  <span class=result>    100.0 </span>
+----------------------------------------+------------------------+-----------
+Be59__14            ClimateChange:Ocean |  <span class=result>        9          10 </span>|  <span class=result>       19 </span>
+<span class=result>        </span>                  acidification |  <span class=result>     47.4        52.6 </span>|  <span class=result>    100.0 </span>
+----------------------------------------+------------------------+-----------
+Be59__15   ClimateChange:Attracting new |  <span class=result>        4           3 </span>|  <span class=result>        7 </span>
+<span class=result>        </span>         or returning customers |  <span class=result>     57.1        42.9 </span>|  <span class=result>    100.0 </span>
+----------------------------------------+------------------------+-----------
+Be59__16          ClimateChange:Loss of |  <span class=result>        6          14 </span>|  <span class=result>       20 </span>
+<span class=result>        </span>                   biodiversity |  <span class=result>     30.0        70.0 </span>|  <span class=result>    100.0 </span>
+----------------------------------------+------------------------+-----------
+Be59__17          ClimateChange:Habitat |  <span class=result>        9          11 </span>|  <span class=result>       20 </span>
+<span class=result>        </span>                    destruction |  <span class=result>     45.0        55.0 </span>|  <span class=result>    100.0 </span>
+----------------------------------------+------------------------+-----------
+Be59__20   ClimateChange:Other(Specify) |  <span class=result>        5          16 </span>|  <span class=result>       21 </span>
+<span class=result>        </span>                                |  <span class=result>     23.8        76.2 </span>|  <span class=result>    100.0 </span>
+----------------------------------------+------------------------+-----------
+Be59__21      ClimateChange:None of the |  <span class=result>       14           1 </span>|  <span class=result>       15 </span>
+<span class=result>        </span>                          above |  <span class=result>     93.3         6.7 </span>|  <span class=result>    100.0 </span>
+----------------------------------------+------------------------+-----------
+                                  Total |  <span class=result>      200         165 </span>|  <span class=result>      365 </span>
+<span class=result>                                      </span>  |  <span class=result>     54.8        45.2 </span>|  <span class=result>    100.0 </span>
+<span class=result>                                  </span>Cases |  <span class=result>       49          35 </span>|  <span class=result>       84 </span>
+<br><br>
+Valid cases:         84
+Missing cases:        2
+<br><br>
+<span class=input>. </span>
+<span class=input>. </span>
+<span class=input>. </span>
+<span class=input>. display "Main Summary Indicators for the analysis"</span>
+<span class=result>Main Summary Indicators for the analysis</span>
+<br><br>
+<span class=input>. table (Industry)(tourdest), statistic(mean oceanrating1)</span>
+<br><br>
+----------------------------------------------------------------------------------------------------------------------------------
+                                                                       |                    Tourist Destinations                  
+                                                                       |  Not tourist destination   Tourist Destination      Total
+-----------------------------------------------------------------------+----------------------------------------------------------
+MainActivity                                                           |                                                          
+  Agriculture, forestry and fishing                                    |                 <span class=result>2.714286</span>                         <span class=result>2.714286</span>
+  Manufacturing                                                        |                 <span class=result>4.761905</span>                         <span class=result>4.761905</span>
+  Construction                                                         |                 <span class=result>5.142857</span>              <span class=result>5.285714</span>   <span class=result>5.214286</span>
+  Wholesale and retail trade; repair of motor vehicles and motorcycles |                                       <span class=result>4.857143</span>   <span class=result>4.857143</span>
+  Transportation and storage                                           |                 <span class=result>5.408163</span>              <span class=result>5.714286</span>   <span class=result>5.446429</span>
+  Accommodation and food service activities                            |                 <span class=result>4.928571</span>              <span class=result>5.153061</span>   <span class=result>5.033333</span>
+  Information and communication                                        |                 <span class=result>4.571429</span>                         <span class=result>4.571429</span>
+  Real estate activities                                               |                        <span class=result>.</span>              <span class=result>5.714286</span>   <span class=result>5.714286</span>
+  Professional, scientific and technical activities                    |                 <span class=result>5.285714</span>                         <span class=result>5.285714</span>
+  Administrative and support service activities                        |                      <span class=result>4.2</span>              <span class=result>5.428571</span>   <span class=result>4.956044</span>
+  Education                                                            |                        <span class=result>.</span>                                <span class=result>.</span>
+  Arts, entertainment and recreation                                   |                      <span class=result>3.5</span>                              <span class=result>3.5</span>
+  Other service activities                                             |                        <span class=result>.</span>                                <span class=result>.</span>
+  Total                                                                |                 <span class=result>4.794872</span>               <span class=result>5.27551</span>   <span class=result>4.995736</span>
+----------------------------------------------------------------------------------------------------------------------------------
+<br><br>
+<span class=input>. table (Industry)(tourdest), statistic(mean dependencyrating1)</span>
+<br><br>
+----------------------------------------------------------------------------------------------------------------------------------
+                                                                       |                    Tourist Destinations                  
+                                                                       |  Not tourist destination   Tourist Destination      Total
+-----------------------------------------------------------------------+----------------------------------------------------------
+MainActivity                                                           |                                                          
+  Agriculture, forestry and fishing                                    |                      <span class=result>5.4</span>                              <span class=result>5.4</span>
+  Manufacturing                                                        |                        <span class=result>.</span>                                <span class=result>.</span>
+  Construction                                                         |                        <span class=result>.</span>                     <span class=result>.</span>          <span class=result>.</span>
+  Wholesale and retail trade; repair of motor vehicles and motorcycles |                                              <span class=result>.</span>          <span class=result>.</span>
+  Transportation and storage                                           |                        <span class=result>.</span>                     <span class=result>.</span>          <span class=result>.</span>
+  Accommodation and food service activities                            |                      <span class=result>4.8</span>                   <span class=result>4.4</span>       <span class=result>4.55</span>
+  Information and communication                                        |                        <span class=result>.</span>                                <span class=result>.</span>
+  Real estate activities                                               |                      <span class=result>5.6</span>                   <span class=result>4.6</span>   <span class=result>5.266667</span>
+  Professional, scientific and technical activities                    |                        <span class=result>.</span>                                <span class=result>.</span>
+  Administrative and support service activities                        |                        <span class=result>.</span>                     <span class=result>.</span>          <span class=result>.</span>
+  Education                                                            |                      <span class=result>4.6</span>                              <span class=result>4.6</span>
+  Arts, entertainment and recreation                                   |                        <span class=result>.</span>                                <span class=result>.</span>
+  Other service activities                                             |                 <span class=result>3.066667</span>                         <span class=result>3.066667</span>
+  Total                                                                |                     <span class=result>4.48</span>              <span class=result>4.433333</span>     <span class=result>4.4625</span>
+----------------------------------------------------------------------------------------------------------------------------------
+<br><br>
+<span class=input>. table (Industry)(tourdest), statistic(mean ecosystemrating1)</span>
+<br><br>
+----------------------------------------------------------------------------------------------------------------------------------
+                                                                       |                    Tourist Destinations                  
+                                                                       |  Not tourist destination   Tourist Destination      Total
+-----------------------------------------------------------------------+----------------------------------------------------------
+MainActivity                                                           |                                                          
+  Agriculture, forestry and fishing                                    |                      <span class=result>5.2</span>                              <span class=result>5.2</span>
+  Manufacturing                                                        |                        <span class=result>.</span>                                <span class=result>.</span>
+  Construction                                                         |                        <span class=result>.</span>                     <span class=result>.</span>          <span class=result>.</span>
+  Wholesale and retail trade; repair of motor vehicles and motorcycles |                                              <span class=result>.</span>          <span class=result>.</span>
+  Transportation and storage                                           |                        <span class=result>.</span>                     <span class=result>.</span>          <span class=result>.</span>
+  Accommodation and food service activities                            |                        <span class=result>5</span>                  <span class=result>4.92</span>       <span class=result>4.95</span>
+  Information and communication                                        |                        <span class=result>.</span>                                <span class=result>.</span>
+  Real estate activities                                               |                      <span class=result>3.6</span>                     <span class=result>5</span>   <span class=result>4.066667</span>
+  Professional, scientific and technical activities                    |                        <span class=result>.</span>                                <span class=result>.</span>
+  Administrative and support service activities                        |                        <span class=result>.</span>                     <span class=result>.</span>          <span class=result>.</span>
+  Education                                                            |                      <span class=result>2.8</span>                              <span class=result>2.8</span>
+  Arts, entertainment and recreation                                   |                        <span class=result>.</span>                                <span class=result>.</span>
+  Other service activities                                             |                      <span class=result>4.2</span>                              <span class=result>4.2</span>
+  Total                                                                |                     <span class=result>4.28</span>              <span class=result>4.933333</span>      <span class=result>4.525</span>
+----------------------------------------------------------------------------------------------------------------------------------
+<br><br>
+<span class=input>. table (Industry)(tourdest), statistic(mean culutralrating1)</span>
+<br><br>
+----------------------------------------------------------------------------------------------------------------------------------
+                                                                       |                    Tourist Destinations                  
+                                                                       |  Not tourist destination   Tourist Destination      Total
+-----------------------------------------------------------------------+----------------------------------------------------------
+MainActivity                                                           |                                                          
+  Agriculture, forestry and fishing                                    |                      <span class=result>3.6</span>                              <span class=result>3.6</span>
+  Manufacturing                                                        |                        <span class=result>.</span>                                <span class=result>.</span>
+  Construction                                                         |                        <span class=result>.</span>                     <span class=result>.</span>          <span class=result>.</span>
+  Wholesale and retail trade; repair of motor vehicles and motorcycles |                                              <span class=result>.</span>          <span class=result>.</span>
+  Transportation and storage                                           |                        <span class=result>.</span>                     <span class=result>.</span>          <span class=result>.</span>
+  Accommodation and food service activities                            |                        <span class=result>5</span>                  <span class=result>4.84</span>        <span class=result>4.9</span>
+  Information and communication                                        |                        <span class=result>.</span>                                <span class=result>.</span>
+  Real estate activities                                               |                        <span class=result>5</span>                     <span class=result>5</span>          <span class=result>5</span>
+  Professional, scientific and technical activities                    |                        <span class=result>.</span>                                <span class=result>.</span>
+  Administrative and support service activities                        |                        <span class=result>.</span>                     <span class=result>.</span>          <span class=result>.</span>
+  Education                                                            |                        <span class=result>3</span>                                <span class=result>3</span>
+  Arts, entertainment and recreation                                   |                        <span class=result>.</span>                                <span class=result>.</span>
+  Other service activities                                             |                 <span class=result>4.533333</span>                         <span class=result>4.533333</span>
+  Total                                                                |                     <span class=result>4.52</span>              <span class=result>4.866667</span>       <span class=result>4.65</span>
+----------------------------------------------------------------------------------------------------------------------------------
+<br><br>
+<span class=input>. table (Industry)(tourdest), statistic(mean oceanrating2)</span>
+<br><br>
+----------------------------------------------------------------------------------------------------------------------------------
+                                                                       |                    Tourist Destinations                  
+                                                                       |  Not tourist destination   Tourist Destination      Total
+-----------------------------------------------------------------------+----------------------------------------------------------
+MainActivity                                                           |                                                          
+  Agriculture, forestry and fishing                                    |                 <span class=result>4.733333</span>                         <span class=result>4.733333</span>
+  Manufacturing                                                        |                        <span class=result>.</span>                                <span class=result>.</span>
+  Construction                                                         |                        <span class=result>.</span>                     <span class=result>.</span>          <span class=result>.</span>
+  Wholesale and retail trade; repair of motor vehicles and motorcycles |                                              <span class=result>.</span>          <span class=result>.</span>
+  Transportation and storage                                           |                        <span class=result>.</span>                     <span class=result>.</span>          <span class=result>.</span>
+  Accommodation and food service activities                            |                 <span class=result>4.933333</span>                  <span class=result>4.72</span>        <span class=result>4.8</span>
+  Information and communication                                        |                        <span class=result>.</span>                                <span class=result>.</span>
+  Real estate activities                                               |                 <span class=result>4.733333</span>              <span class=result>4.866667</span>   <span class=result>4.777778</span>
+  Professional, scientific and technical activities                    |                        <span class=result>.</span>                                <span class=result>.</span>
+  Administrative and support service activities                        |                        <span class=result>.</span>                     <span class=result>.</span>          <span class=result>.</span>
+  Education                                                            |                 <span class=result>3.466667</span>                         <span class=result>3.466667</span>
+  Arts, entertainment and recreation                                   |                        <span class=result>.</span>                                <span class=result>.</span>
+  Other service activities                                             |                 <span class=result>3.933333</span>                         <span class=result>3.933333</span>
+  Total                                                                |                 <span class=result>4.426667</span>              <span class=result>4.744444</span>   <span class=result>4.545833</span>
+----------------------------------------------------------------------------------------------------------------------------------
+<br><br>
+<span class=input>. table (Industry)(tourdest), statistic(mean oceanrevenue)</span>
+<br><br>
+----------------------------------------------------------------------------------------------------------------------------------
+                                                                       |                    Tourist Destinations                  
+                                                                       |  Not tourist destination   Tourist Destination      Total
+-----------------------------------------------------------------------+----------------------------------------------------------
+MainActivity                                                           |                                                          
+  Agriculture, forestry and fishing                                    |                     <span class=result>87.5</span>                             <span class=result>87.5</span>
+  Manufacturing                                                        |                      <span class=result>100</span>                              <span class=result>100</span>
+  Construction                                                         |                        <span class=result>5</span>              <span class=result>61.66667</span>   <span class=result>33.33333</span>
+  Wholesale and retail trade; repair of motor vehicles and motorcycles |                                             <span class=result>40</span>         <span class=result>40</span>
+  Transportation and storage                                           |                      <span class=result>100</span>                    <span class=result>60</span>         <span class=result>95</span>
+  Accommodation and food service activities                            |                 <span class=result>36.26316</span>              <span class=result>72.86364</span>   <span class=result>55.90244</span>
+  Information and communication                                        |                        <span class=result>0</span>                                <span class=result>0</span>
+  Real estate activities                                               |                       <span class=result>37</span>                    <span class=result>95</span>         <span class=result>66</span>
+  Professional, scientific and technical activities                    |                        <span class=result>0</span>                                <span class=result>0</span>
+  Administrative and support service activities                        |                       <span class=result>63</span>                    <span class=result>85</span>   <span class=result>76.53846</span>
+  Education                                                            |                     <span class=result>12.5</span>                             <span class=result>12.5</span>
+  Arts, entertainment and recreation                                   |                        <span class=result>0</span>                                <span class=result>0</span>
+  Other service activities                                             |                 <span class=result>66.33333</span>                         <span class=result>66.33333</span>
+  Total                                                                |                 <span class=result>50.60204</span>              <span class=result>74.54054</span>   <span class=result>60.90116</span>
+----------------------------------------------------------------------------------------------------------------------------------
+<br><br>
+<span class=input>. table (Industry)(tourdest), statistic(mean inputsocean)</span>
+<br><br>
+----------------------------------------------------------------------------------------------------------------------------------
+                                                                       |                    Tourist Destinations                  
+                                                                       |  Not tourist destination   Tourist Destination      Total
+-----------------------------------------------------------------------+----------------------------------------------------------
+MainActivity                                                           |                                                          
+  Agriculture, forestry and fishing                                    |                        <span class=result>0</span>                                <span class=result>0</span>
+  Manufacturing                                                        |                 <span class=result>33.33333</span>                         <span class=result>33.33333</span>
+  Construction                                                         |                        <span class=result>0</span>                     <span class=result>0</span>          <span class=result>0</span>
+  Wholesale and retail trade; repair of motor vehicles and motorcycles |                                              <span class=result>0</span>          <span class=result>0</span>
+  Transportation and storage                                           |                        <span class=result>0</span>                    <span class=result>60</span>        <span class=result>7.5</span>
+  Accommodation and food service activities                            |                 <span class=result>12.46429</span>              <span class=result>27.38095</span>   <span class=result>21.41429</span>
+  Information and communication                                        |                        <span class=result>0</span>                                <span class=result>0</span>
+  Real estate activities                                               |                     <span class=result>12.5</span>                    <span class=result>31</span>      <span class=result>21.75</span>
+  Professional, scientific and technical activities                    |                        <span class=result>.</span>                                <span class=result>.</span>
+  Administrative and support service activities                        |                 <span class=result>16.66667</span>                    <span class=result>20</span>         <span class=result>19</span>
+  Education                                                            |                        <span class=result>0</span>                                <span class=result>0</span>
+  Arts, entertainment and recreation                                   |                        <span class=result>0</span>                                <span class=result>0</span>
+  Other service activities                                             |                     <span class=result>66.5</span>                             <span class=result>66.5</span>
+  Total                                                                |                   <span class=result>13.725</span>              <span class=result>24.61765</span>   <span class=result>18.72973</span>
+----------------------------------------------------------------------------------------------------------------------------------
+<br><br>
+<span class=input>. table (Industry) (tourdest), statistic(mean jobocean)</span>
+<br><br>
+----------------------------------------------------------------------------------------------------------------------------------
+                                                                       |                    Tourist Destinations                  
+                                                                       |  Not tourist destination   Tourist Destination      Total
+-----------------------------------------------------------------------+----------------------------------------------------------
+MainActivity                                                           |                                                          
+  Agriculture, forestry and fishing                                    |                      <span class=result>100</span>                              <span class=result>100</span>
+  Manufacturing                                                        |                      <span class=result>100</span>                              <span class=result>100</span>
+  Construction                                                         |                        <span class=result>5</span>                    <span class=result>70</span>       <span class=result>37.5</span>
+  Wholesale and retail trade; repair of motor vehicles and motorcycles |                                              <span class=result>0</span>          <span class=result>0</span>
+  Transportation and storage                                           |                      <span class=result>100</span>                   <span class=result>100</span>        <span class=result>100</span>
+  Accommodation and food service activities                            |                     <span class=result>29.8</span>                 <span class=result>50.75</span>   <span class=result>42.25676</span>
+  Information and communication                                        |                        <span class=result>0</span>                                <span class=result>0</span>
+  Real estate activities                                               |                        <span class=result>0</span>                    <span class=result>37</span>   <span class=result>12.33333</span>
+  Professional, scientific and technical activities                    |                        <span class=result>.</span>                                <span class=result>.</span>
+  Administrative and support service activities                        |                       <span class=result>75</span>                 <span class=result>71.25</span>   <span class=result>72.27273</span>
+  Education                                                            |                        <span class=result>0</span>                                <span class=result>0</span>
+  Arts, entertainment and recreation                                   |                        <span class=result>0</span>                                <span class=result>0</span>
+  Other service activities                                             |                     <span class=result>45.5</span>                             <span class=result>45.5</span>
+  Total                                                                |                 <span class=result>46.91463</span>              <span class=result>56.48611</span>   <span class=result>51.38961</span>
+----------------------------------------------------------------------------------------------------------------------------------
+<br><br>
+<span class=input>. table (Industry) (tourdest), statistic(mean toruismsales)</span>
+<br><br>
+----------------------------------------------------------------------------------------------------------------------------------
+                                                                       |                    Tourist Destinations                  
+                                                                       |  Not tourist destination   Tourist Destination      Total
+-----------------------------------------------------------------------+----------------------------------------------------------
+MainActivity                                                           |                                                          
+  Agriculture, forestry and fishing                                    |                     <span class=result>12.5</span>                             <span class=result>12.5</span>
+  Manufacturing                                                        |                       <span class=result>35</span>                               <span class=result>35</span>
+  Construction                                                         |                       <span class=result>30</span>              <span class=result>81.66667</span>   <span class=result>55.83333</span>
+  Wholesale and retail trade; repair of motor vehicles and motorcycles |                                              <span class=result>0</span>          <span class=result>0</span>
+  Transportation and storage                                           |                 <span class=result>28.33333</span>                   <span class=result>100</span>   <span class=result>38.57143</span>
+  Accommodation and food service activities                            |                 <span class=result>50.73684</span>                  <span class=result>79.5</span>   <span class=result>66.17073</span>
+  Information and communication                                        |                        <span class=result>0</span>                                <span class=result>0</span>
+  Real estate activities                                               |                       <span class=result>37</span>                    <span class=result>85</span>         <span class=result>61</span>
+  Professional, scientific and technical activities                    |                        <span class=result>.</span>                                <span class=result>.</span>
+  Administrative and support service activities                        |                       <span class=result>84</span>                   <span class=result>100</span>   <span class=result>93.84615</span>
+  Education                                                            |                     <span class=result>12.5</span>                             <span class=result>12.5</span>
+  Arts, entertainment and recreation                                   |                       <span class=result>35</span>                               <span class=result>35</span>
+  Other service activities                                             |                 <span class=result>95.66667</span>                         <span class=result>95.66667</span>
+  Total                                                                |                 <span class=result>47.93478</span>              <span class=result>82.81081</span>   <span class=result>63.48193</span>
+----------------------------------------------------------------------------------------------------------------------------------
+<br><br>
+<span class=input>. table (Industry) (tourdest), statistic(mean response_confidence)</span>
+<br><br>
+----------------------------------------------------------------------------------------------------------------------------------
+                                                                       |                    Tourist Destinations                  
+                                                                       |  Not tourist destination   Tourist Destination      Total
+-----------------------------------------------------------------------+----------------------------------------------------------
+MainActivity                                                           |                                                          
+  Agriculture, forestry and fishing                                    |                      <span class=result>100</span>                              <span class=result>100</span>
+  Manufacturing                                                        |                      <span class=result>100</span>                              <span class=result>100</span>
+  Construction                                                         |                      <span class=result>100</span>                    <span class=result>90</span>         <span class=result>95</span>
+  Wholesale and retail trade; repair of motor vehicles and motorcycles |                                            <span class=result>100</span>        <span class=result>100</span>
+  Transportation and storage                                           |                     <span class=result>97.5</span>                   <span class=result>100</span>   <span class=result>97.85714</span>
+  Accommodation and food service activities                            |                 <span class=result>90.90909</span>              <span class=result>84.05882</span>      <span class=result>86.75</span>
+  Information and communication                                        |                      <span class=result>100</span>                              <span class=result>100</span>
+  Real estate activities                                               |                       <span class=result>90</span>                   <span class=result>100</span>   <span class=result>93.33333</span>
+  Professional, scientific and technical activities                    |                        <span class=result>.</span>                                <span class=result>.</span>
+  Administrative and support service activities                        |                      <span class=result>100</span>              <span class=result>97.85714</span>   <span class=result>98.33333</span>
+  Education                                                            |                       <span class=result>50</span>                               <span class=result>50</span>
+  Arts, entertainment and recreation                                   |                        <span class=result>.</span>                                <span class=result>.</span>
+  Other service activities                                             |                 <span class=result>64.33333</span>                         <span class=result>64.33333</span>
+  Total                                                                |                   <span class=result>90.875</span>              <span class=result>89.44828</span>   <span class=result>90.19672</span>
+----------------------------------------------------------------------------------------------------------------------------------
+<br><br>
+<span class=input>. </span>
+<span class=input>. //Rating Score on Ocean Dependancy First Measure</span>
+<span class=input>. display "Individual Rating Scheme"</span>
+<span class=result>Individual Rating Scheme</span>
+<br><br>
+<span class=input>. foreach var of varlist rating11- rating45{</span>
+  2<span class=input>.     tab `var' tourdest, col nofreq </span>
+  3<span class=input>. }</span>
+<br><br>
+Buisnessdependency:ac |
+  tivities take place | Tourist Destinations
+     on or in the sea | Not touri  Tourist D |     Total
+----------------------+----------------------+----------
+        Not important |<span class=result>      7.69       0.00 </span>|<span class=result>      4.48 </span>
+ Moderately important |<span class=result>      0.00       3.57 </span>|<span class=result>      1.49 </span>
+       Very important |<span class=result>      2.56       3.57 </span>|<span class=result>      2.99 </span>
+            Essential |<span class=result>     23.08      28.57 </span>|<span class=result>     25.37 </span>
+       Not Applicable |<span class=result>     66.67      64.29 </span>|<span class=result>     65.67 </span>
+----------------------+----------------------+----------
+                Total |<span class=result>    100.00     100.00 </span>|<span class=result>    100.00 </span>
+<br><br>
+Buisnessdependency:pr |
+oduces goods/services | Tourist Destinations
+          for the sea | Not touri  Tourist D |     Total
+----------------------+----------------------+----------
+        Not important |<span class=result>      5.13       0.00 </span>|<span class=result>      2.99 </span>
+   Slightly important |<span class=result>      7.69       3.57 </span>|<span class=result>      5.97 </span>
+ Moderately important |<span class=result>      2.56       0.00 </span>|<span class=result>      1.49 </span>
+       Very important |<span class=result>      7.69       3.57 </span>|<span class=result>      5.97 </span>
+            Essential |<span class=result>     10.26      21.43 </span>|<span class=result>     14.93 </span>
+       Not Applicable |<span class=result>     66.67      71.43 </span>|<span class=result>     68.66 </span>
+----------------------+----------------------+----------
+                Total |<span class=result>    100.00     100.00 </span>|<span class=result>    100.00 </span>
+<br><br>
+Buisnessdependency:ex |
+    tracts non-living |
+   resources from the | Tourist Destinations
+                  sea | Not touri  Tourist D |     Total
+----------------------+----------------------+----------
+        Not important |<span class=result>      7.69       0.00 </span>|<span class=result>      4.48 </span>
+ Moderately important |<span class=result>      2.56       0.00 </span>|<span class=result>      1.49 </span>
+       Not Applicable |<span class=result>     89.74     100.00 </span>|<span class=result>     94.03 </span>
+----------------------+----------------------+----------
+                Total |<span class=result>    100.00     100.00 </span>|<span class=result>    100.00 </span>
+<br><br>
+Buisnessdependency:ha |
+        rvests living |
+   resources from the | Tourist Destinations
+                  sea | Not touri  Tourist D |     Total
+----------------------+----------------------+----------
+        Not important |<span class=result>      5.13       0.00 </span>|<span class=result>      2.99 </span>
+ Moderately important |<span class=result>      2.56       0.00 </span>|<span class=result>      1.49 </span>
+       Not Applicable |<span class=result>     92.31     100.00 </span>|<span class=result>     95.52 </span>
+----------------------+----------------------+----------
+                Total |<span class=result>    100.00     100.00 </span>|<span class=result>    100.00 </span>
+<br><br>
+Buisnessdependency:us |
+        es living sea | Tourist Destinations
+ resources as  inputs | Not touri  Tourist D |     Total
+----------------------+----------------------+----------
+        Not important |<span class=result>     17.95       7.14 </span>|<span class=result>     13.43 </span>
+   Slightly important |<span class=result>      5.13       0.00 </span>|<span class=result>      2.99 </span>
+ Moderately important |<span class=result>      2.56       3.57 </span>|<span class=result>      2.99 </span>
+       Very important |<span class=result>      5.13      21.43 </span>|<span class=result>     11.94 </span>
+            Essential |<span class=result>      2.56      14.29 </span>|<span class=result>      7.46 </span>
+       Not Applicable |<span class=result>     66.67      53.57 </span>|<span class=result>     61.19 </span>
+----------------------+----------------------+----------
+                Total |<span class=result>    100.00     100.00 </span>|<span class=result>    100.00 </span>
+<br><br>
+Buisnessdependency:ex |
+   ist due to located | Tourist Destinations
+       near the ocean | Not touri  Tourist D |     Total
+----------------------+----------------------+----------
+        Not important |<span class=result>     25.64       0.00 </span>|<span class=result>     14.93 </span>
+   Slightly important |<span class=result>      5.13       7.14 </span>|<span class=result>      5.97 </span>
+ Moderately important |<span class=result>     10.26       7.14 </span>|<span class=result>      8.96 </span>
+       Very important |<span class=result>     20.51      21.43 </span>|<span class=result>     20.90 </span>
+            Essential |<span class=result>     23.08      60.71 </span>|<span class=result>     38.81 </span>
+       Not Applicable |<span class=result>     15.38       3.57 </span>|<span class=result>     10.45 </span>
+----------------------+----------------------+----------
+                Total |<span class=result>    100.00     100.00 </span>|<span class=result>    100.00 </span>
+<br><br>
+Buisnessdependency:ad |
+     vantage by being |
+     located near the | Tourist Destinations
+                ocean | Not touri  Tourist D |     Total
+----------------------+----------------------+----------
+        Not important |<span class=result>     20.51       0.00 </span>|<span class=result>     11.94 </span>
+   Slightly important |<span class=result>      7.69       7.14 </span>|<span class=result>      7.46 </span>
+ Moderately important |<span class=result>     12.82      14.29 </span>|<span class=result>     13.43 </span>
+       Very important |<span class=result>     17.95      14.29 </span>|<span class=result>     16.42 </span>
+            Essential |<span class=result>     25.64      60.71 </span>|<span class=result>     40.30 </span>
+       Not Applicable |<span class=result>     15.38       3.57 </span>|<span class=result>     10.45 </span>
+----------------------+----------------------+----------
+                Total |<span class=result>    100.00     100.00 </span>|<span class=result>    100.00 </span>
+<br><br>
+<span class=result> </span>Resource dependency: | Tourist Destinations
+              seafood | Not touri  Tourist D |     Total
+----------------------+----------------------+----------
+        Not important |<span class=result>     10.00       0.00 </span>|<span class=result>      6.25 </span>
+   Slightly important |<span class=result>     10.00       0.00 </span>|<span class=result>      6.25 </span>
+            Essential |<span class=result>     30.00      83.33 </span>|<span class=result>     50.00 </span>
+       Not Applicable |<span class=result>     50.00      16.67 </span>|<span class=result>     37.50 </span>
+----------------------+----------------------+----------
+                Total |<span class=result>    100.00     100.00 </span>|<span class=result>    100.00 </span>
+<br><br>
+<span class=result>             </span>Resource |
+dependency:Aquacultur | Tourist Destinations
+                    e | Not touri  Tourist D |     Total
+----------------------+----------------------+----------
+        Not important |<span class=result>     10.00       0.00 </span>|<span class=result>      6.25 </span>
+ Moderately important |<span class=result>     20.00      50.00 </span>|<span class=result>     31.25 </span>
+            Essential |<span class=result>     30.00      33.33 </span>|<span class=result>     31.25 </span>
+       Not Applicable |<span class=result>     40.00      16.67 </span>|<span class=result>     31.25 </span>
+----------------------+----------------------+----------
+                Total |<span class=result>    100.00     100.00 </span>|<span class=result>    100.00 </span>
+<br><br>
+<span class=result> </span>Resource dependency: | Tourist Destinations
+        marine plants | Not touri  Tourist D |     Total
+----------------------+----------------------+----------
+        Not important |<span class=result>     10.00      16.67 </span>|<span class=result>     12.50 </span>
+ Moderately important |<span class=result>     10.00       0.00 </span>|<span class=result>      6.25 </span>
+       Very important |<span class=result>     20.00       0.00 </span>|<span class=result>     12.50 </span>
+            Essential |<span class=result>     30.00      66.67 </span>|<span class=result>     43.75 </span>
+       Not Applicable |<span class=result>     30.00      16.67 </span>|<span class=result>     25.00 </span>
+----------------------+----------------------+----------
+                Total |<span class=result>    100.00     100.00 </span>|<span class=result>    100.00 </span>
+<br><br>
+<span class=result> </span>Resource dependency: | Tourist Destinations
+      ocean materials | Not touri  Tourist D |     Total
+----------------------+----------------------+----------
+        Not important |<span class=result>     10.00      16.67 </span>|<span class=result>     12.50 </span>
+   Slightly important |<span class=result>     20.00       0.00 </span>|<span class=result>     12.50 </span>
+ Moderately important |<span class=result>     10.00      16.67 </span>|<span class=result>     12.50 </span>
+       Very important |<span class=result>     20.00      16.67 </span>|<span class=result>     18.75 </span>
+            Essential |<span class=result>     20.00      50.00 </span>|<span class=result>     31.25 </span>
+       Not Applicable |<span class=result>     20.00       0.00 </span>|<span class=result>     12.50 </span>
+----------------------+----------------------+----------
+                Total |<span class=result>    100.00     100.00 </span>|<span class=result>    100.00 </span>
+<br><br>
+<span class=result> </span>Resource dependency: | Tourist Destinations
+       Clean seawater | Not touri  Tourist D |     Total
+----------------------+----------------------+----------
+        Not important |<span class=result>     10.00      16.67 </span>|<span class=result>     12.50 </span>
+ Moderately important |<span class=result>     10.00       0.00 </span>|<span class=result>      6.25 </span>
+            Essential |<span class=result>     50.00      66.67 </span>|<span class=result>     56.25 </span>
+       Not Applicable |<span class=result>     30.00      16.67 </span>|<span class=result>     25.00 </span>
+----------------------+----------------------+----------
+                Total |<span class=result>    100.00     100.00 </span>|<span class=result>    100.00 </span>
+<br><br>
+EcosystemDependency:C | Tourist Destinations
+    oastal protection | Not touri  Tourist D |     Total
+----------------------+----------------------+----------
+ Moderately important |<span class=result>     10.00       0.00 </span>|<span class=result>      6.25 </span>
+       Very important |<span class=result>     40.00       0.00 </span>|<span class=result>     25.00 </span>
+            Essential |<span class=result>     50.00     100.00 </span>|<span class=result>     68.75 </span>
+----------------------+----------------------+----------
+                Total |<span class=result>    100.00     100.00 </span>|<span class=result>    100.00 </span>
+<br><br>
+EcosystemDependency:c | Tourist Destinations
+           lean water | Not touri  Tourist D |     Total
+----------------------+----------------------+----------
+ Moderately important |<span class=result>     10.00       0.00 </span>|<span class=result>      6.25 </span>
+       Very important |<span class=result>     40.00      16.67 </span>|<span class=result>     31.25 </span>
+            Essential |<span class=result>     50.00      83.33 </span>|<span class=result>     62.50 </span>
+----------------------+----------------------+----------
+                Total |<span class=result>    100.00     100.00 </span>|<span class=result>    100.00 </span>
+<br><br>
+EcosystemDependency:H | Tourist Destinations
+          ealthy fish | Not touri  Tourist D |     Total
+----------------------+----------------------+----------
+        Not important |<span class=result>     10.00       0.00 </span>|<span class=result>      6.25 </span>
+   Slightly important |<span class=result>     20.00       0.00 </span>|<span class=result>     12.50 </span>
+ Moderately important |<span class=result>     10.00       0.00 </span>|<span class=result>      6.25 </span>
+            Essential |<span class=result>     50.00      83.33 </span>|<span class=result>     62.50 </span>
+       Not Applicable |<span class=result>     10.00      16.67 </span>|<span class=result>     12.50 </span>
+----------------------+----------------------+----------
+                Total |<span class=result>    100.00     100.00 </span>|<span class=result>    100.00 </span>
+<br><br>
+EcosystemDependency:E | Tourist Destinations
+      rosion control  | Not touri  Tourist D |     Total
+----------------------+----------------------+----------
+ Moderately important |<span class=result>     10.00       0.00 </span>|<span class=result>      6.25 </span>
+       Very important |<span class=result>     40.00      16.67 </span>|<span class=result>     31.25 </span>
+            Essential |<span class=result>     50.00      83.33 </span>|<span class=result>     62.50 </span>
+----------------------+----------------------+----------
+                Total |<span class=result>    100.00     100.00 </span>|<span class=result>    100.00 </span>
+<br><br>
+EcosystemDependency:C | Tourist Destinations
+  arbon sequestration | Not touri  Tourist D |     Total
+----------------------+----------------------+----------
+   Slightly important |<span class=result>     20.00       0.00 </span>|<span class=result>     12.50 </span>
+       Very important |<span class=result>     20.00      16.67 </span>|<span class=result>     18.75 </span>
+            Essential |<span class=result>     50.00      83.33 </span>|<span class=result>     62.50 </span>
+       Not Applicable |<span class=result>     10.00       0.00 </span>|<span class=result>      6.25 </span>
+----------------------+----------------------+----------
+                Total |<span class=result>    100.00     100.00 </span>|<span class=result>    100.00 </span>
+<br><br>
+CulturaDependency:Lan | Tourist Destinations
+               dscape | Not touri  Tourist D |     Total
+----------------------+----------------------+----------
+ Moderately important |<span class=result>     20.00       0.00 </span>|<span class=result>     12.50 </span>
+       Very important |<span class=result>     20.00       0.00 </span>|<span class=result>     12.50 </span>
+            Essential |<span class=result>     60.00     100.00 </span>|<span class=result>     75.00 </span>
+----------------------+----------------------+----------
+                Total |<span class=result>    100.00     100.00 </span>|<span class=result>    100.00 </span>
+<br><br>
+CulturaDependency:sno | Tourist Destinations
+    rkeling or diving | Not touri  Tourist D |     Total
+----------------------+----------------------+----------
+   Slightly important |<span class=result>     10.00       0.00 </span>|<span class=result>      6.25 </span>
+       Very important |<span class=result>     20.00      16.67 </span>|<span class=result>     18.75 </span>
+            Essential |<span class=result>     60.00      83.33 </span>|<span class=result>     68.75 </span>
+       Not Applicable |<span class=result>     10.00       0.00 </span>|<span class=result>      6.25 </span>
+----------------------+----------------------+----------
+                Total |<span class=result>    100.00     100.00 </span>|<span class=result>    100.00 </span>
+<br><br>
+CulturaDependency:Hea | Tourist Destinations
+     lthy coral reefs | Not touri  Tourist D |     Total
+----------------------+----------------------+----------
+   Slightly important |<span class=result>     20.00       0.00 </span>|<span class=result>     12.50 </span>
+       Very important |<span class=result>     10.00      16.67 </span>|<span class=result>     12.50 </span>
+            Essential |<span class=result>     60.00      83.33 </span>|<span class=result>     68.75 </span>
+       Not Applicable |<span class=result>     10.00       0.00 </span>|<span class=result>      6.25 </span>
+----------------------+----------------------+----------
+                Total |<span class=result>    100.00     100.00 </span>|<span class=result>    100.00 </span>
+<br><br>
+CulturaDependency:rec | Tourist Destinations
+         reation area | Not touri  Tourist D |     Total
+----------------------+----------------------+----------
+ Moderately important |<span class=result>     10.00       0.00 </span>|<span class=result>      6.25 </span>
+       Very important |<span class=result>     20.00      16.67 </span>|<span class=result>     18.75 </span>
+            Essential |<span class=result>     60.00      83.33 </span>|<span class=result>     68.75 </span>
+       Not Applicable |<span class=result>     10.00       0.00 </span>|<span class=result>      6.25 </span>
+----------------------+----------------------+----------
+                Total |<span class=result>    100.00     100.00 </span>|<span class=result>    100.00 </span>
+<br><br>
+CulturaDependency:cul |
+tural/spiritual/herit | Tourist Destinations
+                  age | Not touri  Tourist D |     Total
+----------------------+----------------------+----------
+        Not important |<span class=result>     10.00       0.00 </span>|<span class=result>      6.25 </span>
+       Very important |<span class=result>     10.00      16.67 </span>|<span class=result>     12.50 </span>
+            Essential |<span class=result>     80.00      83.33 </span>|<span class=result>     81.25 </span>
+----------------------+----------------------+----------
+                Total |<span class=result>    100.00     100.00 </span>|<span class=result>    100.00 </span>
+<br><br>
+<span class=input>. </span>
+<span class=input>. //Further detailed analysis on the ocean contribution</span>
+<span class=input>. display "Detailed summary at ISIC 4"</span>
+<span class=result>Detailed summary at ISIC 4</span>
+<br><br>
+<span class=input>. table (isic4)(tourdest), statistic(mean oceanrating1)</span>
+<br><br>
+----------------------------------------------------------------------------------------------------------------------------------
+                                                                       |                    Tourist Destinations                  
+                                                                       |  Not tourist destination   Tourist Destination      Total
+-----------------------------------------------------------------------+----------------------------------------------------------
+ISIC_4_digit                                                           |                                                          
+  Growing of spices, aromatic, drug and pharmaceutical crops           |                 <span class=result>2.714286</span>                         <span class=result>2.714286</span>
+  Marine aquaculture                                                   |                        <span class=result>.</span>                                <span class=result>.</span>
+  Building of ships and floating structures                            |                 <span class=result>5.285714</span>                         <span class=result>5.285714</span>
+  Building of pleasure and sporting boats                              |                      <span class=result>4.5</span>                              <span class=result>4.5</span>
+  Construction of buildings                                            |                 <span class=result>5.285714</span>              <span class=result>5.285714</span>   <span class=result>5.285714</span>
+  Other specialized construction activities                            |                 <span class=result>4.857143</span>                         <span class=result>4.857143</span>
+  Non-specialized wholesale trade                                      |                                       <span class=result>4.857143</span>   <span class=result>4.857143</span>
+  Sea and coastal passenger water transport                            |                 <span class=result>5.571429</span>                         <span class=result>5.571429</span>
+  Sea and coastal freight water transport                              |                 <span class=result>5.095238</span>              <span class=result>5.714286</span>       <span class=result>5.25</span>
+  Other transportation support activities                              |                 <span class=result>5.714286</span>                         <span class=result>5.714286</span>
+  Short term accommodation activities                                  |                 <span class=result>4.873016</span>              <span class=result>5.126984</span>          <span class=result>5</span>
+  Other accommodation                                                  |                 <span class=result>5.428571</span>              <span class=result>5.285714</span>   <span class=result>5.333333</span>
+  Restaurants and mobile food service activities                       |                 <span class=result>4.928572</span>                     <span class=result>5</span>   <span class=result>4.946429</span>
+  Other food service activities                                        |                        <span class=result>.</span>              <span class=result>5.428571</span>   <span class=result>5.428571</span>
+  Other publishing activities                                          |                 <span class=result>4.571429</span>                         <span class=result>4.571429</span>
+  Real estate activities on a fee or contract basis                    |                        <span class=result>.</span>              <span class=result>5.714286</span>   <span class=result>5.714286</span>
+  Other professional, scientific and technical activities n.e.c        |                 <span class=result>5.285714</span>                         <span class=result>5.285714</span>
+  Renting and leasing of other machinery, equipment and tangible goods |                                       <span class=result>5.571429</span>   <span class=result>5.571429</span>
+  Tour operator activities                                             |                      <span class=result>4.5</span>              <span class=result>5.392857</span>   <span class=result>5.095238</span>
+  Other reservation service and related activities                     |                        <span class=result>4</span>              <span class=result>5.357143</span>   <span class=result>4.542857</span>
+  Combined office administrative service activities                    |                                       <span class=result>5.571429</span>   <span class=result>5.571429</span>
+  Cultural education                                                   |                        <span class=result>.</span>                                <span class=result>.</span>
+  Gambling and betting activities                                      |                        <span class=result>6</span>                                <span class=result>6</span>
+  Operation of sports facilities                                       |                        <span class=result>1</span>                                <span class=result>1</span>
+  Other personal service activities n.e.e                              |                        <span class=result>.</span>                                <span class=result>.</span>
+  Total                                                                |                 <span class=result>4.794872</span>               <span class=result>5.27551</span>   <span class=result>4.995736</span>
+----------------------------------------------------------------------------------------------------------------------------------
+<br><br>
+<span class=input>. table (isic4)(tourdest), statistic(mean dependencyrating1)</span>
+<br><br>
+----------------------------------------------------------------------------------------------------------------------------------
+                                                                       |                    Tourist Destinations                  
+                                                                       |  Not tourist destination   Tourist Destination      Total
+-----------------------------------------------------------------------+----------------------------------------------------------
+ISIC_4_digit                                                           |                                                          
+  Growing of spices, aromatic, drug and pharmaceutical crops           |                        <span class=result>.</span>                                <span class=result>.</span>
+  Marine aquaculture                                                   |                      <span class=result>5.4</span>                              <span class=result>5.4</span>
+  Building of ships and floating structures                            |                        <span class=result>.</span>                                <span class=result>.</span>
+  Building of pleasure and sporting boats                              |                        <span class=result>.</span>                                <span class=result>.</span>
+  Construction of buildings                                            |                        <span class=result>.</span>                     <span class=result>.</span>          <span class=result>.</span>
+  Other specialized construction activities                            |                        <span class=result>.</span>                                <span class=result>.</span>
+  Non-specialized wholesale trade                                      |                                              <span class=result>.</span>          <span class=result>.</span>
+  Sea and coastal passenger water transport                            |                        <span class=result>.</span>                                <span class=result>.</span>
+  Sea and coastal freight water transport                              |                        <span class=result>.</span>                     <span class=result>.</span>          <span class=result>.</span>
+  Other transportation support activities                              |                        <span class=result>.</span>                                <span class=result>.</span>
+  Short term accommodation activities                                  |                        <span class=result>5</span>                   <span class=result>4.8</span>       <span class=result>4.85</span>
+  Other accommodation                                                  |                        <span class=result>.</span>                     <span class=result>5</span>          <span class=result>5</span>
+  Restaurants and mobile food service activities                       |                      <span class=result>3.6</span>                   <span class=result>2.6</span>        <span class=result>3.1</span>
+  Other food service activities                                        |                      <span class=result>5.8</span>                     <span class=result>.</span>        <span class=result>5.8</span>
+  Other publishing activities                                          |                        <span class=result>.</span>                                <span class=result>.</span>
+  Real estate activities on a fee or contract basis                    |                      <span class=result>5.6</span>                   <span class=result>4.6</span>   <span class=result>5.266667</span>
+  Other professional, scientific and technical activities n.e.c        |                        <span class=result>.</span>                                <span class=result>.</span>
+  Renting and leasing of other machinery, equipment and tangible goods |                                              <span class=result>.</span>          <span class=result>.</span>
+  Tour operator activities                                             |                        <span class=result>.</span>                     <span class=result>.</span>          <span class=result>.</span>
+  Other reservation service and related activities                     |                        <span class=result>.</span>                     <span class=result>.</span>          <span class=result>.</span>
+  Combined office administrative service activities                    |                                              <span class=result>.</span>          <span class=result>.</span>
+  Cultural education                                                   |                      <span class=result>4.6</span>                              <span class=result>4.6</span>
+  Gambling and betting activities                                      |                        <span class=result>.</span>                                <span class=result>.</span>
+  Operation of sports facilities                                       |                        <span class=result>.</span>                                <span class=result>.</span>
+  Other personal service activities n.e.e                              |                 <span class=result>3.066667</span>                         <span class=result>3.066667</span>
+  Total                                                                |                     <span class=result>4.48</span>              <span class=result>4.433333</span>     <span class=result>4.4625</span>
+----------------------------------------------------------------------------------------------------------------------------------
+<br><br>
+<span class=input>. table (isic4)(tourdest), statistic(mean ecosystemrating1)</span>
+<br><br>
+----------------------------------------------------------------------------------------------------------------------------------
+                                                                       |                    Tourist Destinations                  
+                                                                       |  Not tourist destination   Tourist Destination      Total
+-----------------------------------------------------------------------+----------------------------------------------------------
+ISIC_4_digit                                                           |                                                          
+  Growing of spices, aromatic, drug and pharmaceutical crops           |                        <span class=result>.</span>                                <span class=result>.</span>
+  Marine aquaculture                                                   |                      <span class=result>5.2</span>                              <span class=result>5.2</span>
+  Building of ships and floating structures                            |                        <span class=result>.</span>                                <span class=result>.</span>
+  Building of pleasure and sporting boats                              |                        <span class=result>.</span>                                <span class=result>.</span>
+  Construction of buildings                                            |                        <span class=result>.</span>                     <span class=result>.</span>          <span class=result>.</span>
+  Other specialized construction activities                            |                        <span class=result>.</span>                                <span class=result>.</span>
+  Non-specialized wholesale trade                                      |                                              <span class=result>.</span>          <span class=result>.</span>
+  Sea and coastal passenger water transport                            |                        <span class=result>.</span>                                <span class=result>.</span>
+  Sea and coastal freight water transport                              |                        <span class=result>.</span>                     <span class=result>.</span>          <span class=result>.</span>
+  Other transportation support activities                              |                        <span class=result>.</span>                                <span class=result>.</span>
+  Short term accommodation activities                                  |                        <span class=result>5</span>              <span class=result>5.066667</span>       <span class=result>5.05</span>
+  Other accommodation                                                  |                        <span class=result>.</span>                     <span class=result>5</span>          <span class=result>5</span>
+  Restaurants and mobile food service activities                       |                        <span class=result>5</span>                   <span class=result>4.4</span>        <span class=result>4.7</span>
+  Other food service activities                                        |                        <span class=result>5</span>                     <span class=result>.</span>          <span class=result>5</span>
+  Other publishing activities                                          |                        <span class=result>.</span>                                <span class=result>.</span>
+  Real estate activities on a fee or contract basis                    |                      <span class=result>3.6</span>                     <span class=result>5</span>   <span class=result>4.066667</span>
+  Other professional, scientific and technical activities n.e.c        |                        <span class=result>.</span>                                <span class=result>.</span>
+  Renting and leasing of other machinery, equipment and tangible goods |                                              <span class=result>.</span>          <span class=result>.</span>
+  Tour operator activities                                             |                        <span class=result>.</span>                     <span class=result>.</span>          <span class=result>.</span>
+  Other reservation service and related activities                     |                        <span class=result>.</span>                     <span class=result>.</span>          <span class=result>.</span>
+  Combined office administrative service activities                    |                                              <span class=result>.</span>          <span class=result>.</span>
+  Cultural education                                                   |                      <span class=result>2.8</span>                              <span class=result>2.8</span>
+  Gambling and betting activities                                      |                        <span class=result>.</span>                                <span class=result>.</span>
+  Operation of sports facilities                                       |                        <span class=result>.</span>                                <span class=result>.</span>
+  Other personal service activities n.e.e                              |                      <span class=result>4.2</span>                              <span class=result>4.2</span>
+  Total                                                                |                     <span class=result>4.28</span>              <span class=result>4.933333</span>      <span class=result>4.525</span>
+----------------------------------------------------------------------------------------------------------------------------------
+<br><br>
+<span class=input>. table (isic4)(tourdest), statistic(mean culutralrating1)</span>
+<br><br>
+----------------------------------------------------------------------------------------------------------------------------------
+                                                                       |                    Tourist Destinations                  
+                                                                       |  Not tourist destination   Tourist Destination      Total
+-----------------------------------------------------------------------+----------------------------------------------------------
+ISIC_4_digit                                                           |                                                          
+  Growing of spices, aromatic, drug and pharmaceutical crops           |                        <span class=result>.</span>                                <span class=result>.</span>
+  Marine aquaculture                                                   |                      <span class=result>3.6</span>                              <span class=result>3.6</span>
+  Building of ships and floating structures                            |                        <span class=result>.</span>                                <span class=result>.</span>
+  Building of pleasure and sporting boats                              |                        <span class=result>.</span>                                <span class=result>.</span>
+  Construction of buildings                                            |                        <span class=result>.</span>                     <span class=result>.</span>          <span class=result>.</span>
+  Other specialized construction activities                            |                        <span class=result>.</span>                                <span class=result>.</span>
+  Non-specialized wholesale trade                                      |                                              <span class=result>.</span>          <span class=result>.</span>
+  Sea and coastal passenger water transport                            |                        <span class=result>.</span>                                <span class=result>.</span>
+  Sea and coastal freight water transport                              |                        <span class=result>.</span>                     <span class=result>.</span>          <span class=result>.</span>
+  Other transportation support activities                              |                        <span class=result>.</span>                                <span class=result>.</span>
+  Short term accommodation activities                                  |                        <span class=result>5</span>                     <span class=result>5</span>          <span class=result>5</span>
+  Other accommodation                                                  |                        <span class=result>.</span>                     <span class=result>5</span>          <span class=result>5</span>
+  Restaurants and mobile food service activities                       |                        <span class=result>5</span>                   <span class=result>4.2</span>        <span class=result>4.6</span>
+  Other food service activities                                        |                        <span class=result>5</span>                     <span class=result>.</span>          <span class=result>5</span>
+  Other publishing activities                                          |                        <span class=result>.</span>                                <span class=result>.</span>
+  Real estate activities on a fee or contract basis                    |                        <span class=result>5</span>                     <span class=result>5</span>          <span class=result>5</span>
+  Other professional, scientific and technical activities n.e.c        |                        <span class=result>.</span>                                <span class=result>.</span>
+  Renting and leasing of other machinery, equipment and tangible goods |                                              <span class=result>.</span>          <span class=result>.</span>
+  Tour operator activities                                             |                        <span class=result>.</span>                     <span class=result>.</span>          <span class=result>.</span>
+  Other reservation service and related activities                     |                        <span class=result>.</span>                     <span class=result>.</span>          <span class=result>.</span>
+  Combined office administrative service activities                    |                                              <span class=result>.</span>          <span class=result>.</span>
+  Cultural education                                                   |                        <span class=result>3</span>                                <span class=result>3</span>
+  Gambling and betting activities                                      |                        <span class=result>.</span>                                <span class=result>.</span>
+  Operation of sports facilities                                       |                        <span class=result>.</span>                                <span class=result>.</span>
+  Other personal service activities n.e.e                              |                 <span class=result>4.533333</span>                         <span class=result>4.533333</span>
+  Total                                                                |                     <span class=result>4.52</span>              <span class=result>4.866667</span>       <span class=result>4.65</span>
+----------------------------------------------------------------------------------------------------------------------------------
+<br><br>
+<span class=input>. table (isic4)(tourdest), statistic(mean oceanrating2)</span>
+<br><br>
+----------------------------------------------------------------------------------------------------------------------------------
+                                                                       |                    Tourist Destinations                  
+                                                                       |  Not tourist destination   Tourist Destination      Total
+-----------------------------------------------------------------------+----------------------------------------------------------
+ISIC_4_digit                                                           |                                                          
+  Growing of spices, aromatic, drug and pharmaceutical crops           |                        <span class=result>.</span>                                <span class=result>.</span>
+  Marine aquaculture                                                   |                 <span class=result>4.733333</span>                         <span class=result>4.733333</span>
+  Building of ships and floating structures                            |                        <span class=result>.</span>                                <span class=result>.</span>
+  Building of pleasure and sporting boats                              |                        <span class=result>.</span>                                <span class=result>.</span>
+  Construction of buildings                                            |                        <span class=result>.</span>                     <span class=result>.</span>          <span class=result>.</span>
+  Other specialized construction activities                            |                        <span class=result>.</span>                                <span class=result>.</span>
+  Non-specialized wholesale trade                                      |                                              <span class=result>.</span>          <span class=result>.</span>
+  Sea and coastal passenger water transport                            |                        <span class=result>.</span>                                <span class=result>.</span>
+  Sea and coastal freight water transport                              |                        <span class=result>.</span>                     <span class=result>.</span>          <span class=result>.</span>
+  Other transportation support activities                              |                        <span class=result>.</span>                                <span class=result>.</span>
+  Short term accommodation activities                                  |                        <span class=result>5</span>              <span class=result>4.955556</span>   <span class=result>4.966667</span>
+  Other accommodation                                                  |                        <span class=result>.</span>                     <span class=result>5</span>          <span class=result>5</span>
+  Restaurants and mobile food service activities                       |                 <span class=result>4.533333</span>              <span class=result>3.733333</span>   <span class=result>4.133333</span>
+  Other food service activities                                        |                 <span class=result>5.266667</span>                     <span class=result>.</span>   <span class=result>5.266667</span>
+  Other publishing activities                                          |                        <span class=result>.</span>                                <span class=result>.</span>
+  Real estate activities on a fee or contract basis                    |                 <span class=result>4.733333</span>              <span class=result>4.866667</span>   <span class=result>4.777778</span>
+  Other professional, scientific and technical activities n.e.c        |                        <span class=result>.</span>                                <span class=result>.</span>
+  Renting and leasing of other machinery, equipment and tangible goods |                                              <span class=result>.</span>          <span class=result>.</span>
+  Tour operator activities                                             |                        <span class=result>.</span>                     <span class=result>.</span>          <span class=result>.</span>
+  Other reservation service and related activities                     |                        <span class=result>.</span>                     <span class=result>.</span>          <span class=result>.</span>
+  Combined office administrative service activities                    |                                              <span class=result>.</span>          <span class=result>.</span>
+  Cultural education                                                   |                 <span class=result>3.466667</span>                         <span class=result>3.466667</span>
+  Gambling and betting activities                                      |                        <span class=result>.</span>                                <span class=result>.</span>
+  Operation of sports facilities                                       |                        <span class=result>.</span>                                <span class=result>.</span>
+  Other personal service activities n.e.e                              |                 <span class=result>3.933333</span>                         <span class=result>3.933333</span>
+  Total                                                                |                 <span class=result>4.426667</span>              <span class=result>4.744444</span>   <span class=result>4.545833</span>
+----------------------------------------------------------------------------------------------------------------------------------
+<br><br>
+<span class=input>. table (isic4)(tourdest), statistic(mean oceanrevenue)</span>
+<br><br>
+----------------------------------------------------------------------------------------------------------------------------------
+                                                                       |                    Tourist Destinations                  
+                                                                       |  Not tourist destination   Tourist Destination      Total
+-----------------------------------------------------------------------+----------------------------------------------------------
+ISIC_4_digit                                                           |                                                          
+  Growing of spices, aromatic, drug and pharmaceutical crops           |                       <span class=result>75</span>                               <span class=result>75</span>
+  Marine aquaculture                                                   |                      <span class=result>100</span>                              <span class=result>100</span>
+  Building of ships and floating structures                            |                      <span class=result>100</span>                              <span class=result>100</span>
+  Building of pleasure and sporting boats                              |                      <span class=result>100</span>                              <span class=result>100</span>
+  Construction of buildings                                            |                        <span class=result>0</span>              <span class=result>61.66667</span>         <span class=result>37</span>
+  Other specialized construction activities                            |                       <span class=result>15</span>                               <span class=result>15</span>
+  Non-specialized wholesale trade                                      |                                             <span class=result>40</span>         <span class=result>40</span>
+  Sea and coastal passenger water transport                            |                      <span class=result>100</span>                              <span class=result>100</span>
+  Sea and coastal freight water transport                              |                      <span class=result>100</span>                    <span class=result>60</span>         <span class=result>90</span>
+  Other transportation support activities                              |                      <span class=result>100</span>                              <span class=result>100</span>
+  Short term accommodation activities                                  |                     <span class=result>41.2</span>              <span class=result>74.07143</span>     <span class=result>60.375</span>
+  Other accommodation                                                  |                       <span class=result>25</span>              <span class=result>93.33333</span>      <span class=result>76.25</span>
+  Restaurants and mobile food service activities                       |                       <span class=result>36</span>                    <span class=result>56</span>   <span class=result>43.27273</span>
+  Other food service activities                                        |                        <span class=result>0</span>                    <span class=result>62</span>         <span class=result>31</span>
+  Other publishing activities                                          |                        <span class=result>0</span>                                <span class=result>0</span>
+  Real estate activities on a fee or contract basis                    |                       <span class=result>37</span>                    <span class=result>95</span>         <span class=result>66</span>
+  Other professional, scientific and technical activities n.e.c        |                        <span class=result>0</span>                                <span class=result>0</span>
+  Renting and leasing of other machinery, equipment and tangible goods |                                            <span class=result>100</span>        <span class=result>100</span>
+  Tour operator activities                                             |                     <span class=result>87.5</span>                  <span class=result>87.5</span>       <span class=result>87.5</span>
+  Other reservation service and related activities                     |                 <span class=result>46.66667</span>                  <span class=result>77.5</span>         <span class=result>59</span>
+  Combined office administrative service activities                    |                                             <span class=result>75</span>         <span class=result>75</span>
+  Cultural education                                                   |                     <span class=result>12.5</span>                             <span class=result>12.5</span>
+  Gambling and betting activities                                      |                        <span class=result>0</span>                                <span class=result>0</span>
+  Operation of sports facilities                                       |                        <span class=result>0</span>                                <span class=result>0</span>
+  Other personal service activities n.e.e                              |                 <span class=result>66.33333</span>                         <span class=result>66.33333</span>
+  Total                                                                |                 <span class=result>50.60204</span>              <span class=result>74.54054</span>   <span class=result>60.90116</span>
+----------------------------------------------------------------------------------------------------------------------------------
+<br><br>
+<span class=input>. table (isic4)(tourdest), statistic(mean inputsocean)</span>
+<br><br>
+----------------------------------------------------------------------------------------------------------------------------------
+                                                                       |                    Tourist Destinations                  
+                                                                       |  Not tourist destination   Tourist Destination      Total
+-----------------------------------------------------------------------+----------------------------------------------------------
+ISIC_4_digit                                                           |                                                          
+  Growing of spices, aromatic, drug and pharmaceutical crops           |                        <span class=result>.</span>                                <span class=result>.</span>
+  Marine aquaculture                                                   |                        <span class=result>0</span>                                <span class=result>0</span>
+  Building of ships and floating structures                            |                      <span class=result>100</span>                              <span class=result>100</span>
+  Building of pleasure and sporting boats                              |                        <span class=result>0</span>                                <span class=result>0</span>
+  Construction of buildings                                            |                        <span class=result>0</span>                     <span class=result>0</span>          <span class=result>0</span>
+  Other specialized construction activities                            |                        <span class=result>0</span>                                <span class=result>0</span>
+  Non-specialized wholesale trade                                      |                                              <span class=result>0</span>          <span class=result>0</span>
+  Sea and coastal passenger water transport                            |                        <span class=result>0</span>                                <span class=result>0</span>
+  Sea and coastal freight water transport                              |                        <span class=result>0</span>                    <span class=result>60</span>         <span class=result>15</span>
+  Other transportation support activities                              |                        <span class=result>0</span>                                <span class=result>0</span>
+  Short term accommodation activities                                  |                   <span class=result>4.6875</span>              <span class=result>26.35714</span>   <span class=result>18.47727</span>
+  Other accommodation                                                  |                        <span class=result>0</span>              <span class=result>17.33333</span>         <span class=result>13</span>
+  Restaurants and mobile food service activities                       |                    <span class=result>34.25</span>                  <span class=result>38.5</span>     <span class=result>36.375</span>
+  Other food service activities                                        |                        <span class=result>0</span>                     <span class=result>.</span>          <span class=result>0</span>
+  Other publishing activities                                          |                        <span class=result>0</span>                                <span class=result>0</span>
+  Real estate activities on a fee or contract basis                    |                     <span class=result>12.5</span>                    <span class=result>31</span>      <span class=result>21.75</span>
+  Other professional, scientific and technical activities n.e.c        |                        <span class=result>.</span>                                <span class=result>.</span>
+  Renting and leasing of other machinery, equipment and tangible goods |                                              <span class=result>0</span>          <span class=result>0</span>
+  Tour operator activities                                             |                       <span class=result>25</span>              <span class=result>46.66667</span>         <span class=result>38</span>
+  Other reservation service and related activities                     |                        <span class=result>0</span>                     <span class=result>0</span>          <span class=result>0</span>
+  Combined office administrative service activities                    |                                              <span class=result>0</span>          <span class=result>0</span>
+  Cultural education                                                   |                        <span class=result>0</span>                                <span class=result>0</span>
+  Gambling and betting activities                                      |                        <span class=result>0</span>                                <span class=result>0</span>
+  Operation of sports facilities                                       |                        <span class=result>0</span>                                <span class=result>0</span>
+  Other personal service activities n.e.e                              |                     <span class=result>66.5</span>                             <span class=result>66.5</span>
+  Total                                                                |                   <span class=result>13.725</span>              <span class=result>24.61765</span>   <span class=result>18.72973</span>
+----------------------------------------------------------------------------------------------------------------------------------
+<br><br>
+<span class=input>. table (isic4) (tourdest), statistic(mean jobocean)</span>
+<br><br>
+----------------------------------------------------------------------------------------------------------------------------------
+                                                                       |                    Tourist Destinations                  
+                                                                       |  Not tourist destination   Tourist Destination      Total
+-----------------------------------------------------------------------+----------------------------------------------------------
+ISIC_4_digit                                                           |                                                          
+  Growing of spices, aromatic, drug and pharmaceutical crops           |                        <span class=result>.</span>                                <span class=result>.</span>
+  Marine aquaculture                                                   |                      <span class=result>100</span>                              <span class=result>100</span>
+  Building of ships and floating structures                            |                      <span class=result>100</span>                              <span class=result>100</span>
+  Building of pleasure and sporting boats                              |                      <span class=result>100</span>                              <span class=result>100</span>
+  Construction of buildings                                            |                        <span class=result>0</span>                    <span class=result>70</span>         <span class=result>42</span>
+  Other specialized construction activities                            |                       <span class=result>15</span>                               <span class=result>15</span>
+  Non-specialized wholesale trade                                      |                                              <span class=result>0</span>          <span class=result>0</span>
+  Sea and coastal passenger water transport                            |                      <span class=result>100</span>                              <span class=result>100</span>
+  Sea and coastal freight water transport                              |                      <span class=result>100</span>                   <span class=result>100</span>        <span class=result>100</span>
+  Other transportation support activities                              |                      <span class=result>100</span>                              <span class=result>100</span>
+  Short term accommodation activities                                  |                 <span class=result>26.66667</span>              <span class=result>56.53571</span>   <span class=result>44.84783</span>
+  Other accommodation                                                  |                       <span class=result>25</span>              <span class=result>44.16667</span>     <span class=result>39.375</span>
+  Restaurants and mobile food service activities                       |                     <span class=result>45.5</span>                <span class=result>23.125</span>    <span class=result>34.3125</span>
+  Other food service activities                                        |                        <span class=result>0</span>                   <span class=result>100</span>         <span class=result>50</span>
+  Other publishing activities                                          |                        <span class=result>0</span>                                <span class=result>0</span>
+  Real estate activities on a fee or contract basis                    |                        <span class=result>0</span>                    <span class=result>37</span>   <span class=result>12.33333</span>
+  Other professional, scientific and technical activities n.e.c        |                        <span class=result>.</span>                                <span class=result>.</span>
+  Renting and leasing of other machinery, equipment and tangible goods |                                            <span class=result>100</span>        <span class=result>100</span>
+  Tour operator activities                                             |                     <span class=result>87.5</span>                 <span class=result>81.25</span>   <span class=result>83.33333</span>
+  Other reservation service and related activities                     |                       <span class=result>50</span>                    <span class=result>35</span>         <span class=result>40</span>
+  Combined office administrative service activities                    |                                             <span class=result>75</span>         <span class=result>75</span>
+  Cultural education                                                   |                        <span class=result>0</span>                                <span class=result>0</span>
+  Gambling and betting activities                                      |                        <span class=result>0</span>                                <span class=result>0</span>
+  Operation of sports facilities                                       |                        <span class=result>0</span>                                <span class=result>0</span>
+  Other personal service activities n.e.e                              |                     <span class=result>45.5</span>                             <span class=result>45.5</span>
+  Total                                                                |                 <span class=result>46.91463</span>              <span class=result>56.48611</span>   <span class=result>51.38961</span>
+----------------------------------------------------------------------------------------------------------------------------------
+<br><br>
+<span class=input>. table (isic4) (tourdest), statistic(mean toruismsales)</span>
+<br><br>
+----------------------------------------------------------------------------------------------------------------------------------
+                                                                       |                    Tourist Destinations                  
+                                                                       |  Not tourist destination   Tourist Destination      Total
+-----------------------------------------------------------------------+----------------------------------------------------------
+ISIC_4_digit                                                           |                                                          
+  Growing of spices, aromatic, drug and pharmaceutical crops           |                        <span class=result>.</span>                                <span class=result>.</span>
+  Marine aquaculture                                                   |                     <span class=result>12.5</span>                             <span class=result>12.5</span>
+  Building of ships and floating structures                            |                        <span class=result>5</span>                                <span class=result>5</span>
+  Building of pleasure and sporting boats                              |                       <span class=result>50</span>                               <span class=result>50</span>
+  Construction of buildings                                            |                        <span class=result>0</span>              <span class=result>81.66667</span>         <span class=result>49</span>
+  Other specialized construction activities                            |                       <span class=result>90</span>                               <span class=result>90</span>
+  Non-specialized wholesale trade                                      |                                              <span class=result>0</span>          <span class=result>0</span>
+  Sea and coastal passenger water transport                            |                       <span class=result>70</span>                               <span class=result>70</span>
+  Sea and coastal freight water transport                              |                        <span class=result>0</span>                   <span class=result>100</span>   <span class=result>33.33333</span>
+  Other transportation support activities                              |                       <span class=result>15</span>                               <span class=result>15</span>
+  Short term accommodation activities                                  |                     <span class=result>61.5</span>                  <span class=result>82.5</span>      <span class=result>73.75</span>
+  Other accommodation                                                  |                       <span class=result>30</span>              <span class=result>93.33333</span>       <span class=result>77.5</span>
+  Restaurants and mobile food service activities                       |                 <span class=result>31.28571</span>                    <span class=result>56</span>   <span class=result>40.27273</span>
+  Other food service activities                                        |                      <span class=result>100</span>                    <span class=result>90</span>         <span class=result>95</span>
+  Other publishing activities                                          |                        <span class=result>0</span>                                <span class=result>0</span>
+  Real estate activities on a fee or contract basis                    |                       <span class=result>37</span>                    <span class=result>85</span>         <span class=result>61</span>
+  Other professional, scientific and technical activities n.e.c        |                        <span class=result>.</span>                                <span class=result>.</span>
+  Renting and leasing of other machinery, equipment and tangible goods |                                            <span class=result>100</span>        <span class=result>100</span>
+  Tour operator activities                                             |                     <span class=result>87.5</span>                   <span class=result>100</span>   <span class=result>95.83333</span>
+  Other reservation service and related activities                     |                 <span class=result>81.66667</span>                   <span class=result>100</span>         <span class=result>89</span>
+  Combined office administrative service activities                    |                                            <span class=result>100</span>        <span class=result>100</span>
+  Cultural education                                                   |                     <span class=result>12.5</span>                             <span class=result>12.5</span>
+  Gambling and betting activities                                      |                       <span class=result>70</span>                               <span class=result>70</span>
+  Operation of sports facilities                                       |                        <span class=result>0</span>                                <span class=result>0</span>
+  Other personal service activities n.e.e                              |                 <span class=result>95.66667</span>                         <span class=result>95.66667</span>
+  Total                                                                |                 <span class=result>47.93478</span>              <span class=result>82.81081</span>   <span class=result>63.48193</span>
+----------------------------------------------------------------------------------------------------------------------------------
+<br><br>
+<span class=input>. </span>
+end of do-file
+<br><br>
+<span class=input>. save "C:\Users\jochaeta.STATISTICS.000\Documents\OceanAccountingProject\Rapid Assesment\Data Sets\RapidAssesment.dta", replace</span>
+file<span class=result> C:\Users\jochaeta.STATISTICS.000\Documents\OceanAccountingProject\Rapid Assesment\Data Sets\RapidAssesment.dta</span> saved
+<br><br>
+<span class=input>. exit, clear</span>
+</pre>
+</body>
+</html>
