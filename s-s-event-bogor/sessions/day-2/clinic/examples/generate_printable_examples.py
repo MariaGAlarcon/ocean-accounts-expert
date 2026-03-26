@@ -387,78 +387,134 @@ def merge_cells_styled(tbl, row_idx, start_col, end_col, text, bg_colour):
                alignment=WD_ALIGN_PARAGRAPH.CENTER, bg=bg_colour)
 
 
-def table4e_combined_supply_use(doc):
-    """Table 4e: Combined Physical Supply and Use."""
-    DARK_GREEN = "2C745B"
+def _build_seea_table(doc, table_type, bg_colour):
+    """Build a SEEA EA Table 7.1 supply or use sub-table.
 
-    add_section_title(doc, "Table 4e -- Combined Physical Supply and Use Table")
+    table_type: 'supply' or 'use'
+    bg_colour: header background colour hex string
+    """
+    LIGHT_BG = "D5E8D4" if table_type == "supply" else "B2D8D8"
 
-    # 12 columns: Service, Unit, 3 ecosystems, Total supply, 5 beneficiaries, Total use
-    n_cols = 12
     services = ["Fish provisioning", "Carbon sequestration", "Coastal protection",
-                "Nursery habitat", "Recreation", "Gleaning"]
-    units = ["kg/yr", "Mg CO\u2082/yr", "m coastline", "kg/yr", "visitors/yr", "hours/yr"]
-    supply_data = [
-        ["120,000", "45,000", "15,000", "180,000"],
-        ["0", "1,040", "1,295", "2,335"],
-        ["12,000", "0", "3,500", "15,500"],
-        ["4,500", "2,800", "0", "7,300"],
-        ["15,000", "0", "2,400", "17,400"],
-        ["0", "18,000", "0", "18,000"],
-    ]
-    use_data = [
-        ["180,000", "0", "0", "0", "0", "180,000"],
-        ["0", "0", "0", "0", "2,335", "2,335"],
-        ["0", "0", "10,000", "5,500", "0", "15,500"],
-        ["7,300", "0", "0", "0", "0", "7,300"],
-        ["0", "15,000", "2,400", "0", "0", "17,400"],
-        ["0", "0", "18,000", "0", "0", "18,000"],
+                "Nursery habitat support", "Recreation & tourism",
+                "Gleaning (subsistence harvest)"]
+    units = ["kg/yr", "Mg CO\u2082/yr", "m of coastline", "kg fish/yr",
+             "visitors/yr", "hours/yr"]
+    # Categories: list of (label, count_of_services_after)
+    categories = [
+        ("Provisioning services (6.1)", 1),
+        ("Regulating & maintenance services (6.2\u20136.5)", 3),
+        ("Cultural services (6.6)", 2),
     ]
 
-    n_rows = 3 + len(services)  # super-header + column headers + spacer/merged + data
-    tbl = doc.add_table(rows=2 + len(services), cols=n_cols)
+    # Columns: Service, Unit, Fisheries, Tourism, Other, Households, Govt,
+    #          Global/Exports, Coral reefs, Seagrass, Mangroves, Total eco, TOTAL
+    col_headers = ["Service", "Unit", "Fisheries", "Tourism", "Other industry",
+                   "Households", "Govt", "Global/\nExports",
+                   "Coral reefs\n(M1.3)", "Seagrass\n(M1.1)",
+                   "Mangroves\n(MFT1.2)", "Total\necosystem", "TOTAL"]
+    n_cols = len(col_headers)
+
+    if table_type == "supply":
+        # col indices 2-12 (0-based from col C): only ecosystem cols have values
+        # index mapping: 0=Fisheries..5=Global, 6=Coral,7=Seagrass,8=Mangroves,9=TotalEco,10=TOTAL
+        data = [
+            {"6": "120,000", "7": "45,000", "8": "15,000", "9": "180,000", "10": "180,000"},
+            {"7": "1,040", "8": "1,295", "9": "2,335", "10": "2,335"},
+            {"6": "12,000", "8": "3,500", "9": "15,500", "10": "15,500"},
+            {"6": "4,500", "7": "2,800", "9": "7,300", "10": "7,300"},
+            {"6": "15,000", "8": "2,400", "9": "17,400", "10": "17,400"},
+            {"7": "18,000", "9": "18,000", "10": "18,000"},
+        ]
+    else:
+        data = [
+            {"0": "180,000", "10": "180,000"},
+            {"5": "2,335", "10": "2,335"},
+            {"3": "10,000", "4": "5,500", "10": "15,500"},
+            {"0": "7,300", "10": "7,300"},
+            {"1": "15,000", "3": "2,400", "10": "17,400"},
+            {"3": "18,000", "10": "18,000"},
+        ]
+
+    # Count total rows: 2 header rows + 3 category rows + 6 data rows
+    n_rows = 2 + 3 + len(services)
+    tbl = doc.add_table(rows=n_rows, cols=n_cols)
     tbl.alignment = WD_TABLE_ALIGNMENT.CENTER
 
-    # Row 0: Super-header with merged cells
-    # Cols 0-1: blank (dark green)
-    for c in range(2):
-        write_cell(tbl.rows[0].cells[c], "", bg=DARK_GREEN)
+    # Row 0: group header -- merge A-B, C-H "Economic units", I-K "Ecosystem types", L-M blank
+    for c in range(n_cols):
+        write_cell(tbl.rows[0].cells[c], "", bg=bg_colour)
+    merge_cells_styled(tbl, 0, 2, 7, "Economic units", bg_colour)
+    merge_cells_styled(tbl, 0, 8, 10, "Ecosystem types", bg_colour)
 
-    # "SUPPLY (by ecosystem)" spanning cols 2-5
-    merge_cells_styled(tbl, 0, 2, 5, "SUPPLY (by ecosystem)", GREEN)
-
-    # "USE (by beneficiary)" spanning cols 6-11
-    merge_cells_styled(tbl, 0, 6, 11, "USE (by beneficiary)", DARK_GREEN)
-
-    # Row 1: Column headers
-    col_headers = ["Service", "Unit",
-                   "Coral reefs", "Seagrass", "Mangroves", "Total",
-                   "Fisheries", "Tourism", "Coastal HH", "Govt", "Global", "Total"]
+    # Row 1: column headers
     for i, h in enumerate(col_headers):
-        bg = GREEN if i < 6 else DARK_GREEN
         header_cell(tbl.rows[1].cells[i], h, WD_ALIGN_PARAGRAPH.CENTER)
-        set_cell_shading(tbl.rows[1].cells[i], bg)
+        set_cell_shading(tbl.rows[1].cells[i], bg_colour)
 
-    # Data rows
-    for r, svc in enumerate(services):
-        row_idx = r + 2
-        row_header_cell(tbl.rows[row_idx].cells[0], svc)
-        data_cell(tbl.rows[row_idx].cells[1], units[r], alignment=WD_ALIGN_PARAGRAPH.CENTER)
-        set_cell_shading(tbl.rows[row_idx].cells[1], TEAL)
-        # Style the unit cell text white
-        for run in tbl.rows[row_idx].cells[1].paragraphs[0].runs:
-            run.font.color.rgb = RGBColor.from_string(WHITE)
+    # Data rows with category sub-headers
+    row_idx = 2
+    svc_idx = 0
+    for cat_label, cat_count in categories:
+        # Category row
+        merge_cells_styled(tbl, row_idx, 0, n_cols - 1, cat_label, LIGHT_BG)
+        # Make category text dark
+        for run in tbl.rows[row_idx].cells[0].paragraphs[0].runs:
+            run.font.color.rgb = RGBColor.from_string("404040")
+            run.font.bold = True
+            run.font.italic = True
             run.font.size = Pt(9)
+        row_idx += 1
 
-        for j, val in enumerate(supply_data[r]):
-            data_cell(tbl.rows[row_idx].cells[2 + j], val, alignment=WD_ALIGN_PARAGRAPH.CENTER)
+        for _ in range(cat_count):
+            row_header_cell(tbl.rows[row_idx].cells[0], services[svc_idx])
+            data_cell(tbl.rows[row_idx].cells[1], units[svc_idx],
+                      alignment=WD_ALIGN_PARAGRAPH.CENTER)
+            set_cell_shading(tbl.rows[row_idx].cells[1], TEAL)
+            for run in tbl.rows[row_idx].cells[1].paragraphs[0].runs:
+                run.font.color.rgb = RGBColor.from_string(WHITE)
+                run.font.size = Pt(9)
 
-        for j, val in enumerate(use_data[r]):
-            data_cell(tbl.rows[row_idx].cells[6 + j], val, alignment=WD_ALIGN_PARAGRAPH.CENTER)
+            svc_data = data[svc_idx]
+            for j in range(11):
+                val = svc_data.get(str(j), "")
+                data_cell(tbl.rows[row_idx].cells[2 + j], val,
+                          alignment=WD_ALIGN_PARAGRAPH.CENTER)
+
+            svc_idx += 1
+            row_idx += 1
+
+
+def table4e_combined_supply_use(doc):
+    """Table 4e: Combined Supply and Use -- SEEA EA Table 7.1 format."""
+    DARK_GREEN = "2C745B"
+
+    add_section_title(doc, "Table 4e -- Supply and Use of Ecosystem Services (SEEA EA Table 7.1)")
+
+    # Supply table (Table 7.1a)
+    p = doc.add_paragraph()
+    style_paragraph(p, font_size=11, colour=GREEN)
+    p.add_run("SUPPLY TABLE (Table 7.1a)").bold = True
+
+    _build_seea_table(doc, "supply", GREEN)
+
+    doc.add_paragraph()  # spacer
+
+    # Use table (Table 7.1b)
+    p = doc.add_paragraph()
+    style_paragraph(p, font_size=11, colour=TEAL)
+    p.add_run("USE TABLE (Table 7.1b)").bold = True
+
+    _build_seea_table(doc, "use", DARK_GREEN)
 
     p = doc.add_paragraph()
     style_paragraph(p, font_size=9, colour="717171")
-    p.add_run("Accounting identity: Total supply = Total use for each service row. Supply is organised by ecosystem type; use is organised by beneficiary sector.").font.italic = True
+    p.add_run(
+        "Format follows SEEA EA Table 7.1 (supply and use of ecosystem services). "
+        "Supply table shows which ecosystems generate each service; "
+        "use table shows which economic sectors benefit. "
+        "Carbon sequestration use is allocated to Global/Exports."
+    ).font.italic = True
 
 
 # ── main ─────────────────────────────────────────────────────────────────────
