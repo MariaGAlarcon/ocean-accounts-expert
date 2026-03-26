@@ -20,16 +20,16 @@ An ecosystem services account quantifies the **benefits that ecosystems provide 
 
 ## Slide 2: Types of ecosystem services
 
-| Category | Service | Ecosystem | Physical measure (Part A) |
-|----------|---------|-----------|--------------------------|
-| **Provisioning** | Wild fish catch | Coral reefs, seagrass, pelagic | kg/yr |
-| | Wood / fuel | Mangroves | tonnes/yr |
-| **Regulating** | Carbon sequestration | Mangroves, seagrass | Mg CO2/yr |
-| | Coastal protection | Coral reefs, mangroves | Coastline length (m) or buildings protected |
-| | Nursery habitat | Coral reefs, seagrass | Juvenile fish biomass (kg/yr) |
-| | Sediment retention | Coral reefs | m3 CaCO3/yr |
-| **Cultural** | Recreation / tourism | Coral reefs, mangroves | Visitor trips/yr |
-| | Gleaning / subsistence | Seagrass, intertidal | Hours/yr, harvest kg/yr |
+| SEEA EA reference list | Service | Ecosystem | Physical measure (Part A) |
+|------------------------|---------|-----------|--------------------------|
+| Provisioning (6.1) | Wild fish catch | Coral reefs, seagrass, pelagic | kg/yr |
+| Provisioning (6.1) | Wood / fuel | Mangroves | tonnes/yr |
+| Regulating (6.3) | Carbon sequestration | Mangroves, seagrass | Mg CO2/yr |
+| Regulating (6.4) | Coastal protection | Coral reefs, mangroves | Coastline length (m) or buildings protected |
+| Regulating (6.2) | Nursery habitat | Coral reefs, seagrass | Juvenile fish biomass (kg/yr) |
+| Regulating (6.5) | Sediment retention | Coral reefs | m3 CaCO3/yr |
+| Cultural (6.6) | Recreation / tourism | Coral reefs, mangroves | Visitor trips/yr |
+| Cultural (6.6) | Gleaning / subsistence | Seagrass, intertidal | Hours/yr, harvest kg/yr |
 
 **Start with 1-2 services most relevant to your policy question.** You do not need to value all services.
 
