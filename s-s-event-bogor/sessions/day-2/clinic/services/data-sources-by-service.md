@@ -1,6 +1,20 @@
 # Data Sources for Ecosystem Service Calculations
 
-Where to find the data you need for each service, organized by Part A (physical) and Part B (monetary).
+Where to find the data you need for each service, organized by Part A (physical supply and use) and Part B (monetary supply and use).
+
+## Use tables: data for identifying beneficiaries
+
+The SEEA EA requires both supply tables (which ecosystems provide services) and use tables (which economic sectors benefit). To build use tables, you need data on who uses each service:
+
+| Beneficiary sector | Data needed | Where to find it |
+|-------------------|------------|-----------------|
+| Fisheries sector | Who catches the fish? Commercial vs artisanal? | Fisheries agency, fisher cooperatives, landing records |
+| Tourism sector | Who operates reef/mangrove tours? Who captures visitor spending? | Tourism boards, dive operator records, MPA visitor data |
+| Coastal households | Who gleans? Who depends on coastal protection? | Household surveys, census data for coastal communities |
+| Government | What public infrastructure is protected by ecosystems? | Municipal records, public asset databases, infrastructure maps |
+| Global community | Carbon sequestration benefits everyone globally | No allocation data needed (assign 100% to global community) |
+
+For services shared across sectors (e.g., coastal protection benefits both households and government), use spatial data (building ownership maps, cadastral records) to split the allocation.
 
 ---
 
