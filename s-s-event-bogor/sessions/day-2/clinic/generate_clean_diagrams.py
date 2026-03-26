@@ -66,67 +66,89 @@ def diagram_overview(outdir):
     ax.text(7, 8.7, "Ocean Accounts: One Framework, Many Policy Uses",
             fontsize=18, ha="center", color=TEAL, fontfamily="Arial", fontweight="bold")
 
-    # LEVEL 1: COMPILE ONCE + data sources
-    box(ax, 7, 8.0, 6, 0.5, "COMPILE ONCE", GREEN, fontsize=13)
+    # COMPILE ONCE banner
+    box(ax, 7, 8.1, 5, 0.4, "COMPILE ONCE", GREEN, fontsize=12)
 
-    sources = ["Satellite\nimagery", "Field\nsurveys", "Government\nstatistics",
-               "Global\ndatasets", "Community\nknowledge"]
-    for i, s in enumerate(sources):
-        x = 2.0 + i * 2.5
-        box(ax, x, 7.2, 2.0, 0.55, s, LIGHT_BLUE, textcolor=BODY, fontsize=8, bold=False)
-        arrow_down(ax, x, 7.45, 7.75, GREEN)
-
-    # LEVEL 2: THE FRAMEWORK (one big container)
-    # Outer container
-    container = FancyBboxPatch((0.5, 2.8), 13, 4.0,
-                               boxstyle="round,pad=0.15", facecolor="#F8FAFA",
-                               edgecolor=TEAL, linewidth=2)
-    ax.add_patch(container)
-    ax.text(7, 6.55, "OCEAN ACCOUNTS FRAMEWORK", fontsize=12, ha="center",
-            color=TEAL, fontfamily="Arial", fontweight="bold")
-
-    # BSU band in the middle of the container
-    bsu = FancyBboxPatch((1.0, 4.55), 12, 0.5,
-                         boxstyle="round,pad=0.05", facecolor=GREEN,
-                         edgecolor="none")
+    # BSU FOUNDATION (wide bar under compile once)
+    bsu = FancyBboxPatch((0.8, 7.1), 12.4, 0.55,
+                         boxstyle="round,pad=0.05", facecolor=GREEN, edgecolor="none")
     ax.add_patch(bsu)
-    ax.text(7, 4.8, "Shared Spatial Framework: Basic Spatial Units (BSUs)",
+    ax.text(7, 7.38, "Shared Spatial Framework: Basic Spatial Units (BSUs)",
             fontsize=10, ha="center", color=WHITE, fontfamily="Arial", fontweight="bold")
 
-    # Top row: SEEA-EA ecological accounts (above BSU)
-    box(ax, 2.5, 5.7, 3.0, 0.7, "EXTENT\nEcosystem area (ha)", TEAL, fontsize=9)
-    box(ax, 6.0, 5.7, 3.0, 0.7, "CONDITION\nEcosystem health (CI)", TEAL, fontsize=9)
-    box(ax, 9.8, 5.7, 3.4, 0.7, "SERVICES\nSupply + Use (SUT)", TEAL, fontsize=9)
-    box(ax, 12.5, 5.7, 1.8, 0.7, "WASTE\nEmissions", ORANGE, fontsize=8)
+    # THREE EQUAL DOMAIN COLUMNS
+    col_w = 3.8
+    col_h = 4.2
+    col_y = 2.6
+    gap = 0.3
 
-    # Arrows: extent → condition → services
-    arrow_right(ax, 4.1, 4.4, 5.7, TEAL)
-    arrow_right(ax, 7.6, 7.9, 5.7, TEAL)
-    ax.text(4.25, 5.95, "informs", fontsize=7, color=GRAY, ha="center", fontfamily="Arial")
-    ax.text(7.75, 5.95, "informs", fontsize=7, color=GRAY, ha="center", fontfamily="Arial")
+    # Column 1: ENVIRONMENT (teal)
+    c1_x = 0.9
+    env = FancyBboxPatch((c1_x, col_y), col_w, col_h,
+                         boxstyle="round,pad=0.1", facecolor=MINT,
+                         edgecolor=TEAL, linewidth=1.5)
+    ax.add_patch(env)
+    ax.text(c1_x + col_w/2, col_y + col_h - 0.3, "ENVIRONMENT",
+            fontsize=13, ha="center", color=TEAL, fontfamily="Arial", fontweight="bold")
+    ax.text(c1_x + col_w/2, col_y + col_h - 0.65, "Ecosystems and their value",
+            fontsize=8, ha="center", color=GRAY, fontfamily="Arial")
 
-    # Bottom row: Economy + Society (below BSU)
-    box(ax, 3.5, 3.6, 4.5, 0.7, "OCEAN ECONOMY (OESA)\nOcean GDP, GVA, employment", BLUE_GRAY, fontsize=9)
-    box(ax, 9.5, 3.6, 4.5, 0.7, "SOCIAL & GOVERNANCE\nWellbeing, equity, access", TAN, fontsize=9)
+    # SEEA-EA components inside environment column
+    box(ax, c1_x + col_w/2, col_y + 2.6, 3.2, 0.55, "EXTENT\nEcosystem area (ha)", TEAL, fontsize=8)
+    box(ax, c1_x + col_w/2, col_y + 1.8, 3.2, 0.55, "CONDITION\nEcosystem health (CI 0-1)", TEAL, fontsize=8)
+    box(ax, c1_x + col_w/2, col_y + 1.0, 3.2, 0.55, "SERVICES\nSupply + Use tables (SUT)", TEAL, fontsize=8)
+    box(ax, c1_x + col_w/2, col_y + 0.25, 3.2, 0.4, "WASTE & EMISSIONS\nPollution flows to ocean", ORANGE, fontsize=7)
 
-    # Simple vertical connectors from BSU to rows (no crossing)
-    for x in [2.5, 6.0, 9.8, 12.5]:
-        arrow_down(ax, x, 5.25, 5.05, GREEN)
-    for x in [3.5, 9.5]:
-        arrow_down(ax, x, 4.5, 4.05, GREEN)
+    # Arrows within environment column (vertical chain)
+    arrow_down(ax, c1_x + col_w/2, col_y + 2.25, col_y + 2.15, TEAL)
+    arrow_down(ax, c1_x + col_w/2, col_y + 1.45, col_y + 1.35, TEAL)
 
-    # LEVEL 3: REPORT MANY
-    box(ax, 7, 2.1, 6, 0.5, "REPORT MANY", ORANGE, fontsize=13)
+    # Column 2: ECONOMY (blue-gray)
+    c2_x = c1_x + col_w + gap
+    eco = FancyBboxPatch((c2_x, col_y), col_w, col_h,
+                         boxstyle="round,pad=0.1", facecolor="#E8EEF2",
+                         edgecolor=BLUE_GRAY, linewidth=1.5)
+    ax.add_patch(eco)
+    ax.text(c2_x + col_w/2, col_y + col_h - 0.3, "ECONOMY",
+            fontsize=13, ha="center", color=TEAL, fontfamily="Arial", fontweight="bold")
+    ax.text(c2_x + col_w/2, col_y + col_h - 0.65, "Ocean economic activity",
+            fontsize=8, ha="center", color=GRAY, fontfamily="Arial")
 
-    # Arrow from framework to report many
-    arrow_down(ax, 7, 2.75, 2.4, ORANGE)
+    box(ax, c2_x + col_w/2, col_y + 2.6, 3.2, 0.55, "OCEAN ECONOMY (OESA)\nOcean GDP, GVA, employment", BLUE_GRAY, fontsize=8)
+    box(ax, c2_x + col_w/2, col_y + 1.8, 3.2, 0.55, "OCEAN TOURISM (OTSA)\nCoastal tourism contribution", BLUE_GRAY, fontsize=8)
 
-    # LEVEL 4: Policy boxes
-    policies = ["SDG 14\nreporting", "NDC /\nNBSAP", "Marine spatial\nplanning",
-                "Blue finance\n& investment", "National ocean\npolicy"]
+    ax.text(c2_x + col_w/2, col_y + 0.6, "Depends on ecosystem\nservices and condition",
+            fontsize=8, ha="center", color=GRAY, fontfamily="Arial", style="italic")
+    ax.text(c2_x + col_w/2, col_y + 0.15, "Generates waste and\npressures on ecosystems",
+            fontsize=8, ha="center", color=ORANGE, fontfamily="Arial", style="italic")
+
+    # Column 3: SOCIETY (tan)
+    c3_x = c2_x + col_w + gap
+    soc = FancyBboxPatch((c3_x, col_y), col_w, col_h,
+                         boxstyle="round,pad=0.1", facecolor=LIGHT_TAN,
+                         edgecolor=TAN, linewidth=1.5)
+    ax.add_patch(soc)
+    ax.text(c3_x + col_w/2, col_y + col_h - 0.3, "SOCIETY",
+            fontsize=13, ha="center", color=TEAL, fontfamily="Arial", fontweight="bold")
+    ax.text(c3_x + col_w/2, col_y + col_h - 0.65, "People and governance",
+            fontsize=8, ha="center", color=GRAY, fontfamily="Arial")
+
+    box(ax, c3_x + col_w/2, col_y + 2.6, 3.2, 0.55, "SOCIAL ACCOUNTS\nWellbeing, livelihoods, equity", TAN, fontsize=8)
+    box(ax, c3_x + col_w/2, col_y + 1.8, 3.2, 0.55, "GOVERNANCE\nInstitutions, access, rights", TAN, fontsize=8)
+
+    ax.text(c3_x + col_w/2, col_y + 0.6, "Enables and constrains\nboth environment and economy",
+            fontsize=8, ha="center", color=GRAY, fontfamily="Arial", style="italic")
+
+    # REPORT MANY banner
+    box(ax, 7, 1.8, 5, 0.4, "REPORT MANY", ORANGE, fontsize=12)
+    arrow_down(ax, 7, 2.55, 2.05, ORANGE)
+
+    # Policy boxes
+    policies = ["SDG 14", "NDC /\nNBSAP", "Marine spatial\nplanning",
+                "Blue finance", "National ocean\npolicy"]
     for i, p in enumerate(policies):
         x = 1.5 + i * 2.8
-        box(ax, x, 1.1, 2.3, 0.65, p, ORANGE, fontsize=8)
+        box(ax, x, 1.0, 2.3, 0.55, p, ORANGE, fontsize=8)
 
     save(fig, outdir / "diagram_overview.png")
 
