@@ -31,7 +31,7 @@ By the end of this session, every participant should have:
 - Pens (enough for all participants -- some will forget theirs)
 - Laptop and projector for slides
 - Timer (phone timer is fine) to keep activities on track
-- policy-brief-slides.md loaded and ready to present
+- policy-brief-slides.pptx loaded and ready to present
 
 **Room setup:**
 

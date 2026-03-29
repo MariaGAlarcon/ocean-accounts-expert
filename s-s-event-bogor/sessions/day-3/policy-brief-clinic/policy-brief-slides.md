@@ -239,7 +239,7 @@ Printed copies of three of these briefs are available to look at during the draf
 
 ## Slide 12: Your turn -- Draft your policy brief
 
-**Time:** 45 minutes drafting, then 15 minutes peer review
+**Time:** 40 minutes drafting, then 15 minutes peer review
 
 Use the policy brief template handout. Work through it section by section:
 

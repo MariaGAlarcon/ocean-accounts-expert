@@ -9,7 +9,9 @@ Work through Parts 1, 2, and 3 in order during the session. Each part builds on 
 
 ## Part 1: Your Message Box (30 minutes)
 
-### Step 1: Identify your audience (5 minutes)
+### Step 1: Identify your audience
+
+Start here. This should take about 2 minutes.
 
 Do not write "policymakers." Name a specific person, office, or body.
 
@@ -20,7 +22,7 @@ Do not write "policymakers." Name a specific person, office, or body.
 | Who needs this data for reporting (e.g., SDG, NBSAP, NDC focal point)? | |
 | **My target reader is:** | |
 
-### Step 2: Fill in your Message Box (20 minutes)
+### Step 2: Fill in your Message Box (18 minutes)
 
 Use the separate Message Box template handout. These prompting questions will help you fill in each section.
 
@@ -61,7 +63,7 @@ Swap your Message Box with your neighbor. Read theirs and answer these questions
 
 ---
 
-## Part 2: Draft your policy brief (45 minutes)
+## Part 2: Draft your policy brief (40 minutes)
 
 Use the separate policy brief template handout. Work through it section by section, using your completed Message Box as the source material.
 
