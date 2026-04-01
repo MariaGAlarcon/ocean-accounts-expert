@@ -23,3 +23,19 @@ __pycache__/
 
 # Office temp files
 ~$*
+
+# Data deposits (large files, not tracked)
+**/data_deposit/*
+!**/data_deposit/.gitkeep
+
+# Generated outputs
+belize-project/extent-account-scripts/outputs/*
+!belize-project/extent-account-scripts/outputs/.gitkeep
+belize-project/condition-account-scripts/outputs/*
+!belize-project/condition-account-scripts/outputs/.gitkeep
+
+# GeoPackage files (too large for git)
+*.gpkg
+
+# Cloned reference repos
+oa-technical-guidance/
