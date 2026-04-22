@@ -27,6 +27,7 @@ Experimental. This is a brainstorming and design space, not a finished product.
 | `08-glossary.md` | Definitions of key terms used across the prototype |
 | `09-next-steps-country-pilots.md` | Plan for Australia and Fiji pilot examples with five ecosystem services |
 | `10-workflow-guide.md` | Step-by-step guide for executing next steps (data audit, worked examples, QA) |
+| `11-data-audit-results.md` | Verified data sources for Australia and Fiji with access conditions and gaps |
 
 ## Key references
 
