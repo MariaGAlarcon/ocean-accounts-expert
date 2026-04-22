@@ -28,6 +28,9 @@ Experimental. This is a brainstorming and design space, not a finished product.
 | `09-next-steps-country-pilots.md` | Plan for Australia and Fiji pilot examples with five ecosystem services |
 | `10-workflow-guide.md` | Step-by-step guide for executing next steps (data audit, worked examples, QA) |
 | `11-data-audit-results.md` | Verified data sources for Australia and Fiji with access conditions and gaps |
+| `australia-pilot/` | GBR fish provisioning worked example with real ABARES/ABS/SELTMP data |
+| `fiji-pilot/` | Fiji fish provisioning worked example with real HIES 2019-20 data |
+| `ideal-pilot/` | Tuvana (fictional country) reference implementation with full spatial BSU resolution |
 
 ## Key references
 
