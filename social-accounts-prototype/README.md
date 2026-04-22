@@ -20,9 +20,12 @@ Experimental. This is a brainstorming and design space, not a finished product.
 | `01-logic-chains.md` | Connection diagrams showing how ecosystems, services, economy, and social wellbeing relate directionally |
 | `02-household-disaggregation.md` | Household as bridge unit between SNA and social dimensions, with disaggregation categories |
 | `03-social-stocks-tables.md` | Draft opening/closing stock tables for human, social, and institutional capital |
-| `04-social-flows-tables.md` | Draft supply-use tables for social activities measured in hours |
+| `04-social-flows-tables.md` | Draft supply-use tables for social activities with service-specific units |
 | `05-ecosystem-to-wellbeing-links.md` | Systematic mapping of ecosystem services to social dimensions via market and non-market pathways |
 | `06-accounting-consistency.md` | Analysis of where accounting identities hold, where they break, and what that means |
+| `07-subsistence-boundary.md` | Exploration of where subsistence activities sit (E9 vs E10) and implications for account design |
+| `08-glossary.md` | Definitions of key terms used across the prototype |
+| `09-next-steps-country-pilots.md` | Plan for Australia and Fiji pilot examples with five ecosystem services |
 
 ## Key references
 

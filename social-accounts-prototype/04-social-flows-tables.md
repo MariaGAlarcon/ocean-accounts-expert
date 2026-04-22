@@ -1,12 +1,28 @@
 # Social Flows Tables: Supply-Use Accounts for Social Activities
 
-These tables parallel the SEEA-EA ecosystem services supply-use format. They record social activities (flows) measured in hours per accounting period, structured as supply tables (who provides the activity) and use tables (who benefits from the activity).
+These tables parallel the SEEA-EA ecosystem services supply-use format. They record social activities (flows) structured as supply tables (who provides the activity) and use tables (who benefits from the activity).
 
 The accounting identity is:
 
 **Total supply of social activity = Total use of social activity**
 
-For hours-based measurement: total hours supplied by provider groups = total hours used/received by beneficiary groups. This is the social equivalent of the ecosystem services supply-use identity where total service supply from ecosystems = total service use by economic units.
+### Units of measurement
+
+Following the approach used in ecosystem services supply-use tables in physical terms, each activity category may use the unit most relevant to that activity rather than a single universal unit. Hours remain the default for time-based activities, but some activities are better captured in physical quantities or participation counts:
+
+| Activity type | Recommended unit | Rationale |
+|---|---|---|
+| Unpaid household labour | Hours per accounting period | Time is the natural measure of labour |
+| Volunteering | Hours per accounting period | Time-based activity |
+| Governance participation | Hours per accounting period | Time-based activity |
+| Inter-household resource sharing | Physical quantity (e.g., kg of fish shared) | The transfer is a physical good, not time |
+| Traditional ceremonies | Number of ceremonies; hours; number of participants | Multiple dimensions worth recording |
+| Knowledge sharing | Hours; number of participants trained | Both effort and reach matter |
+| Equipment sharing | Number of transactions; days of use | Asset-sharing is better measured in use-days |
+
+This mirrors how ecosystem services physical supply-use tables use tonnes for fish provisioning, visitor-trips for recreation, and buildings protected for coastal protection -- each service in its own natural unit. The supply-use identity holds within each unit: total kg of fish shared by supplying households = total kg received by beneficiary households.
+
+For comparability across activity types, hours can serve as a common secondary unit. But forcing all activities into hours sacrifices information. The recommended approach is to record each activity in its primary unit and provide hours as a supplementary column where meaningful.
 
 ---
 
@@ -183,10 +199,10 @@ This is the flow-to-stock link that makes social accounts an integrated system. 
 
 ## Open questions
 
-1. **Hours as the universal unit:** TG-3.5 proposes hours as the primary flow unit for comparability. But some activities are better measured in physical quantities (kg of fish shared, number of ceremonies) or participation counts (number of households involved). Should the supply-use tables have parallel physical and hours versions, as ecosystem services have physical and monetary versions?
+1. **Service-specific units and comparability:** This prototype adopts service-specific units following the ecosystem services supply-use model. The open question is whether a common secondary unit (hours) should be compiled for every activity to allow cross-activity comparisons, or whether this adds measurement burden without analytical value. TG-3.5 originally proposed hours as the primary unit for comparability, but the ecosystem services precedent suggests that each flow in its natural unit is more informative.
 
 2. **Joint production:** A traditional fishing trip may simultaneously be cultural practice, knowledge transfer, food provisioning, and recreation. How should the hours be allocated across categories? Options: (a) primary purpose allocation, (b) proportional split, (c) record full hours in each category and flag overlap. Option (c) breaks the supply-use identity.
 
-3. **Valuation:** Should social activity hours be valued monetarily (e.g., at replacement cost or opportunity cost wage rates)? This would create a monetary supply-use table parallel to ecosystem services monetary accounts. TG-3.5 deliberately avoids monetization, but SNA 2025 values unpaid household work in satellite accounts.
+3. **Monetary valuation (further research):** Monetary valuation of social activities remains an open area for exploration. Approaches such as replacement cost (what it would cost to hire someone) or opportunity cost (foregone wages) could create a monetary supply-use table parallel to ecosystem services monetary accounts. SNA 2025 values unpaid household work in satellite accounts using these methods. TG-3.5 deliberately avoids monetization, but this does not preclude future work testing whether monetary valuation adds policy value for specific activity categories.
 
 4. **Negative flows:** Can social activities be "negative"? For example, conflict over marine resources consumes hours but reduces social capital. Should this appear as a separate row or as a "reduction" in the change account?

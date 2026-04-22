@@ -1,6 +1,6 @@
 # Accounting Consistency: Do the Numbers Add Up?
 
-This document analyses whether social accounts can maintain proper accounting identities -- the fundamental requirement for any account to be more than a dashboard of indicators. It draws on lessons from existing SEEA-EA accounts (extent, condition, services) and tests each against the social domain.
+This document analyses whether social accounts can maintain proper accounting identities -- the fundamental requirement for any account to be more than a dashboard of indicators. It draws on lessons from the SNA and SEEA (mostly SEEA-EA: extent, condition, services accounts) and tests each against the social domain.
 
 ---
 

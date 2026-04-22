@@ -43,7 +43,7 @@ This is the primary pathway where ecosystem services enter the economy through m
 
 ```mermaid
 graph LR
-    EA[Ecosystem Asset<br/>extent + condition] -->|E9: service supply| ES[Ecosystem Service<br/>provisioning/regulating]
+    EA[Ecosystem Asset<br/>extent + condition] -->|E9: service supply| ES[Ecosystem Service<br/>provisioning/regulating/cultural]
     ES -->|market transaction| EU[Economic Unit<br/>industry/household]
     EU -->|E5: employment,<br/>income, consumption| SW[Social Wellbeing<br/>Dimension]
 
@@ -95,15 +95,17 @@ This pathway captures ecosystem services that benefit society without passing th
 
 ```mermaid
 graph LR
-    EA[Ecosystem Asset<br/>extent + condition] -->|E10: non-market<br/>service flow| SA[Social Activity<br/>outside SNA boundary]
+    EA[Ecosystem Asset<br/>extent + condition] -->|E10: non-market<br/>service flow| ES[Ecosystem Service<br/>provisioning/regulating/cultural]
+    ES -->|direct benefit| SA[Social Activity<br/>outside SNA boundary]
     SA -->|E6: social activity<br/>shapes conditions| SW[Social Wellbeing<br/>Dimension]
 
     style EA fill:#e8f5e9
+    style ES fill:#e3f2fd
     style SA fill:#f3e5f5
     style SW fill:#fce4ec
 ```
 
-**Direction:** SG3 to FG2 (E10), then FG2 to SG2 (E6)
+**Direction:** SG3 to FG2 (E10) via ecosystem service, then FG2 to SG2 (E6)
 
 ### Worked examples
 
@@ -189,7 +191,7 @@ Social conditions are not just endpoints. They feed back into economic activity 
 graph LR
     SG2[Social Assets<br/>governance, human capital] -->|E7: enables<br/>economic flows| FG1[Economic Activity<br/>investment, production]
     SG2 -->|E8: enables<br/>social activities| FG2[Social Activities<br/>stewardship, monitoring]
-    FG2 -->|reduces E1/E2:<br/>pollution pressure| SG3[Environmental Assets<br/>ecosystem condition]
+    FG2 -->|E1/E2: pressures<br/>or stewardship| SG3[Environmental Assets<br/>ecosystem condition]
     FG1 -->|E5: employment,<br/>income| SG2
 
     style SG2 fill:#fff9c4

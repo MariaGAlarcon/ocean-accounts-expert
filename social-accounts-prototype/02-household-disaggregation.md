@@ -1,6 +1,6 @@
 # Household Disaggregation: The Bridge Between Economy and Social Wellbeing
 
-The household is the statistical unit that appears in both SNA economic accounts and social accounts. It is the point where ecosystem service flows become tangible human outcomes. This document establishes how household disaggregation connects the economy to each social wellbeing dimension.
+The household is the statistical unit that appears in the SNA economic accounts, in ecosystem accounts (as one of the economic units using or benefiting from ecosystem services), and in social accounts. It is the point where ecosystem service flows become tangible human outcomes. This document establishes how household disaggregation connects the economy to each social wellbeing dimension.
 
 ## Why households are the bridge unit
 

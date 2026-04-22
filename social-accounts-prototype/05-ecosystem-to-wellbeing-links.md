@@ -155,7 +155,7 @@ This table is the "distributional supply-use table" -- it extends the standard e
 
 ## Open questions
 
-1. **Attribution vs. allocation:** The ecosystem service supply-use table allocates physical flows to users. But the social wellbeing effect depends on more than the physical flow -- it depends on prices, access, alternatives, and adaptive capacity. How far should the mapping go? Should it stop at physical allocation (ecosystem accounting approach) or attempt to trace through to wellbeing outcomes (impact assessment approach)?
+1. **Attribution vs. allocation:** The ecosystem service supply-use table allocates physical flows to users. But the social wellbeing effect depends on more than the physical flow -- it depends on prices, access, alternatives, and adaptive capacity. How far should the mapping go? The ecosystem accounting approach (stopping at physical allocation of service flows to user groups) is the preferred direction for this prototype. It keeps the accounts grounded in measurable physical quantities and avoids the modelling assumptions required for full impact assessment. Tracing through to wellbeing outcomes (impact assessment approach) remains valuable for policy analysis but sits outside the accounting framework proper. This question stays open, but the working assumption is that the accounts allocate physical flows and the interpretation of wellbeing effects is an analytical step built on top of the accounts.
 
 2. **Counterfactual:** The vulnerability analysis assumes ecosystem decline causes social harm. But what if households have already adapted (diversified income, migrated)? The mapping shows potential pathways, not realized effects. Should the tables include an "adaptive capacity" modifier?
 
