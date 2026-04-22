@@ -1,30 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="900" height="650" viewBox="0 0 900 650" font-family="Arial, sans-serif">
 
-  <!-- ============================================================
-       TUVANA SOCIAL ACCOUNTING AREA -- BSU TILE MAP
-       SEEA-EA style diagram: 8 Basic Spatial Units
-       900 x 650 px | Arial | no em-dashes in SVG comments
-  ============================================================ -->
-
   <defs>
-    <!-- Hatching pattern: BSU-8 offshore background -->
     <pattern id="offshoreHatch" patternUnits="userSpaceOnUse" width="12" height="12">
       <rect width="12" height="12" fill="#D6EAF8"/>
       <line x1="0" y1="0" x2="12" y2="12" stroke="#AED6F1" stroke-width="0.8"/>
     </pattern>
-
-    <!-- Dot texture: urban / harbour zone -->
     <pattern id="urbanDot" patternUnits="userSpaceOnUse" width="6" height="6">
       <rect width="6" height="6" fill="#D5D8DC"/>
       <circle cx="3" cy="3" r="0.9" fill="#AAAAAA"/>
     </pattern>
-
-    <!-- Drop shadow -->
     <filter id="shadow" x="-10%" y="-10%" width="130%" height="130%">
       <feDropShadow dx="1.5" dy="1.5" stdDeviation="2" flood-color="#00000033"/>
     </filter>
-
-    <!-- Arrow markers (defined here so forward references are avoided) -->
     <marker id="arrowBlue" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto">
       <polygon points="0 0, 7 3.5, 0 7" fill="#2874A6"/>
     </marker>
@@ -33,28 +20,19 @@
     </marker>
   </defs>
 
-  <!-- ============================================================
-       LAYER 1: BSU-8 OFFSHORE -- hatched ocean fills entire area
-  ============================================================ -->
-  <rect x="18" y="18" width="864" height="574" rx="6"
-        fill="url(#offshoreHatch)" stroke="none"/>
+  <!-- BSU-8 offshore background -->
+  <rect x="18" y="18" width="864" height="574" rx="6" fill="url(#offshoreHatch)" stroke="none"/>
 
-  <!-- ============================================================
-       DASHED OUTER BORDER
-  ============================================================ -->
+  <!-- Dashed outer border -->
   <rect x="18" y="18" width="864" height="574" rx="6"
         fill="none" stroke="#1A5276" stroke-width="2.2" stroke-dasharray="10,5"/>
 
   <!-- Title -->
   <text x="450" y="43" text-anchor="middle" font-size="13" font-weight="bold"
         fill="#1A5276" letter-spacing="0.5">Tuvana Social Accounting Area</text>
-  <text x="450" y="58" text-anchor="middle" font-size="10" fill="#1A5276">
-    (SEEA-EA Basic Spatial Units)
-  </text>
+  <text x="450" y="58" text-anchor="middle" font-size="10" fill="#1A5276">(SEEA-EA Basic Spatial Units)</text>
 
-  <!-- ============================================================
-       BSU-8: Offshore (Pelagic) -- label panel, lower-right
-  ============================================================ -->
+  <!-- BSU-8 label panel -->
   <rect x="660" y="432" width="196" height="86" rx="5"
         fill="#EBF5FB" fill-opacity="0.93" stroke="#AED6F1" stroke-width="1.2"/>
   <text x="758" y="450" text-anchor="middle" font-size="10" font-weight="bold" fill="#1A5276">BSU-8</text>
@@ -63,26 +41,13 @@
   <text x="758" y="492" text-anchor="middle" font-size="8.5" fill="#34495E">No resident population</text>
   <text x="758" y="506" text-anchor="middle" font-size="8" fill="#5D6D7E">Commercial tuna fleet</text>
 
-  <!-- ============================================================
-       VITI ISLAND GROUP -- center-left
-       Layout:
-         BSU-4 (west strip):  x=60..165,  y=152..468
-         BSU-2 (north strip): x=165..425, y=108..188
-         BSU-3 (south strip): x=165..425, y=458..540
-         Viti landmass:       x=165..425, y=188..458
-         BSU-1 (east strip):  x=425..560, y=188..458
-  ============================================================ -->
-
-  <!-- ---- BSU-4: Viti West Coast -- mangrove + mudflat ---- -->
+  <!-- BSU-4: Viti West Coast, mangrove + mudflat -->
   <rect x="60" y="152" width="105" height="316" rx="4"
         fill="#A9DFBF" stroke="#27AE60" stroke-width="1.2" filter="url(#shadow)"/>
-  <!-- Mudflat overlay (lower half) -->
   <rect x="60" y="314" width="105" height="154" rx="0"
         fill="#F9E79F" fill-opacity="0.68" stroke="none"/>
-  <!-- Divider between mangrove and mudflat -->
   <line x1="60" y1="314" x2="165" y2="314"
         stroke="#27AE60" stroke-width="0.8" stroke-dasharray="3,2"/>
-
   <text x="112" y="230" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1E8449">BSU-4</text>
   <text x="112" y="244" text-anchor="middle" font-size="8.5" fill="#1E8449">Viti West Coast</text>
   <text x="112" y="260" text-anchor="middle" font-size="8" fill="#1E8449">Mangrove</text>
@@ -90,54 +55,42 @@
   <text x="112" y="288" text-anchor="middle" font-size="7.5" fill="#333">Pop. 10,000</text>
   <text x="112" y="390" text-anchor="middle" font-size="7.5" fill="#6E2F00">Aquaculture</text>
 
-  <!-- ---- BSU-2: Viti North Coast -- barrier reef + mangrove ---- -->
+  <!-- BSU-2: Viti North Coast, barrier reef + mangrove -->
   <rect x="165" y="108" width="260" height="80" rx="4"
         fill="#A9CCE3" stroke="#2E86C1" stroke-width="1.2" filter="url(#shadow)"/>
-  <!-- Mangrove fringe (inner/lower band) -->
   <rect x="165" y="148" width="260" height="40" rx="0"
         fill="#A9DFBF" fill-opacity="0.55" stroke="none"/>
   <line x1="165" y1="148" x2="425" y2="148"
         stroke="#2E86C1" stroke-width="0.7" stroke-dasharray="3,2"/>
-
   <text x="295" y="127" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1A5276">BSU-2</text>
   <text x="295" y="141" text-anchor="middle" font-size="8.5" fill="#1A5276">Viti North Coast</text>
-  <text x="295" y="174" text-anchor="middle" font-size="8" fill="#1A5276">
-    Barrier reef + Mangrove  |  Pop. 12,000  |  Commercial fishing
-  </text>
+  <text x="295" y="174" text-anchor="middle" font-size="8" fill="#1A5276">Barrier reef + Mangrove | Pop. 12,000 | Commercial fishing</text>
 
-  <!-- ---- BSU-3: Viti South Coast -- fringing reef + seagrass ---- -->
+  <!-- BSU-3: Viti South Coast, fringing reef + seagrass -->
   <rect x="165" y="458" width="260" height="82" rx="4"
         fill="#85C1E9" stroke="#2E86C1" stroke-width="1.2" filter="url(#shadow)"/>
-  <!-- Seagrass inner strip -->
   <rect x="165" y="492" width="260" height="48" rx="0"
         fill="#ABEBC6" fill-opacity="0.60" stroke="none"/>
   <line x1="165" y1="492" x2="425" y2="492"
         stroke="#27AE60" stroke-width="0.7" stroke-dasharray="3,2"/>
-
   <text x="295" y="478" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1A5276">BSU-3</text>
   <text x="295" y="492" text-anchor="middle" font-size="8.5" fill="#1A5276">Viti South Coast</text>
-  <text x="295" y="524" text-anchor="middle" font-size="8" fill="#1A5276">
-    Fringing reef + Seagrass  |  Pop. 10,000  |  Tourism
-  </text>
+  <text x="295" y="524" text-anchor="middle" font-size="8" fill="#1A5276">Fringing reef + Seagrass | Pop. 10,000 | Tourism</text>
 
-  <!-- ---- Viti Island landmass (drawn over BSU zones) ---- -->
+  <!-- Viti Island landmass -->
   <rect x="165" y="188" width="260" height="270" rx="3"
         fill="#ECF0F1" stroke="#7F8C8D" stroke-width="1.5" filter="url(#shadow)"/>
-  <rect x="176" y="198" width="238" height="250" rx="2"
-        fill="#D5D8DC" stroke="none"/>
-
+  <rect x="176" y="198" width="238" height="250" rx="2" fill="#D5D8DC" stroke="none"/>
   <text x="295" y="318" text-anchor="middle" font-size="11" font-weight="bold" fill="#4D5656">VITI ISLAND</text>
   <text x="295" y="334" text-anchor="middle" font-size="9" fill="#717D7E">(main island)</text>
 
-  <!-- ---- BSU-1: Nasova Urban -- fringing reef + harbour ---- -->
+  <!-- BSU-1: Nasova Urban, fringing reef + harbour -->
   <rect x="425" y="188" width="135" height="270" rx="4"
         fill="#85C1E9" stroke="#2E86C1" stroke-width="1.2" filter="url(#shadow)"/>
-  <!-- Urban / harbour overlay (western portion of BSU-1) -->
   <rect x="425" y="188" width="58" height="270" rx="0"
         fill="url(#urbanDot)" fill-opacity="0.88" stroke="none"/>
   <line x1="483" y1="188" x2="483" y2="458"
         stroke="#2E86C1" stroke-width="0.7" stroke-dasharray="3,2"/>
-
   <text x="492" y="295" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1A5276">BSU-1</text>
   <text x="492" y="309" text-anchor="middle" font-size="8.5" fill="#1A5276">Nasova Urban</text>
   <text x="492" y="325" text-anchor="middle" font-size="8" fill="#1A5276">Fringing reef</text>
@@ -145,151 +98,88 @@
   <text x="492" y="355" text-anchor="middle" font-size="8" fill="#333">Pop. 68,000</text>
   <text x="492" y="370" text-anchor="middle" font-size="7.5" fill="#555">Urban</text>
 
-  <!-- ============================================================
-       LAU ISLAND GROUP -- right side, three stacked BSU tiles
-       BSU-5: x=582..802, y=108..225
-       BSU-6: x=582..802, y=232..358
-       BSU-7: x=582..802, y=365..488
-  ============================================================ -->
-
-  <!-- ---- BSU-5: Lau North -- coral reef + deep channel ---- -->
+  <!-- BSU-5: Lau North, coral reef + deep channel -->
   <rect x="582" y="108" width="220" height="117" rx="5"
         fill="#85C1E9" stroke="#2E86C1" stroke-width="1.2" filter="url(#shadow)"/>
-  <!-- Deep channel: lower band -->
   <rect x="582" y="174" width="220" height="51" rx="0"
         fill="#1A5276" fill-opacity="0.18" stroke="none"/>
   <line x1="582" y1="174" x2="802" y2="174"
         stroke="#2E86C1" stroke-width="0.7" stroke-dasharray="3,2"/>
-
-  <!-- Island dots (4) -->
-  <ellipse cx="614" cy="143" rx="14" ry="9"  fill="#D5D8DC" stroke="#7F8C8D" stroke-width="1"/>
-  <ellipse cx="650" cy="136" rx="11" ry="7"  fill="#D5D8DC" stroke="#7F8C8D" stroke-width="1"/>
-  <ellipse cx="686" cy="146" rx="13" ry="8"  fill="#D5D8DC" stroke="#7F8C8D" stroke-width="1"/>
-  <ellipse cx="720" cy="138" rx="10" ry="7"  fill="#D5D8DC" stroke="#7F8C8D" stroke-width="1"/>
-
+  <ellipse cx="614" cy="143" rx="14" ry="9" fill="#D5D8DC" stroke="#7F8C8D" stroke-width="1"/>
+  <ellipse cx="650" cy="136" rx="11" ry="7" fill="#D5D8DC" stroke="#7F8C8D" stroke-width="1"/>
+  <ellipse cx="686" cy="146" rx="13" ry="8" fill="#D5D8DC" stroke="#7F8C8D" stroke-width="1"/>
+  <ellipse cx="720" cy="138" rx="10" ry="7" fill="#D5D8DC" stroke="#7F8C8D" stroke-width="1"/>
   <text x="692" y="166" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1A5276">BSU-5</text>
   <text x="692" y="180" text-anchor="middle" font-size="8" fill="#1A5276">Lau North (4 islands)</text>
   <text x="692" y="195" text-anchor="middle" font-size="7.5" fill="#34495E">Coral reef + Deep channel</text>
-  <text x="692" y="210" text-anchor="middle" font-size="7.5" fill="#34495E">Pop. 6,000  |  Subsistence fishing</text>
+  <text x="692" y="210" text-anchor="middle" font-size="7.5" fill="#34495E">Pop. 6,000 | Subsistence fishing</text>
 
-  <!-- ---- BSU-6: Lau Central -- coral reef + seagrass ---- -->
+  <!-- BSU-6: Lau Central, coral reef + seagrass -->
   <rect x="582" y="232" width="220" height="126" rx="5"
         fill="#85C1E9" stroke="#2E86C1" stroke-width="1.2" filter="url(#shadow)"/>
-  <!-- Seagrass lower band -->
   <rect x="582" y="300" width="220" height="58" rx="0"
         fill="#ABEBC6" fill-opacity="0.58" stroke="none"/>
   <line x1="582" y1="300" x2="802" y2="300"
         stroke="#27AE60" stroke-width="0.7" stroke-dasharray="3,2"/>
-
-  <!-- Island dots (4) -->
-  <ellipse cx="615" cy="258" rx="13" ry="8"  fill="#D5D8DC" stroke="#7F8C8D" stroke-width="1"/>
-  <ellipse cx="651" cy="252" rx="10" ry="7"  fill="#D5D8DC" stroke="#7F8C8D" stroke-width="1"/>
-  <ellipse cx="688" cy="261" rx="14" ry="8"  fill="#D5D8DC" stroke="#7F8C8D" stroke-width="1"/>
-  <ellipse cx="724" cy="254" rx="11" ry="7"  fill="#D5D8DC" stroke="#7F8C8D" stroke-width="1"/>
-
+  <ellipse cx="615" cy="258" rx="13" ry="8" fill="#D5D8DC" stroke="#7F8C8D" stroke-width="1"/>
+  <ellipse cx="651" cy="252" rx="10" ry="7" fill="#D5D8DC" stroke="#7F8C8D" stroke-width="1"/>
+  <ellipse cx="688" cy="261" rx="14" ry="8" fill="#D5D8DC" stroke="#7F8C8D" stroke-width="1"/>
+  <ellipse cx="724" cy="254" rx="11" ry="7" fill="#D5D8DC" stroke="#7F8C8D" stroke-width="1"/>
   <text x="692" y="284" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1A5276">BSU-6</text>
   <text x="692" y="298" text-anchor="middle" font-size="8" fill="#1A5276">Lau Central (4 islands)</text>
   <text x="692" y="318" text-anchor="middle" font-size="7.5" fill="#1E8449">Coral reef + Seagrass</text>
-  <text x="692" y="333" text-anchor="middle" font-size="7.5" fill="#34495E">Pop. 5,500  |  Subsistence + gleaning</text>
-  <text x="692" y="348" text-anchor="middle" font-size="7.5" fill="#34495E"> </text>
+  <text x="692" y="333" text-anchor="middle" font-size="7.5" fill="#34495E">Pop. 5,500 | Subsistence + gleaning</text>
 
-  <!-- ---- BSU-7: Lau South -- coral reef + deep water ---- -->
+  <!-- BSU-7: Lau South, coral reef + deep water -->
   <rect x="582" y="365" width="220" height="123" rx="5"
         fill="#85C1E9" stroke="#2E86C1" stroke-width="1.2" filter="url(#shadow)"/>
-  <!-- Deep water lower band -->
   <rect x="582" y="430" width="220" height="58" rx="0"
         fill="#1A5276" fill-opacity="0.22" stroke="none"/>
   <line x1="582" y1="430" x2="802" y2="430"
         stroke="#2E86C1" stroke-width="0.7" stroke-dasharray="3,2"/>
-
-  <!-- Island dots (4) -->
-  <ellipse cx="614" cy="390" rx="12" ry="8"  fill="#D5D8DC" stroke="#7F8C8D" stroke-width="1"/>
-  <ellipse cx="649" cy="383" rx="10" ry="6"  fill="#D5D8DC" stroke="#7F8C8D" stroke-width="1"/>
-  <ellipse cx="684" cy="393" rx="13" ry="8"  fill="#D5D8DC" stroke="#7F8C8D" stroke-width="1"/>
-  <ellipse cx="719" cy="385" rx="11" ry="7"  fill="#D5D8DC" stroke="#7F8C8D" stroke-width="1"/>
-
+  <ellipse cx="614" cy="390" rx="12" ry="8" fill="#D5D8DC" stroke="#7F8C8D" stroke-width="1"/>
+  <ellipse cx="649" cy="383" rx="10" ry="6" fill="#D5D8DC" stroke="#7F8C8D" stroke-width="1"/>
+  <ellipse cx="684" cy="393" rx="13" ry="8" fill="#D5D8DC" stroke="#7F8C8D" stroke-width="1"/>
+  <ellipse cx="719" cy="385" rx="11" ry="7" fill="#D5D8DC" stroke="#7F8C8D" stroke-width="1"/>
   <text x="692" y="416" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#1A5276">BSU-7</text>
   <text x="692" y="430" text-anchor="middle" font-size="8" fill="#1A5276">Lau South (4 islands)</text>
   <text x="692" y="449" text-anchor="middle" font-size="7.5" fill="#34495E">Coral reef + Deep water</text>
-  <text x="692" y="464" text-anchor="middle" font-size="7.5" fill="#34495E">Pop. 5,000  |  Subsistence fishing</text>
+  <text x="692" y="464" text-anchor="middle" font-size="7.5" fill="#34495E">Pop. 5,000 | Subsistence fishing</text>
 
-  <!-- ============================================================
-       CONNECTION LINES -- marine zone to coastal community
-       Dashed arrows indicate the social-ecological link within each BSU
-  ============================================================ -->
+  <!-- Connection arrows: marine to coastal community -->
+  <line x1="295" y1="148" x2="295" y2="186" stroke="#2874A6" stroke-width="1.3" stroke-dasharray="4,3" marker-end="url(#arrowBlue)"/>
+  <line x1="295" y1="492" x2="295" y2="460" stroke="#2874A6" stroke-width="1.3" stroke-dasharray="4,3" marker-end="url(#arrowBlue)"/>
+  <line x1="153" y1="323" x2="163" y2="323" stroke="#27AE60" stroke-width="1.3" stroke-dasharray="4,3" marker-end="url(#arrowGreen)"/>
+  <line x1="483" y1="323" x2="447" y2="323" stroke="#2874A6" stroke-width="1.3" stroke-dasharray="4,3" marker-end="url(#arrowBlue)"/>
+  <line x1="692" y1="156" x2="692" y2="165" stroke="#2874A6" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="692" y1="268" x2="692" y2="278" stroke="#2874A6" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="692" y1="400" x2="692" y2="410" stroke="#2874A6" stroke-width="1" stroke-dasharray="3,3"/>
 
-  <!-- BSU-2: reef (north) to island coast -->
-  <line x1="295" y1="148" x2="295" y2="186"
-        stroke="#2874A6" stroke-width="1.3" stroke-dasharray="4,3"
-        marker-end="url(#arrowBlue)"/>
-
-  <!-- BSU-3: seagrass zone to island coast -->
-  <line x1="295" y1="492" x2="295" y2="460"
-        stroke="#2874A6" stroke-width="1.3" stroke-dasharray="4,3"
-        marker-end="url(#arrowBlue)"/>
-
-  <!-- BSU-4: mangrove to island coast -->
-  <line x1="153" y1="323" x2="163" y2="323"
-        stroke="#27AE60" stroke-width="1.3" stroke-dasharray="4,3"
-        marker-end="url(#arrowGreen)"/>
-
-  <!-- BSU-1: reef to harbour -->
-  <line x1="483" y1="323" x2="447" y2="323"
-        stroke="#2874A6" stroke-width="1.3" stroke-dasharray="4,3"
-        marker-end="url(#arrowBlue)"/>
-
-  <!-- Lau BSU-5: reef to islands (vertical, internal) -->
-  <line x1="692" y1="156" x2="692" y2="165"
-        stroke="#2874A6" stroke-width="1" stroke-dasharray="3,3"/>
-  <!-- Lau BSU-6: reef to islands -->
-  <line x1="692" y1="268" x2="692" y2="278"
-        stroke="#2874A6" stroke-width="1" stroke-dasharray="3,3"/>
-  <!-- Lau BSU-7: reef to islands -->
-  <line x1="692" y1="400" x2="692" y2="410"
-        stroke="#2874A6" stroke-width="1" stroke-dasharray="3,3"/>
-
-  <!-- ============================================================
-       LEGEND BOX -- bottom-left, inside accounting area
-  ============================================================ -->
+  <!-- Legend -->
   <rect x="28" y="528" width="345" height="56" rx="4"
         fill="#FDFEFE" fill-opacity="0.96" stroke="#BDC3C7" stroke-width="1.1"/>
-
   <text x="38" y="544" font-size="9" font-weight="bold" fill="#2C3E50">Ecosystem types</text>
-
-  <!-- Row 1 -->
-  <rect x="38"  y="549" width="13" height="9" rx="1" fill="#85C1E9" stroke="#2E86C1" stroke-width="0.8"/>
-  <text x="55"  y="558" font-size="8.5" fill="#2C3E50">Coral / fringing reef</text>
-
+  <rect x="38" y="549" width="13" height="9" rx="1" fill="#85C1E9" stroke="#2E86C1" stroke-width="0.8"/>
+  <text x="55" y="558" font-size="8.5" fill="#2C3E50">Coral / fringing reef</text>
   <rect x="140" y="549" width="13" height="9" rx="1" fill="#A9DFBF" stroke="#27AE60" stroke-width="0.8"/>
   <text x="157" y="558" font-size="8.5" fill="#2C3E50">Mangrove</text>
-
   <rect x="220" y="549" width="13" height="9" rx="1" fill="#ABEBC6" stroke="#27AE60" stroke-width="0.8"/>
   <text x="237" y="558" font-size="8.5" fill="#2C3E50">Seagrass</text>
-
   <rect x="290" y="549" width="13" height="9" rx="1" fill="#F9E79F" stroke="#D4AC0D" stroke-width="0.8"/>
   <text x="307" y="558" font-size="8.5" fill="#2C3E50">Mudflat</text>
-
-  <!-- Row 2 -->
-  <rect x="38"  y="563" width="13" height="9" rx="1" fill="#D5D8DC" stroke="#7F8C8D" stroke-width="0.8"/>
-  <text x="55"  y="572" font-size="8.5" fill="#2C3E50">Urban / harbour</text>
-
-  <rect x="140" y="563" width="13" height="9" rx="1"
-        fill="#1A5276" fill-opacity="0.40" stroke="#1A5276" stroke-width="0.8"/>
+  <rect x="38" y="563" width="13" height="9" rx="1" fill="#D5D8DC" stroke="#7F8C8D" stroke-width="0.8"/>
+  <text x="55" y="572" font-size="8.5" fill="#2C3E50">Urban / harbour</text>
+  <rect x="140" y="563" width="13" height="9" rx="1" fill="#1A5276" fill-opacity="0.40" stroke="#1A5276" stroke-width="0.8"/>
   <text x="157" y="572" font-size="8.5" fill="#2C3E50">Deep water / channel</text>
-
   <rect x="290" y="563" width="13" height="9" rx="1" fill="#D6EAF8" stroke="#AED6F1" stroke-width="0.8"/>
   <text x="307" y="572" font-size="8.5" fill="#2C3E50">Open ocean (BSU-8)</text>
 
-  <!-- ============================================================
-       FIGURE CAPTION -- below accounting area box
-  ============================================================ -->
+  <!-- Caption -->
   <text x="450" y="606" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#2C3E50">Figure 1</text>
   <text x="450" y="621" text-anchor="middle" font-size="9" font-style="italic" fill="#2C3E50">Tuvana Social Accounting Area: 8 Basic Spatial Units (BSUs) tiling marine ecosystems and adjacent coastal communities.</text>
   <text x="450" y="636" text-anchor="middle" font-size="9" font-style="italic" fill="#2C3E50">Dashed border = Social Accounting Area boundary. Adapted from the SEEA-EA spatial framework.</text>
 
-  <!-- ============================================================
-       NORTH ARROW -- upper right inside border
-  ============================================================ -->
+  <!-- North arrow -->
   <g transform="translate(848,82)">
     <line x1="0" y1="18" x2="0" y2="-4" stroke="#2C3E50" stroke-width="1.6"/>
     <polygon points="-5,0 5,0 0,-13" fill="#2C3E50"/>
