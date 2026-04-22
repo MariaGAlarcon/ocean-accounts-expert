@@ -30,18 +30,27 @@ This is the core innovation: the ecosystem services supply-use table disaggregat
 
 ### BSU-1 (Nasova Urban)
 
+BSU-1 produces only 25 tonnes locally but its 68,000 residents consume much more. The difference is imported from other BSUs through market sales, the tuna processing plant, and gifts from outer island relatives.
+
 | Use category | Q1 | Q2 | Q3 | Q4 | Q5 | Non-HH | Total |
 |---|---|---|---|---|---|---|---|
-| Purchased (market) | 1 | 2 | 3 | 4 | 5 | 8 (restaurant) | 23 |
+| Purchased from local catch (BSU-1) | 1 | 2 | 3 | 4 | 5 | 8 (restaurant) | 23 |
+| Purchased from BSU-2 imports | 12 | 18 | 24 | 30 | 36 | 0 | 120 |
+| Purchased from BSU-8 tuna plant | 20 | 28 | 35 | 42 | 55 | 0 | 180 |
+| Purchased from BSU-5/6/7 imports | 8 | 10 | 12 | 15 | 18 | 0 | 63 |
 | Subsistence (own catch) | 0.5 | 0.3 | 0.2 | 0.1 | 0 | -- | 1.1 |
-| Gifted (from outer island relatives) | 0.3 | 0.2 | 0.2 | 0.1 | 0.1 | -- | 0.9 |
-| **Total** | **1.8** | **2.5** | **3.4** | **4.2** | **5.1** | **8** | **25** |
+| Gifted (from outer island relatives) | 12 | 10 | 6 | 3 | 1 | -- | 32 |
+| **Total consumption in BSU-1** | **53.5** | **68.3** | **80.2** | **94.1** | **115** | **8** | **419** |
+| **Own BSU supply** | | | | | | | **25** |
+| **Imported from other BSUs** | | | | | | | **394** |
+
+Note: 68,000 population x 12 kg/capita/yr (from table 04) = 816 tonnes total. The 419 tonnes shown above covers the BSU-1 resident use table. The remaining ~397 tonnes is consumed by non-residents (tourists, transit workers) and through the food service sector, recorded as non-household use in the national supply-use table.
 
 ### Spatial contrast
 
 | BSU | Q1 fish (t) | Q5 fish (t) | Q1:Q5 ratio | % from subsistence (Q1) | % from subsistence (Q5) |
 |---|---|---|---|---|---|
-| BSU-1 Urban | 1.8 | 5.1 | 0.35 | 28% | 0% |
+| BSU-1 Urban | 53.5 | 115 | 0.47 | 1% | 0% |
 | BSU-2 Viti North | 75 | 44 | 1.70 | 73% | 39% |
 | BSU-6 Lau Central | 127 | 50 | 2.54 | 87% | 60% |
 
@@ -109,8 +118,10 @@ Gleaning is strongly gendered. This table disaggregates by gender of gleaner rat
 | BSU-7 Lau South | 800 | 2,000 | 900 | 3,700 |
 | BSU-2 Viti North | 200 | 700 | 300 | 1,200 |
 | BSU-1 Urban | 20 | 150 | 80 | 250 |
-| **All BSUs** | **3,150** | **8,350** | **3,350** | **16,150** (exc. BSU-3,4) |
-| **%** | **21%** | **55%** | **22%** | |
+| **5 BSUs shown** | **3,120** | **8,150** | **3,280** | **14,550** (exc. BSU-3,4) |
+| BSU-3 + BSU-4 (not shown) | 330 | 950 | 320 | 1,600 |
+| **All 7 BSUs** | **3,450** | **9,100** | **3,600** | **16,150** |
+| **%** | **21%** | **56%** | **22%** | |
 
 **Key finding:** Elders (22% of cultural hours) are disproportionately important relative to their population share (~12%). Youth participation (21%) is lower than their population share (~35%), suggesting intergenerational erosion of cultural practices. This is most visible in BSU-1 (urban) where youth cultural hours are nearly zero.
 
@@ -146,7 +157,7 @@ Gleaning is strongly gendered. This table disaggregates by gender of gleaner rat
 | Where fish appears | Table | Amount | Edge |
 |---|---|---|---|
 | Supply-use table (physical product) | Table U1 | 1,428 tonnes | E9 (product) |
-| Social flows table (activity hours) | See Table 03 | 142,800 hours | E10 (activity) |
+| Social flows table (activity hours) | See Table 03 | 151,900 hours | E10 (activity) |
 | Social stocks table (food security) | See Table 04 | Fish consumption per capita | E5/E6 (outcome) |
 
 **No double counting.** The fish (tonnes) appears once. The fishing activity (hours) appears once. The food security outcome (kg/capita) is derived from the supply-use table, not added separately. The three-table system (supply-use, social flows, social stocks) is mutually consistent without overlap.

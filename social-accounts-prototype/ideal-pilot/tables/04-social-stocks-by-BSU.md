@@ -11,11 +11,11 @@ These tables record the state of social conditions at opening and closing, disag
 
 | Indicator | Unit | BSU-1 | BSU-2 | BSU-3 | BSU-4 | BSU-5 | BSU-6 | BSU-7 | National |
 |---|---|---|---|---|---|---|---|---|---|
-| **Fish consumption per capita** | kg/yr | 12 | 48 | 28 | 22 | 72 | 78 | 74 | 35 |
-| Opening (2020) | kg/yr | 11 | 50 | 27 | 23 | 74 | 82 | 76 | 36 |
-| Closing (2022) | kg/yr | 12 | 48 | 28 | 22 | 72 | 78 | 74 | 35 |
-| Change | kg/yr | +1 | -2 | +1 | -1 | -2 | -4 | -2 | -1 |
-| vs WHO reference (20 kg) | ratio | 0.60 | 2.40 | 1.40 | 1.10 | 3.60 | 3.90 | 3.70 | 1.75 |
+| **Fish consumption per capita** | kg/yr | 6 | 25 | 28 | 22 | 72 | 83 | 74 | 27 |
+| Opening (2020) | kg/yr | 5.5 | 27 | 27 | 23 | 74 | 87 | 76 | 28 |
+| Closing (2022) | kg/yr | 6 | 25 | 28 | 22 | 72 | 83 | 74 | 27 |
+| Change | kg/yr | +0.5 | -2 | +1 | -1 | -2 | -4 | -2 | -1 |
+| vs WHO reference (20 kg) | ratio | 0.30 | 1.25 | 1.40 | 1.10 | 3.60 | 4.15 | 3.70 | 1.35 |
 | **Poverty rate (BNPL)** | % | 18% | 32% | 22% | 35% | 38% | 40% | 42% | 28% |
 | **Food poverty rate** | % | 4% | 12% | 6% | 14% | 16% | 18% | 20% | 11% |
 | **Child stunting (under 5)** | % | 8% | 14% | 10% | 16% | 12% | 13% | 15% | 12% |
@@ -23,9 +23,11 @@ These tables record the state of social conditions at opening and closing, disag
 
 ### Key reading
 
-Fish consumption per capita declines from BSU-6 (78 kg) to BSU-1 (12 kg) -- a 6.5x difference. Outer island communities consume 4-6x the WHO recommended level, reflecting deep dependence on marine protein.
+Fish consumption per capita declines from BSU-6 (83 kg) to BSU-1 (6 kg) -- a 14x difference. Outer island communities consume 3-4x the WHO recommended level, reflecting deep dependence on marine protein. Urban BSU-1 is below the WHO recommendation (6 kg vs 20 kg), consistent with lower direct marine access and higher reliance on imported food.
 
 BSU-6 experienced the largest decline (-4 kg/yr), consistent with the seagrass condition decline and reduced gleaning productivity recorded in the flows table. This is a direct ecosystem-to-social-condition link: seagrass CI down, gleaning down, fish consumption down.
+
+Note: Per-capita figures are derived from the supply-use tables (table 02) divided by BSU population. BSU-2 household consumption of 302 tonnes / 12,000 pop = 25 kg. BSU-6 household consumption of 455 tonnes / 5,500 pop = 83 kg. BSU-1 resident consumption of 411 tonnes / 68,000 pop = 6 kg.
 
 Life satisfaction is paradoxically higher in outer islands (BSU-5: 7.1) than urban areas (BSU-1: 6.8) despite much higher poverty rates. This is consistent with research showing that income poverty does not capture the full wellbeing picture for subsistence communities with strong social capital.
 
@@ -86,12 +88,12 @@ This table reads ecosystem condition alongside social conditions for each BSU, r
 
 | BSU | Reef CI | Fish biomass CI | Poverty rate | Fish consumption (kg) | Trust index | Cultural hours | Co-mgmt agreements |
 |---|---|---|---|---|---|---|---|
-| BSU-1 Urban | 0.28 | 0.22 | 18% | 12 | 4.8 | 250 | 0 |
-| BSU-2 Viti North | 0.52 | 0.48 | 32% | 48 | 6.5 | 1,200 | 1 |
+| BSU-1 Urban | 0.28 | 0.22 | 18% | 6 | 4.8 | 250 | 0 |
+| BSU-2 Viti North | 0.52 | 0.48 | 32% | 25 | 6.5 | 1,200 | 1 |
 | BSU-3 Viti South | 0.45 | 0.40 | 22% | 28 | 5.2 | 600 | 0 |
 | BSU-4 Viti West | -- | 0.35 | 35% | 22 | 6.0 | 1,000 | 0 |
 | BSU-5 Lau North | 0.68 | 0.72 | 38% | 72 | 8.2 | 5,000 | 2 |
-| BSU-6 Lau Central | 0.71 | 0.75 | 40% | 78 | 8.0 | 4,400 | 2 |
+| BSU-6 Lau Central | 0.71 | 0.75 | 40% | 83 | 8.0 | 4,400 | 2 |
 | BSU-7 Lau South | 0.65 | 0.70 | 42% | 74 | 7.8 | 3,700 | 1 |
 
 ### What this dashboard reveals
@@ -102,7 +104,7 @@ This table reads ecosystem condition alongside social conditions for each BSU, r
 
 3. **Social capital tracks ecosystem condition.** Trust, sharing frequency, and cultural hours are highest where ecosystems are healthiest. This may be because strong customary governance protects both social cohesion and ecosystems, or because intact ecosystems support the activities (fishing, gleaning, ceremonies) that build social capital. Likely both.
 
-4. **The urban paradox.** BSU-1 has the lowest poverty rate (18%) but the lowest ecosystem condition, fish consumption, trust, and cultural activity. By income metrics alone, urban residents are better off. By food security, social capital, and cultural wellbeing metrics, they are worse off. Social accounts make this visible.
+4. **The urban paradox.** BSU-1 has the lowest poverty rate (18%) but the lowest ecosystem condition, fish consumption (6 kg/capita, below WHO recommended 20 kg), trust, and cultural activity. By income metrics alone, urban residents are better off. By food security, social capital, and cultural wellbeing metrics, they are worse off. Social accounts make this visible.
 
 ---
 
@@ -120,7 +122,7 @@ Suppose bleaching reduces BSU-6 reef CI from 0.71 to 0.45 over the next accounti
 | 2. Fish biomass drops | Condition account | Fish CI: 0.75 to 0.50 | -- |
 | 3. Subsistence catch falls | Supply-use table | -120 tonnes (-26%) | E10 |
 | 4. Gleaning productivity drops | Social flows | -4,500 hours (-30%) | E10 |
-| 5. Fish consumption per capita falls | Social stocks (human capital) | 78 to 58 kg/yr (-26%) | E5/E6 |
+| 5. Fish consumption per capita falls | Social stocks (human capital) | 83 to 61 kg/yr (-26%) | E5/E6 |
 | 6. Food poverty rate rises | Social stocks (human capital) | 18% to ~28% | E5/E6 |
 | 7. HH switch to less preferred foods | Coping strategy | 46% of affected HH | -- |
 | 8. Inter-HH sharing increases | Social flows | +15% fish sharing | E6 |
