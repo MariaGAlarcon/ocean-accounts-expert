@@ -26,6 +26,7 @@ Experimental. This is a brainstorming and design space, not a finished product.
 | `07-subsistence-boundary.md` | Exploration of where subsistence activities sit (E9 vs E10) and implications for account design |
 | `08-glossary.md` | Definitions of key terms used across the prototype |
 | `09-next-steps-country-pilots.md` | Plan for Australia and Fiji pilot examples with five ecosystem services |
+| `10-workflow-guide.md` | Step-by-step guide for executing next steps (data audit, worked examples, QA) |
 
 ## Key references
 
