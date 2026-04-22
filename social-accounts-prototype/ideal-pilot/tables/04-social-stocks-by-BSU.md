@@ -108,6 +108,8 @@ This table reads ecosystem condition alongside social conditions for each BSU, r
 
 ## Narrative: What happens if reef condition declines in BSU-6?
 
+*See Figure 2 (`figures/bsu6-reef-decline-cascade.svg`) for the visual cascade diagram.*
+
 Suppose bleaching reduces BSU-6 reef CI from 0.71 to 0.45 over the next accounting period.
 
 **Predicted cascade through the accounts:**

@@ -1,0 +1,242 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="780" viewBox="0 0 920 780" font-family="Arial, sans-serif">
+
+  <!-- ============================================================
+       CASCADE THROUGH ACCOUNTS: BSU-6 Reef Condition Decline
+       Shows how a single ecosystem change propagates through
+       five connected accounting tables to social outcomes
+  ============================================================ -->
+
+  <!-- Background -->
+  <rect width="920" height="780" fill="#FAFCFE"/>
+
+  <!-- Title -->
+  <text x="460" y="30" text-anchor="middle" font-size="15" font-weight="bold" fill="#1A5276">
+    Cascade Through Accounts: What Happens When Reef Condition Declines in BSU-6?
+  </text>
+  <text x="460" y="48" text-anchor="middle" font-size="10" fill="#5D6D7E">
+    Lau Central (4 islands) -- coral reef + seagrass -- Pop. 5,500 -- Subsistence + gleaning community
+  </text>
+
+  <!-- ============================================================
+       DOMAIN BANDS (background colour strips)
+  ============================================================ -->
+
+  <!-- Environment domain -->
+  <rect x="20" y="62" width="880" height="120" rx="6" fill="#E8F5E9" fill-opacity="0.5" stroke="#A5D6A7" stroke-width="1"/>
+  <text x="35" y="80" font-size="9" font-weight="bold" fill="#2E7D32" letter-spacing="1">ENVIRONMENT (SG3)</text>
+
+  <!-- Economy domain -->
+  <rect x="20" y="192" width="880" height="100" rx="6" fill="#FFF3E0" fill-opacity="0.5" stroke="#FFCC80" stroke-width="1"/>
+  <text x="35" y="210" font-size="9" font-weight="bold" fill="#E65100" letter-spacing="1">ECONOMY (FG1)</text>
+
+  <!-- Society domain -->
+  <rect x="20" y="302" width="880" height="120" rx="6" fill="#F3E5F5" fill-opacity="0.5" stroke="#CE93D8" stroke-width="1"/>
+  <text x="35" y="320" font-size="9" font-weight="bold" fill="#6A1B9A" letter-spacing="1">SOCIETY (FG2)</text>
+
+  <!-- Social conditions domain -->
+  <rect x="20" y="432" width="880" height="130" rx="6" fill="#FCE4EC" fill-opacity="0.5" stroke="#F48FB1" stroke-width="1"/>
+  <text x="35" y="450" font-size="9" font-weight="bold" fill="#AD1457" letter-spacing="1">SOCIAL CONDITIONS (SG2)</text>
+
+  <!-- Feedback domain -->
+  <rect x="20" y="572" width="880" height="100" rx="6" fill="#E3F2FD" fill-opacity="0.5" stroke="#90CAF9" stroke-width="1"/>
+  <text x="35" y="590" font-size="9" font-weight="bold" fill="#1565C0" letter-spacing="1">FEEDBACK (SG2 to SG3)</text>
+
+  <!-- ============================================================
+       STEP BOXES
+  ============================================================ -->
+
+  <!-- STEP 1: Reef condition declines -->
+  <rect x="60" y="88" width="240" height="80" rx="8" fill="#FFFFFF" stroke="#43A047" stroke-width="2"/>
+  <circle cx="80" cy="108" r="12" fill="#43A047"/>
+  <text x="80" y="113" text-anchor="middle" font-size="11" font-weight="bold" fill="white">1</text>
+  <text x="100" y="108" font-size="10" font-weight="bold" fill="#2E7D32">Reef condition declines</text>
+  <text x="100" y="124" font-size="9" fill="#333">Coral CI: 0.71 to 0.45</text>
+  <text x="100" y="138" font-size="9" fill="#333">Bleaching event</text>
+  <text x="100" y="155" font-size="8" fill="#7F8C8D">Account: Condition account</text>
+
+  <!-- STEP 2: Fish biomass drops -->
+  <rect x="360" y="88" width="240" height="80" rx="8" fill="#FFFFFF" stroke="#43A047" stroke-width="2"/>
+  <circle cx="380" cy="108" r="12" fill="#43A047"/>
+  <text x="380" y="113" text-anchor="middle" font-size="11" font-weight="bold" fill="white">2</text>
+  <text x="400" y="108" font-size="10" font-weight="bold" fill="#2E7D32">Fish biomass drops</text>
+  <text x="400" y="124" font-size="9" fill="#333">Fish CI: 0.75 to 0.50</text>
+  <text x="400" y="138" font-size="9" fill="#333">Habitat loss reduces recruitment</text>
+  <text x="400" y="155" font-size="8" fill="#7F8C8D">Account: Condition account</text>
+
+  <!-- STEP 3: Subsistence catch falls -->
+  <rect x="60" y="210" width="240" height="72" rx="8" fill="#FFFFFF" stroke="#EF6C00" stroke-width="2"/>
+  <circle cx="80" cy="228" r="12" fill="#EF6C00"/>
+  <text x="80" y="233" text-anchor="middle" font-size="11" font-weight="bold" fill="white">3</text>
+  <text x="100" y="228" font-size="10" font-weight="bold" fill="#E65100">Subsistence catch falls</text>
+  <text x="100" y="244" font-size="9" fill="#333">-120 tonnes (-26%)</text>
+  <text x="100" y="260" font-size="9" fill="#333">Edge: E10 (SG3 to FG2)</text>
+  <text x="100" y="272" font-size="8" fill="#7F8C8D">Account: Supply-use table</text>
+
+  <!-- STEP 4: Commercial fishing income drops -->
+  <rect x="360" y="210" width="240" height="72" rx="8" fill="#FFFFFF" stroke="#EF6C00" stroke-width="2"/>
+  <circle cx="380" cy="228" r="12" fill="#EF6C00"/>
+  <text x="380" y="233" text-anchor="middle" font-size="11" font-weight="bold" fill="white">4</text>
+  <text x="400" y="228" font-size="10" font-weight="bold" fill="#E65100">Commercial catch declines</text>
+  <text x="400" y="244" font-size="9" fill="#333">-18 tonnes reef fish (-26%)</text>
+  <text x="400" y="260" font-size="9" fill="#333">Edge: E9 (SG3 to FG1)</text>
+  <text x="400" y="272" font-size="8" fill="#7F8C8D">Account: Supply-use table</text>
+
+  <!-- STEP 5: Gleaning productivity drops -->
+  <rect x="60" y="320" width="240" height="86" rx="8" fill="#FFFFFF" stroke="#7B1FA2" stroke-width="2"/>
+  <circle cx="80" cy="340" r="12" fill="#7B1FA2"/>
+  <text x="80" y="345" text-anchor="middle" font-size="11" font-weight="bold" fill="white">5</text>
+  <text x="100" y="340" font-size="10" font-weight="bold" fill="#6A1B9A">Gleaning hours drop</text>
+  <text x="100" y="356" font-size="9" fill="#333">-4,500 hours (-30%)</text>
+  <text x="100" y="370" font-size="9" fill="#333">Seagrass decline (CI 0.68 to 0.62)</text>
+  <text x="100" y="384" font-size="9" fill="#C62828">Women lose 71% of this impact</text>
+  <text x="100" y="396" font-size="8" fill="#7F8C8D">Account: Social flows table (4a)</text>
+
+  <!-- STEP 6: Inter-HH sharing increases -->
+  <rect x="360" y="320" width="240" height="86" rx="8" fill="#FFFFFF" stroke="#7B1FA2" stroke-width="2"/>
+  <circle cx="380" cy="340" r="12" fill="#7B1FA2"/>
+  <text x="380" y="345" text-anchor="middle" font-size="11" font-weight="bold" fill="white">6</text>
+  <text x="400" y="340" font-size="10" font-weight="bold" fill="#6A1B9A">Social coping activates</text>
+  <text x="400" y="356" font-size="9" fill="#333">Fish sharing: +15%</text>
+  <text x="400" y="370" font-size="9" fill="#333">Help from relatives: 63% of HH</text>
+  <text x="400" y="384" font-size="9" fill="#333">Edge: E6 (FG2 to SG2)</text>
+  <text x="400" y="396" font-size="8" fill="#7F8C8D">Account: Social flows table (4b)</text>
+
+  <!-- STEP 7: Food security declines -->
+  <rect x="60" y="450" width="240" height="96" rx="8" fill="#FFFFFF" stroke="#C2185B" stroke-width="2"/>
+  <circle cx="80" cy="470" r="12" fill="#C2185B"/>
+  <text x="80" y="475" text-anchor="middle" font-size="11" font-weight="bold" fill="white">7</text>
+  <text x="100" y="470" font-size="10" font-weight="bold" fill="#AD1457">Food security declines</text>
+  <text x="100" y="486" font-size="9" fill="#333">Fish per capita: 78 to 58 kg/yr</text>
+  <text x="100" y="500" font-size="9" fill="#333">Food poverty: 18% to ~28%</text>
+  <text x="100" y="514" font-size="9" fill="#C62828">Q1 households hit hardest</text>
+  <text x="100" y="528" font-size="9" fill="#C62828">(87% of their fish is subsistence)</text>
+  <text x="100" y="540" font-size="8" fill="#7F8C8D">Account: Social stocks table (3a)</text>
+
+  <!-- STEP 8: Material wellbeing falls -->
+  <rect x="360" y="450" width="240" height="96" rx="8" fill="#FFFFFF" stroke="#C2185B" stroke-width="2"/>
+  <circle cx="380" cy="470" r="12" fill="#C2185B"/>
+  <text x="380" y="475" text-anchor="middle" font-size="11" font-weight="bold" fill="white">8</text>
+  <text x="400" y="470" font-size="10" font-weight="bold" fill="#AD1457">Livelihoods affected</text>
+  <text x="400" y="486" font-size="9" fill="#333">Gleaning income: -30% (women)</text>
+  <text x="400" y="500" font-size="9" fill="#333">46% HH switch to less preferred food</text>
+  <text x="400" y="514" font-size="9" fill="#333">Fishing HH income: -15%</text>
+  <text x="400" y="528" font-size="9" fill="#333">Edge: E5 (FG1 to SG2)</text>
+  <text x="400" y="540" font-size="8" fill="#7F8C8D">Account: Social stocks table (3a, 3b)</text>
+
+  <!-- STEP 9: Community monitoring increases -->
+  <rect x="150" y="590" width="260" height="72" rx="8" fill="#FFFFFF" stroke="#1565C0" stroke-width="2"/>
+  <circle cx="170" cy="610" r="12" fill="#1565C0"/>
+  <text x="170" y="615" text-anchor="middle" font-size="11" font-weight="bold" fill="white">9</text>
+  <text x="190" y="610" font-size="10" font-weight="bold" fill="#1565C0">Community responds</text>
+  <text x="190" y="626" font-size="9" fill="#333">Monitoring hours: +400 (E8)</text>
+  <text x="190" y="640" font-size="9" fill="#333">Governance meetings: +200 hours</text>
+  <text x="190" y="652" font-size="8" fill="#7F8C8D">Account: Social flows table (4a) + Institutional capital (3c)</text>
+
+  <!-- STEP 10: Feedback to ecosystem -->
+  <rect x="490" y="590" width="260" height="72" rx="8" fill="#FFFFFF" stroke="#1565C0" stroke-width="2"/>
+  <circle cx="510" cy="610" r="12" fill="#1565C0"/>
+  <text x="510" y="615" text-anchor="middle" font-size="11" font-weight="bold" fill="white">10</text>
+  <text x="530" y="610" font-size="10" font-weight="bold" fill="#1565C0">Stewardship feeds back</text>
+  <text x="530" y="626" font-size="9" fill="#333">Reduced fishing pressure on damaged reef</text>
+  <text x="530" y="640" font-size="9" fill="#333">Edges: E1/E2 (FG2 to SG3) reduced</text>
+  <text x="530" y="652" font-size="8" fill="#7F8C8D">Account: Extent/condition accounts (next period)</text>
+
+  <!-- ============================================================
+       CONNECTING ARROWS
+  ============================================================ -->
+
+  <defs>
+    <marker id="arrowDown" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+      <polygon points="0 0, 8 4, 0 8" fill="#5D6D7E"/>
+    </marker>
+    <marker id="arrowRight" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+      <polygon points="0 0, 8 4, 0 8" fill="#5D6D7E"/>
+    </marker>
+    <marker id="arrowUp" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+      <polygon points="0 0, 8 4, 0 8" fill="#1565C0"/>
+    </marker>
+  </defs>
+
+  <!-- Step 1 to Step 2 (horizontal) -->
+  <line x1="300" y1="128" x2="355" y2="128" stroke="#5D6D7E" stroke-width="2" marker-end="url(#arrowRight)"/>
+
+  <!-- Step 1 to Step 3 (down-left) -->
+  <path d="M 180 168 L 180 205" stroke="#5D6D7E" stroke-width="2" fill="none" marker-end="url(#arrowDown)"/>
+
+  <!-- Step 2 to Step 4 (down) -->
+  <path d="M 480 168 L 480 205" stroke="#5D6D7E" stroke-width="2" fill="none" marker-end="url(#arrowDown)"/>
+
+  <!-- Step 3 to Step 5 (down) -->
+  <path d="M 180 282 L 180 315" stroke="#5D6D7E" stroke-width="2" fill="none" marker-end="url(#arrowDown)"/>
+
+  <!-- Step 4 to Step 6 (down) -->
+  <path d="M 480 282 L 480 315" stroke="#5D6D7E" stroke-width="2" fill="none" marker-end="url(#arrowDown)"/>
+
+  <!-- Step 3 to Step 6 (diagonal -- subsistence decline triggers sharing) -->
+  <path d="M 300 258 Q 340 290 355 340" stroke="#5D6D7E" stroke-width="1.5" fill="none"
+        stroke-dasharray="5,3" marker-end="url(#arrowDown)"/>
+
+  <!-- Step 5 to Step 7 (down) -->
+  <path d="M 180 406 L 180 445" stroke="#5D6D7E" stroke-width="2" fill="none" marker-end="url(#arrowDown)"/>
+
+  <!-- Step 6 to Step 7 (diagonal -- coping partially offsets food insecurity) -->
+  <path d="M 360 395 Q 310 420 280 445" stroke="#27AE60" stroke-width="1.5" fill="none"
+        stroke-dasharray="5,3" marker-end="url(#arrowDown)"/>
+  <text x="305" y="415" font-size="7.5" fill="#27AE60" font-style="italic">partial offset</text>
+
+  <!-- Step 5 to Step 8 (diagonal -- gleaning loss affects women's income) -->
+  <path d="M 300 380 Q 340 410 370 445" stroke="#5D6D7E" stroke-width="1.5" fill="none"
+        stroke-dasharray="5,3" marker-end="url(#arrowDown)"/>
+
+  <!-- Step 4 to Step 8 (down) -->
+  <path d="M 480 282 Q 480 365 480 445" stroke="#5D6D7E" stroke-width="1.5" fill="none"
+        stroke-dasharray="5,3" marker-end="url(#arrowDown)"/>
+
+  <!-- Step 7 to Step 9 (down) -->
+  <path d="M 200 546 L 250 585" stroke="#5D6D7E" stroke-width="2" fill="none" marker-end="url(#arrowDown)"/>
+
+  <!-- Step 8 to Step 9 (down-left) -->
+  <path d="M 420 546 L 370 585" stroke="#5D6D7E" stroke-width="1.5" fill="none"
+        stroke-dasharray="5,3" marker-end="url(#arrowDown)"/>
+
+  <!-- Step 9 to Step 10 (horizontal) -->
+  <line x1="410" y1="626" x2="485" y2="626" stroke="#1565C0" stroke-width="2" marker-end="url(#arrowRight)"/>
+
+  <!-- Step 10 FEEDBACK ARROW back up to environment -->
+  <path d="M 750 600 Q 820 400 820 170 Q 820 100 700 100 L 605 100"
+        stroke="#1565C0" stroke-width="2.5" fill="none"
+        stroke-dasharray="8,4" marker-end="url(#arrowUp)"/>
+  <text x="830" y="340" font-size="8.5" font-weight="bold" fill="#1565C0"
+        transform="rotate(-90, 830, 340)">FEEDBACK LOOP (Chain D)</text>
+
+  <!-- ============================================================
+       EDGE LABELS ON KEY ARROWS
+  ============================================================ -->
+
+  <text x="322" y="122" font-size="8" fill="#5D6D7E" font-weight="bold">linked</text>
+  <text x="165" y="196" font-size="8" fill="#5D6D7E" font-weight="bold">E10</text>
+  <text x="485" y="196" font-size="8" fill="#5D6D7E" font-weight="bold">E9</text>
+  <text x="165" y="310" font-size="8" fill="#5D6D7E" font-weight="bold">E10</text>
+  <text x="485" y="310" font-size="8" fill="#5D6D7E" font-weight="bold">E6</text>
+  <text x="165" y="440" font-size="8" fill="#5D6D7E" font-weight="bold">E5/E6</text>
+  <text x="445" y="580" font-size="8" fill="#1565C0" font-weight="bold">E8</text>
+  <text x="495" y="620" font-size="8" fill="#1565C0" font-weight="bold">E1/E2</text>
+
+  <!-- ============================================================
+       FIGURE CAPTION
+  ============================================================ -->
+  <text x="460" y="700" text-anchor="middle" font-size="10" font-weight="bold" fill="#2C3E50">Figure 2</text>
+  <text x="460" y="716" text-anchor="middle" font-size="9" font-style="italic" fill="#2C3E50">
+    Cascade through accounts: a single reef bleaching event in BSU-6 propagates through five connected tables,
+  </text>
+  <text x="460" y="731" text-anchor="middle" font-size="9" font-style="italic" fill="#2C3E50">
+    affecting subsistence catch, gleaning, food security, livelihoods, and gender equity, before triggering
+  </text>
+  <text x="460" y="746" text-anchor="middle" font-size="9" font-style="italic" fill="#2C3E50">
+    community stewardship that feeds back to ecosystem management. Edge labels show the 11-edge framework flows.
+  </text>
+  <text x="460" y="764" text-anchor="middle" font-size="8.5" fill="#7F8C8D">
+    Color bands: green = environment (SG3), orange = economy (FG1), purple = society (FG2), pink = social conditions (SG2), blue = feedback
+  </text>
+
+</svg>

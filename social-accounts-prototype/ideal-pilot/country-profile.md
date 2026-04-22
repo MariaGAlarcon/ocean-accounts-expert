@@ -92,4 +92,6 @@ Tuvana is divided into 8 BSUs for the social accounts pilot. Each BSU combines a
 | Seagrass condition CI | -- | -- | 0.50 | -- | -- | 0.62 | -- | -- |
 | Water quality CI | 0.30 | 0.55 | 0.50 | 0.45 | 0.82 | 0.80 | 0.85 | 0.90 |
 
+*See Figure 1 (`figures/tuvana-bsu-map.svg`) for the spatial layout of BSUs.*
+
 **Pattern:** Urban and peri-urban BSUs (1-4) have lower condition indices. Outer island BSUs (5-7) are in better ecological condition due to lower population pressure and active customary management. This spatial gradient is the key test for whether social outcomes track ecosystem condition.
